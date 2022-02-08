@@ -1,2 +1,2 @@
-# Front End Capastone
+# Front End Capstone
 Front End Capstone Project
