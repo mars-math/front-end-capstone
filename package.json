@@ -1,0 +1,31 @@
+{
+  "name": "front-end-capstone",
+  "version": "1.0.0",
+  "description": "Project Catwalk Product Page",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mars-math/front-end-capstone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mars-math/front-end-capstone/issues"
+  },
+  "homepage": "https://github.com/mars-math/front-end-capstone#readme",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "express": "^4.17.2",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.2",
+    "@babel/preset-react": "^7.16.7",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
