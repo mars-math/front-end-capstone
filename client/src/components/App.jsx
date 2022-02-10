@@ -13,6 +13,7 @@ class App extends React.Component {
         <div>something else</div>
         <div>asfasfasfasfafs</div>
         <div>sfaasf</div>
+        <h2>CONFLICTERS?</h2>
       </>
     );
   }
