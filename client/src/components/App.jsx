@@ -9,10 +9,10 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div>product</div>
-        <div>related</div>
-        <div>QA</div>
-        <div>RR</div>
+        <div>something else</div>
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
       </>
     );
   }
