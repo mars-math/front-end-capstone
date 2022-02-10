@@ -9,10 +9,11 @@ class App extends React.Component {
   render() {
     return (
       <>
+        <h1>HELLO</h1>
         <div>something else</div>
         <div>asfasfasfasfafs</div>
         <div>sfaasf</div>
-        <div>asdasdas</div>
+        <h2>CONFLICTERS?</h2>
       </>
     );
   }
