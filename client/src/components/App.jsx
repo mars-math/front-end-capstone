@@ -9,7 +9,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div>something else</div>
+        <div>product</div>
         <div>related</div>
         <div>QA</div>
         <div>RR</div>
