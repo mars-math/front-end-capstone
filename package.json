@@ -4,7 +4,9 @@
   "description": "Project Catwalk Product Page",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:dev": "webpack -w",
+    "start": "node server/index.js",
+    "start:dev": "nodemon server/index.js -w server"
   },
   "repository": {
     "type": "git",
@@ -18,13 +20,21 @@
   "homepage": "https://github.com/mars-math/front-end-capstone#readme",
   "dependencies": {
     "axios": "^0.25.0",
+    "bluebird": "^3.7.2",
     "express": "^4.17.2",
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.0",
     "@babel/core": "^7.17.2",
+    "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@testing-library/react": "^12.1.2",
+    "babel-loader": "^8.2.3",
+    "eslint": "^8.8.0",
+    "eslint-plugin-react": "^7.28.0",
+    "jest": "^27.5.1",
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2"
   }
