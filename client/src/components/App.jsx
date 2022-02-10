@@ -10,9 +10,9 @@ class App extends React.Component {
     return (
       <>
         <div>something else</div>
-        <div>related</div>
-        <div>QA</div>
-        <div>RR</div>
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
       </>
     );
   }
