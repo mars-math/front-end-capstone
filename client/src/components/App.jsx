@@ -11,7 +11,6 @@ class App extends React.Component {
       <>
         <h1>HELLO</h1>
         <div>something else</div>
-        <div>Will this conflict?</div>
         <div>sfaasf</div>
         <h2>CONFLICTERS?</h2>
       </>
