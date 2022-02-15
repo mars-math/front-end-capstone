@@ -1,6 +1,7 @@
 import React from 'react';
 import IndividualReview from './RatingsReview/IndividualReview.jsx'
 
+import ProductDetail from './Overview/SM-ProductDetail.jsx';
 
 
 class App extends React.Component {
@@ -13,7 +14,8 @@ class App extends React.Component {
       <>
         <IndividualReview />
         <h1>HELLO</h1>
-        <div>something else</div>
+        <ProductDetail />
+        <div>asfasfasfasfafs</div>
         <div>sfaasf</div>
         <h2>CONFLICTERS?</h2>
       </>
