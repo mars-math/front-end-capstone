@@ -14,10 +14,10 @@ class App extends React.Component {
       <>
         <IndividualReview />
         <h1>HELLO</h1>
-        <ProductDetail />
-        <div>asfasfasfasfafs</div>
+        <ProductInfo />
+        {/* <div>asfasfasfasfafs</div>
         <div>sfaasf</div>
-        <h2>CONFLICTERS?</h2>
+        <h2>CONFLICTERS?</h2> */}
       </>
     );
   }
