@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 
 const ReviewImages = (props) => {
@@ -22,7 +21,7 @@ const ReviewImages = (props) => {
     {isOpen && <div className="popup-box">
       <div className="box">
         <span className="close-icon" onClick={togglePopup}>x</span>
-        <img src={props.photo}/>
+       <img src={props.photo}/>
       </div>
     </div>}
     </>
