@@ -12,6 +12,10 @@ class App extends React.Component {
     return (
       <>
         <IndividualReview />
+        <h1>HELLO</h1>
+        <div>something else</div>
+        <div>sfaasf</div>
+        <h2>CONFLICTERS?</h2>
       </>
     );
   }
