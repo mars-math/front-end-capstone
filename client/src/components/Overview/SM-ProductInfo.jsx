@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import API_KEY from '../../config/config.js';
-//import StarRating from './SM-StarRating.jsx';
+import StarRating from './SM-StarRating.jsx';
 import Category from './SM-Category.jsx';
 import Title from './SM-Title.jsx';
 import Price from './SM-Price.jsx';
@@ -41,24 +41,23 @@ class ProductInfo extends React.Component {
         });
       })
       .then(() =>
-        console.log('hiii', this.state.data)
+        console.log('hiii', `'${this.state.data.id}'`)
       )
 
-    //need to get review information
-    // axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews', {params: {product_id: this.state.data.id}})
-    //   .then(res => {
-    //     console.log('biya', res.data);
-    //     this.setState({
-    //       review: res.data
-    //     });
-    //   })
+    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews', {params: {product_id: '42366'}}) //why isn't the template literal working??
+      .then(res => {
+        console.log('biya', res.data);
+        this.setState({
+          review: res.data.results[0].rating //hardcoded to first rating
+        });
+      })
 
   }
 
   render() {
     return (
       <>
-        {/* <StarRating /> */}
+        <StarRating rating={this.state.review} />
         <Category category={this.state.data.category} />
         <Title title={this.state.data.name}/>
         <Price price={this.state.data.default_price}/>
