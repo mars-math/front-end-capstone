@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchView from './SearchView.jsx';
+import sampleData from './QAdata/sampleData.js';
 // check font awesome for search icon?
 
 class Search extends React.Component {
@@ -7,7 +8,7 @@ class Search extends React.Component {
     super(props);
     this.state = {
       searchText: '',
-      questionList: ''
+      questionList: sampleData
     }
 
     this.searchClick = this.searchClick.bind(this);
@@ -27,15 +28,18 @@ class Search extends React.Component {
       //   this.setState({questionList: response.questions})
       // })
   }
+  // render the questions that correspond to what was entered in the serach field
   render() {
     return (
       <div>
-        {console.log(this.state.searchText)}
+        {console.log('questionList ', this.state.questionList.results)}
         <form onSubmit={this.searchClick}>
           <input placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...' onChange={this.searchChange}></input>
           <button type='submit'>search</button>
         </form>
-        <SearchView />
+        {this.state.questionList.results.map((questions, index) =>
+          <SearchView questions={questions} key={index}/>
+        )}
       </div>
     );
   }

@@ -15,17 +15,17 @@ class QandA extends React.Component {
   }
 
   componentDidMount() {
-    getQuestions();
+    // getQuestions();
   }
 
-  getQuestions() {
+  // getQuestions() {
     // axios.get('')
     //   .then((response) => {
     //     this.setState({questionsList: response.questions}))
     //   .catch((err) => {
     //     console.log('error ', err)
     //   })
-  }
+  // }
 
 
   render() {
