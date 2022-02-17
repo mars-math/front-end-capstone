@@ -4,8 +4,8 @@ import API_KEY from '../../../../config/config.js';
 import StarRating from './SM-StarRating.jsx';
 import Price from './SM-Price.jsx';
 import Share from './SM-Share.jsx';
-import API_KEY from '../../../../config/config.js';
 //import '../../../dist/SM-styles.css'
+import Stars from '../RatingsReview/ratingexampledata/stars.js';
 
 
 const categoryStyle = {
@@ -57,7 +57,7 @@ class ProductInfo extends React.Component {
   render() {
     return (
       <>
-        <StarRating rating={this.state.review}/>
+        <StarRating rating={this.state.review} stars={Stars}/>
         <div style={categoryStyle}>{this.state.data.category}</div>
         <div style={titleStyle}>{this.state.data.name}</div>
         <Price price={this.state.data.default_price}/>
