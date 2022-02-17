@@ -1,6 +1,6 @@
 import React from 'react';
-import IndividualReview from './RatingsReview/IndividualReview.jsx'
-
+import IndividualReview from './RatingsReview/IndividualReview.jsx';
+import QandA from './QandA/QandA.jsx';
 
 
 class App extends React.Component {
@@ -14,7 +14,9 @@ class App extends React.Component {
         <IndividualReview />
         <h1>HELLO</h1>
         <div>something else</div>
-        <div>sfaasf</div>
+        <div>test
+          <QandA />
+        </div>
         <h2>CONFLICTERS?</h2>
       </>
     );

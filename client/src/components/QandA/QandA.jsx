@@ -10,7 +10,7 @@ class QandA extends React.Component {
   render() {
     return (
       <>
-        <h5>Questions &amp; Answers</h5>
+        <h4>Questions &amp; Answers</h4>
         <div>
           <Search />
         </div>
