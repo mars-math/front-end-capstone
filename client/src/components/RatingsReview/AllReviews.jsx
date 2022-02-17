@@ -2,14 +2,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import IndividualReview from './IndividualReview.jsx';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 926b198a3801dfece0632986a4618cfc00d6085f
 import API_KEY from '../../../../config/config.js';
 
 export default function AllReviews() {
   const [amountToRender, setAmountToRender] = useState(2);
   const [renderedReviews, setRenderedReviews] = useState([]);
-
-  console.log(renderedReviews);
 
   function getReview(id, amount) {
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews?count=${amount}&product_id=${id}`, {

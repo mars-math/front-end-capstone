@@ -22,7 +22,6 @@ export default function IndividualReview(props) {
   const [toggleBody, setToggleBody] = useState(false);
 
   const {render} = props;
-  console.log(render);
 
   // -----MESS WITH STATE FUNCTIONS-------------
   function incrementHelpfulness() {
@@ -54,15 +53,15 @@ export default function IndividualReview(props) {
     if (body.length > 250) {
       const shortened = `${body.slice(0, 250)}...`;
       return toggleBody ? <>
-        <div style={{'inlineSize': '400px', 'overflowWrap': 'break-word'}}>{body}</div>
+        <div style={{inlineSize: '400px', overflowWrap: 'break-word'}}>{body}</div>
        <button onClick={bodyToggle}>Show Less</button>
                           </>
         : <>
-      <div style={{'inlineSize': '400px', 'overflowWrap': 'break-word'}}>{shortened}</div>
+      <div style={{inlineSize: '400px', overflowWrap: 'break-word'}}>{shortened}</div>
       <button onClick={bodyToggle}>Show More</button>
           </>;
     } else {
-      return <div style={{'inlineSize': '400px', 'overflowWrap': 'break-word'}}>{body}</div>;
+      return <div style={{inlineSize: '400px', overflowWrap: 'break-word'}}>{body}</div>;
     }
   }
 
