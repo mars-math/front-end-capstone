@@ -14,7 +14,7 @@ module.exports = {
       {
         test: /.jsx?/,
         loader: "babel-loader",
-        exclude: path.resolve(__dirname, 'node_modules/'),
+        exclude: [path.resolve(__dirname, 'node_modules/'), path.resolve(__dirname, './config/')],
         options: {
           presets: ["@babel/preset-env", "@babel/preset-react"],
         },
