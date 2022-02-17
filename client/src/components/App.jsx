@@ -1,7 +1,7 @@
 import React from 'react';
 import IndividualReview from './RatingsReview/IndividualReview.jsx'
 
-import ProductDetail from './Overview/SM-ProductDetail.jsx';
+import ProductInfo from './Overview/SM-ProductInfo.jsx';
 
 
 class App extends React.Component {
@@ -14,6 +14,7 @@ class App extends React.Component {
       <>
         <h1>Kloth</h1>
         <ProductInfo />
+        <IndividualReview />
       </>
     );
   }
