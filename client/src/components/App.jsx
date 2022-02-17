@@ -1,6 +1,7 @@
 import React from 'react';
-import IndividualReview from './RatingsReview/IndividualReview.jsx'
 import AllReviews from './RatingsReview/AllReviews.jsx';
+import ProductInfo from './Overview/SM-ProductInfo.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -11,10 +12,8 @@ class App extends React.Component {
     return (
       <>
         <AllReviews />
-        <h1>HELLO</h1>
-        <div>something else</div>
-        <div>sfaasf</div>
-        <h2>CONFLICTERS?</h2>
+        <h1>Kloth</h1>
+        <ProductInfo />
       </>
     );
   }
