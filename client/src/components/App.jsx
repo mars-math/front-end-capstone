@@ -1,6 +1,5 @@
 import React from 'react';
-import IndividualReview from './RatingsReview/IndividualReview.jsx'
-
+import AllReviews from './RatingsReview/AllReviews.jsx';
 import ProductInfo from './Overview/SM-ProductInfo.jsx';
 
 
@@ -12,9 +11,9 @@ class App extends React.Component {
   render() {
     return (
       <>
+        <AllReviews />
         <h1>Kloth</h1>
         <ProductInfo />
-        <IndividualReview />
       </>
     );
   }
