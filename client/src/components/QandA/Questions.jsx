@@ -31,34 +31,3 @@ class Questions extends React.Component {
 }
 
 export default Questions;
-
-
-
-// import React from 'react';
-// import QuestionsView from './QuestionsView.jsx';
-// // check font awesome for search icon?
-
-// class Questions extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       searchText: '',
-//       questionList: ''
-//     }
-
-//   }
-//   // render the questions that correspond to the item chosen
-//   render() {
-//     return (
-//       <div>
-//         <div>
-//           <QuestionsView />
-//         </div>
-//       </div>
-//     );
-
-//   }
-
-// }
-
-// export default Questions;

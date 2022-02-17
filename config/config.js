@@ -1,3 +1,3 @@
-const API_KEY = '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';
+const API_KEY = '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';
 
 export default API_KEY;
