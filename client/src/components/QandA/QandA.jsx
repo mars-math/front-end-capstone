@@ -1,30 +1,47 @@
 import React from 'react';
 import Search from './Search.jsx';
 import Questions from './Questions.jsx';
+import axios from 'axios';
 
 class QandA extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      questionsList: [],
+
+    }
+
+
   }
+
+  componentDidMount() {
+    // getQuestions();
+  }
+
+  // getQuestions() {
+    // axios.get('')
+    //   .then((response) => {
+    //     this.setState({questionsList: response.questions}))
+    //   .catch((err) => {
+    //     console.log('error ', err)
+    //   })
+  // }
+
 
   render() {
     return (
       <>
-        <h5>Questions &amp; Answers</h5>
+        <h4>Questions &amp; Answers</h4>
         <div>
-          <Search />
+          <Search questionsList={this.state.questionsList}/>
         </div>
         <div>
-          <Questions />
+          <Questions questionsList={this.state.questionsList}/>
         </div>
       </>
     );
   }
 
 }
-
-
-
-
 
 export default QandA;
