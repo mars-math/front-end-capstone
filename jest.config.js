@@ -6,5 +6,8 @@ module.exports = {
     "js",
     "jsx"
   ],
-  testEnvironment: 'jsdom'
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: [
+    './client/src/index.test.js'
+  ]
 }
