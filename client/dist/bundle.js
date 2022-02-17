@@ -553,7 +553,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* eslint-disable eol-last */\nvar API_KEY = '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';\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n  API_KEY: API_KEY\n});\n\n//# sourceURL=webpack://front-end-capstone/./client/src/config/config.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* eslint-disable eol-last */\nvar API_KEY = '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';\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (API_KEY);\n\n//# sourceURL=webpack://front-end-capstone/./client/src/config/config.js?");
 
 /***/ }),
 
