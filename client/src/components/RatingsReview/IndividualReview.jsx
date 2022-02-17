@@ -70,7 +70,7 @@ export default function IndividualReview(props) {
     if (photos.length !== 0) {
       return photos.map((photo, index) => <ReviewImages photo={photo.url} key={`photos${index}`} />);
     } else {
-      return {};
+      return <></>;
     }
   }
 
