@@ -1,4 +1,6 @@
 import React from 'react';
+import AllReviews from './RatingsReview/AllReviews.jsx';
+import ProductInfo from './Overview/SM-ProductInfo.jsx';
 
 
 class App extends React.Component {
@@ -9,10 +11,9 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>HELLO</h1>
-        <div>something else</div>
-        <div>sfaasf</div>
-        <h2>CONFLICTERS?</h2>
+        <AllReviews />
+        <h1>Kloth</h1>
+        <ProductInfo />
       </>
     );
   }
