@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
-import API_KEY from '../../../../config/config.js';
-=======
->>>>>>> 926b198a3801dfece0632986a4618cfc00d6085f
 import StarRating from './SM-StarRating.jsx';
 import Price from './SM-Price.jsx';
 import Share from './SM-Share.jsx';
