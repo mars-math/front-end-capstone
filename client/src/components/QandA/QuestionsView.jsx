@@ -16,19 +16,19 @@ class QuestionsView extends React.Component {
       <div>
         <div>
           {console.log('answerId ', this.props.answerId)}
-          {this.props.questions.question_body}
-          <span>   Helpful? Yes ({this.props.questions.question_helpfulness})    |</span>
-          <span>    add answer</span>
+          Q:  {this.props.questions.question_body}
+          <span>   Helpful?  <u>Yes</u> ({this.props.questions.question_helpfulness})    |</span>
+          <span>    <u>Add Answer</u></span>
         </div>
         <div>
           {console.log('answers ', this.props.questions.answers[this.props.answerId])}
-          {this.props.questions.answers[this.props.answerId].body}
+          A:  {this.props.questions.answers[this.props.answerId].body}
         </div>
         <div class='answer-footer'>
           <span>by {this.props.questions.answers[this.props.answerId].answerer_name}</span>
           <span>    date {new Date(this.props.questions.answers[this.props.answerId].date).toLocaleString().split(",")[0]} |</span>
-          <span>    helpful {this.props.questions.answers[this.props.answerId].helpfulness}</span>
-          <span>     |  report </span>
+          <span>    Helpful?  <u>Yes</u> ({this.props.questions.answers[this.props.answerId].helpfulness})</span>
+          <span>     |  <u>Report</u> </span>
         </div>
       </div>
     );
