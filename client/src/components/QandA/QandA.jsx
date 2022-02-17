@@ -44,8 +44,4 @@ class QandA extends React.Component {
 
 }
 
-
-
-
-
 export default QandA;
