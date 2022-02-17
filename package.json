@@ -6,7 +6,8 @@
   "scripts": {
     "build:dev": "webpack -w",
     "start": "node server/index.js",
-    "start:dev": "nodemon server/index.js -w server"
+    "start:dev": "nodemon server/index.js -w server",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -31,10 +32,17 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@testing-library/react": "^12.1.2",
+    "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.3",
-    "eslint": "^8.8.0",
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "jest": "^27.5.1",
+    "jest-dom": "^4.0.0",
+    "react-test-renderer": "^17.0.2",
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2"
   }
