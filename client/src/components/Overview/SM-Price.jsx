@@ -3,7 +3,7 @@ import React from 'react';
 function Price(props) {
   return (
     <div>
-      {props.price}
+      ${props.price}
     </div>
   );
 

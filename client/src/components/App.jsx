@@ -12,12 +12,8 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <IndividualReview />
-        <h1>HELLO</h1>
+        <h1>Kloth</h1>
         <ProductInfo />
-        {/* <div>asfasfasfasfafs</div>
-        <div>sfaasf</div>
-        <h2>CONFLICTERS?</h2> */}
       </>
     );
   }
