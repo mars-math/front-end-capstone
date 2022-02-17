@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search.jsx';
 import Questions from './Questions.jsx';
+import axios from 'axios';
 
 class QandA extends React.Component {
   constructor(props) {
