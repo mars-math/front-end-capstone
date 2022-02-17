@@ -1,7 +1,6 @@
 import React from 'react';
 import IndividualReview from './RatingsReview/IndividualReview.jsx'
-
-
+import AllReviews from './RatingsReview/AllReviews.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <IndividualReview />
+        <AllReviews />
         <h1>HELLO</h1>
         <div>something else</div>
         <div>sfaasf</div>
