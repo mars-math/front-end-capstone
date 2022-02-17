@@ -7,6 +7,7 @@ class Search extends React.Component {
     super(props);
     this.state = {
       searchText: '',
+      questionList: ''
     }
 
     this.searchClick = this.searchClick.bind(this);
@@ -21,6 +22,10 @@ class Search extends React.Component {
   searchClick(e) {
     // check the question data for partial matches after 3 characters
     // only display the partial matches
+    // axios.get('')
+      // .then ((response) => {
+      //   this.setState({questionList: response.questions})
+      // })
   }
   render() {
     return (
