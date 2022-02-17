@@ -22,7 +22,6 @@ export default function IndividualReview(props) {
   const [toggleBody, setToggleBody] = useState(false);
 
   const {render} = props;
-  console.log(render);
 
   // -----MESS WITH STATE FUNCTIONS-------------
   function incrementHelpfulness() {
@@ -70,7 +69,7 @@ export default function IndividualReview(props) {
     if (photos.length !== 0) {
       return photos.map((photo, index) => <ReviewImages photo={photo.url} key={`photos${index}`} />);
     } else {
-      return {};
+      return <></>;
     }
   }
 

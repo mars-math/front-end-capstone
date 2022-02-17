@@ -1,4 +1,5 @@
 var path = require("path");
+const Dotenv = require('dotenv-webpack');
 var SRC_DIR = path.join(__dirname, "/client/src");
 var DIST_DIR = path.join(__dirname, "/client/dist");
 
@@ -14,7 +15,7 @@ module.exports = {
       {
         test: /.jsx?/,
         loader: "babel-loader",
-        exclude: path.resolve(__dirname, 'node_modules/'),
+        exclude: [path.resolve(__dirname, 'node_modules/'), path.resolve(__dirname, './config/')],
         options: {
           presets: ["@babel/preset-env", "@babel/preset-react"],
         },

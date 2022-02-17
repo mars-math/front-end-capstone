@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import API_KEY from '../../config/config.js';
 import StarRating from './SM-StarRating.jsx';
 import Price from './SM-Price.jsx';
 import Share from './SM-Share.jsx';
+import API_KEY from '../../../../config/config.js';
 //import '../../../dist/SM-styles.css'
 
 
