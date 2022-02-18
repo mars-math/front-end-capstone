@@ -6,6 +6,8 @@ class QuestionsView extends React.Component {
     super(props);
     this.state = {
       moreAnswers: false,
+      sortedAnswers: [],
+      sortedIDs: [],
     }
 
     this.showAnswers = this.showAnswers.bind(this);
@@ -15,6 +17,18 @@ class QuestionsView extends React.Component {
 
 
   showAnswers(answerList, idArray) {
+    for (var k in answerList) {
+      if (answerList[k].answerer_name === 'Seller') {
+        this.state.sortedAnswers.unshift({k:answerList[k]});
+        this.state.sortedIDs.unshift(k);
+      } else {
+        this.state.sortedAnswers.push(({k:answerList[k]}));
+        this.state.sortedIDs.push(k);
+      }
+    }
+    console.log('answerList ', answerList);
+    console.log('sorted answerList ', this.state.sortedAnswers);
+    console.log('sorted IDs ', this.state.sortedIDs);
     if (Object.keys(answerList).length > 2 && this.state.moreAnswers === false) {
       return <>
         {idArray.slice(0, 2).map((id, index) =>
@@ -40,9 +54,9 @@ class QuestionsView extends React.Component {
   loadTextChange() {
     if (Object.keys(this.props.answers).length > 2) {
       if (this.state.moreAnswers) {
-        return <>SHOW LESS ANSWERS</>;
+        return <>Collapse answers</>;
       } else {
-        return <>LOAD MORE ANSWERS</>;
+        return <>See more answers</>;
       }
     } else {
       return <></>;
