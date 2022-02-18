@@ -41,7 +41,7 @@ function ProductCard(props) {
       .catch((err) => console.log('MT error: ', err))
   );
 
-  const getSalePrice = (id) => (
+  const getSalePriceAndImg = (id) => (
     axios.get(`/products/${id}/styles`)
       .then((response) => {
         const totalStyles = response.data.results.length;
@@ -64,7 +64,7 @@ function ProductCard(props) {
       .catch((err) => console.log('MT error: ', err))
   );
 
-  const getReviewData = (id) => (
+  const getReviewMetadata = (id) => (
     axios.get('/reviews/meta', {
       params: {
         product_id: id,
@@ -78,8 +78,8 @@ function ProductCard(props) {
 
   const getAllProductData = (id) => (
     getProdInfo(id)
-      .then(getSalePrice(id))
-      .then(getReviewData(id))
+      .then(getSalePriceAndImg(id))
+      .then(getReviewMetadata(id))
       .catch((err) => console.log('MT error: ', err))
   );
 
@@ -100,10 +100,3 @@ function ProductCard(props) {
 }
 
 export default ProductCard;
-
-// Category
-// Name
-// Price of default style
-// Discount status
-// Star rating
-// Primary image - 'This should be the same which first appears on the image detail page’s image gallery'
