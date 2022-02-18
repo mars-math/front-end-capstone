@@ -65,7 +65,6 @@ class QuestionsView extends React.Component {
     return (
       <div>
         <div class='question-list'>
-          {console.log('answers as this.props.answers ', this.props.answers)}
           Q:  {this.props.questions.question_body}
           <span>   Helpful?  <u>Yes</u> ({this.props.questions.question_helpfulness})    |</span>
           <span>    <u>Add Answer</u></span>
@@ -83,6 +82,7 @@ class QuestionsView extends React.Component {
 }
 
 export default QuestionsView;
+// {console.log('answers as this.props.answers ', this.props.answers)}
 
 // {console.log('answers as this.props.answers ', this.props.answers)}
 
