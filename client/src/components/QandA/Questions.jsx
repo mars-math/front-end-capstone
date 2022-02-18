@@ -19,7 +19,9 @@ class Questions extends React.Component {
       <div>
         {console.log('questionList ', this.state.questionList.results)}
         {this.state.questionList.results.map((questions, index) =>
-          <QuestionsView questions={questions} key={index} answerId={Object.keys(questions.answers)}/>
+          <QuestionsView questions={questions} key={index}
+          answerId={Object.keys(questions.answers)}
+          answers={questions.answers}/>
         )}
         <div>load more answers</div>
         <button>More Answered Questions</button>

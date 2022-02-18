@@ -31,7 +31,7 @@ class ProductInfo extends React.Component {
     axios.defaults.headers.common['Authorization'] = API_KEY;
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products')
       .then(res => {
-        console.log('hiya', res.data);
+        // console.log('hiya', res.data);
         this.setState({
           data: res.data[0]  //testing with first data entry (how to pick data based on id?)
         });
@@ -45,7 +45,7 @@ class ProductInfo extends React.Component {
 
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews', {params: {product_id: '42366'}}) //why isn't the template literal working??
       .then(res => {
-        console.log('biya', res.data);
+        // console.log('biya', res.data);
         this.setState({
           review: res.data.results[0].rating //hardcoded to first rating
         });
