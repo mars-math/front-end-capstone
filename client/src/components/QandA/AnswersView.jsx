@@ -4,22 +4,16 @@ class AnswersView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      moreAnswers: false
     }
 
   }
 
-  showAnswers() {
-
-  }
   // up to 4 questions on load
   // 2 answers per question on load
   render() {
     return (
-      <div>
-        <div>
-          A:  {this.props.answer.body}
-        </div>
+      <>
+        <span class='answer-list'>{this.props.answer.body}</span>
         <div class='answer-footer'>
           <span>by {this.props.answer.answerer_name}</span>
           <span>    date {new Date(this.props.answer.date).toLocaleString().split(",")[0]} |</span>
@@ -27,7 +21,7 @@ class AnswersView extends React.Component {
           <span><u>Yes</u> ({this.props.answer.helpfulness})</span>
           <span>     |  <u>Report</u> </span>
         </div>
-      </div>
+      </>
     );
   }
 
