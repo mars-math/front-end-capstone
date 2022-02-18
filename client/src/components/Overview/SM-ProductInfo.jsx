@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import API_KEY from '../../../../config/config.js';
 import StarRating from './SM-StarRating.jsx';
 import Price from './SM-Price.jsx';
 import Share from './SM-Share.jsx';
-import API_KEY from '../../../../config/config.js';
 //import '../../../dist/SM-styles.css'
+import Stars from '../RatingsReview/ratingexampledata/stars.js';
 
 
 const categoryStyle = {
@@ -37,11 +38,11 @@ class ProductInfo extends React.Component {
         });
       })
       .then(() =>
-        console.log('hiii', `'${this.state.data.id}'`)
+        console.log('hiii', `'${this.state.data.id}'`),
       )
       .catch((err) =>
-        console.log('error', err)
-      )
+        console.log('error', err),
+      );
 
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews', {params: {product_id: '42366'}}) //why isn't the template literal working??
       .then(res => {
@@ -56,7 +57,7 @@ class ProductInfo extends React.Component {
   render() {
     return (
       <>
-        <StarRating rating={this.state.review}/>
+        <StarRating rating={this.state.review} stars={Stars}/>
         <div style={categoryStyle}>{this.state.data.category}</div>
         <div style={titleStyle}>{this.state.data.name}</div>
         <Price price={this.state.data.default_price}/>
