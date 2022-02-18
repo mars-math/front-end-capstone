@@ -49,3 +49,4 @@ class Search extends React.Component {
 
 
 export default Search;
+// {console.log('questionList ', this.state.questionList.results)}
