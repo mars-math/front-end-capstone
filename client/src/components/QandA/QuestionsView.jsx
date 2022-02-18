@@ -10,6 +10,7 @@ class QuestionsView extends React.Component {
 
     this.showAnswers = this.showAnswers.bind(this);
     this.loadAnswersClick = this.loadAnswersClick.bind(this);
+    this.loadTextChange = this.loadTextChange.bind(this);
   }
 
 
@@ -36,21 +37,34 @@ class QuestionsView extends React.Component {
     this.setState({ moreAnswers: !this.state.moreAnswers });
   }
 
+  loadTextChange() {
+    if (Object.keys(this.props.answers).length > 2) {
+      if (this.state.moreAnswers) {
+        return <>SHOW LESS ANSWERS</>;
+      } else {
+        return <>LOAD MORE ANSWERS</>;
+      }
+    } else {
+      return <></>;
+    }
+  }
+
   // up to 4 questions on load
-  // 2 answers per question on load
+
   render() {
     return (
       <div>
-        <div>
+        <div class='question-list'>
           {console.log('answers as this.props.answers ', this.props.answers)}
           Q:  {this.props.questions.question_body}
           <span>   Helpful?  <u>Yes</u> ({this.props.questions.question_helpfulness})    |</span>
           <span>    <u>Add Answer</u></span>
         </div>
         <div>
-          {this.showAnswers(this.props.answers, this.props.answerId)}
-
-          <div onClick={this.loadAnswersClick}><b>LOAD MORE ANSWERS</b></div>
+          <span>A:</span>
+          <span>{this.showAnswers(this.props.answers, this.props.answerId)}</span>
+          <div class='load-answers' onClick={this.loadAnswersClick}><b>{this.loadTextChange()}</b>
+          </div>
         </div>
       </div>
     );

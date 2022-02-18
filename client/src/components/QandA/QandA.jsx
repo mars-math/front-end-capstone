@@ -31,7 +31,7 @@ class QandA extends React.Component {
   render() {
     return (
       <>
-        <h4>Questions &amp; Answers</h4>
+        <h3>Questions &amp; Answers</h3>
         <div>
           <Search questionsList={this.state.questionsList}/>
         </div>
