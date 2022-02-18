@@ -7,8 +7,10 @@ import SampleData from './sampledata/sampledata.js';
 function Carousel() {
   // take in product ID
   return (
-    // SampleData.relatedIDs.map((id) => <ProductCard prodId={id} key={id} />)
-    <div>hello</div>
+    <>
+      <h3>Related Items</h3>
+      {SampleData.relatedIDs.map((id) => <ProductCard prodId={id} key={id} />)}
+    </>
   );
   // return (<div>Hi from the Carousel component</div>);
 }
