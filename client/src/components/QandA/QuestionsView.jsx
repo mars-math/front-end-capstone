@@ -5,7 +5,10 @@ class QuestionsView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      moreAnswers: false,
+
+      sortedAnswers: [],
+      sortedIDs: [],
+
     }
 
     this.showAnswers = this.showAnswers.bind(this);
@@ -14,18 +17,28 @@ class QuestionsView extends React.Component {
   }
 
 
-  showAnswers(answerList, idArray) {
-    if (Object.keys(answerList).length > 2 && this.state.moreAnswers === false) {
+
+  showAnswers(answerList) {
+    this.state.sortedAnswers = [];
+    for (const k in answerList) {
+      if (answerList[k].answerer_name === 'Seller') {
+        this.state.sortedAnswers.unshift({k:answerList[k]});
+      } else {
+        this.state.sortedAnswers.push(({k:answerList[k]}));
+      }
+    }
+    if (this.state.sortedAnswers.length > 2 && this.state.moreAnswers === false) {
       return <>
-        {idArray.slice(0, 2).map((id, index) =>
-        <AnswersView answer={answerList[id]} key={index}/>
+        {this.state.sortedAnswers.slice(0, 2).map((sortedAns, index) =>
+        <AnswersView answer={sortedAns.k} key={index}/>
         )}
       </>;
-    } else if (Object.keys(answerList).length > 0 && this.state.moreAnswers === true
-    || Object.keys(answerList).length > 0 && this.state.moreAnswers === false) {
+    } else if (this.state.sortedAnswers.length > 0 && this.state.moreAnswers === true
+    || this.state.sortedAnswers.length > 0 && this.state.moreAnswers === false) {
       return <>
-        {idArray.map((id, index) =>
-        <AnswersView answer={answerList[id]} key={index}/>
+        {this.state.sortedAnswers.map((sortedAns, index) =>
+        <AnswersView answer={sortedAns.k} key={index}/>
+
         )}
       </>;
     } else {
@@ -40,9 +53,11 @@ class QuestionsView extends React.Component {
   loadTextChange() {
     if (Object.keys(this.props.answers).length > 2) {
       if (this.state.moreAnswers) {
-        return <>SHOW LESS ANSWERS</>;
+
+        return <>Collapse answers</>;
       } else {
-        return <>LOAD MORE ANSWERS</>;
+        return <>See more answers</>;
+
       }
     } else {
       return <></>;
@@ -62,7 +77,9 @@ class QuestionsView extends React.Component {
         </div>
         <div>
           <span>A:</span>
-          <span>{this.showAnswers(this.props.answers, this.props.answerId)}</span>
+
+          <span>{this.showAnswers(this.props.answers)}</span>
+
           <div class='load-answers' onClick={this.loadAnswersClick}><b>{this.loadTextChange()}</b>
           </div>
         </div>
