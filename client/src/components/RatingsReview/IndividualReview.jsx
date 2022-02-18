@@ -74,7 +74,7 @@ export default function IndividualReview(props) {
   }
 
   return (
-      <>
+      <div className="individual-review">
       {/* --------------STARS---------------- */}
       <div>
       {[...Array(5)].map(
@@ -103,20 +103,22 @@ export default function IndividualReview(props) {
       {photosExist(render.photos)}
       {/* --------------HELPFUL COUNTER---------------- */}
         <div>
+          <span>
           helpful?
           {helpfulNum}
-        </div>
+          </span>
         {buttonPressed && (
-        <button
-          type="button"
-          onClick={() => {
-            incrementHelpfulness();
-            setButtonPressed(!buttonPressed);
-          }}
-        >
+          <button
+            type="button"
+            onClick={() => {
+              incrementHelpfulness();
+              setButtonPressed(!buttonPressed);
+            }}
+          >
           +
-        </button>
+          </button>
         )}
-      </>
+        </div>
+      </div>
   );
 }
