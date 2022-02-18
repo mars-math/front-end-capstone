@@ -7,6 +7,9 @@ import API_KEY from '../../../../config/config.js';
 export default function AllReviews() {
   const [amountToRender, setAmountToRender] = useState(2);
   const [renderedReviews, setRenderedReviews] = useState([]);
+  const slicedRender = renderedReviews.slice(0, amountToRender);
+  console.log(slicedRender.length);
+  console.log(renderedReviews.length);
 
   function getReview(id, amount) {
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews?count=${amount}&product_id=${id}`, {
@@ -19,14 +22,18 @@ export default function AllReviews() {
   }
 
   useEffect(() => {
-    getReview(42366, amountToRender)
+    getReview(43230, 999)
       .then((data) => {
         setRenderedReviews(data.results);
       })
       .catch((err) => console.log(err));
-  }, [amountToRender]);
+  }, []);
 
   return (
-    renderedReviews.map((review, index) => <IndividualReview render={review} key={`review${index}`} />)
+    <div style={{ maxHeight: '600px', overflow: 'auto' }}>
+      {slicedRender.map((review, index) => <IndividualReview render={review} key={`review${index}`} />)}
+      {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length ? <button type="button" onClick={() => setAmountToRender((prevNum) => prevNum + 2)}>More Reviews</button> : <></>}
+    </div>
+
   );
 }

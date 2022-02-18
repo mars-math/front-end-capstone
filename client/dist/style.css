@@ -37,3 +37,10 @@
   border: 1px solid #999;
   font-size: 20px;
 }
+
+.individual-review {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 500px;
+  border: 1px solid black;
+}

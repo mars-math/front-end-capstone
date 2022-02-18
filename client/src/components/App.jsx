@@ -5,7 +5,6 @@ import AllReviews from './RatingsReview/AllReviews.jsx';
 import ProductInfo from './Overview/SM-ProductInfo.jsx';
 import Carousel from './RelatedItemsAndOutfit/Carousel.jsx';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -20,16 +19,10 @@ class App extends React.Component {
         <div>
           <QandA />
         </div>
-
         <AllReviews />
       </>
     );
   }
-
 }
-
-
-
-
 
 export default App;

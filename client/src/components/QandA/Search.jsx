@@ -32,7 +32,7 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-        {console.log('questionList ', this.state.questionList.results)}
+        {/* {console.log('questionList ', this.state.questionList.results)} */}
         <form onSubmit={this.searchClick}>
           <input placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...' onChange={this.searchChange}></input>
           <button type='submit'>search</button>
