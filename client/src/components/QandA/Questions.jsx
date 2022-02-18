@@ -17,7 +17,6 @@ class Questions extends React.Component {
   render() {
     return (
       <div>
-        {console.log('questionList ', this.state.questionList.results)}
         {this.state.questionList.results.map((questions, index) =>
           <QuestionsView questions={questions} key={index}
           answerId={Object.keys(questions.answers)}
@@ -33,3 +32,4 @@ class Questions extends React.Component {
 }
 
 export default Questions;
+// {console.log('questionList ', this.state.questionList.results)}

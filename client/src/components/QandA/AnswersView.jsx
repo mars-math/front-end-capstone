@@ -4,19 +4,20 @@ class AnswersView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      moreAnswers: false
     }
 
   }
 
+  showAnswers() {
 
+  }
   // up to 4 questions on load
   // 2 answers per question on load
   render() {
     return (
       <div>
         <div>
-          {console.log('answers in AV ', this.props.answer)}
           A:  {this.props.answer.body}
         </div>
         <div class='answer-footer'>
@@ -33,3 +34,4 @@ class AnswersView extends React.Component {
 }
 
 export default AnswersView;
+// {console.log('answers in AV ', this.props.answer)}

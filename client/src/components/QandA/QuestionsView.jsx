@@ -24,9 +24,6 @@ class QuestionsView extends React.Component {
     return (
       <div>
         <div>
-          {console.log('answerObj ', this.props.questions.answers)}
-          {console.log('answerId ', this.props.answerId)}
-          {console.log('answers as this.props.answers ', this.props.answers)}
           Q:  {this.props.questions.question_body}
           <span>   Helpful?  <u>Yes</u> ({this.props.questions.question_helpfulness})    |</span>
           <span>    <u>Add Answer</u></span>
@@ -44,35 +41,4 @@ class QuestionsView extends React.Component {
 
 export default QuestionsView;
 
-
-// return (
-//   <div>
-//     <div>
-//       {console.log('answerObj ', this.props.questions.answers)}
-//       {console.log('answerId ', this.props.answerId)}
-//       {console.log('answers as this.props.answers ', this.props.answers)}
-//       Q:  {this.props.questions.question_body}
-//       <span>   Helpful?  <u>Yes</u> ({this.props.questions.question_helpfulness})    |</span>
-//       <span>    <u>Add Answer</u></span>
-//     </div>
-//     <div>
-//       {this.props.answerId.map((id, index) =>
-//         id={id},
-//         console.log('answers with the ID', this.props.questions.answers[id]),
-//         this.props.questions.answers[id].body
-//       )}
-//     </div>
-//     <div>
-//       {this.answersFormat(this.props.answers)}
-//       {this.props.answers.map((answer, index) =>
-//       <AnswersView answer={answer} key={index}/>)}
-//     </div>
-//     <div class='answer-footer'>
-//       <span>by {this.props.questions.answers[this.props.answerId].answerer_name}</span>
-//       <span>    date {new Date(this.props.questions.answers[this.props.answerId].date).toLocaleString().split(",")[0]} |</span>
-//       <span>    Helpful?  </span>
-//       <span><u>Yes</u> ({this.props.questions.answers[this.props.answerId].helpfulness})</span>
-//       <span>     |  <u>Report</u> </span>
-//     </div>
-//   </div>
-// );
+// {console.log('answers as this.props.answers ', this.props.answers)}
