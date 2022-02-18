@@ -5,15 +5,17 @@ class QuestionsView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      moreAnswers: false,
+
       sortedAnswers: [],
       sortedIDs: [],
+
     }
 
     this.showAnswers = this.showAnswers.bind(this);
     this.loadAnswersClick = this.loadAnswersClick.bind(this);
     this.loadTextChange = this.loadTextChange.bind(this);
   }
+
 
 
   showAnswers(answerList) {
@@ -36,6 +38,7 @@ class QuestionsView extends React.Component {
       return <>
         {this.state.sortedAnswers.map((sortedAns, index) =>
         <AnswersView answer={sortedAns.k} key={index}/>
+
         )}
       </>;
     } else {
@@ -50,9 +53,11 @@ class QuestionsView extends React.Component {
   loadTextChange() {
     if (Object.keys(this.props.answers).length > 2) {
       if (this.state.moreAnswers) {
+
         return <>Collapse answers</>;
       } else {
         return <>See more answers</>;
+
       }
     } else {
       return <></>;
@@ -72,7 +77,9 @@ class QuestionsView extends React.Component {
         </div>
         <div>
           <span>A:</span>
+
           <span>{this.showAnswers(this.props.answers)}</span>
+
           <div class='load-answers' onClick={this.loadAnswersClick}><b>{this.loadTextChange()}</b>
           </div>
         </div>
