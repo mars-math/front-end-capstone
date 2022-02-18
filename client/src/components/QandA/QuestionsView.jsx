@@ -18,15 +18,13 @@ class QuestionsView extends React.Component {
 
   showAnswers(answerList) {
     this.state.sortedAnswers = [];
-    for (var k in answerList) {
+    for (const k in answerList) {
       if (answerList[k].answerer_name === 'Seller') {
         this.state.sortedAnswers.unshift({k:answerList[k]});
       } else {
         this.state.sortedAnswers.push(({k:answerList[k]}));
       }
     }
-    console.log('answerList ', answerList);
-    console.log('sorted answerList ', this.state.sortedAnswers);
     if (this.state.sortedAnswers.length > 2 && this.state.moreAnswers === false) {
       return <>
         {this.state.sortedAnswers.slice(0, 2).map((sortedAns, index) =>
@@ -91,36 +89,3 @@ export default QuestionsView;
 // {this.props.answerId.map((id, index) =>
 //   <AnswersView answer={this.props.questions.answers[id]} key={index} moreAnswers={this.state.moreAnswers}/>
 // )}
-
-
-
-// showAnswers(answerList, idArray) {
-//   for (var k in answerList) {
-//     if (answerList[k].answerer_name === 'Seller') {
-//       this.state.sortedAnswers.unshift({k:answerList[k]});
-//       this.state.sortedIDs.unshift(k);
-//     } else {
-//       this.state.sortedAnswers.push(({k:answerList[k]}));
-//       this.state.sortedIDs.push(k);
-//     }
-//   }
-//   console.log('answerList ', answerList);
-//   console.log('sorted answerList ', this.state.sortedAnswers);
-//   console.log('sorted IDs ', this.state.sortedIDs);
-//   if (Object.keys(answerList).length > 2 && this.state.moreAnswers === false) {
-//     return <>
-//       {idArray.slice(0, 2).map((id, index) =>
-//       <AnswersView answer={answerList[id]} key={index}/>
-//       )}
-//     </>;
-//   } else if (Object.keys(answerList).length > 0 && this.state.moreAnswers === true
-//   || Object.keys(answerList).length > 0 && this.state.moreAnswers === false) {
-//     return <>
-//       {idArray.map((id, index) =>
-//       <AnswersView answer={answerList[id]} key={index}/>
-//       )}
-//     </>;
-//   } else {
-//     return <></>;
-//   }
-// }
