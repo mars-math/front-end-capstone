@@ -89,7 +89,7 @@ function ProductCard(props) {
 
   return (
     <span>
-      <img src={imageUrl} alt="Not Found" />
+      <img src={imageUrl} alt="Product Preview" />
       <div>{`Product ID: ${prodInfo.id}`}</div>
       <div>{`Name: ${prodInfo.name}`}</div>
       <div>{`Category: ${prodInfo.category}`}</div>
