@@ -4,14 +4,12 @@ class AnswersView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      moreAnswers: false
+
     }
 
   }
 
-  showAnswers() {
 
-  }
   // up to 4 questions on load
   // 2 answers per question on load
   render() {
