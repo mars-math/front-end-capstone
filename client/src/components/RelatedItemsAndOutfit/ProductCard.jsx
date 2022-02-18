@@ -13,6 +13,7 @@ function ProductCard(props) {
   const [prodInfo, setProdInfo] = useState({});
   const [salePrice, setSalePrice] = useState('');
   const [prodRating, setProdRating] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
 
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;
@@ -46,11 +47,18 @@ function ProductCard(props) {
         const totalStyles = response.data.results.length;
         for (let i = 0; i < totalStyles; i++) {
           const isDefault = response.data.results[i]['default?'];
-          const { sale_price } = response.data.results[i];
-          if (isDefault && sale_price) {
-            setSalePrice(sale_price);
+          const onSalePrice = response.data.results[i].sale_price;
+          const thumbnailUrl = response.data.results[i].photos[0].thumbnail_url;
+          if (isDefault && onSalePrice) {
+            setSalePrice(onSalePrice);
             return;
           }
+          if (isDefault) {
+            setImageUrl(thumbnailUrl);
+          }
+        }
+        if (imageUrl === '') {
+          setImageUrl(response.data.results[0].photos[0].thumbnail_url);
         }
       })
       .catch((err) => console.log('MT error: ', err))
@@ -63,8 +71,6 @@ function ProductCard(props) {
       },
     })
       .then((response) => {
-        // { '1', '2', '3', '4', '5' } = response.data.ratings;
-        // console.log('this is the meta data: ', Object.entries(response.data.ratings));
         setProdRating(calcAvgRtg(response.data.ratings));
       })
       .catch((err) => console.log('MT error: ', err))
@@ -83,6 +89,7 @@ function ProductCard(props) {
 
   return (
     <span>
+      <img src={imageUrl} alt="Not Found" />
       <div>{`Product ID: ${prodInfo.id}`}</div>
       <div>{`Name: ${prodInfo.name}`}</div>
       <div>{`Category: ${prodInfo.category}`}</div>
