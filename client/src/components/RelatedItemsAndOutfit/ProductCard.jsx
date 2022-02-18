@@ -5,9 +5,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import API_KEY from '../../../../config/config.js';
 
-function ProductCard({ prodId }) {
+function ProductCard(props) {
   // const prodId = '42370';
-
+  const { prodId } = props;
   const [prodInfo, setProdInfo] = useState([]);
 
   const getProdInfo = (id) => {
@@ -24,7 +24,7 @@ function ProductCard({ prodId }) {
 
   useEffect(() => {
     getProdInfo(prodId);
-  }, [prodId]);
+  }, []);
 
   return (
     <div>{prodInfo.name}</div>
