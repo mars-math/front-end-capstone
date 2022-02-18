@@ -8,6 +8,7 @@ class Questions extends React.Component {
     super(props);
     this.state = {
       searchText: '',
+      moreQuestions: false,
       questionList: sampleData
     }
 
@@ -17,12 +18,12 @@ class Questions extends React.Component {
   render() {
     return (
       <div>
+        {console.log('questionList ', this.state.questionList.results)}
         {this.state.questionList.results.map((questions, index) =>
           <QuestionsView questions={questions} key={index}
           answerId={Object.keys(questions.answers)}
           answers={questions.answers}/>
         )}
-        <div>load more answers</div>
         <button>More Answered Questions</button>
         <button>Add a Question</button>
       </div>
