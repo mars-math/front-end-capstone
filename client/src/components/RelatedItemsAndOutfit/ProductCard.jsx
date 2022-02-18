@@ -17,6 +17,21 @@ function ProductCard(props) {
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;
 
+  const calcAvgRtg = (rtgObj) => {
+    let totalStars = 0;
+    let totalRtgs = 0;
+
+    Object.entries(rtgObj).forEach((rating) => {
+      const stars = Number(rating[0]) * Number(rating[1]);
+      totalRtgs += Number(rating[1]);
+      totalStars += stars;
+    });
+
+    const avgRtg = totalStars / totalRtgs;
+
+    return (Number(avgRtg.toFixed(2)));
+  };
+
   const getProdInfo = (id) => (
     axios.get(`/products/${id}`)
       .then((response) => {
@@ -41,20 +56,38 @@ function ProductCard(props) {
       .catch((err) => console.log('MT error: ', err))
   );
 
-  const getProductData = (id) => (
+  const getReviewData = (id) => (
+    axios.get('/reviews/meta', {
+      params: {
+        product_id: id,
+      },
+    })
+      .then((response) => {
+        // { '1', '2', '3', '4', '5' } = response.data.ratings;
+        // console.log('this is the meta data: ', Object.entries(response.data.ratings));
+        setProdRating(calcAvgRtg(response.data.ratings));
+      })
+      .catch((err) => console.log('MT error: ', err))
+  );
+
+  const getAllProductData = (id) => (
     getProdInfo(id)
       .then(getSalePrice(id))
+      .then(getReviewData(id))
       .catch((err) => console.log('MT error: ', err))
   );
 
   useEffect(() => {
-    getProductData(prodId);
+    getAllProductData(prodId);
   }, []);
 
   return (
     <span>
+      <div>{`Product ID: ${prodInfo.id}`}</div>
       <div>{`Name: ${prodInfo.name}`}</div>
       <div>{`Category: ${prodInfo.category}`}</div>
+      <div>{`Sale Price: ${salePrice}`}</div>
+      <div>{`Rating: ${prodRating}`}</div>
     </span>
   );
 }
