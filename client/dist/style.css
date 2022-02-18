@@ -44,3 +44,18 @@
   width: 500px;
   border: 1px solid black;
 }
+
+.answer-list {
+  margin-left: 20px;
+}
+.answer-footer {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+.question-list {
+  margin-bottom: 10px;
+}
+.load-answers {
+  font-size: 11pt;
+  margin-bottom: 10px;
+}
