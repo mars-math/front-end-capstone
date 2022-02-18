@@ -15,7 +15,7 @@ class App extends React.Component {
       <>
         <h1>Kloth</h1>
         <ProductInfo />
-        <Carousel />
+        <Carousel renderedId={'42368'}/>
         <div>
           <QandA />
         </div>

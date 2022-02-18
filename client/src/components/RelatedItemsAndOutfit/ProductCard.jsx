@@ -27,7 +27,10 @@ function ProductCard(props) {
   }, []);
 
   return (
-    <div>{prodInfo.name}</div>
+    <span>
+      <div>{`Name: ${prodInfo.name}`}</div>
+      <div>{`Category: ${prodInfo.category}`}</div>
+    </span>
   );
 }
 
