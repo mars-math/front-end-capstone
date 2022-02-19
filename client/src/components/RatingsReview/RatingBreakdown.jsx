@@ -1,10 +1,11 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import API_KEY from '../../../../config/config.js';
-
 import Stars from './ratingexampledata/stars.js';
+import ProgressBar from './ProgressBar.jsx';
 
 const {
   almostStar, quarterStar, halfStar, fullStar, emptyStar,
@@ -69,7 +70,21 @@ export default function RatingBreakdown(props) {
         {' '}
         reviews
       </div>
-      <div>hey</div>
+      {meta.ratings ? [1, 2, 3, 4, 5].map((item, idx) => (
+        <div key={`progress bar ${idx}`}>
+          <div>
+            {idx + 1}
+            {' '}
+            star
+          </div>
+          <ProgressBar
+            bgcolor="#50C878"
+            completed={(((meta.ratings[item]
+              ? meta.ratings[item] : 0) / averageStars(meta.ratings)[1]) * 100).toFixed()}
+            index={idx}
+          />
+        </div>
+      )) : <></>}
     </>
   );
 }
