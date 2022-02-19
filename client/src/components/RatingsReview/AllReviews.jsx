@@ -2,14 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import IndividualReview from './IndividualReview.jsx';
+import RatingBreakdown from './RatingBreakdown.jsx';
 import API_KEY from '../../../../config/config.js';
 
 export default function AllReviews() {
   const [amountToRender, setAmountToRender] = useState(2);
   const [renderedReviews, setRenderedReviews] = useState([]);
+  const [filterStars, setFilterStars] = useState({});
   const slicedRender = renderedReviews.slice(0, amountToRender);
-  console.log(slicedRender.length);
-  console.log(renderedReviews.length);
 
   function getReview(id, amount) {
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews?count=${amount}&product_id=${id}`, {
@@ -29,10 +29,43 @@ export default function AllReviews() {
       .catch((err) => console.log(err));
   }, []);
 
+  const manageFilter = (star, currentState) => {
+    if (!currentState) {
+      setFilterStars({
+        ...filterStars,
+        [star]: star,
+      });
+    } else {
+      setFilterStars(delete filterStars.star);
+    }
+  };
+
+  useEffect(() => {
+    getReview(43230, 999)
+      .then((data) => {
+        setRenderedReviews(data.results.filter((review) => {
+          const arrStars = Object.keys(filterStars);
+          console.log(arrStars);
+          if (arrStars.length === 0) {
+            return true;
+          }
+          for (let i = 0; i < arrStars.length; i++) {
+            if (review.rating === Number(arrStars[i])) {
+              return true;
+            }
+          }
+          return false;
+        }));
+      });
+  }, [filterStars]);
+
   return (
-    <div style={{ maxHeight: '600px', overflow: 'auto' }}>
-      {slicedRender.map((review, index) => <IndividualReview render={review} key={`review${index}`} />)}
-      {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length ? <button type="button" onClick={() => setAmountToRender((prevNum) => prevNum + 2)}>More Reviews</button> : <></>}
+    <div>
+      <div style={{ maxHeight: '850px', overflow: 'auto' }}>
+        {slicedRender.map((review, index) => <IndividualReview render={review} key={`review${index}`} />)}
+        {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length ? <button type="button" onClick={() => setAmountToRender((prevNum) => prevNum + 2)}>More Reviews</button> : <></>}
+      </div>
+      <RatingBreakdown manageFilter={manageFilter} />
     </div>
 
   );

@@ -14,6 +14,8 @@ const {
 export default function RatingBreakdown(props) {
   const [meta, setMeta] = useState({});
 
+  const { manageFilter } = props;
+
   function getMeta(id) {
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews/meta?product_id=${id}`, {
       headers: {
@@ -75,16 +77,13 @@ export default function RatingBreakdown(props) {
 
       {meta.ratings ? [1, 2, 3, 4, 5].map((item, idx) => (
         <div key={`progress bar ${idx}`}>
-          <div>
-            {idx + 1}
-            {' '}
-            star
-          </div>
           <ProgressBar
             bgcolor="#50C878"
             completed={(((meta.ratings[item]
               ? meta.ratings[item] : 0) / averageStars(meta.ratings)[1]) * 100).toFixed()}
-            index={idx}
+            count={meta.ratings[item]}
+            index={item}
+            manageFilter={manageFilter}
           />
         </div>
       )) : <></>}
