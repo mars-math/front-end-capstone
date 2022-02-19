@@ -3,11 +3,15 @@ import Row from './SM-StyleRow.jsx';
 import stylesData from './SM-dummystylesdata.js';
 
 export default function StyleSelector () {
-  //const[display, changeDisplay] = useState([]);
+
+  const firstStyleId = stylesData[0].style_id;
+  const[first, setFirst] = useState(firstStyleId);
+  const[display, setDisplay] = useState(stylesData);
+  var copyStylesData = display.slice(0, display.length);
 
 
   //how many rows
-  var rows = Math.ceil(stylesData.length / 4);
+  var rows = Math.ceil(copyStylesData.length / 4);
 
   //what data to pass down to each row
   function renderRow(data) {
@@ -20,13 +24,31 @@ export default function StyleSelector () {
     }
   };
 
+  function changeFirst(e) {
+    e.preventDefault();
+    setFirst(e.target.id);
+    console.log(first);
+  }
+
+  // function changeDisplay(first) {
+  //   setDisplay((prev) => {
+  //     prev.splice(prev.indexOf(first), 1);
+  //     prev.shift(first);
+  //   })
+  // }
+
   return (
     <>STYLE -> Selected_Style
-      {[...Array(rows)].map((row, index) => <Row key={`row${index}`} rowData={renderRow(stylesData)}/>)}
-      {/* <h4>Select a Size</h4> */}
+      {[...Array(rows)].map((row, index) =>
+      <Row
+      key={`row${index}`}
+      rowData={renderRow(copyStylesData)}
+      onClick={changeFirst}
+      />)}
+
       <span>
         <form>
-          <label for='selectSize'>Select Size </label>
+          <label htmlFor='selectSize'>Select Size </label>
           <select name='selectSize'>
             <option>XS</option>
             <option>S</option>
@@ -36,7 +58,7 @@ export default function StyleSelector () {
             <option>XXL</option>
           </select>
 
-          <label for='selectQty'> Select Qty </label>
+          <label htmlFor='selectQty'> Select Qty </label>
           <select name='selectQty'>
             <option>1</option>
             <option>2</option>
