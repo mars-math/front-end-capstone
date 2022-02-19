@@ -3,6 +3,7 @@ import QandA from './QandA/QandA.jsx';
 import AllReviews from './RatingsReview/AllReviews.jsx';
 import ProductInfo from './Overview/SM-ProductInfo.jsx';
 import RelatedItems from './RelatedItemsAndOutfit/RelatedItems.jsx';
+import OutfitList from './RelatedItemsAndOutfit/OutfitList.jsx';
 import Overview from './Overview/SM-Overview.jsx';
 import RatingBreakdown from './RatingsReview/RatingBreakdown.jsx';
 
@@ -18,6 +19,7 @@ class App extends React.Component {
         <Overview />
         <RatingBreakdown />
         <RelatedItems renderedId={'42368'}/>
+        <OutfitList /> {/* pass in a prop from the window.LocalStorage object*/}
         <div>
           <QandA />
         </div>

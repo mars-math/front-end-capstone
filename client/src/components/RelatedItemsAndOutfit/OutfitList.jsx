@@ -8,29 +8,16 @@ function OutfitList(props) {
   const { renderedId } = props;
   const [relatedIds, setRelatedIds] = useState([]);
 
-  // state for list of all related items from a product ID
-  // state for index
 
-  const getRelatedIds = (id) => {
-    axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
-    axios.defaults.headers.common.Authorization = API_KEY;
-    return (
-      axios.get(`/products/${id}/related`)
-        .then((response) => {
-          setRelatedIds(response.data);
-        })
-        .catch((err) => console.log('MT error: ', err))
-    );
-  };
 
-  useEffect(() => {
-    getRelatedIds(renderedId);
-  }, []);
+  // useEffect(() => {
+  // }, []);
 
   return (
     <>
-      <h3>Related Items</h3>
-      <Carousel renderedIds={relatedIds} />
+      <h3>My Outfit</h3>
+      {/* <Carousel renderedIds={relatedIds} /> */}
+      <Carousel renderedIds={['42368']} />
     </>
   );
 }
