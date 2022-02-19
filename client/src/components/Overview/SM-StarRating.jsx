@@ -23,7 +23,7 @@ function StarRating(props) {
     <div className="stars">
       {[...Array(5)].map(
         (star, index) =>
-        <span>{whichStar(props.rating, index)}</span>
+        <span key={`star-${index}`}>{whichStar(props.rating, index)}</span>
         )}
     </div>
   );

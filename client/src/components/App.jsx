@@ -1,9 +1,9 @@
 import React from 'react';
-import IndividualReview from './RatingsReview/IndividualReview.jsx';
 import QandA from './QandA/QandA.jsx';
 import AllReviews from './RatingsReview/AllReviews.jsx';
-import ProductInfo from './Overview/SM-ProductInfo.jsx';
+import Overview from './Overview/SM-Overview.jsx';
 import Carousel from './RelatedItemsAndOutfit/Carousel.jsx';
+import RatingBreakdown from './RatingsReview/RatingBreakdown.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,8 +14,10 @@ class App extends React.Component {
     return (
       <>
         <h1>Kloth</h1>
-        <ProductInfo />
+        <Overview />
+        <RatingBreakdown />
         <Carousel renderedId={'42368'}/>
+        <Carousel />
         <div>
           <QandA />
         </div>
@@ -26,3 +28,10 @@ class App extends React.Component {
 }
 
 export default App;
+
+/*
+1. Overview
+2. Reviews
+3. Q&A
+4. Related/Outfit
+*/
