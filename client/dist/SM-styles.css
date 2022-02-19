@@ -10,6 +10,11 @@
   flex-direction: column;
 }
 
+.image-container {
+ display: flex;
+ flex-direction: column;
+}
+
 .productinfo-container {
   display: flex;
   flex-direction: column;

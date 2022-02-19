@@ -7,15 +7,17 @@ export default function Overview() {
 
   return (
     <div class='overview-container'>
-      <ImageGallery/>
-      <div class='right-container'>
-        <div class ='productinfo-container'>
-          <ProductInfo/>
-        </div>
-        <div class='styleselector-container'>
-          <StyleSelector/>
-        </div>
+      <div class='image-container'>
+        <ImageGallery/>
       </div>
+        <div class='right-container'>
+          <div class ='productinfo-container'>
+            <ProductInfo/>
+          </div>
+          <div class='styleselector-container'>
+            <StyleSelector/>
+          </div>
+        </div>
     </div>
   );
 
