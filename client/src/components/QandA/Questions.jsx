@@ -6,28 +6,38 @@ class Questions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: '',
       moreQuestions: false,
       questionList: sampleData,
       sortedQuestions: [],
+      searchResults: [],
     };
 
     this.moreQuestionsClick = this.moreQuestionsClick.bind(this);
     this.moreQuestionsDisplay = this.moreQuestionsDisplay.bind(this);
     this.showQuestions = this.showQuestions.bind(this);
   }
-
+  // helper function to sort questions by helpfulness
   sortHelper(a, b) {
     return parseInt(b.question_helpfulness) - parseInt(a.question_helpfulness);
   }
 
-  // answers is not getting passed as a prop correctly.
+  // render only 2 questions till more are selected
   showQuestions(questionL) {
     const questionArray = questionL;
     const sortedQArray = questionArray.sort(this.sortHelper);
     this.state.sortedQuestions = sortedQArray;
     // console.log('sortedquestions state ', this.state.sortedQuestions);
     // console.log('sorted array ', sortedQArray);
+
+    // if (this.searchResults.length > 0) {
+    //   sortedArray = this.searchResults;
+    // } else {
+    //   sortedQArray = questionArray.sort(this.sortHelper);
+    // }
+
+
+
+
     if (sortedQArray.length > 4 && this.state.moreQuestions === false) {
       return (
         <>
@@ -59,10 +69,12 @@ class Questions extends React.Component {
     return <></>;
   }
 
+  // used for rendering more questions
   moreQuestionsClick() {
     this.setState({ moreQuestions: !this.state.moreQuestions });
   }
 
+  // render more questions
   moreQuestionsDisplay() {
     if (this.state.questionList.results.length > 0) {
       if (this.state.moreQuestions) {

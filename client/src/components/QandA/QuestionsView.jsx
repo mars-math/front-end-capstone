@@ -15,6 +15,7 @@ class QuestionsView extends React.Component {
     this.loadTextChange = this.loadTextChange.bind(this);
   }
 
+  // render 4 answers till more are clicked
   showAnswers(answerList) {
     this.state.sortedAnswers = [];
     for (const k in answerList) {
@@ -47,10 +48,12 @@ class QuestionsView extends React.Component {
     }
   }
 
+  // used for rendering more answers
   loadAnswersClick() {
     this.setState({ moreAnswers: !this.state.moreAnswers });
   }
 
+  // change the text for rendering more answers
   loadTextChange() {
     if (Object.keys(this.props.answers).length > 2) {
       if (this.state.moreAnswers) {
@@ -64,8 +67,6 @@ class QuestionsView extends React.Component {
       return <></>;
     }
   }
-
-  // up to 4 questions on load
 
   render() {
     return (
