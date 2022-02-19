@@ -14,13 +14,15 @@ class Questions extends React.Component {
     }
 
     this.moreQuestionsClick = this.moreQuestionsClick.bind(this);
+    this.moreQuestionsDisplay = this.moreQuestionsDisplay.bind(this);
+    this.showQuestions = this.showQuestions.bind(this);
   }
 
   sortHelper(a, b) {
     return parseInt(b.question_helpfulness) - parseInt(a.question_helpfulness);
   }
 
-
+  // answers is not getting passed as a prop correctly.
   showQuestions(questionL) {
     const questionArray = questionL;
     const sortedQArray = questionArray.sort(this.sortHelper);
@@ -75,7 +77,13 @@ class Questions extends React.Component {
     return (
       <div>
         {this.showQuestions(this.state.questionList.results)}
+        {/* {this.state.questionList.results.map((questions, index) =>
+        <QuestionsView questions={questions} key={index}
+        answerId={Object.keys(questions.answers)}
+        answers={questions.answers}/>
+        )} */}
         {this.moreQuestionsDisplay()}
+        {/* <button onClick={this.moreQuestionsClick}>More Answered Questions</button> */}
         <button>Add a Question</button>
       </div>
     );

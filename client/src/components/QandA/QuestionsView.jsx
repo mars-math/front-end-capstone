@@ -60,7 +60,7 @@ class QuestionsView extends React.Component {
 
       }
     } else {
-      return <></>;
+      return <>no answers</>;
     }
   }
 
