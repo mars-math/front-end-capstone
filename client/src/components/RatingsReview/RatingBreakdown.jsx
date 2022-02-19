@@ -65,11 +65,13 @@ export default function RatingBreakdown(props) {
       {[...Array(5)].map(
         (star, index) => <span key={`star${index}`}>{whichStar(averageStars(meta.ratings)[0], index)}</span>,
       )}
+
       <div>
         {averageStars(meta.ratings)[1]}
         {' '}
         reviews
       </div>
+
       {meta.ratings ? [1, 2, 3, 4, 5].map((item, idx) => (
         <div key={`progress bar ${idx}`}>
           <div>
