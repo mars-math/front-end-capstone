@@ -32,7 +32,7 @@ function RelatedItems(props) {
   return (
     <>
       <h3>Related Items</h3>
-      <Carousel relatedIds={relatedIds} />
+      <Carousel renderedIds={relatedIds} />
     </>
   );
 }
