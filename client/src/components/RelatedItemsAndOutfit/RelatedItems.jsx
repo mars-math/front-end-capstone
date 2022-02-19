@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 
 import React, { useEffect, useState } from 'react';
@@ -7,7 +9,7 @@ import API_KEY from '../../../../config/config.js';
 
 function RelatedItems(props) {
   // take in product ID from App.jsx as a prop
-  const { renderedId } = props;
+  const { overviewId } = props;
   const [relatedIds, setRelatedIds] = useState([]);
 
   // state for list of all related items from a product ID
@@ -26,13 +28,13 @@ function RelatedItems(props) {
   };
 
   useEffect(() => {
-    getRelatedIds(renderedId);
+    getRelatedIds(overviewId);
   }, []);
 
   return (
     <>
       <h3>Related Items</h3>
-      <Carousel renderedIds={relatedIds} />
+      <Carousel idsToRender={relatedIds} isOutfitList={false} />
     </>
   );
 }
