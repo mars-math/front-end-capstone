@@ -22,13 +22,14 @@ class Questions extends React.Component {
 
 
   showQuestions(questionL) {
-    this.state.sortedAnswers = [];
     const questionArray = questionL;
     const sortedQArray = questionArray.sort(this.sortHelper);
+    this.state.sortedQuestions = sortedQArray;
+    // console.log('sortedquestions state ', this.state.sortedQuestions);
     // console.log('sorted array ', sortedQArray);
-    if (sortedQArray.length > 2 && this.state.moreQuestions === false) {
+    if (sortedQArray.length > 4 && this.state.moreQuestions === false) {
       return <>
-        {sortedQArray.slice(0, 2).map((questions, index) =>
+        {sortedQArray.slice(0, 4).map((questions, index) =>
         <QuestionsView questions={questions} key={index}
         answerId={Object.keys(questions.answers)}
         answers={questions.answers}/>
@@ -49,10 +50,24 @@ class Questions extends React.Component {
   }
 
 
-
-
   moreQuestionsClick() {
     this.setState({ moreQuestions: !this.state.moreQuestions});
+  }
+
+  moreQuestionsDisplay() {
+    if (this.state.questionList.results.length > 0) {
+      if (this.state.moreQuestions) {
+        return <>
+          <button onClick={this.moreQuestionsClick}>Less Answered Questions</button>
+          </>;
+      } else {
+        return <>
+          <button onClick={this.moreQuestionsClick}>More Answered Questions</button>
+          </>;
+      }
+    } else {
+      return <></>;
+    }
   }
 
   // render the questions that correspond to what was entered in the serach field
@@ -60,8 +75,7 @@ class Questions extends React.Component {
     return (
       <div>
         {this.showQuestions(this.state.questionList.results)}
-
-        <button onClick={this.moreQuestionsClick}>More Answered Questions</button>
+        {this.moreQuestionsDisplay()}
         <button>Add a Question</button>
       </div>
     );
@@ -72,6 +86,8 @@ class Questions extends React.Component {
 export default Questions;
 // {console.log('questionList ', this.state.questionList.results)}
 // {console.log('questionList.results ', this.state.questionList.results)}
+
+// {/* <button onClick={this.moreQuestionsClick}>More Answered Questions</button> */}
 
 // {this.state.questionList.results.map((questions, index) =>
 //   <QuestionsView questions={questions} key={index}
