@@ -62,6 +62,7 @@ export default function RatingBreakdown(props) {
 
   return (
     <>
+      <div>{averageStars(meta.ratings)[0]}</div>
       {[...Array(5)].map(
         (star, index) => <span key={`star${index}`}>{whichStar(averageStars(meta.ratings)[0], index)}</span>,
       )}
