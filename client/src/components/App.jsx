@@ -3,6 +3,7 @@ import QandA from './QandA/QandA.jsx';
 import AllReviews from './RatingsReview/AllReviews.jsx';
 import ProductInfo from './Overview/SM-ProductInfo.jsx';
 import RelatedItems from './RelatedItemsAndOutfit/RelatedItems.jsx';
+import Overview from './Overview/SM-Overview.jsx';
 import RatingBreakdown from './RatingsReview/RatingBreakdown.jsx';
 
 class App extends React.Component {
@@ -13,9 +14,9 @@ class App extends React.Component {
   render() {
     return (
       <>
-      <RatingBreakdown />
         <h1>Kloth</h1>
-        <ProductInfo />
+        <Overview />
+        <RatingBreakdown />
         <RelatedItems renderedId={'42368'}/>
         <div>
           <QandA />
@@ -27,3 +28,10 @@ class App extends React.Component {
 }
 
 export default App;
+
+/*
+1. Overview
+2. Reviews
+3. Q&A
+4. Related/Outfit
+*/
