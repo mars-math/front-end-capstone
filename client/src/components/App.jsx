@@ -13,20 +13,25 @@ class App extends React.Component {
   render() {
     return (
       <>
-      <RatingBreakdown />
-        {/* <h1>Kloth</h1>
-        <ProductInfo />
         <h1>Kloth</h1>
         <Overview />
+        <RatingBreakdown />
         <Carousel renderedId={'42368'}/>
         <Carousel />
         <div>
           <QandA />
         </div>
-        <AllReviews /> */}
+        <AllReviews />
       </>
     );
   }
 }
 
 export default App;
+
+/*
+1. Overview
+2. Reviews
+3. Q&A
+4. Related/Outfit
+*/
