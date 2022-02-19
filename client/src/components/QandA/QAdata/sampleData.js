@@ -56,7 +56,7 @@ export default {
           "question_body": "Where is this product made?",
           "question_date": "2017-02-06T00:00:00.000Z",
           "asker_name": "cleopatra",
-          "question_helpfulness": 3,
+          "question_helpfulness": 9,
           "reported": false,
           "answers": {
               "3257789": {

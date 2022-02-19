@@ -16,35 +16,32 @@ class Questions extends React.Component {
     this.moreQuestionsClick = this.moreQuestionsClick.bind(this);
   }
 
-  sortHelper(a,b) {
+  sortHelper(a, b) {
     return parseInt(b.question_helpfulness) - parseInt(a.question_helpfulness);
   }
 
 
   showQuestions(questionL) {
     this.state.sortedAnswers = [];
-    console.log('questions list ', this.state.questionList);
-    const questionArray = this.state.questionList.results;
-    console.log('questions array ', questionArray);
-
+    const questionArray = questionL;
     const sortedQArray = questionArray.sort(this.sortHelper);
-    console.log('sorted array ', sortedQArray);
-
-    // for (const k in answerList) {
-    //   if (answerList[k].answerer_name === 'Seller') {
-    //     this.state.sortedAnswers.unshift({k:answerList[k]});
-    //   } else {
-    //     this.state.sortedAnswers.push(({k:answerList[k]}));
-    //   }
-    // }
-    if (this.state.sortedAnswers.length > 2 && this.state.moreAnswers === false) {
+    // console.log('sorted array ', sortedQArray);
+    if (sortedQArray.length > 2 && this.state.moreQuestions === false) {
       return <>
-
+        {sortedQArray.slice(0, 2).map((questions, index) =>
+        <QuestionsView questions={questions} key={index}
+        answerId={Object.keys(questions.answers)}
+        answers={questions.answers}/>
+        )}
       </>;
-    } else if (this.state.sortedAnswers.length > 0 && this.state.moreAnswers === true
-    || this.state.sortedAnswers.length > 0 && this.state.moreAnswers === false) {
+    } else if (sortedQArray.length > 0 && this.state.moreQuestions === true
+    || sortedQArray.length > 0 && this.state.moreQuestions === false) {
       return <>
-
+        {sortedQArray.map((questions, index) =>
+        <QuestionsView questions={questions} key={index}
+        answerId={Object.keys(questions.answers)}
+        answers={questions.answers}/>
+        )}
       </>;
     } else {
       return <></>;
@@ -64,11 +61,6 @@ class Questions extends React.Component {
       <div>
         {this.showQuestions(this.state.questionList.results)}
 
-        {this.state.questionList.results.map((questions, index) =>
-          <QuestionsView questions={questions} key={index}
-          answerId={Object.keys(questions.answers)}
-          answers={questions.answers}/>
-        )}
         <button onClick={this.moreQuestionsClick}>More Answered Questions</button>
         <button>Add a Question</button>
       </div>
@@ -80,3 +72,9 @@ class Questions extends React.Component {
 export default Questions;
 // {console.log('questionList ', this.state.questionList.results)}
 // {console.log('questionList.results ', this.state.questionList.results)}
+
+// {this.state.questionList.results.map((questions, index) =>
+//   <QuestionsView questions={questions} key={index}
+//   answerId={Object.keys(questions.answers)}
+//   answers={questions.answers}/>
+// )}
