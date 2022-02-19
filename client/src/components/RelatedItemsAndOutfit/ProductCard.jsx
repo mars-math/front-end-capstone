@@ -93,6 +93,7 @@ function ProductCard(props) {
       <div>{`Product ID: ${prodInfo.id}`}</div>
       <div>{`Name: ${prodInfo.name}`}</div>
       <div>{`Category: ${prodInfo.category}`}</div>
+      <div>{`Price: ${prodInfo.default_price}`}</div>
       <div>{`Sale Price: ${salePrice}`}</div>
       <div>{`Rating: ${prodRating}`}</div>
     </span>
