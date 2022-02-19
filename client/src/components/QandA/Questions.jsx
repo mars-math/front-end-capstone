@@ -16,9 +16,20 @@ class Questions extends React.Component {
     this.moreQuestionsClick = this.moreQuestionsClick.bind(this);
   }
 
+  sortHelper(a,b) {
+    return parseInt(b.question_helpfulness) - parseInt(a.question_helpfulness);
+  }
+
+
   showQuestions(questionL) {
     this.state.sortedAnswers = [];
     console.log('questions list ', this.state.questionList);
+    const questionArray = this.state.questionList.results;
+    console.log('questions array ', questionArray);
+
+    const sortedQArray = questionArray.sort(this.sortHelper);
+    console.log('sorted array ', sortedQArray);
+
     // for (const k in answerList) {
     //   if (answerList[k].answerer_name === 'Seller') {
     //     this.state.sortedAnswers.unshift({k:answerList[k]});

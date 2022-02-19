@@ -91,7 +91,7 @@ export default {
           "question_body": "another test post question",
           "question_date": "2022-02-17T00:00:00.000Z",
           "asker_name": "test2",
-          "question_helpfulness": 0,
+          "question_helpfulness": 5,
           "reported": false,
           "answers": {}
       },
@@ -100,7 +100,7 @@ export default {
           "question_body": "test post question",
           "question_date": "2022-02-17T00:00:00.000Z",
           "asker_name": "test1",
-          "question_helpfulness": 0,
+          "question_helpfulness": 7,
           "reported": false,
           "answers": {}
       }
