@@ -2,7 +2,6 @@ import React from 'react';
 import QuestionsView from './QuestionsView.jsx';
 import sampleData from './QAdata/sampleData.js';
 
-
 class Questions extends React.Component {
   constructor(props) {
     super(props);
@@ -10,8 +9,8 @@ class Questions extends React.Component {
       searchText: '',
       moreQuestions: false,
       questionList: sampleData,
-      sortedQuestions: []
-    }
+      sortedQuestions: [],
+    };
 
     this.moreQuestionsClick = this.moreQuestionsClick.bind(this);
     this.moreQuestionsDisplay = this.moreQuestionsDisplay.bind(this);
@@ -30,46 +29,52 @@ class Questions extends React.Component {
     // console.log('sortedquestions state ', this.state.sortedQuestions);
     // console.log('sorted array ', sortedQArray);
     if (sortedQArray.length > 4 && this.state.moreQuestions === false) {
-      return <>
-        {sortedQArray.slice(0, 4).map((questions, index) =>
-        <QuestionsView questions={questions} key={index}
-        answerId={Object.keys(questions.answers)}
-        answers={questions.answers}/>
-        )}
-      </>;
-    } else if (sortedQArray.length > 0 && this.state.moreQuestions === true
+      return (
+        <>
+          {sortedQArray.slice(0, 4).map((questions, index) => (
+            <QuestionsView
+              questions={questions}
+              key={index}
+              answerId={Object.keys(questions.answers)}
+              answers={questions.answers}
+            />
+          ))}
+        </>
+      );
+    } if (sortedQArray.length > 0 && this.state.moreQuestions === true
     || sortedQArray.length > 0 && this.state.moreQuestions === false) {
-      return <>
-        {sortedQArray.map((questions, index) =>
-        <QuestionsView questions={questions} key={index}
-        answerId={Object.keys(questions.answers)}
-        answers={questions.answers}/>
-        )}
-      </>;
-    } else {
-      return <></>;
+      return (
+        <>
+          {sortedQArray.map((questions, index) => (
+            <QuestionsView
+              questions={questions}
+              key={index}
+              answerId={Object.keys(questions.answers)}
+              answers={questions.answers}
+            />
+          ))}
+        </>
+      );
     }
+    return <></>;
   }
 
-
   moreQuestionsClick() {
-    this.setState({ moreQuestions: !this.state.moreQuestions});
+    this.setState({ moreQuestions: !this.state.moreQuestions });
   }
 
   moreQuestionsDisplay() {
     if (this.state.questionList.results.length > 0) {
       if (this.state.moreQuestions) {
-        return <>
+        return (
           <button onClick={this.moreQuestionsClick}>Less Answered Questions</button>
-          </>;
-      } else {
-        return <>
-          <button onClick={this.moreQuestionsClick}>More Answered Questions</button>
-          </>;
+        );
       }
-    } else {
-      return <></>;
+      return (
+        <button onClick={this.moreQuestionsClick}>More Answered Questions</button>
+      );
     }
+    return <></>;
   }
 
   // render the questions that correspond to what was entered in the serach field
@@ -77,18 +82,11 @@ class Questions extends React.Component {
     return (
       <div>
         {this.showQuestions(this.state.questionList.results)}
-        {/* {this.state.questionList.results.map((questions, index) =>
-        <QuestionsView questions={questions} key={index}
-        answerId={Object.keys(questions.answers)}
-        answers={questions.answers}/>
-        )} */}
         {this.moreQuestionsDisplay()}
-        {/* <button onClick={this.moreQuestionsClick}>More Answered Questions</button> */}
         <button>Add a Question</button>
       </div>
     );
   }
-
 }
 
 export default Questions;
@@ -102,3 +100,9 @@ export default Questions;
 //   answerId={Object.keys(questions.answers)}
 //   answers={questions.answers}/>
 // )}
+// {/* {this.state.questionList.results.map((questions, index) =>
+// <QuestionsView questions={questions} key={index}
+// answerId={Object.keys(questions.answers)}
+// answers={questions.answers}/>
+// )} */}
+// {/* <button onClick={this.moreQuestionsClick}>More Answered Questions</button> */}

@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 import React from 'react';
 import AnswersView from './AnswersView.jsx';
 
@@ -5,10 +6,8 @@ class QuestionsView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      moreAnswers: false,
       sortedAnswers: [],
-      sortedIDs: [],
-
     }
 
     this.showAnswers = this.showAnswers.bind(this);
@@ -16,31 +15,33 @@ class QuestionsView extends React.Component {
     this.loadTextChange = this.loadTextChange.bind(this);
   }
 
-
-
   showAnswers(answerList) {
     this.state.sortedAnswers = [];
     for (const k in answerList) {
       if (answerList[k].answerer_name === 'Seller') {
-        this.state.sortedAnswers.unshift({k:answerList[k]});
+        this.state.sortedAnswers.unshift({ k: answerList[k] });
       } else {
-        this.state.sortedAnswers.push(({k:answerList[k]}));
+        this.state.sortedAnswers.push(({ k: answerList[k] }));
       }
     }
     if (this.state.sortedAnswers.length > 2 && this.state.moreAnswers === false) {
-      return <>
-        {this.state.sortedAnswers.slice(0, 2).map((sortedAns, index) =>
-        <AnswersView answer={sortedAns.k} key={index}/>
-        )}
-      </>;
+      return (
+        <>
+          {this.state.sortedAnswers.slice(0, 2).map((sortedAns, index) =>
+            <AnswersView answer={sortedAns.k} key={index} />
+          )}
+        </>
+      );
     } else if (this.state.sortedAnswers.length > 0 && this.state.moreAnswers === true
-    || this.state.sortedAnswers.length > 0 && this.state.moreAnswers === false) {
-      return <>
+      || this.state.sortedAnswers.length > 0 && this.state.moreAnswers === false) {
+      return (
+      <>
         {this.state.sortedAnswers.map((sortedAns, index) =>
-        <AnswersView answer={sortedAns.k} key={index}/>
+          <AnswersView answer={sortedAns.k} key={index} />
 
         )}
-      </>;
+      </>
+      );
     } else {
       return <></>;
     }
@@ -60,7 +61,7 @@ class QuestionsView extends React.Component {
 
       }
     } else {
-      return <>no answers</>;
+      return <></>;
     }
   }
 
