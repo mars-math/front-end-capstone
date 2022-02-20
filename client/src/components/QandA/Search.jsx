@@ -9,7 +9,6 @@ class Search extends React.Component {
     this.state = {
       searchText: '',
       questionList: sampleData,
-      searchList: [],
     };
 
     this.searchClick = this.searchClick.bind(this);
@@ -21,28 +20,38 @@ class Search extends React.Component {
     if (e.target.value.length >= 3) {
       this.setState({ searchText: e.target.value });
     }
+    if (e.target.value.length < 3) {
+      while (this.props.searchList.length) {
+        this.props.searchList.pop();
+      }
+    }
     console.log(this.state.searchText);
   }
 
   // click the search button function
   searchClick(e) {
     e.preventDefault();
-    this.state.searchList = [];
+    // loop to empty the search array for the next search
+    while (this.props.searchList.length) {
+      this.props.searchList.pop();
+    }
     const questionL = this.state.questionList.results;
-    console.log('questionL ', questionL)
+    console.log('questionL ', questionL);
     for (let i = 0; i < questionL.length; i++) {
       if (questionL[i].question_body.includes(this.state.searchText)) {
-        this.state.searchList.push(questionL[i]);
-        this.setState({searchList: this.state.searchList});
+        // this.state.searchList.push(questionL[i]);
+        this.props.searchList.push(questionL[i]);
+        // this.setState({ searchList: this.state.searchList });
       }
     }
+    console.log('props.searchList ', this.props.searchList);
   }
 
   // render the questions that correspond to what was entered in the serach field
   render() {
     return (
       <div>
-        {console.log('searchList ', this.state.searchList)}
+        {console.log('searchList ', this.props.searchList)}
         <form onSubmit={this.searchClick}>
           <input placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.searchChange} />
           <button type="submit">search</button>
