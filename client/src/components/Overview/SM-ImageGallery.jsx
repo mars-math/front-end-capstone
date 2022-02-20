@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Row from './SM-StyleRow.jsx';
 import stylesData from './SM-dummystylesdata.js';
-import productData from './SM-dummyproductData.js';
+import productData from './SM-dummyproductdata.js';
 
 export default function ImageGallery() {
   //const[display, changeDisplay] = useState([]);
