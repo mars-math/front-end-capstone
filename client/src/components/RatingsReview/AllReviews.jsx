@@ -36,7 +36,9 @@ export default function AllReviews() {
         [star]: star,
       });
     } else {
-      setFilterStars(delete filterStars.star);
+      const newFilter = { ...filterStars };
+      delete newFilter[star];
+      setFilterStars(newFilter);
     }
   };
 
@@ -45,11 +47,10 @@ export default function AllReviews() {
       .then((data) => {
         setRenderedReviews(data.results.filter((review) => {
           const arrStars = Object.keys(filterStars);
-          console.log(arrStars);
           if (arrStars.length === 0) {
             return true;
           }
-          for (let i = 0; i < arrStars.length; i++) {
+          for (let i = 0; i < arrStars.length; i += 1) {
             if (review.rating === Number(arrStars[i])) {
               return true;
             }

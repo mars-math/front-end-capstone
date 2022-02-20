@@ -6,6 +6,7 @@ import axios from 'axios';
 import API_KEY from '../../../../config/config.js';
 import Stars from './ratingexampledata/stars.js';
 import ProgressBar from './ProgressBar.jsx';
+import CharBreakdown from './CharBreakdown.jsx';
 
 const {
   almostStar, quarterStar, halfStar, fullStar, emptyStar,
@@ -87,6 +88,8 @@ export default function RatingBreakdown(props) {
           />
         </div>
       )) : <></>}
+
+      {meta.characteristics ? <CharBreakdown chars={meta.characteristics.Fit} /> : <></>}
     </>
   );
 }
