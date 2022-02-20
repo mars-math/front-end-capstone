@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function ProgressBar(props) {
-  const { bgcolor, completed } = props;
+  const {
+    bgcolor, completed, count, index, manageFilter,
+  } = props;
+
+  const [isActivated, setActivation] = useState(false);
 
   const containerStyles = {
     height: 15,
@@ -19,10 +23,31 @@ function ProgressBar(props) {
     textAlign: 'right',
   };
 
+  function activateSort() {
+    setActivation(!isActivated);
+  }
+
   return (
     <div>
+      <button
+        style={isActivated ? { color: 'blue' } : {}}
+        className="star-filter-button"
+        type="button"
+        onClick={() => {
+          activateSort();
+          manageFilter(index, isActivated);
+        }}
+      >
+        {index}
+        {' '}
+        star
+      </button>
       <div style={containerStyles}>
         <div style={fillerStyles} />
+      </div>
+      <div>
+        {count || 0}
+        {count === '1' ? ' rating' : ' ratings'}
       </div>
     </div>
   );
