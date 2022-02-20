@@ -8,10 +8,7 @@ class QandA extends React.Component {
     super(props);
     this.state = {
       questionsList: [],
-      searchList: [],
     }
-
-
   }
 
   componentDidMount() {
@@ -33,15 +30,15 @@ class QandA extends React.Component {
       <>
         <h3>Questions &amp; Answers</h3>
         <div>
-          <Search questionsList={this.state.questionsList} searchList={this.state.searchList}/>
-        </div>
-        <div>
-          {/* <Questions questionsList={this.state.questionsList} searchList={this.state.searchList}/> */}
+          <Search questionsList={this.state.questionsList}/>
         </div>
       </>
     );
   }
-
 }
 
 export default QandA;
+
+// <div>
+// {/* <Questions questionsList={this.state.questionsList} searchList={this.state.searchList}/> */}
+// </div>

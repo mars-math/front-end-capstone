@@ -10,6 +10,7 @@ class Search extends React.Component {
     this.state = {
       searchText: '',
       questionList: sampleData,
+      searchList: [],
     };
 
     this.searchClick = this.searchClick.bind(this);
@@ -22,9 +23,10 @@ class Search extends React.Component {
       this.setState({ searchText: e.target.value });
     }
     if (e.target.value.length < 3) {
-      while (this.props.searchList.length) {
-        this.props.searchList.pop();
+      while (this.state.searchList.length) {
+        this.state.searchList.pop();
       }
+      this.setState({searchList: this.state.searchList});
     }
     // console.log(this.state.searchText);
   }
@@ -33,33 +35,32 @@ class Search extends React.Component {
   searchClick(e) {
     e.preventDefault();
     // loop to empty the search array for the next search
-    while (this.props.searchList.length) {
-      this.props.searchList.pop();
+    while (this.state.searchList.length) {
+      this.state.searchList.pop();
     }
     const questionL = this.state.questionList.results;
     // console.log('questionL ', questionL);
     for (let i = 0; i < questionL.length; i++) {
       if (questionL[i].question_body.includes(this.state.searchText)) {
         // this.state.searchList.push(questionL[i]);
-        this.props.searchList.push(questionL[i]);
+        this.state.searchList.push(questionL[i]);
         // this.setState({ searchList: this.state.searchList });
       }
     }
-    console.log('props.searchList inside click ', this.props.searchList);
+    this.setState({searchList: this.state.searchList});
+    // console.log('props.searchList inside click ', this.state.searchList);
   }
 
   // render the questions that correspond to what was entered in the serach field
   render() {
     return (
       <div>
-        {/* {console.log('searchList ', this.props.searchList)} */}
+        {/* {console.log('searchList ', this.state.searchList)} */}
         <form onSubmit={this.searchClick}>
           <input placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.searchChange} />
           <button type="submit">search</button>
         </form>
-        <Questions searchList={this.props.searchList}/>
-        {/* {this.state.questionList.results.map((questions, index) =>
-          <SearchView questions={questions} key={index} />)} */}
+        <Questions searchList={this.state.searchList}/>
       </div>
     );
   }
@@ -67,3 +68,6 @@ class Search extends React.Component {
 
 export default Search;
 // {console.log('questionList ', this.state.questionList.results)}
+
+// {/* {this.state.questionList.results.map((questions, index) =>
+//   <SearchView questions={questions} key={index} />)} */}

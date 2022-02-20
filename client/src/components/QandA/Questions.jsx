@@ -9,7 +9,6 @@ class Questions extends React.Component {
       moreQuestions: false,
       questionList: sampleData, // to be replaced by axios data
       sortedQuestions: [],
-      searchResults: [],
     };
 
     this.moreQuestionsClick = this.moreQuestionsClick.bind(this);
@@ -30,15 +29,8 @@ class Questions extends React.Component {
     this.state.sortedQuestions = sortedQArray;
     // console.log('sortedquestions state ', this.state.sortedQuestions);
     // console.log('sorted array ', sortedQArray);
-
-    // if (this.props.searchList.length > 0) {
-    //   sortedQArray = this.props.searchList;
-    // } else {
-    //   sortedQArray = questionArray.sort(this.sortHelper);
-    // }
-    console.log('props.searchList inside questions ', this.props.searchList);
-    console.log('sortedQArray inside showQs ', sortedQArray);
-
+    // console.log('props.searchList inside questions ', this.props.searchList);
+    // console.log('sortedQArray inside showQs ', sortedQArray);
 
     if (sortedQArray.length > 4 && this.state.moreQuestions === false) {
       return (
@@ -91,6 +83,7 @@ class Questions extends React.Component {
     return <></>;
   }
 
+  // determine if the search filter list or main question list will display
   questionsOrSearchDisplay() {
     if (this.props.searchList.length > 0) {
       return this.showQuestions(this.props.searchList);
@@ -104,7 +97,6 @@ class Questions extends React.Component {
     return (
       <div>
         {this.questionsOrSearchDisplay()}
-        {/* {this.showQuestions(this.state.questionList.results)} */}
         {this.moreQuestionsDisplay()}
         <button>Add a Question</button>
       </div>
@@ -113,6 +105,8 @@ class Questions extends React.Component {
 }
 
 export default Questions;
+
+// {/* {this.showQuestions(this.state.questionList.results)} */}
 // {console.log('questionList ', this.state.questionList.results)}
 // {console.log('questionList.results ', this.state.questionList.results)}
 
@@ -129,3 +123,9 @@ export default Questions;
 // answers={questions.answers}/>
 // )} */}
 // {/* <button onClick={this.moreQuestionsClick}>More Answered Questions</button> */}
+
+// if (this.props.searchList.length > 0) {
+//   sortedQArray = this.props.searchList;
+// } else {
+//   sortedQArray = questionArray.sort(this.sortHelper);
+// }
