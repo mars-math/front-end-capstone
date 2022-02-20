@@ -3,8 +3,6 @@ import React from 'react';
 function CharBreakdown(props) {
   const { chars } = props;
 
-  console.log(Math.trunc(Number(chars.value)));
-
   const containerStyles = {
     // display: 'inline-flex',
     height: 15,
@@ -31,7 +29,7 @@ function CharBreakdown(props) {
   return (
     <div>
       {[...Array(5)].map((whatever, index) => (
-        <div style={{}}>
+        <div style={{}} key={chars.id, index}>
           <div style={{ float: 'left' }}>{index + 1}</div>
           <div style={containerStyles}>
             <div style={Math.trunc(Number(chars.value)) === index + 1 ? fillerStyles : {}} />

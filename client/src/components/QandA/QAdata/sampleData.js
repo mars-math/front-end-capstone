@@ -56,7 +56,7 @@ export default {
           "question_body": "Where is this product made?",
           "question_date": "2017-02-06T00:00:00.000Z",
           "asker_name": "cleopatra",
-          "question_helpfulness": 3,
+          "question_helpfulness": 9,
           "reported": false,
           "answers": {
               "3257789": {
@@ -77,33 +77,33 @@ export default {
               }
           }
       },
-      // {
-      //     "question_id": 563209,
-      //     "question_body": "as",
-      //     "question_date": "2022-01-02T00:00:00.000Z",
-      //     "asker_name": "asda",
-      //     "question_helpfulness": 2,
-      //     "reported": false,
-      //     "answers": {}
-      // },
-      // {
-      //     "question_id": 573364,
-      //     "question_body": "another test post question",
-      //     "question_date": "2022-02-17T00:00:00.000Z",
-      //     "asker_name": "test2",
-      //     "question_helpfulness": 0,
-      //     "reported": false,
-      //     "answers": {}
-      // },
-      // {
-      //     "question_id": 573363,
-      //     "question_body": "test post question",
-      //     "question_date": "2022-02-17T00:00:00.000Z",
-      //     "asker_name": "test1",
-      //     "question_helpfulness": 0,
-      //     "reported": false,
-      //     "answers": {}
-      // }
+      {
+          "question_id": 563209,
+          "question_body": "as",
+          "question_date": "2022-01-02T00:00:00.000Z",
+          "asker_name": "asda",
+          "question_helpfulness": 2,
+          "reported": false,
+          "answers": {}
+      },
+      {
+          "question_id": 573364,
+          "question_body": "another test post question",
+          "question_date": "2022-02-17T00:00:00.000Z",
+          "asker_name": "test2",
+          "question_helpfulness": 5,
+          "reported": false,
+          "answers": {}
+      },
+      {
+          "question_id": 573363,
+          "question_body": "test post question",
+          "question_date": "2022-02-17T00:00:00.000Z",
+          "asker_name": "test1",
+          "question_helpfulness": 7,
+          "reported": false,
+          "answers": {}
+      }
   ]
 }
 
