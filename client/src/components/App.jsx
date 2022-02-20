@@ -18,8 +18,8 @@ class App extends React.Component {
         <h1>Kloth</h1>
         <Overview />
         <RatingBreakdown />
-        <RelatedItems renderedId={'42368'}/>
-        <OutfitList /> {/* pass in a prop from the window.LocalStorage object*/}
+        {/* <RelatedItems overviewId={'42368'}/> */}
+        <OutfitList overviewId={'42368'}/>
         <div>
           <QandA />
         </div>
