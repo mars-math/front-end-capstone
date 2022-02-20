@@ -7,42 +7,53 @@ export default function StyleSelector () {
   const firstStyleId = stylesData[0].style_id;
   const[first, setFirst] = useState(firstStyleId);
   const[display, setDisplay] = useState(stylesData);
-  var copyStylesData = display.slice(0, display.length);
 
 
   //how many rows
-  var rows = Math.ceil(copyStylesData.length / 4);
+  var rows = Math.ceil(stylesData.length / 4);
+  var startIndex = 0;
 
   //what data to pass down to each row
-  function renderRow(data) {
-    if (data.length / 4 > 1) {
-      var toPrint = data.slice(0, 4);
-      data.splice(0, 4);
+  function renderRow(data, rows) {
+    if (data.length - startIndex > 4) {
+      var toPrint = data.slice(startIndex, startIndex + 4);
+      startIndex = startIndex + 4;
       return toPrint;
     } else {
-      return data;
+      var remainingToPrint = data.slice(startIndex, data.length);
+      return remainingToPrint;
     }
+
   };
+
+  function changeDisplay(first) {
+    setDisplay(([...prev]) =>
+      // let copyPrev = [...prev];
+      // for (var j in display) {
+      //   if(prev[j].style_id === first) {
+      //     copyPrev.splice(j, 1);
+      //     copyPrev.shift(prev[j]);
+      //     break;
+      //   }
+      // }
+      [...prev, prev[first]]
+    );
+  }
 
   function changeFirst(e) {
     e.preventDefault();
     setFirst(e.target.id);
-    console.log(first);
+    changeDisplay(e.target.id);
   }
 
-  // function changeDisplay(first) {
-  //   setDisplay((prev) => {
-  //     prev.splice(prev.indexOf(first), 1);
-  //     prev.shift(first);
-  //   })
-  // }
 
   return (
     <>STYLE -> Selected_Style
       {[...Array(rows)].map((row, index) =>
       <Row
       key={`row${index}`}
-      rowData={renderRow(copyStylesData)}
+      rowData={renderRow(display)}
+      rows={rows}
       onClick={changeFirst}
       />)}
 
