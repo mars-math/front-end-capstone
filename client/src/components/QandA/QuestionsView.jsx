@@ -8,11 +8,13 @@ class QuestionsView extends React.Component {
     this.state = {
       moreAnswers: false,
       sortedAnswers: [],
+      clickedHelpful: false,
     }
 
     this.showAnswers = this.showAnswers.bind(this);
     this.loadAnswersClick = this.loadAnswersClick.bind(this);
     this.loadTextChange = this.loadTextChange.bind(this);
+    this.clickHelpful = this.clickHelpful.bind(this);
   }
 
   // render 4 answers till more are clicked
@@ -68,13 +70,31 @@ class QuestionsView extends React.Component {
     }
   }
 
+  clickHelpful() {
+    console.log('clicked yes');
+    if (this.state.clickedHelpful) {
+      // axios post to change the value
+      // axios get to retrieve the new value
+      this.props.quesitons.question_helpfulness -= 1;
+      this.setState({ clickedHelpful: !this.state.clickedHelpful });
+    } else {
+      // axios post to change the value
+      // axios get to retrieve the new value
+      this.props.questions.question_helpfulness += 1;
+      this.setState({ clickedHelpful: !this.state.clickedHelpful });
+    }
+  }
+
   render() {
     return (
       <div>
         <div class='question-list'>
           Q:  {this.props.questions.question_body}
-          <span>   Helpful?  <u>Yes</u> ({this.props.questions.question_helpfulness})    |</span>
-          <span>    <u>Add Answer</u></span>
+          <span class='questions-helpful'> Helpful?
+            <span onClick={this.clickHelpful}>  <u>Yes</u>  </span>
+            ({this.props.questions.question_helpfulness})
+            <span>  |  <u>Add Answer</u></span>
+          </span>
         </div>
         <div>
           <span>A:</span>

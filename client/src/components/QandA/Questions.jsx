@@ -7,7 +7,8 @@ class Questions extends React.Component {
     super(props);
     this.state = {
       moreQuestions: false,
-      questionList: sampleData, // to be replaced by axios data
+      questionList: sampleData, // change props to state to use sampleData
+      // questionList: [],
       sortedQuestions: [],
     };
 
@@ -16,6 +17,8 @@ class Questions extends React.Component {
     this.showQuestions = this.showQuestions.bind(this);
     this.questionsOrSearchDisplay = this.questionsOrSearchDisplay.bind(this);
   }
+
+  // issue is that props are showing up on second render and giving an error for sorting updenfine
   // helper function to sort questions by helpfulness
   sortHelper(a, b) {
     return parseInt(b.question_helpfulness) - parseInt(a.question_helpfulness);
@@ -24,6 +27,7 @@ class Questions extends React.Component {
   // render only 2 questions till more are selected
   showQuestions(questionL) {
     const questionArray = questionL;
+    // const questionArray = questionL;
     // const sortedQArray = questionArray.sort(this.sortHelper);
     var sortedQArray = questionArray.sort(this.sortHelper);
     this.state.sortedQuestions = sortedQArray;
@@ -96,6 +100,7 @@ class Questions extends React.Component {
   render() {
     return (
       <div>
+        {console.log('props qList ', this.props.questionList)}
         {this.questionsOrSearchDisplay()}
         {this.moreQuestionsDisplay()}
         <button>Add a Question</button>
