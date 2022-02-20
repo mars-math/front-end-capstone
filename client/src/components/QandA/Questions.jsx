@@ -7,7 +7,7 @@ class Questions extends React.Component {
     super(props);
     this.state = {
       moreQuestions: false,
-      questionList: sampleData, // change props to state to use sampleData
+      // questionList: sampleData, // change props to state to use sampleData
       // questionList: [],
       sortedQuestions: [],
     };
@@ -74,7 +74,7 @@ class Questions extends React.Component {
 
   // render more questions
   moreQuestionsDisplay() {
-    if (this.state.questionList.results.length > 0) {
+    if (this.props.questionList.results.length > 0) {
       if (this.state.moreQuestions) {
         return (
           <button onClick={this.moreQuestionsClick}>Less Answered Questions</button>
@@ -92,7 +92,7 @@ class Questions extends React.Component {
     if (this.props.searchList.length > 0) {
       return this.showQuestions(this.props.searchList);
     } else {
-      return this.showQuestions(this.state.questionList.results);
+      return this.showQuestions(this.props.questionList.results);
     }
   }
 

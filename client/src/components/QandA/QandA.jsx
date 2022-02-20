@@ -11,7 +11,7 @@ class QandA extends React.Component {
     this.state = {
       searchText: '',
       // questionList: sampleData,
-      questionList: [],
+      questionList: sampleData,
       searchList: [],
     };
 
@@ -33,7 +33,7 @@ class QandA extends React.Component {
       .then((data) => {
         // console.log('data ', data);
         this.setState({ questionList: data.data });
-        // console.log('qList imported ', this.state.questionList);
+        console.log('qList imported ', this.state.questionList);
       })
       .catch((err) => {
         console.log(err);
