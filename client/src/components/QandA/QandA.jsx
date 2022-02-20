@@ -34,10 +34,9 @@ class QandA extends React.Component {
         <h3>Questions &amp; Answers</h3>
         <div>
           <Search questionsList={this.state.questionsList} searchList={this.state.searchList}/>
-          {this.state.searchList = []}
         </div>
         <div>
-          <Questions questionsList={this.state.questionsList} searchList={this.state.searchList}/>
+          {/* <Questions questionsList={this.state.questionsList} searchList={this.state.searchList}/> */}
         </div>
       </>
     );

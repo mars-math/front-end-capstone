@@ -36,7 +36,7 @@ class Questions extends React.Component {
     // } else {
     //   sortedQArray = questionArray.sort(this.sortHelper);
     // }
-
+    console.log('props.searchList inside questions ', this.props.searchList);
     console.log('sortedQArray inside showQs ', sortedQArray);
 
 
@@ -93,9 +93,9 @@ class Questions extends React.Component {
 
   questionsOrSearchDisplay() {
     if (this.props.searchList.length > 0) {
-      {this.showQuestions(this.props.searchList)}
+      return this.showQuestions(this.props.searchList);
     } else {
-      {this.showQuestions(this.state.questionList.results)}
+      return this.showQuestions(this.state.questionList.results);
     }
   }
 
@@ -103,8 +103,8 @@ class Questions extends React.Component {
   render() {
     return (
       <div>
-        {/* {this.questionsOrSearchDisplay} */}
-        {this.showQuestions(this.state.questionList.results)}
+        {this.questionsOrSearchDisplay()}
+        {/* {this.showQuestions(this.state.questionList.results)} */}
         {this.moreQuestionsDisplay()}
         <button>Add a Question</button>
       </div>

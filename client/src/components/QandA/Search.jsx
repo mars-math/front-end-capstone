@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchView from './SearchView.jsx';
 import sampleData from './QAdata/sampleData.js';
+import Questions from './Questions.jsx';
 // check font awesome for search icon?
 
 class Search extends React.Component {
@@ -25,7 +26,7 @@ class Search extends React.Component {
         this.props.searchList.pop();
       }
     }
-    console.log(this.state.searchText);
+    // console.log(this.state.searchText);
   }
 
   // click the search button function
@@ -36,7 +37,7 @@ class Search extends React.Component {
       this.props.searchList.pop();
     }
     const questionL = this.state.questionList.results;
-    console.log('questionL ', questionL);
+    // console.log('questionL ', questionL);
     for (let i = 0; i < questionL.length; i++) {
       if (questionL[i].question_body.includes(this.state.searchText)) {
         // this.state.searchList.push(questionL[i]);
@@ -44,20 +45,21 @@ class Search extends React.Component {
         // this.setState({ searchList: this.state.searchList });
       }
     }
-    console.log('props.searchList ', this.props.searchList);
+    console.log('props.searchList inside click ', this.props.searchList);
   }
 
   // render the questions that correspond to what was entered in the serach field
   render() {
     return (
       <div>
-        {console.log('searchList ', this.props.searchList)}
+        {/* {console.log('searchList ', this.props.searchList)} */}
         <form onSubmit={this.searchClick}>
           <input placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.searchChange} />
           <button type="submit">search</button>
         </form>
-        {this.state.questionList.results.map((questions, index) =>
-          <SearchView questions={questions} key={index} />)}
+        <Questions searchList={this.props.searchList}/>
+        {/* {this.state.questionList.results.map((questions, index) =>
+          <SearchView questions={questions} key={index} />)} */}
       </div>
     );
   }
