@@ -1,5 +1,6 @@
 import React from 'react';
 import QuestionsView from './QuestionsView.jsx';
+import AddQuestion from './AddQuestion.jsx';
 // import sampleData from './QAdata/sampleData.js';
 
 class Questions extends React.Component {
@@ -10,12 +11,14 @@ class Questions extends React.Component {
       // questionList: sampleData, // change props to state to use sampleData
       // questionList: [],
       sortedQuestions: [],
+      showAddQ: false,
     };
 
     this.moreQuestionsClick = this.moreQuestionsClick.bind(this);
     this.moreQuestionsDisplay = this.moreQuestionsDisplay.bind(this);
     this.showQuestions = this.showQuestions.bind(this);
     this.questionsOrSearchDisplay = this.questionsOrSearchDisplay.bind(this);
+    this.clickAddQuestion = this.clickAddQuestion.bind(this);
   }
 
   // issue is that props are showing up on second render and giving an error for sorting updenfine
@@ -96,13 +99,19 @@ class Questions extends React.Component {
     }
   }
 
+  // handle the state for the add question pop out
+  clickAddQuestion() {
+
+  }
+
   // render the questions that correspond to what was entered in the serach field
   render() {
     return (
       <div>
         {this.questionsOrSearchDisplay()}
         {this.moreQuestionsDisplay()}
-        <button>Add a Question</button>
+        <button onClick={this.clickAddQuestion}>Add a Question</button>
+        <AddQuestion showAddQ={this.state.showAddQ}/>
       </div>
     );
   }
