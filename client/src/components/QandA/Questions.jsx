@@ -23,7 +23,6 @@ class Questions extends React.Component {
     this.clickAddQuestion = this.clickAddQuestion.bind(this);
   }
 
-  // issue is that props are showing up on second render and giving an error for sorting updenfine
   // helper function to sort questions by helpfulness
   sortHelper(a, b) {
     return parseInt(b.question_helpfulness) - parseInt(a.question_helpfulness);
@@ -32,14 +31,8 @@ class Questions extends React.Component {
   // render only 2 questions till more are selected
   showQuestions(questionL) {
     const questionArray = questionL;
-    // const questionArray = questionL;
-    // const sortedQArray = questionArray.sort(this.sortHelper);
-    var sortedQArray = questionArray.sort(this.sortHelper);
+    const sortedQArray = questionArray.sort(this.sortHelper);
     this.state.sortedQuestions = sortedQArray;
-    // console.log('sortedquestions state ', this.state.sortedQuestions);
-    // console.log('sorted array ', sortedQArray);
-    // console.log('props.searchList inside questions ', this.props.searchList);
-    // console.log('sortedQArray inside showQs ', sortedQArray);
 
     if (sortedQArray.length > 4 && this.state.moreQuestions === false) {
       return (
@@ -54,8 +47,8 @@ class Questions extends React.Component {
           ))}
         </>
       );
-    } if (sortedQArray.length > 0 && this.state.moreQuestions === true
-    || sortedQArray.length > 0 && this.state.moreQuestions === false) {
+    } if ((sortedQArray.length > 0 && this.state.moreQuestions === true)
+    || (sortedQArray.length > 0 && this.state.moreQuestions === false)) {
       return (
         <>
           {sortedQArray.map((questions, index) => (
@@ -96,9 +89,8 @@ class Questions extends React.Component {
   questionsOrSearchDisplay() {
     if (this.props.searchList.length > 0) {
       return this.showQuestions(this.props.searchList);
-    } else {
-      return this.showQuestions(this.props.questionList.results);
     }
+    return this.showQuestions(this.props.questionList.results);
   }
 
   // handle the state for the add question pop out
@@ -108,12 +100,18 @@ class Questions extends React.Component {
 
   showAddQuestion() {
     if (this.state.showAddQ) {
-      return (<AddQuestion showAddQ={this.state.showAddQ}
-        closeAddQuestion={this.clickAddQuestion}/>);
-    } else {
-      return <></>;
+      return (
+        <AddQuestion
+          showAddQ={this.state.showAddQ}
+          closeAddQuestion={this.clickAddQuestion}
+          productID={this.props.questionList.product_id}
+          getItemInfo={this.props.getItemInfo}
+        />
+      );
     }
+    return <></>;
   }
+
   // render the questions that correspond to what was entered in the serach field
   render() {
     return (

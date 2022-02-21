@@ -33,20 +33,15 @@ class QuestionsView extends React.Component {
     if (this.state.sortedAnswers.length > 2 && this.state.moreAnswers === false) {
       return (
         <>
-          {this.state.sortedAnswers.slice(0, 2).map((sortedAns, index) =>
-            <AnswersView answer={sortedAns.k} key={index} />
-          )}
+          {this.state.sortedAnswers.slice(0, 2).map((sortedAns, index) => <AnswersView answer={sortedAns.k} key={index} />)}
         </>
       );
     } else if (this.state.sortedAnswers.length > 0 && this.state.moreAnswers === true
       || this.state.sortedAnswers.length > 0 && this.state.moreAnswers === false) {
       return (
-      <>
-        {this.state.sortedAnswers.map((sortedAns, index) =>
-          <AnswersView answer={sortedAns.k} key={index} />
-
-        )}
-      </>
+        <>
+          {this.state.sortedAnswers.map((sortedAns, index) => <AnswersView answer={sortedAns.k} key={index} />)}
+        </>
       );
     } else {
       return <></>;
@@ -79,12 +74,12 @@ class QuestionsView extends React.Component {
           Authorization: API_KEY,
         },
       })
-      .then((results) => {
-        console.log('results ', results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((results) => {
+          console.log('results ', results);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       this.setState({ clickedHelpful: !this.state.clickedHelpful });
     }
   }
@@ -100,12 +95,27 @@ class QuestionsView extends React.Component {
   render() {
     return (
       <div>
-        <div class='question-list'>
-          Q:  {this.props.questions.question_body}
-          <span class='questions-helpful'> Helpful?
-            <span onClick={this.clickHelpful}>  <u>Yes</u>  </span>
-            ({this.helpfulCounterDisplay()})
-            <span>  |  <u>Add Answer</u></span>
+        <div className="question-list">
+          Q:
+          {' '}
+          {this.props.questions.question_body}
+          <span className="questions-helpful">
+            {' '}
+            Helpful?
+            <span onClick={this.clickHelpful}>
+              {' '}
+              <u>Yes</u>
+              {' '}
+            </span>
+            (
+            {this.helpfulCounterDisplay()}
+            )
+            <span>
+              {' '}
+              |
+              {' '}
+              <u>Add Answer</u>
+            </span>
           </span>
         </div>
         <div>
@@ -113,7 +123,8 @@ class QuestionsView extends React.Component {
 
           <span>{this.showAnswers(this.props.answers)}</span>
 
-          <div class='load-answers' onClick={this.loadAnswersClick}><b>{this.loadTextChange()}</b>
+          <div className="load-answers" onClick={this.loadAnswersClick}>
+            <b>{this.loadTextChange()}</b>
           </div>
         </div>
       </div>

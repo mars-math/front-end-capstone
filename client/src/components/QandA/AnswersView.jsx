@@ -21,12 +21,12 @@ class AnswersView extends React.Component {
           Authorization: API_KEY,
         },
       })
-      .then((results) => {
-        console.log('results ', results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((results) => {
+          console.log('results ', results);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       this.setState({ clickedHelpfulA: !this.state.clickedHelpfulA });
     }
   }
@@ -34,22 +34,45 @@ class AnswersView extends React.Component {
   helpfulACounterDisplay() {
     if (this.state.clickedHelpfulA) {
       return (<>{ this.props.answer.helpfulness }</>);
-    } else {
-      return (<>{ this.props.answer.helpfulness + 1 }</>);
     }
+    return (<>{ this.props.answer.helpfulness + 1 }</>);
   }
 
   render() {
     return (
       <>
-        <span class='answer-list'>{this.props.answer.body}</span>
-        <div class='answer-footer'>
-          <span>by {this.props.answer.answerer_name}</span>
-          <span>    date {new Date(this.props.answer.date).toLocaleString().split(",")[0]} |</span>
+        <span className="answer-list">{this.props.answer.body}</span>
+        <div className="answer-footer">
+          <span>
+            by
+            {' '}
+            {this.props.answer.answerer_name}
+          </span>
+          <span>
+            {' '}
+            date
+            {' '}
+            {new Date(this.props.answer.date).toLocaleString().split(',')[0]}
+            {' '}
+            |
+          </span>
           <span>    Helpful?  </span>
-          <span onClick={this.clickHelpfulA}><u>Yes</u> </span>
-          <span>({this.helpfulACounterDisplay()})</span>
-          <span>     |  <u>Report</u> </span>
+          <span onClick={this.clickHelpfulA}>
+            <u>Yes</u>
+            {' '}
+          </span>
+          <span>
+            (
+            {this.helpfulACounterDisplay()}
+            )
+          </span>
+          <span>
+            {' '}
+            |
+            {' '}
+            <u>Report</u>
+            {' '}
+          </span>
         </div>
       </>
     );

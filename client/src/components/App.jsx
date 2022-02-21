@@ -23,8 +23,8 @@ class App extends React.Component {
         <h1>Kloth</h1>
         <Overview />
         <RatingBreakdown />
-        <RelatedItems overviewId={'42368'}/>
-        <OutfitList overviewId={'42368'}/>
+        <RelatedItems overviewId="42368" />
+        <OutfitList overviewId="42368" />
         <div>
           <QandA />
         </div>
