@@ -42,7 +42,6 @@ class AnswersView extends React.Component {
   render() {
     return (
       <>
-        {console.log('answer ', this.props.answer)}
         <span class='answer-list'>{this.props.answer.body}</span>
         <div class='answer-footer'>
           <span>by {this.props.answer.answerer_name}</span>
@@ -58,4 +57,5 @@ class AnswersView extends React.Component {
 }
 
 export default AnswersView;
+// {console.log('answer ', this.props.answer)}
 // {console.log('answers in AV ', this.props.answer)}
