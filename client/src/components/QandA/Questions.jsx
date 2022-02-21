@@ -1,6 +1,6 @@
 import React from 'react';
 import QuestionsView from './QuestionsView.jsx';
-import sampleData from './QAdata/sampleData.js';
+// import sampleData from './QAdata/sampleData.js';
 
 class Questions extends React.Component {
   constructor(props) {

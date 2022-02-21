@@ -1,5 +1,7 @@
 /* eslint-disable no-else-return */
 import React from 'react';
+import axios from 'axios';
+import API_KEY from '../../../../config/config.js';
 import AnswersView from './AnswersView.jsx';
 
 class QuestionsView extends React.Component {
@@ -8,13 +10,14 @@ class QuestionsView extends React.Component {
     this.state = {
       moreAnswers: false,
       sortedAnswers: [],
-      clickedHelpful: false,
+      clickedHelpful: true,
     }
 
     this.showAnswers = this.showAnswers.bind(this);
     this.loadAnswersClick = this.loadAnswersClick.bind(this);
     this.loadTextChange = this.loadTextChange.bind(this);
     this.clickHelpful = this.clickHelpful.bind(this);
+    this.helpfulCounterDisplay = this.helpfulCounterDisplay.bind(this);
   }
 
   // render 4 answers till more are clicked
@@ -59,40 +62,58 @@ class QuestionsView extends React.Component {
   loadTextChange() {
     if (Object.keys(this.props.answers).length > 2) {
       if (this.state.moreAnswers) {
-
         return <>Collapse answers</>;
       } else {
         return <>See more answers</>;
-
       }
     } else {
       return <></>;
     }
   }
 
-  clickHelpful() {
-    console.log('clicked yes');
+  clickHelpful(e) {
+    // console.log('clicked yes');
+    console.log('helpfull value before ', this.props.questions.question_helpfulness);
+    // console.log('qID ', this.props.questions.question_id);
+    const qID = this.props.questions.question_id;
+    // console.log('qID ', qID);
+    // console.log(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions/${qID}/helpful`);
     if (this.state.clickedHelpful) {
-      // axios post to change the value
-      // axios get to retrieve the new value
-      this.props.quesitons.question_helpfulness -= 1;
+      axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions/${qID}/helpful`, {
+        headers: {
+          Authorization: API_KEY,
+        },
+      })
+      .then((results) => {
+        console.log('results ', results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      // this.props.quesitons.question_helpfulness -= 1;
       this.setState({ clickedHelpful: !this.state.clickedHelpful });
+      console.log('helpfull value after ', this.props.questions.question_helpfulness);
+    }
+  }
+
+  helpfulCounterDisplay() {
+    if (this.state.clickedHelpful) {
+      return (<>{ this.props.questions.question_helpfulness }</>);
     } else {
-      // axios post to change the value
-      // axios get to retrieve the new value
-      this.props.questions.question_helpfulness += 1;
-      this.setState({ clickedHelpful: !this.state.clickedHelpful });
+      return (<>{ this.props.questions.question_helpfulness + 1} </>);
     }
   }
 
   render() {
     return (
       <div>
+        {/* {console.log('this.props.questions ', this.props.questions)} */}
         <div class='question-list'>
           Q:  {this.props.questions.question_body}
           <span class='questions-helpful'> Helpful?
             <span onClick={this.clickHelpful}>  <u>Yes</u>  </span>
-            ({this.props.questions.question_helpfulness})
+            ({this.helpfulCounterDisplay()})
+            {/* ({this.props.questions.question_helpfulness}) */}
             <span>  |  <u>Add Answer</u></span>
           </span>
         </div>
@@ -107,7 +128,6 @@ class QuestionsView extends React.Component {
       </div>
     );
   }
-
 }
 
 export default QuestionsView;
