@@ -33,7 +33,7 @@ class QandA extends React.Component {
       .then((data) => {
         // console.log('data ', data);
         this.setState({ questionList: data.data });
-        console.log('qList imported ', this.state.questionList);
+        // console.log('qList imported ', this.state.questionList);
       })
       .catch((err) => {
         console.log(err);
@@ -65,9 +65,8 @@ class QandA extends React.Component {
     // console.log('questionL ', questionL);
     for (let i = 0; i < questionL.length; i++) {
       if (questionL[i].question_body.includes(this.state.searchText)) {
-        // this.state.searchList.push(questionL[i]);
         this.state.searchList.push(questionL[i]);
-        // this.setState({ searchList: this.state.searchList });
+        this.setState({ searchList: this.state.searchList });
       }
     }
     this.setState({searchList: this.state.searchList});

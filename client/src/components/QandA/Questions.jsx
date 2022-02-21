@@ -100,7 +100,6 @@ class Questions extends React.Component {
   render() {
     return (
       <div>
-        {console.log('props qList ', this.props.questionList)}
         {this.questionsOrSearchDisplay()}
         {this.moreQuestionsDisplay()}
         <button>Add a Question</button>
