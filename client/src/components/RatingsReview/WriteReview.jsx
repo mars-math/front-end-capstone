@@ -12,9 +12,6 @@ function WriteReview(props) {
   const [postObj, setPostObj] = useState({});
   const [charObj, setCharObj] = useState({});
 
-  console.log(postObj);
-  console.log(charObj);
-
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;
 
@@ -35,7 +32,7 @@ function WriteReview(props) {
 
   function buildCharObj(key, value) {
     const copyObj = { ...charObj };
-    copyObj[key] = value;
+    copyObj[key] = Number(value);
     setCharObj(copyObj);
   }
 
@@ -87,10 +84,27 @@ function WriteReview(props) {
     }
   }
 
-  function buildPost(key, value) {
+  const buildPost = (key, value) => {
     const copyObj = { ...postObj };
     copyObj[key] = value;
     setPostObj(copyObj);
+  };
+
+  function postSubmit(e) {
+    e.preventDefault();
+    if (postObj.rating && (postObj.recommend !== undefined) && Object.keys(charObj).length === 4
+    && postObj.body && postObj.name && postObj.email) {
+      const realPostObj = { ...postObj };
+      realPostObj.characteristics = charObj;
+      realPostObj.product_id = 43230;
+      realPostObj.photos = imgUrls;
+      console.log(realPostObj);
+      axios.post('/reviews', realPostObj)
+        .then(() => {
+          togglePopup();
+        })
+        .catch((err) => console.log('Sadge', err));
+    }
   }
 
   return (
@@ -108,9 +122,9 @@ function WriteReview(props) {
             {' '}
             {itemName}
           </h4>
-          <form>
+          <form onSubmit={(e) => postSubmit(e)}>
             {/* --------STAR RATING----------- */}
-            <StarRating />
+            <StarRating buildPost={buildPost} />
             {/* --------RECOMMENDED?----------- */}
             <div>Recommend Product?</div>
             <fieldset onChange={(e) => buildPost('recommend', (e.target.value === 'yes'))}>
@@ -130,12 +144,12 @@ function WriteReview(props) {
             {/* --------SUMMARY----------- */}
             <label htmlFor="summary">Summary:</label>
             <br />
-            <input type="text" name="summary" />
+            <input type="text" name="summary" onChange={(e) => buildPost('summary', e.target.value)} />
             {/* --------BODY----------- */}
             <br />
             <label htmlFor="body">Body:</label>
             <br />
-            <textarea name="body" cols="40" rows="5" />
+            <textarea name="body" cols="40" rows="5" onChange={(e) => buildPost('body', e.target.value)} />
             <br />
             {/* --------IMG----------- */}
             {imgUrls.length > 0 ? imgUrls.map((img, index) => (
@@ -161,12 +175,12 @@ function WriteReview(props) {
             {/* --------NICKNAME----------- */}
             <label htmlFor="nickname">Nickname:</label>
             <br />
-            <input type="text" name="nickname" />
+            <input type="text" name="nickname" onChange={(e) => buildPost('name', e.target.value)} />
             <br />
             {/* --------EMAIL----------- */}
             <label htmlFor="email">Email:</label>
             <br />
-            <input type="text" name="email" />
+            <input type="text" name="email" onChange={(e) => buildPost('email', e.target.value)} />
             <br />
             {/* --------SUBMIT BUTTON----------- */}
             <input type="submit" value="Write Review" />

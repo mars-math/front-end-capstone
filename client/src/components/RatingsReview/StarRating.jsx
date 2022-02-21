@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from 'react';
 import Stars from './ratingexampledata/stars.js';
 
 const {
   fullStar, emptyStar,
 } = Stars;
 
-function StarRating() {
+function StarRating(props) {
+  const { buildPost } = props;
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
+
+  useEffect(() => {
+    buildPost('rating', rating);
+  }, [rating]);
+
   return (
     <div className="star-rating">
       {[...Array(5)].map((star, index) => {
