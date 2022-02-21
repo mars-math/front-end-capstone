@@ -6,15 +6,15 @@ import StyleSelector from './SM-StyleSelector.jsx';
 export default function Overview() {
 
   return (
-    <div class='overview-container'>
-      <div class='image-container'>
+    <div className='overview-container'>
+      <div className='image-container'>
         <ImageGallery/>
       </div>
-        <div class='right-container'>
-          <div class ='productinfo-container'>
+        <div className='right-container'>
+          <div className='productinfo-container'>
             <ProductInfo/>
           </div>
-          <div class='styleselector-container'>
+          <div className='styleselector-container'>
             <StyleSelector/>
           </div>
         </div>
