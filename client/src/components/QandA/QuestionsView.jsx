@@ -11,7 +11,7 @@ class QuestionsView extends React.Component {
       moreAnswers: false,
       sortedAnswers: [],
       clickedHelpful: true,
-    }
+    };
 
     this.showAnswers = this.showAnswers.bind(this);
     this.loadAnswersClick = this.loadAnswersClick.bind(this);
@@ -93,7 +93,7 @@ class QuestionsView extends React.Component {
     if (this.state.clickedHelpful) {
       return (<>{ this.props.questions.question_helpfulness }</>);
     } else {
-      return (<>{ this.props.questions.question_helpfulness + 1} </>);
+      return (<>{ this.props.questions.question_helpfulness + 1}</>);
     }
   }
 

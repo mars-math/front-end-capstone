@@ -51,6 +51,9 @@ class QandA extends React.Component {
       }
       this.setState({searchList: this.state.searchList});
     }
+    if (e.target.value.length === 0) {
+      this.setState({ searchText: '' });
+    }
     // console.log(this.state.searchText);
   }
 
