@@ -7,7 +7,7 @@ export default function StyleSelector () {
   const firstStyleId = stylesData[0].style_id;
   const[first, setFirst] = useState(firstStyleId);
   const[display, setDisplay] = useState(stylesData);
-
+  const[size, setSize] = useState('');
 
   //how many rows
   var rows = Math.ceil(stylesData.length / 4);
@@ -24,7 +24,7 @@ export default function StyleSelector () {
       return remainingToPrint;
     }
 
-  };
+  }
 
   function changeDisplay(first) {
     let copyDisplay = [...display];
@@ -37,15 +37,17 @@ export default function StyleSelector () {
         break;
       }
     }
-
     setDisplay(copyDisplay);
-
   }
 
   function changeFirst(e) {
     e.preventDefault();
     setFirst(e.target.id);
     changeDisplay(e.target.id);
+  }
+
+  function selectSize(e) {
+    setSize(e.target.value);
   }
 
 
@@ -61,18 +63,20 @@ export default function StyleSelector () {
 
       <span>
         <form>
-          <label htmlFor='selectSize'>Select Size </label>
-          <select name='selectSize'>
-            <option>XS</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-            <option>XXL</option>
+          <label htmlFor='selectSize'></label>
+          <select name='selectSize' onChange={(e) => selectSize(e)}>
+            <option select='selected'>Select Size</option>
+            <option value ='XS'>XS</option>
+            <option value='S'>S</option>
+            <option value='M'>M</option>
+            <option value='L'>L</option>
+            <option value='XL'>XL</option>
+            <option value='XXL'>XXL</option>
           </select>
 
-          <label htmlFor='selectQty'> Select Qty </label>
+          <label htmlFor='selectQty'></label>
           <select name='selectQty'>
+            <option>Qty</option>
             <option>1</option>
             <option>2</option>
           </select>
