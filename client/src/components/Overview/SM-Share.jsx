@@ -1,13 +1,21 @@
 import React from 'react';
-// import fb from './fb.png';
+import icons from './SM-icons.js';
+
+const { fb, twitter, pinterest } = icons;
+
+const buttonStyle = {
+  width: '25px',
+  height: '25px',
+  borderRadius: 100
+};
 
 function Share(props) {
   return (
     <div>
       Share
-      <button>fb</button>
-      <button>Twitter</button>
-      <button>Pinterest</button>
+      <a style={buttonStyle} href='https://www.facebook.com/share'><img src='/public/fb.png'/></a>
+      <button style={buttonStyle}>tw</button>
+      <button style={buttonStyle}>pt</button>
     </div>
   );
 

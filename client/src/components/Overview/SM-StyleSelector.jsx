@@ -27,17 +27,19 @@ export default function StyleSelector () {
   };
 
   function changeDisplay(first) {
-    setDisplay(([...prev]) =>
-      // let copyPrev = [...prev];
-      // for (var j in display) {
-      //   if(prev[j].style_id === first) {
-      //     copyPrev.splice(j, 1);
-      //     copyPrev.shift(prev[j]);
-      //     break;
-      //   }
-      // }
-      [...prev, prev[first]]
-    );
+    let copyDisplay = [...display];
+
+    for (var j in copyDisplay) {
+      if(copyDisplay[j].style_id.toString() === first) {
+        let newFirst = copyDisplay[j];
+        copyDisplay.splice(j, 1);
+        copyDisplay.unshift(newFirst);
+        break;
+      }
+    }
+
+    setDisplay(copyDisplay);
+
   }
 
   function changeFirst(e) {
@@ -48,7 +50,7 @@ export default function StyleSelector () {
 
 
   return (
-    <>STYLE -> Selected_Style
+    <>STYLE -> {display[0].name}
       {[...Array(rows)].map((row, index) =>
       <Row
       key={`row${index}`}
