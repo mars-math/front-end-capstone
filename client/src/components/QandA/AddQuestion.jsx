@@ -18,19 +18,20 @@ class AddQuestion extends React.Component {
 
   changeQuestion(e) {
     this.setState({ question: e.target.value });
-    console.log(this.state.question);
+    // console.log(this.state.question);
   }
 
   changeNickname(e) {
     this.setState({ nickname: e.target.value });
-    console.log(this.state.nickname);
+    // console.log(this.state.nickname);
   }
 
   changeEmail(e) {
     this.setState({ email: e.target.value });
-    console.log(this.state.email);
+    // console.log(this.state.email);
   }
 
+  // not updating to the list right away
   submitQuestion(e) {
     e.preventDefault();
     // console.log(this.state.question);
@@ -45,12 +46,12 @@ class AddQuestion extends React.Component {
     })
       .then((response) => {
         console.log(response);
-        this.props.getItemInfo();
+        // this.props.getItemInfo();
       })
       .catch((err) => {
         console.log('make sure you email is in example@email.com format', err);
       });
-
+    // this.props.getItemInfo();
     this.props.closeAddQuestion();
   }
 
