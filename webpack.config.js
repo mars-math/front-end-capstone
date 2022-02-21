@@ -21,4 +21,7 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    contentBase: [__dirname + '/public', __dirname + '/assets'],
+  },
 };

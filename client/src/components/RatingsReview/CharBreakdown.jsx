@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 function CharBreakdown(props) {
@@ -29,7 +31,7 @@ function CharBreakdown(props) {
   return (
     <div>
       {[...Array(5)].map((whatever, index) => (
-        <div style={{}} key={chars.id, index}>
+        <div style={{}} key={`${chars.id} ${index}`}>
           <div style={{ float: 'left' }}>{index + 1}</div>
           <div style={containerStyles}>
             <div style={Math.trunc(Number(chars.value)) === index + 1 ? fillerStyles : {}} />

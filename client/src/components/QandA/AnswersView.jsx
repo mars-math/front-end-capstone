@@ -57,22 +57,9 @@ class AnswersView extends React.Component {
             |
           </span>
           <span>    Helpful?  </span>
-          <span onClick={this.clickHelpfulA}>
-            <u>Yes</u>
-            {' '}
-          </span>
-          <span>
-            (
-            {this.helpfulACounterDisplay()}
-            )
-          </span>
-          <span>
-            {' '}
-            |
-            {' '}
-            <u>Report</u>
-            {' '}
-          </span>
+          <span onClick={this.clickHelpfulA}><u>Yes</u> </span>
+          <span>({this.helpfulACounterDisplay()})</span>
+          <span>     |  <u>Report</u> </span>
         </div>
       </>
     );

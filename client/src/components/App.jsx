@@ -28,7 +28,6 @@ class App extends React.Component {
         <div>
           <QandA />
         </div>
-        {/* <AllReviews /> */}
       </>
     );
   }

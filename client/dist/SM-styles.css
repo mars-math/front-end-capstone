@@ -3,24 +3,34 @@
 .overview-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .right-container {
   display: flex;
   flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
 }
 
 .image-container {
  display: flex;
  flex-direction: column;
+
 }
 
 .productinfo-container {
   display: flex;
   flex-direction: column;
+
 }
 
 .styleselector-container {
   display: flex;
   flex-direction: column;
+}
+
+.productinfo-container {
+  display: flex;
+  flex-wrap: wrap;
 }
