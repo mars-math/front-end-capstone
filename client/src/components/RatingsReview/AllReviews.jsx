@@ -6,6 +6,7 @@ import axios from 'axios';
 import IndividualReview from './IndividualReview.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import API_KEY from '../../../../config/config.js';
+import WriteReview from './WriteReview.jsx';
 
 export default function AllReviews() {
   const [amountToRender, setAmountToRender] = useState(2);
@@ -67,6 +68,7 @@ export default function AllReviews() {
       <div style={{ maxHeight: '850px', overflow: 'auto' }}>
         {slicedRender.map((review, index) => <IndividualReview render={review} key={`review${index}`} />)}
         {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length ? <button type="button" onClick={() => setAmountToRender((prevNum) => prevNum + 2)}>More Reviews</button> : <></>}
+        <WriteReview />
       </div>
       <RatingBreakdown manageFilter={manageFilter} />
     </div>
