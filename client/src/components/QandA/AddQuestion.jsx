@@ -8,7 +8,7 @@ class AddQuestion extends React.Component {
     this.state = {
 
     };
-    this.submitQuestion = this.submitQuestion.bine(this);
+    this.submitQuestion = this.submitQuestion.bind(this);
   }
   submitQuestion() {
 

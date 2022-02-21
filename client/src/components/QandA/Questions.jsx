@@ -19,6 +19,7 @@ class Questions extends React.Component {
     this.showQuestions = this.showQuestions.bind(this);
     this.questionsOrSearchDisplay = this.questionsOrSearchDisplay.bind(this);
     this.clickAddQuestion = this.clickAddQuestion.bind(this);
+    this.showAddQuestion = this.showAddQuestion.bind(this);
   }
 
   // issue is that props are showing up on second render and giving an error for sorting updenfine
@@ -101,9 +102,16 @@ class Questions extends React.Component {
 
   // handle the state for the add question pop out
   clickAddQuestion() {
-
+    this.setState({ showAddQ: !this.state.showAddQ });
   }
 
+  showAddQuestion() {
+    if (this.state.showAddQ) {
+      return (<AddQuestion showAddQ={this.state.showAddQ}/>);
+    } else {
+      return <></>;
+    }
+  }
   // render the questions that correspond to what was entered in the serach field
   render() {
     return (
@@ -111,7 +119,7 @@ class Questions extends React.Component {
         {this.questionsOrSearchDisplay()}
         {this.moreQuestionsDisplay()}
         <button onClick={this.clickAddQuestion}>Add a Question</button>
-        <AddQuestion showAddQ={this.state.showAddQ}/>
+        {this.showAddQuestion()}
       </div>
     );
   }
