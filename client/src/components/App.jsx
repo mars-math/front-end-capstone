@@ -20,15 +20,14 @@ class App extends React.Component {
         {/* <h1>Kloth</h1>
         <ProductInfo /> */}
         {/* <Carousel renderedId={'42368'}/> */}
-        <h1>Kloth</h1>
+        {/* <h1>Kloth</h1>
         <Overview />
         <RatingBreakdown />
         <RelatedItems overviewId={'42368'}/>
         <OutfitList overviewId={'42368'}/>
         <div>
           <QandA />
-        </div>
-        {/* <AllReviews /> */}
+        </div> */}
       </>
     );
   }

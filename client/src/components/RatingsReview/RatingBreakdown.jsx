@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable import/extensions */
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable array-callback-return */
@@ -89,7 +91,13 @@ export default function RatingBreakdown(props) {
         </div>
       )) : <></>}
 
-      {meta.characteristics ? <CharBreakdown chars={meta.characteristics.Fit} /> : <></>}
+      {meta.characteristics ? Object.keys(meta.characteristics).map((char, index) => (
+        <div key={`charBreak ${index}`}>
+          <h4>{char}</h4>
+          <CharBreakdown chars={meta.characteristics[char]} />
+        </div>
+      ))
+        : <></>}
     </>
   );
 }

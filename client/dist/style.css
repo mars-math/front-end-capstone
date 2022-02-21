@@ -57,6 +57,13 @@
   cursor: pointer;
 }
 
+.star-buttons {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 /* Q AND A */
 
 .answer-list {

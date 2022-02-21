@@ -7,30 +7,40 @@
 /* eslint-disable object-curly-spacing */
 /* eslint-disable no-else-return */
 /* eslint-disable import/extensions */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import ReviewImages from './ReviewImages.jsx';
 import Stars from './ratingexampledata/stars.js';
+import API_KEY from '../../../../config/config.js';
 
 const {
   almostStar, quarterStar, halfStar, fullStar, emptyStar,
 } = Stars;
 
 export default function IndividualReview(props) {
-  const [helpfulNum, setHelpfulNum] = useState(0);
+  const {render} = props;
+  const [helpfulNum, setHelpfulNum] = useState(render.helpfulNum);
   const [buttonPressed, setButtonPressed] = useState(true);
   const [toggleBody, setToggleBody] = useState(false);
 
-  const {render} = props;
+  axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
+  axios.defaults.headers.common.Authorization = API_KEY;
 
   // -----MESS WITH STATE FUNCTIONS-------------
   function incrementHelpfulness() {
-    setHelpfulNum((prevHelpfulNum) => prevHelpfulNum + 1);
+    axios.put(`/reviews/${render.review_id}/helpful`)
+      .then(() => setHelpfulNum((prevNum) => prevNum + 1))
+      .catch((err) => console.log(err));
   }
 
   function bodyToggle() {
     setToggleBody(!toggleBody);
   }
+
+  useEffect(() => {
+    setHelpfulNum(render.helpfulness);
+  }, [render]);
   // ------OTHER FUNCTIONS--------------
   function whichStar(rating, index) {
     if (rating >= index + 1) {
@@ -105,6 +115,7 @@ export default function IndividualReview(props) {
         <div>
           <span>
           helpful?
+          {' '}
           {helpfulNum}
           </span>
         {buttonPressed && (
