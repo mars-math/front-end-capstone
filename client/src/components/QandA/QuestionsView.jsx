@@ -1,5 +1,7 @@
 /* eslint-disable no-else-return */
 import React from 'react';
+import axios from 'axios';
+import API_KEY from '../../../../config/config.js';
 import AnswersView from './AnswersView.jsx';
 
 class QuestionsView extends React.Component {
@@ -8,11 +10,14 @@ class QuestionsView extends React.Component {
     this.state = {
       moreAnswers: false,
       sortedAnswers: [],
-    }
+      clickedHelpful: true,
+    };
 
     this.showAnswers = this.showAnswers.bind(this);
     this.loadAnswersClick = this.loadAnswersClick.bind(this);
     this.loadTextChange = this.loadTextChange.bind(this);
+    this.clickHelpful = this.clickHelpful.bind(this);
+    this.helpfulCounterDisplay = this.helpfulCounterDisplay.bind(this);
   }
 
   // render 4 answers till more are clicked
@@ -57,14 +62,38 @@ class QuestionsView extends React.Component {
   loadTextChange() {
     if (Object.keys(this.props.answers).length > 2) {
       if (this.state.moreAnswers) {
-
         return <>Collapse answers</>;
       } else {
         return <>See more answers</>;
-
       }
     } else {
       return <></>;
+    }
+  }
+
+  clickHelpful(e) {
+    const qID = this.props.questions.question_id;
+    if (this.state.clickedHelpful) {
+      axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions/${qID}/helpful`, {
+        headers: {
+          Authorization: API_KEY,
+        },
+      })
+      .then((results) => {
+        console.log('results ', results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      this.setState({ clickedHelpful: !this.state.clickedHelpful });
+    }
+  }
+
+  helpfulCounterDisplay() {
+    if (this.state.clickedHelpful) {
+      return (<>{ this.props.questions.question_helpfulness }</>);
+    } else {
+      return (<>{ this.props.questions.question_helpfulness + 1}</>);
     }
   }
 
@@ -73,8 +102,11 @@ class QuestionsView extends React.Component {
       <div>
         <div class='question-list'>
           Q:  {this.props.questions.question_body}
-          <span>   Helpful?  <u>Yes</u> ({this.props.questions.question_helpfulness})    |</span>
-          <span>    <u>Add Answer</u></span>
+          <span class='questions-helpful'> Helpful?
+            <span onClick={this.clickHelpful}>  <u>Yes</u>  </span>
+            ({this.helpfulCounterDisplay()})
+            <span>  |  <u>Add Answer</u></span>
+          </span>
         </div>
         <div>
           <span>A:</span>
@@ -87,12 +119,11 @@ class QuestionsView extends React.Component {
       </div>
     );
   }
-
 }
 
 export default QuestionsView;
 // {console.log('answers as this.props.answers ', this.props.answers)}
-
+// {/* {console.log('this.props.questions ', this.props.questions)} */}
 // {console.log('answers as this.props.answers ', this.props.answers)}
 
 // {this.props.answerId.map((id, index) =>
