@@ -72,12 +72,7 @@ class QuestionsView extends React.Component {
   }
 
   clickHelpful(e) {
-    // console.log('clicked yes');
-    console.log('helpfull value before ', this.props.questions.question_helpfulness);
-    // console.log('qID ', this.props.questions.question_id);
     const qID = this.props.questions.question_id;
-    // console.log('qID ', qID);
-    // console.log(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions/${qID}/helpful`);
     if (this.state.clickedHelpful) {
       axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions/${qID}/helpful`, {
         headers: {
@@ -90,9 +85,7 @@ class QuestionsView extends React.Component {
       .catch((err) => {
         console.log(err);
       });
-      // this.props.quesitons.question_helpfulness -= 1;
       this.setState({ clickedHelpful: !this.state.clickedHelpful });
-      console.log('helpfull value after ', this.props.questions.question_helpfulness);
     }
   }
 
@@ -107,13 +100,11 @@ class QuestionsView extends React.Component {
   render() {
     return (
       <div>
-        {/* {console.log('this.props.questions ', this.props.questions)} */}
         <div class='question-list'>
           Q:  {this.props.questions.question_body}
           <span class='questions-helpful'> Helpful?
             <span onClick={this.clickHelpful}>  <u>Yes</u>  </span>
             ({this.helpfulCounterDisplay()})
-            {/* ({this.props.questions.question_helpfulness}) */}
             <span>  |  <u>Add Answer</u></span>
           </span>
         </div>
@@ -132,7 +123,7 @@ class QuestionsView extends React.Component {
 
 export default QuestionsView;
 // {console.log('answers as this.props.answers ', this.props.answers)}
-
+// {/* {console.log('this.props.questions ', this.props.questions)} */}
 // {console.log('answers as this.props.answers ', this.props.answers)}
 
 // {this.props.answerId.map((id, index) =>
