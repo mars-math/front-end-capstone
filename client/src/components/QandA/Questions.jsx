@@ -20,6 +20,7 @@ class Questions extends React.Component {
     this.questionsOrSearchDisplay = this.questionsOrSearchDisplay.bind(this);
     this.clickAddQuestion = this.clickAddQuestion.bind(this);
     this.showAddQuestion = this.showAddQuestion.bind(this);
+    this.clickAddQuestion = this.clickAddQuestion.bind(this);
   }
 
   // issue is that props are showing up on second render and giving an error for sorting updenfine
@@ -107,7 +108,8 @@ class Questions extends React.Component {
 
   showAddQuestion() {
     if (this.state.showAddQ) {
-      return (<AddQuestion showAddQ={this.state.showAddQ}/>);
+      return (<AddQuestion showAddQ={this.state.showAddQ}
+        closeAddQuestion={this.clickAddQuestion}/>);
     } else {
       return <></>;
     }
