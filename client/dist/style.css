@@ -134,3 +134,6 @@
   font-size: 11pt;
   margin-bottom: 10px;
 }
+label {
+  display: block;
+}

@@ -12,7 +12,7 @@ export default function ImageGallery() {
   return (
     <>
       <img style={{height: '600px', width: '450px'}} src={`${stylesData[0].photos[0].url}`}></img>
-      <p>{productData[0].description}</p>
+      <p className='product-description'>{productData[0].description}</p>
     </>
   );
 
