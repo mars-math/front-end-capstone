@@ -70,7 +70,7 @@ export default function AllReviews() {
   }, []);
 
   function sortReviews(e) {
-    if (e.target.value === 'most recent') {
+    if (e.target.value === 'most recent ▼') {
       const renderByDate = [...renderedReviews];
       renderByDate.sort((a, b) => -a.date.localeCompare(b.date));
       setRenderedReviews(renderByDate);
@@ -82,20 +82,22 @@ export default function AllReviews() {
   }
 
   return (
-    <div>
-      <div style={{ display: 'flex' }}>
-        <div>{`${renderedReviews.length} reviews, sorted by`}</div>
-        <select onChange={(e) => sortReviews(e)}>
-          <option value="most recent">most recent</option>
-          <option value="most helpful">most helpful</option>
-        </select>
-      </div>
-      <div style={{ maxHeight: '850px', overflow: 'auto' }}>
+    <div className="all-review-components">
+      <div className="individual-reviews" style={{ maxHeight: '601px', overflow: 'auto' }}>
+        <div style={{ display: 'flex', fontSize: '20px' }}>
+          <div>{`${renderedReviews.length} reviews, sorted by`}</div>
+          <select className="review-dropdown" onChange={(e) => sortReviews(e)}>
+            <option value="most recent ▼">most recent</option>
+            <option value="most helpful ▼">most helpful</option>
+          </select>
+        </div>
         {slicedRender.map((review, index) => <IndividualReview render={review} key={`review${index}`} />)}
         {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length ? <button type="button" onClick={() => setAmountToRender((prevNum) => prevNum + 2)}>More Reviews</button> : <></>}
         <WriteReview />
       </div>
-      <RatingBreakdown manageFilter={manageFilter} />
+      <div className="rating-breakdown">
+        <RatingBreakdown manageFilter={manageFilter} />
+      </div>
     </div>
 
   );

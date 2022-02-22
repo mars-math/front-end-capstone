@@ -1,5 +1,6 @@
 /* REVIEWS AND RATINGS */
 .popup-box {
+  z-index: 5;
   position: fixed;
   background: #00000050;
   width: 100%;
@@ -39,10 +40,20 @@
 }
 
 .individual-review {
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 20px;
   margin-top: 20px;
   width: 500px;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.ind-top-row {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 5px ;
 }
 
 .star-filter-button {
@@ -63,6 +74,49 @@
   outline: none;
   cursor: pointer;
 }
+
+.review-dropdown {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.all-review-components {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-evenly;
+}
+
+.individual-reviews {
+  order: 1;
+  margin-left: 0%;
+}
+
+.rating-breakdown {
+  order: 0;
+  flex-grow: 4;
+  margin-right: 20px;
+  max-width: 30%;
+}
+
+.total-stars-render {
+  display: flex;
+  align-items: baseline
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+}
+
+.char-breakdown-bar {
+  display: flex;
+}
+
 
 /* Q AND A */
 

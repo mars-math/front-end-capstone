@@ -6,9 +6,8 @@ function CharBreakdown(props) {
   const { chars } = props;
 
   const containerStyles = {
-    // display: 'inline-flex',
     height: 15,
-    width: '5%',
+    width: 65,
     backgroundColor: '#e0e0de',
     borderRadius: 5,
     margin: 2,
@@ -17,7 +16,7 @@ function CharBreakdown(props) {
 
   const fillerStyles = {
     position: 'relative',
-    left: '45%',
+    left: '40%',
     bottom: '10%',
     width: 0,
     borderLeft: '5px solid transparent',
@@ -29,10 +28,15 @@ function CharBreakdown(props) {
   };
 
   return (
-    <div>
+    <div className="char-breakdown-bar">
       {[...Array(5)].map((whatever, index) => (
         <div style={{}} key={`${chars.id} ${index}`}>
-          <div style={{ float: 'left' }}>{index + 1}</div>
+          <div style={{
+            position: 'relative', left: '40%', marginBottom: '5px', zIndex: '1',
+          }}
+          >
+            {index + 1}
+          </div>
           <div style={containerStyles}>
             <div style={Math.trunc(Number(chars.value)) === index + 1 ? fillerStyles : {}} />
           </div>
