@@ -63,15 +63,15 @@ export default function IndividualReview(props) {
     if (body.length > 250) {
       const shortened = `${body.slice(0, 250)}...`;
       return toggleBody ? <>
-        <div style={{inlineSize: '400px', overflowWrap: 'break-word'}}>{body}</div>
+        <div style={{inlineSize: '450px', overflowWrap: 'break-word'}}>{body}</div>
        <button onClick={bodyToggle}>Show Less</button>
                           </>
         : <>
-      <div style={{inlineSize: '400px', overflowWrap: 'break-word'}}>{shortened}</div>
+      <div style={{inlineSize: '450px', overflowWrap: 'break-word'}}>{shortened}</div>
       <button onClick={bodyToggle}>Show More</button>
           </>;
     } else {
-      return <div style={{inlineSize: '400px', overflowWrap: 'break-word'}}>{body}</div>;
+      return <div style={{inlineSize: '450px', overflowWrap: 'break-word'}}>{body}</div>;
     }
   }
 
@@ -86,49 +86,72 @@ export default function IndividualReview(props) {
   return (
       <div className="individual-review">
       {/* --------------STARS---------------- */}
+      <div className="ind-top-row">
       <div>
       {[...Array(5)].map(
         // eslint-disable-next-line react/no-array-index-key
         (star, index) => <span key={`star${index}`}>{whichStar(render.rating, index)}</span>,
       )}
       </div>
-      {/* --------------RECOMMENDED?---------------- */}
-      {render.recommend ? <div>Recommended</div> : <></>}
-      {/* --------------DATE---------------- */}
-      <div>{new Date(render.date).toLocaleString().split(',')[0]}</div>
       {/* --------------NAME---------------- */}
-      <div>{render.reviewer_name}</div>
+      <div style={{color: '#808080', fontSize: '.8em', marginLeft: 'auto'}}>
+      {render.reviewer_name}
+      -
+      {' '}
+      </div>
+      {/* --------------DATE---------------- */}
+      <div style={{color: '#808080', fontSize: '.8em'}}>{new Date(render.date).toLocaleString().split(',')[0]}</div>
+       {/* --------------RECOMMENDED?---------------- */}
+       {/* {render.recommend ? <div style={{alignSelf: 'flex-end'}}>Recommended</div> : <></>} */}
+      </div>
       {/* --------------summary---------------- */}
-      <h2>{render.summary}</h2>
+      <div style={{display: 'flex'}}>
+        <h2 style={{margin: '8px'}}>{render.summary}</h2>
+      </div>
       {/* --------------REVIEW BODY---------------- */}
+      <div style={{display: 'flex', justifyContent: 'flex-start', margin: '5px'}}>
       {tooBig(render.body)}
+      </div>
       {/* --------------IS THERE SELLER RESPONSE?---------------- */}
+      <div style={{display: 'flex', flexWrap: 'wrap', backgroundColor: '#C5C5C5'}}>
       {render.response ? (
         <>
-          <h4>Response From the Seller: </h4>
+          <h4 style={{margin: '8px 0 4px 0'}}>Response From the Seller: </h4>
           <div>{render.response}</div>
         </>
       ) : <></>}
+      </div>
       {/* --------------ARE THERE PHOTOS?---------------- */}
+      <div style={{
+        display: 'flex', justifyContent: 'flex-start', margin: '5px', width: '100%',
+      }}
+      >
       {photosExist(render.photos)}
+      </div>
       {/* --------------HELPFUL COUNTER---------------- */}
-        <div>
+        <div style={{display: 'flex', justifyContent: 'flex-start', marginLeft: '4px'}}>
           <span>
-          helpful?
+          Helpful?
           {' '}
-          {helpfulNum}
           </span>
         {buttonPressed && (
           <button
+            style={{marginLeft: '5px', marginRight: '5px'}}
+            className="star-filter-button"
             type="button"
             onClick={() => {
               incrementHelpfulness();
               setButtonPressed(!buttonPressed);
             }}
           >
-          +
+          Yes
           </button>
         )}
+        <span style={{color: '#808080', fontSize: '.8em'}}>
+        (
+        {helpfulNum}
+        )
+        </span>
         </div>
       </div>
   );
