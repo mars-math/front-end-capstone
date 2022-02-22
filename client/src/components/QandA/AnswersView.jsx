@@ -61,7 +61,7 @@ class AnswersView extends React.Component {
 
   reportedDisplay() {
     if (this.state.clickedReport) {
-      return <u>Report</u>;
+      return <u className="clickable">Report</u>;
     }
     return <u className="highlight">Reported</u>;
   }
@@ -86,7 +86,7 @@ class AnswersView extends React.Component {
             |
           </span>
           <span>    Helpful?  </span>
-          <span onClick={this.clickHelpfulA}><u>Yes</u> </span>
+          <span className="clickable" onClick={this.clickHelpfulA}><u>Yes</u> </span>
           <span>({this.helpfulACounterDisplay()})  |  </span>
           <span onClick={this.clickReport}>{this.reportedDisplay()}</span>
         </div>

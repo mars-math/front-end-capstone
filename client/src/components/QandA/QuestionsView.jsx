@@ -121,9 +121,9 @@ class QuestionsView extends React.Component {
         <div className="question-list">
           Q:  {this.props.questions.question_body}
           <span className="questions-helpful">
-            Helpful?  <span onClick={this.clickHelpful}>  <u>Yes</u>  </span>
+            Helpful?  <span className="clickable" onClick={this.clickHelpful}>  <u>Yes</u>  </span>
             ({this.helpfulCounterDisplay()})
-            <span onClick={this.clickAddAnswer}>  |  <u>Add Answer</u></span>
+            <span onClick={this.clickAddAnswer}>  |  <u className="clickable">Add Answer</u></span>
             {this.showAddAnswer()}
           </span>
         </div>

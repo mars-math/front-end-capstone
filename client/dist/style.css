@@ -140,3 +140,6 @@ label {
 .highlight {
   color: blue;
 }
+.clickable {
+  cursor: pointer;
+}
