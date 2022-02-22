@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
@@ -23,7 +24,9 @@ function RelatedItems(props) {
   const getRelatedIds = (id) => {
     axios.get(`/products/${id}/related`)
       .then((response) => {
-        setRelatedIds(response.data);
+        const uniqueIDs = response.data.filter((prod, idx, arr) => arr.indexOf(prod) === idx);
+
+        setRelatedIds(uniqueIDs);
       })
       .catch((err) => console.log(err));
   };
@@ -112,13 +115,12 @@ function RelatedItems(props) {
       <Carousel
         idsToRender={relatedIds}
         isOutfitList={false}
-        allOverProductData={{
+        overviewProductData={{
           prodInfo,
           salePrice,
           prodRating,
           imageUrl
-        }
-      }
+        }}
       />
     </>
   );

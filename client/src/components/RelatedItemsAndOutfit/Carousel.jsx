@@ -5,9 +5,7 @@ import React from 'react';
 import ProductCard from './ProductCard.jsx';
 
 function Carousel(props) {
-  const { idsToRender, isOutfitList, allOverProductData } = props;
-
-  console.log(allOverProductData);
+  const { idsToRender, isOutfitList, overviewProductData } = props;
 
   if (isOutfitList) {
     return (
@@ -20,7 +18,14 @@ function Carousel(props) {
   return (
     <>
       <div>THIS IS THE RELATED ITEMS LIST</div>
-      {idsToRender.map((id) => <ProductCard prodId={id} key={id} />)}
+      {idsToRender.map((id) => (
+        <ProductCard
+          prodId={id}
+          key={id}
+          overviewProductData={overviewProductData}
+        />
+      ))
+      }
     </>
   );
   // return (<div>Hi from the Carousel component</div>);
