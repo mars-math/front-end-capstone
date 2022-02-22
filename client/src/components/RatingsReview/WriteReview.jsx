@@ -12,6 +12,8 @@ function WriteReview(props) {
   const [postObj, setPostObj] = useState({});
   const [charObj, setCharObj] = useState({});
 
+  const { updateRender } = props;
+
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;
 
@@ -40,30 +42,33 @@ function WriteReview(props) {
     if (charData) {
       return (
         Object.keys(charData).map((char, index) => (
-          <div key={`${char}${index}`}>
-            <div>{char}</div>
-            <fieldset required onChange={(e) => buildCharObj(charData[char].id, e.target.value)}>
-              <label htmlFor={char}>
+          <div key={`${char}${index}`} style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', width: '100%' }}>
+              {char}
+              :
+            </div>
+            <fieldset style={{ display: 'flex', border: 'none' }} required onChange={(e) => buildCharObj(charData[char].id, e.target.value)}>
+              <label htmlFor={char} className="char-selector">
                 <input type="radio" id={char} name={char} value="1" />
                 1
               </label>
 
-              <label htmlFor={char}>
+              <label htmlFor={char} className="char-selector">
                 <input type="radio" id={char} name={char} value="2" />
                 2
               </label>
 
-              <label htmlFor={char}>
+              <label htmlFor={char} className="char-selector">
                 <input type="radio" id={char} name={char} value="3" />
                 3
               </label>
 
-              <label htmlFor={char}>
+              <label htmlFor={char} className="char-selector">
                 <input type="radio" id={char} name={char} value="4" />
                 4
               </label>
 
-              <label htmlFor={char}>
+              <label htmlFor={char} className="char-selector">
                 <input type="radio" id={char} name={char} value="5" />
                 5
               </label>
@@ -102,6 +107,7 @@ function WriteReview(props) {
       axios.post('/reviews', realPostObj)
         .then(() => {
           togglePopup();
+          updateRender();
         })
         .catch((err) => console.log('Sadge', err));
     }
@@ -109,7 +115,7 @@ function WriteReview(props) {
 
   return (
     <>
-      <button type="button" onClick={togglePopup}>Write New Review</button>
+      <button type="button" onClick={togglePopup} className="cust-button ">Write New Review</button>
 
       {isOpen && (
       <div className="popup-box">
@@ -117,7 +123,7 @@ function WriteReview(props) {
           <span className="close-icon" onClick={togglePopup}>x</span>
           {/* --------TITLE----------- */}
           <h3>Write Your Review</h3>
-          <h4>
+          <h4 style={{marginBottom: '10px' }}>
             About the
             {' '}
             {itemName}
@@ -127,7 +133,7 @@ function WriteReview(props) {
             <StarRating buildPost={buildPost} />
             {/* --------RECOMMENDED?----------- */}
             <div>Recommend Product?</div>
-            <fieldset required onChange={(e) => buildPost('recommend', (e.target.value === 'yes'))}>
+            <fieldset style={{ border: 'none', marginBottom: '3px' }} required onChange={(e) => buildPost('recommend', (e.target.value === 'yes'))}>
               <label htmlFor="yes">
                 <input type="radio" id="yes" name="recommended" value="yes" />
                 Yes
@@ -138,12 +144,10 @@ function WriteReview(props) {
                 No
               </label>
             </fieldset>
-            <br />
             {/* --------CHARACTERISTICS----------- */}
             {renderChars()}
             {/* --------SUMMARY----------- */}
-            <label htmlFor="summary">Summary:</label>
-            <br />
+            <label htmlFor="summary" className="write-review-labels">Summary:</label>
             <input
               style={{ width: '200px' }}
               type="text"
@@ -152,9 +156,7 @@ function WriteReview(props) {
               onChange={(e) => buildPost('summary', e.target.value)}
             />
             {/* --------BODY----------- */}
-            <br />
-            <label htmlFor="body">Body:</label>
-            <br />
+            <label htmlFor="body" className="write-review-labels">Body:</label>
             <textarea
               placeholder="Why did you like the product or not?"
               name="body"
@@ -179,8 +181,7 @@ function WriteReview(props) {
             {imgUrls.length < 5
               ? (
                 <>
-                  <label htmlFor="img">Img Url:</label>
-                  <br />
+                  <label htmlFor="img" className="write-review-labels">Img Url:</label>
                   <input type="text" name="img" onChange={(e) => setImgUrl(e.target.value)} />
                   <button type="button" onClick={imgButtonClick}>Upload</button>
                 </>
@@ -188,8 +189,7 @@ function WriteReview(props) {
               : <></>}
             <br />
             {/* --------NICKNAME----------- */}
-            <label htmlFor="nickname">Nickname:</label>
-            <br />
+            <label htmlFor="nickname" className="write-review-labels">Nickname:</label>
             <input
               type="text"
               name="nickname"
@@ -200,8 +200,7 @@ function WriteReview(props) {
             />
             <br />
             {/* --------EMAIL----------- */}
-            <label htmlFor="email">Email:</label>
-            <br />
+            <label htmlFor="email" className="write-review-labels">Email:</label>
             <input
               type="email"
               name="email"
@@ -211,7 +210,7 @@ function WriteReview(props) {
             />
             <br />
             {/* --------SUBMIT BUTTON----------- */}
-            <input type="submit" value="Write Review" />
+            <input type="submit" value="Write Review" className="cust-button" />
           </form>
         </div>
       </div>

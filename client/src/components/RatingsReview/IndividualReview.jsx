@@ -63,15 +63,15 @@ export default function IndividualReview(props) {
     if (body.length > 250) {
       const shortened = `${body.slice(0, 250)}...`;
       return toggleBody ? <>
-        <div style={{inlineSize: '450px', overflowWrap: 'break-word'}}>{body}</div>
+        <div style={{inlineSize: '550px', overflowWrap: 'break-word'}}>{body}</div>
        <button onClick={bodyToggle}>Show Less</button>
                           </>
         : <>
-      <div style={{inlineSize: '450px', overflowWrap: 'break-word'}}>{shortened}</div>
+      <div style={{inlineSize: '550px', overflowWrap: 'break-word'}}>{shortened}</div>
       <button onClick={bodyToggle}>Show More</button>
           </>;
     } else {
-      return <div style={{inlineSize: '450px', overflowWrap: 'break-word'}}>{body}</div>;
+      return <div style={{inlineSize: '550px', overflowWrap: 'break-word'}}>{body}</div>;
     }
   }
 
@@ -84,7 +84,7 @@ export default function IndividualReview(props) {
   }
 
   return (
-      <div className="individual-review">
+      <div className="individual-review" style={{width: '92%'}}>
       {/* --------------STARS---------------- */}
       <div className="ind-top-row">
       <div>
@@ -101,22 +101,22 @@ export default function IndividualReview(props) {
       </div>
       {/* --------------DATE---------------- */}
       <div style={{color: '#808080', fontSize: '.8em'}}>{new Date(render.date).toLocaleString().split(',')[0]}</div>
-       {/* --------------RECOMMENDED?---------------- */}
-       {/* {render.recommend ? <div style={{alignSelf: 'flex-end'}}>Recommended</div> : <></>} */}
       </div>
       {/* --------------summary---------------- */}
-      <div style={{display: 'flex'}}>
+      <div style={{display: 'flex', width: '100%'}}>
         <h2 style={{margin: '8px'}}>{render.summary}</h2>
       </div>
       {/* --------------REVIEW BODY---------------- */}
-      <div style={{display: 'flex', justifyContent: 'flex-start', margin: '5px'}}>
+      <div style={{display: 'flex', justifyContent: 'flex-start', margin: '5px', width: '100%'}}>
       {tooBig(render.body)}
       </div>
+      {/* --------------RECOMMENDED?---------------- */}
+      {render.recommend ? <div style={{marginLeft: '4px', marginBottom: '4px', fontWeight: 'bold'}}> ✓ Recommended</div> : <></>}
       {/* --------------IS THERE SELLER RESPONSE?---------------- */}
       <div style={{display: 'flex', flexWrap: 'wrap', backgroundColor: '#C5C5C5'}}>
       {render.response ? (
         <>
-          <h4 style={{margin: '8px 0 4px 0'}}>Response From the Seller: </h4>
+          <h4 style={{margin: '8px 0 4px 0', width: '100%'}}>Response From the Seller: </h4>
           <div>{render.response}</div>
         </>
       ) : <></>}

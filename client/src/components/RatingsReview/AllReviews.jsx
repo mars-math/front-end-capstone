@@ -60,13 +60,17 @@ export default function AllReviews() {
     }
   }, [filterStars]);
 
-  useEffect(() => {
+  const updateRender = () => {
     getReview(43230, 999)
       .then((data) => data.results.sort((a, b) => -a.date.localeCompare(b.date)))
       .then((results) => {
         setRenderedReviews(results);
       })
       .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    updateRender();
   }, []);
 
   function sortReviews(e) {
@@ -82,8 +86,8 @@ export default function AllReviews() {
   }
 
   return (
-    <div className="all-review-components">
-      <div className="individual-reviews" style={{ maxHeight: '601px', overflow: 'auto', width: '50%' }}>
+    <div className="all-review-components" data-testid="allRev-1">
+      <div className="individual-reviews" style={{ maxHeight: '601px', overflow: 'auto', width: '45%' }}>
         <div style={{ display: 'flex', fontSize: '20px' }}>
           <div>{`${renderedReviews.length} reviews, sorted by`}</div>
           <select className="review-dropdown" onChange={(e) => sortReviews(e)}>
@@ -92,8 +96,8 @@ export default function AllReviews() {
           </select>
         </div>
         {slicedRender.map((review, index) => <IndividualReview render={review} key={`review${index}`} />)}
-        {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length ? <button type="button" onClick={() => setAmountToRender((prevNum) => prevNum + 2)}>More Reviews</button> : <></>}
-        <WriteReview />
+        {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length ? <button type="button" onClick={() => setAmountToRender((prevNum) => prevNum + 2)} className="cust-button">More Reviews</button> : <></>}
+        <WriteReview updateRender={updateRender} />
       </div>
       <div className="rating-breakdown">
         <RatingBreakdown manageFilter={manageFilter} />

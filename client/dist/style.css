@@ -1,4 +1,27 @@
 /* REVIEWS AND RATINGS */
+
+.cust-button {
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: bold;
+  color: #000000;
+
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 12px 30px;
+  border: 2px solid #0a0a0a;
+  cursor: pointer;
+  transition: .3s;
+}
+.cust-button:hover {
+  color: #fff;
+    background-color: #24292b;
+}
+
 .popup-box {
   z-index: 5;
   position: fixed;
@@ -88,7 +111,7 @@
 .all-review-components {
   display: flex;
   flex-wrap: wrap-reverse;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .individual-reviews {
@@ -117,6 +140,14 @@
   display: flex;
 }
 
+.char-selector {
+  margin-right: 5px;
+  margin-top: 0px;
+}
+
+.write-review-labels {
+  margin-top: 10px;
+}
 
 /* Q AND A */
 

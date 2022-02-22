@@ -16,7 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <AllReviews />
+        <AllReviews data-testid="allRev-1"/>
         {/* <h1>Kloth</h1>
         <ProductInfo /> */}
         {/* <Carousel renderedId={'42368'}/> */}
