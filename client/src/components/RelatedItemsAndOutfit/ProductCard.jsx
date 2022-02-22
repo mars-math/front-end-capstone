@@ -15,9 +15,14 @@ function ProductCard(props) {
   const [salePrice, setSalePrice] = useState('');
   const [prodRating, setProdRating] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
+  const [showComparison, setShowComparison] = useState(false);
 
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;
+
+  const toggleComparison = () => {
+    setShowComparison(!showComparison);
+  };
 
   const calcAvgRtg = (rtgObj) => {
     let totalStars = 0;
@@ -34,8 +39,8 @@ function ProductCard(props) {
     return (Number(avgRtg.toFixed(2)));
   };
 
-  const getProdInfo = (id) => (
-    axios.get(`/products/${id}`)
+  const getProdInfo = (productID) => (
+    axios.get(`/products/${productID}`)
       .then((response) => {
         const {
           id, name, category, default_price, features,
@@ -51,8 +56,8 @@ function ProductCard(props) {
       .catch((err) => console.log(err))
   );
 
-  const getSalePriceAndImg = (id) => (
-    axios.get(`/products/${id}/styles`)
+  const getSalePriceAndImg = (productID) => (
+    axios.get(`/products/${productID}/styles`)
       .then((response) => {
         const totalStyles = response.data.results.length;
         for (let i = 0; i < totalStyles; i++) {
@@ -73,10 +78,10 @@ function ProductCard(props) {
       .catch((err) => console.log(err))
   );
 
-  const getReviewMetadata = (id) => (
+  const getReviewMetadata = (productID) => (
     axios.get('/reviews/meta', {
       params: {
-        product_id: id
+        product_id: productID
       },
     })
       .then((response) => {
@@ -85,10 +90,10 @@ function ProductCard(props) {
       .catch((err) => console.log(err))
   );
 
-  const getAllProductData = (id) => (
-    getProdInfo(id)
-      .then(getSalePriceAndImg(id))
-      .then(getReviewMetadata(id))
+  const getAllProductData = (productID) => (
+    getProdInfo(productID)
+      .then(getSalePriceAndImg(productID))
+      .then(getReviewMetadata(productID))
       .catch((err) => console.log(err))
   );
 
@@ -99,13 +104,18 @@ function ProductCard(props) {
   return (
     <span>
       <img src={imageUrl} alt="Product Preview" />
+      <button type="button" onClick={toggleComparison}>Comparison Modal</button>
       <div>{`Product ID: ${prodInfo.id}`}</div>
       <div>{`Name: ${prodInfo.name}`}</div>
       <div>{`Category: ${prodInfo.category}`}</div>
       <div>{`Price: ${prodInfo.default_price}`}</div>
       <div>{`Sale Price: ${salePrice}`}</div>
       <div>{`Rating: ${prodRating}`}</div>
-      <div>{JSON.stringify(prodInfo)}</div>
+      {showComparison
+        && <div>this is conditionally rendered</div>}
+      {/* button to trigger display for comparison module.
+      will need to make another comparison module component
+      and have it render here based on some logic */}
     </span>
   );
 }

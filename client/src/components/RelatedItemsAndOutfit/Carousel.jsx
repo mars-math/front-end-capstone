@@ -24,11 +24,9 @@ function Carousel(props) {
           key={id}
           overviewProductData={overviewProductData}
         />
-      ))
-      }
+      ))}
     </>
   );
-  // return (<div>Hi from the Carousel component</div>);
 }
 
 export default Carousel;
