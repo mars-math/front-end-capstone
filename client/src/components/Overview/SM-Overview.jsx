@@ -7,7 +7,7 @@ export default function Overview() {
 
   return (
     <div className='overview-container'>
-      <div className='image-container'>
+      <div className='left-container'>
         <ImageGallery/>
       </div>
         <div className='right-container'>
@@ -19,6 +19,7 @@ export default function Overview() {
           </div>
         </div>
     </div>
+
   );
 
 }
