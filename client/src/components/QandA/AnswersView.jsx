@@ -78,16 +78,11 @@ class AnswersView extends React.Component {
               <b>{this.props.answer.answerer_name}</b> : <>{this.props.answer.answerer_name}</>}
           </span>
           <span>
-            {' '}
-            date
-            {' '}
-            {new Date(this.props.answer.date).toLocaleString().split(',')[0]}
-            {' '}
-            |
+            ,&ensp;{new Date(this.props.answer.date).toLocaleString().split(',')[0]}
           </span>
-          <span>    Helpful?  </span>
-          <span className="clickable" onClick={this.clickHelpfulA}><u>Yes</u> </span>
-          <span>({this.helpfulACounterDisplay()})  |  </span>
+          <span>&emsp;|&emsp;Helpful?</span>
+          <span className="clickable" onClick={this.clickHelpfulA}>&ensp;<u>Yes</u>&nbsp;</span>
+          <span>({this.helpfulACounterDisplay()})&emsp;|&emsp;</span>
           <span onClick={this.clickReport}>{this.reportedDisplay()}</span>
         </div>
       </>
