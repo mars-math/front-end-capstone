@@ -20,8 +20,8 @@ export default function StyleSelector () {
   }
 
   const[displaySizes, setSizes] = useState(makeSkusArray(display[0].skus));
-
-  const[sizes, setSize] = useState('');
+  const[displayQtys, setQtys] = useState('select size');
+  const[sizeAndSku, setSize] = useState({});
 
 
   //how many rows
@@ -67,8 +67,26 @@ export default function StyleSelector () {
   //determine what sizes to display in dropdown
   useEffect(() => setSizes(makeSkusArray(display[0].skus)), [display]);
 
+  function findSizeQty(array) {
+    for (var entry of array) {
+      if (Object.keys(entry)[0] === Object.keys(sizeAndSku)[0]) {
+        if (Object.values(entry)[0].quantity <= 15) {
+          return Object.values(entry)[0].quantity;
+        } else if (Object.values(entry)[0].quantity > 15) {
+          return 15;
+        }
+
+      }
+    }
+    return 0;
+  }
+
+
+  //change qty dropdown when different sku selected
+  useEffect(() => setQtys(findSizeQty(displaySizes)), [sizeAndSku]);
+
   function selectSize(e) {
-    setSize(e.target.value);
+    setSize(JSON.parse(e.target.value));
   }
 
 
@@ -86,18 +104,26 @@ export default function StyleSelector () {
         <form>
           <label htmlFor='selectSize'></label>
           <select name='selectSize' onChange={(e) => selectSize(e)}>
-            <option select='selected'>Select Size</option>
-
-            {displaySizes.map((sku, index) => {
-              return <option value={`${sku[Object.keys(sku)[0]].size}`}>{sku[Object.keys(sku)[0]].size}</option>
+            <option>Select Size</option>
+            {[...displaySizes].map((sku, index) => {
+              var skuId = Object.keys(sku);
+              var size = sku[Object.keys(sku)[0]].size;
+              return <option
+              key={`size-${index}`}
+              value={`${JSON.stringify({
+                [skuId]: size,
+              })}`}>{size}</option>
             })}
           </select>
 
           <label htmlFor='selectQty'></label>
           <select name='selectQty'>
-            <option>Qty</option>
-            <option>1</option>
-            <option>2</option>
+            <option value='' selected disabled hidden>-</option>
+            {[...Array(displayQtys)].map((element, index) =>
+              <option
+              key={`qty-${index}`}>{index + 1}
+              </option>
+            )}
           </select>
         </form>
       </span>
