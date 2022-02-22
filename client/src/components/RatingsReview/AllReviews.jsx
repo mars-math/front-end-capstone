@@ -83,7 +83,7 @@ export default function AllReviews() {
 
   return (
     <div className="all-review-components">
-      <div className="individual-reviews" style={{ maxHeight: '601px', overflow: 'auto' }}>
+      <div className="individual-reviews" style={{ maxHeight: '601px', overflow: 'auto', width: '50%' }}>
         <div style={{ display: 'flex', fontSize: '20px' }}>
           <div>{`${renderedReviews.length} reviews, sorted by`}</div>
           <select className="review-dropdown" onChange={(e) => sortReviews(e)}>
