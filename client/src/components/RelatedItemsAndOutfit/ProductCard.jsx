@@ -37,7 +37,6 @@ function ProductCard(props) {
   const getProdInfo = (id) => (
     axios.get(`/products/${id}`)
       .then((response) => {
-        // const { data } = response;
         const {
           id, name, category, default_price, features,
         } = response.data;

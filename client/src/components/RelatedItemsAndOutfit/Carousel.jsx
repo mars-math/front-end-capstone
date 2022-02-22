@@ -5,7 +5,9 @@ import React from 'react';
 import ProductCard from './ProductCard.jsx';
 
 function Carousel(props) {
-  const { idsToRender, isOutfitList } = props;
+  const { idsToRender, isOutfitList, allOverProductData } = props;
+
+  console.log(allOverProductData);
 
   if (isOutfitList) {
     return (

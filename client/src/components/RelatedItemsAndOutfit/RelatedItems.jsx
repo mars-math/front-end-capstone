@@ -12,10 +12,10 @@ function RelatedItems(props) {
   const { overviewId } = props;
   const [relatedIds, setRelatedIds] = useState([]);
 
-  const [overviewProdInfo, setProdInfo] = useState({});
-  const [overviewSalePrice, setSalePrice] = useState('');
-  const [overviewProdRating, setProdRating] = useState(null);
-  const [overviewImageUrl, setImageUrl] = useState('');
+  const [prodInfo, setProdInfo] = useState({});
+  const [salePrice, setSalePrice] = useState('');
+  const [prodRating, setProdRating] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
 
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;
@@ -25,7 +25,7 @@ function RelatedItems(props) {
       .then((response) => {
         setRelatedIds(response.data);
       })
-      .catch((err) => console.log('MT error: ', err));
+      .catch((err) => console.log(err));
   };
 
   const calcAvgRtg = (rtgObj) => {
@@ -46,9 +46,18 @@ function RelatedItems(props) {
   const getProdInfo = (id) => (
     axios.get(`/products/${id}`)
       .then((response) => {
-        setProdInfo(response.data);
+        const {
+          id, name, category, default_price, features,
+        } = response.data;
+        setProdInfo({
+          id,
+          name,
+          category,
+          default_price,
+          features
+        });
       })
-      .catch((err) => console.log('MT error: ', err))
+      .catch((err) => console.log(err))
   );
 
   const getSalePriceAndImg = (id) => (
@@ -61,7 +70,6 @@ function RelatedItems(props) {
           const thumbnailUrl = response.data.results[i].photos[0].thumbnail_url;
           if (isDefault && onSalePrice) {
             setSalePrice(onSalePrice);
-            return;
           }
           if (isDefault) {
             setImageUrl(thumbnailUrl);
@@ -71,36 +79,47 @@ function RelatedItems(props) {
           setImageUrl(response.data.results[0].photos[0].thumbnail_url);
         }
       })
-      .catch((err) => console.log('MT error: ', err))
+      .catch((err) => console.log(err))
   );
 
   const getReviewMetadata = (id) => (
     axios.get('/reviews/meta', {
       params: {
-        product_id: id,
+        product_id: id
       },
     })
       .then((response) => {
         setProdRating(calcAvgRtg(response.data.ratings));
       })
-      .catch((err) => console.log('MT error: ', err))
+      .catch((err) => console.log(err))
   );
 
   const getAllProductData = (id) => (
     getProdInfo(id)
+      .then(getRelatedIds(id))
       .then(getSalePriceAndImg(id))
       .then(getReviewMetadata(id))
-      .catch((err) => console.log('MT error: ', err))
+      .catch((err) => console.log(err))
   );
 
   useEffect(() => {
-    getRelatedIds(overviewId);
+    getAllProductData(overviewId);
   }, []);
 
   return (
     <>
       <h3>Related Items</h3>
-      <Carousel idsToRender={relatedIds} isOutfitList={false} />
+      <Carousel
+        idsToRender={relatedIds}
+        isOutfitList={false}
+        allOverProductData={{
+          prodInfo,
+          salePrice,
+          prodRating,
+          imageUrl
+        }
+      }
+      />
     </>
   );
 }
