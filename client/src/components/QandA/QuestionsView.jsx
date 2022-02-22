@@ -3,6 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import API_KEY from '../../../../config/config.js';
 import AnswersView from './AnswersView.jsx';
+import AddAnswer from './AddAnswer.jsx';
 
 class QuestionsView extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class QuestionsView extends React.Component {
       moreAnswers: false,
       sortedAnswers: [],
       clickedHelpful: true,
+      showAddA: false,
     };
 
     this.showAnswers = this.showAnswers.bind(this);
@@ -18,6 +20,8 @@ class QuestionsView extends React.Component {
     this.loadTextChange = this.loadTextChange.bind(this);
     this.clickHelpful = this.clickHelpful.bind(this);
     this.helpfulCounterDisplay = this.helpfulCounterDisplay.bind(this);
+    this.clickAddAnswer = this.clickAddAnswer.bind(this);
+    this.showAddAnswer = this.showAddAnswer.bind(this);
   }
 
   // render 4 answers till more are clicked
@@ -33,20 +37,15 @@ class QuestionsView extends React.Component {
     if (this.state.sortedAnswers.length > 2 && this.state.moreAnswers === false) {
       return (
         <>
-          {this.state.sortedAnswers.slice(0, 2).map((sortedAns, index) =>
-            <AnswersView answer={sortedAns.k} key={index} />
-          )}
+          {this.state.sortedAnswers.slice(0, 2).map((sortedAns, index) => <AnswersView answer={sortedAns.k} key={index} />)}
         </>
       );
-    } else if (this.state.sortedAnswers.length > 0 && this.state.moreAnswers === true
-      || this.state.sortedAnswers.length > 0 && this.state.moreAnswers === false) {
+    } else if ((this.state.sortedAnswers.length > 0 && this.state.moreAnswers === true)
+      || (this.state.sortedAnswers.length > 0 && this.state.moreAnswers === false)) {
       return (
-      <>
-        {this.state.sortedAnswers.map((sortedAns, index) =>
-          <AnswersView answer={sortedAns.k} key={index} />
-
-        )}
-      </>
+        <>
+          {this.state.sortedAnswers.map((sortedAns, index) => <AnswersView answer={sortedAns.k} key={index} />)}
+        </>
       );
     } else {
       return <></>;
@@ -79,12 +78,12 @@ class QuestionsView extends React.Component {
           Authorization: API_KEY,
         },
       })
-      .then((results) => {
-        console.log('results ', results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((results) => {
+          console.log('results ', results);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       this.setState({ clickedHelpful: !this.state.clickedHelpful });
     }
   }
@@ -97,23 +96,42 @@ class QuestionsView extends React.Component {
     }
   }
 
+  clickAddAnswer() {
+    this.setState({ showAddA: !this.state.showAddA });
+  }
+
+  showAddAnswer() {
+    if (this.state.showAddA) {
+      return (
+        <AddAnswer
+          showAddA={this.state.showAddA}
+          closeAddAnswer={this.clickAddAnswer}
+          questionID={this.props.questions.question_id}
+          questionBody={this.props.questions.question_body}
+          // getItemInfo={this.props.getItemInfo}
+        />
+      );
+    }
+    return <></>;
+  }
+
   render() {
     return (
       <div>
-        <div class='question-list'>
+        <div className="question-list">
           Q:  {this.props.questions.question_body}
-          <span class='questions-helpful'> Helpful?
-            <span onClick={this.clickHelpful}>  <u>Yes</u>  </span>
+          <span className="questions-helpful">
+            Helpful?  <span onClick={this.clickHelpful}>  <u>Yes</u>  </span>
             ({this.helpfulCounterDisplay()})
-            <span>  |  <u>Add Answer</u></span>
+            <span onClick={this.clickAddAnswer}>  |  <u>Add Answer</u></span>
+            {this.showAddAnswer()}
           </span>
         </div>
         <div>
           <span>A:</span>
-
           <span>{this.showAnswers(this.props.answers)}</span>
-
-          <div class='load-answers' onClick={this.loadAnswersClick}><b>{this.loadTextChange()}</b>
+          <div className="load-answers" onClick={this.loadAnswersClick}>
+            <b>{this.loadTextChange()}</b>
           </div>
         </div>
       </div>

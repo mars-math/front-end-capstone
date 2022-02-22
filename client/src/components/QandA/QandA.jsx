@@ -17,6 +17,7 @@ class QandA extends React.Component {
 
     this.searchClick = this.searchClick.bind(this);
     this.searchChange = this.searchChange.bind(this);
+    this.getItemInfo = this.getItemInfo.bind(this);
   }
 
   componentDidMount() {
@@ -25,7 +26,7 @@ class QandA extends React.Component {
 
   getItemInfo() {
     // switch to backtick when pulling from url
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions?product_id=42369', {
+    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions?product_id=42369&count=25', {
       headers: {
         Authorization: API_KEY,
       },
@@ -49,11 +50,12 @@ class QandA extends React.Component {
       while (this.state.searchList.length) {
         this.state.searchList.pop();
       }
-      this.setState({searchList: this.state.searchList});
-    }
-    if (e.target.value.length === 0) {
+      this.setState({ searchList: this.state.searchList });
       this.setState({ searchText: '' });
     }
+    // if (e.target.value.length < 3) {
+    //   this.setState({ searchText: '' });
+    // }
     // console.log(this.state.searchText);
   }
 
@@ -87,7 +89,9 @@ class QandA extends React.Component {
             <input placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.searchChange} />
             <button type="submit">search</button>
           </form>
-          <Questions searchList={this.state.searchList} questionList={this.state.questionList}/>
+          <Questions searchList={this.state.searchList}
+          questionList={this.state.questionList}
+          getItemInfo={this.getItemInfo}/>
         </div>
       </>
     );
