@@ -16,7 +16,7 @@ function RelatedItems(props) {
   const [prodInfo, setProdInfo] = useState({});
   const [salePrice, setSalePrice] = useState('');
   const [prodRating, setProdRating] = useState(null);
-  const [imageUrl, setImageUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState('https://i5.walmartimages.com/asr/538e6ee9-b8ce-4c50-bb78-e0ef9ca3e5d7.d92a2e915d667614f121ea11f0d1ec7e.jpeg');
 
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;
@@ -72,19 +72,22 @@ function RelatedItems(props) {
     axios.get(`/products/${productID}/styles`)
       .then((response) => {
         const totalStyles = response.data.results.length;
+        const firstThumbnailUrl = response.data.results[0].photos[0].thumbnail_url;
         for (let i = 0; i < totalStyles; i++) {
           const isDefault = response.data.results[i]['default?'];
           const onSalePrice = response.data.results[i].sale_price;
           const thumbnailUrl = response.data.results[i].photos[0].thumbnail_url;
-          if (isDefault && onSalePrice) {
-            setSalePrice(onSalePrice);
-          }
           if (isDefault) {
-            setImageUrl(thumbnailUrl);
+            if (onSalePrice) {
+              setSalePrice(onSalePrice);
+            }
+            if (thumbnailUrl) {
+              setImageUrl(thumbnailUrl);
+            }
           }
         }
-        if (imageUrl === '') {
-          setImageUrl(response.data.results[0].photos[0].thumbnail_url);
+        if (firstThumbnailUrl) {
+          setImageUrl(firstThumbnailUrl);
         }
       })
       .catch((err) => console.log(err))
