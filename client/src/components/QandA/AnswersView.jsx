@@ -37,6 +37,7 @@ class AnswersView extends React.Component {
     }
     return (<>{ this.props.answer.helpfulness + 1 }</>);
   }
+  // dynamically render the username with either <b> or not depending on seller
 
   render() {
     return (
@@ -46,7 +47,8 @@ class AnswersView extends React.Component {
           <span>
             by
             {' '}
-            {this.props.answer.answerer_name}
+            {this.props.answer.answerer_name === 'Seller' ?
+              <b>{this.props.answer.answerer_name}</b> : <>{this.props.answer.answerer_name}</>}
           </span>
           <span>
             {' '}
