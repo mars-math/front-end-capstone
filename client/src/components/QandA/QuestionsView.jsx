@@ -3,6 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import API_KEY from '../../../../config/config.js';
 import AnswersView from './AnswersView.jsx';
+import AddAnswer from './AddAnswer.jsx';
 
 class QuestionsView extends React.Component {
   constructor(props) {
@@ -102,7 +103,7 @@ class QuestionsView extends React.Component {
   showAddAnswer() {
     if (this.state.showAddA) {
       return (
-        <AddQuestion
+        <AddAnswer
           showAddA={this.state.showAddA}
           closeAddAnswer={this.clickAddAnswer}
           questionID={this.props.questions.question_id}

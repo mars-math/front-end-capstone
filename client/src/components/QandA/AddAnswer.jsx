@@ -2,23 +2,23 @@ import React from 'react';
 import axios from 'axios';
 import API_KEY from '../../../../config/config.js';
 
-class AddQuestion extends React.Component {
+class AddAnswer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      question: '',
+      answer: '',
       nickname: '',
       email: '',
     };
-    this.submitQuestion = this.submitQuestion.bind(this);
-    this.changeQuestion = this.changeQuestion.bind(this);
+    this.submitAnswer = this.submitAnswer.bind(this);
+    this.changeAnswer = this.changeAnswer.bind(this);
     this.changeNickname = this.changeNickname.bind(this);
     this.changeEmail = this.changeEmail.bind(this);
   }
 
-  changeQuestion(e) {
-    this.setState({ question: e.target.value });
-    // console.log(this.state.question);
+  changeAnswer(e) {
+    this.setState({ answer: e.target.value });
+    // console.log(this.state.answer);
   }
 
   changeNickname(e) {
@@ -32,48 +32,48 @@ class AddQuestion extends React.Component {
   }
 
   // not updating to the list right away
-  submitQuestion(e) {
+  submitAnswer(e) {
     e.preventDefault();
     // console.log(this.state.question);
     // console.log(this.state.nickname);
     // console.log(this.state.email);
     // console.log(this.props.productID);
-    axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions', {
-      body: this.state.question,
-      name: this.state.nickname,
-      email: this.state.email,
-      product_id: Number(this.props.productID),
-    })
-      .then((response) => {
-        console.log(response);
-        // this.props.getItemInfo();
-      })
-      .catch((err) => {
-        console.log('make sure you email is in example@email.com format', err);
-      });
+    // axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions', {
+    //   body: this.state.answer,
+    //   name: this.state.nickname,
+    //   email: this.state.email,
+    //   question_id: Number(this.props.questionID),
+    // })
+    //   .then((response) => {
+    //     console.log(response);
+    //     // this.props.getItemInfo();
+    //   })
+    //   .catch((err) => {
+    //     console.log('make sure you email is in example@email.com format', err);
+    //   });
     // this.props.getItemInfo();
-    this.props.closeAddQuestion();
+    this.props.closeAddAnswer();
   }
 
   render() {
     return (
       <div className="popup-box">
         <div className="box">
-          <span className="close-icon" onClick={this.props.closeAddQuestion}>x</span>
-          <h3>Ask Your Question</h3>
-          <h3>About the [Product Name]</h3>
-          <form onSubmit={this.submitQuestion}>
-            <label htmlFor="question">Your Question *</label>
+          <span className="close-icon" onClick={this.props.closeAddAnswer}>x</span>
+          <h3>Submit you Answer</h3>
+          <h3>[Product Name]: [Question Body]</h3>
+          <form onSubmit={this.submitAnswer}>
+            <label htmlFor="answer">Your Question *</label>
             <textarea
-              id="question"
+              id="answer"
               type="text"
               required
               minLength="1"
               maxLength="1000"
               rows="10"
               cols="50"
-              placeholder="What is your question?"
-              onChange={this.changeQuestion}
+              placeholder="Enter your Answer"
+              onChange={this.changeAnswer}
             />
             <label htmlFor="nickname">What is your nickname *</label>
             <input
@@ -82,7 +82,7 @@ class AddQuestion extends React.Component {
               required
               minLength="1"
               maxLength="60"
-              placeholder="Example: jackson11!"
+              placeholder="Example: jack543!"
               onChange={this.changeNickname}
             />
             <div>For privacy reasons, do not use your full name or email address</div>
@@ -93,11 +93,11 @@ class AddQuestion extends React.Component {
               required
               minLength="3"
               maxLength="60"
-              placeholder="Ex: email@address.com"
+              placeholder="Example: jack@email.com"
               onChange={this.changeEmail}
             />
             <div>For authentication reasons, you will not be emailed</div>
-            <button type="submit">Submit Question</button>
+            <button type="submit">Submit Answer</button>
           </form>
 
         </div>
@@ -106,4 +106,4 @@ class AddQuestion extends React.Component {
   }
 }
 
-export default AddQuestion;
+export default AddAnswer;
