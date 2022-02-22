@@ -8,9 +8,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import API_KEY from '../../../../config/config.js';
+import Comparison from './Comparison.jsx';
 
 function ProductCard(props) {
-  const { prodId } = props;
+  const { prodId, overviewProductData } = props;
   const [prodInfo, setProdInfo] = useState({});
   const [salePrice, setSalePrice] = useState('');
   const [prodRating, setProdRating] = useState(null);
@@ -112,7 +113,17 @@ function ProductCard(props) {
       <div>{`Sale Price: ${salePrice}`}</div>
       <div>{`Rating: ${prodRating}`}</div>
       {showComparison
-        && <div>this is conditionally rendered</div>}
+        && (
+        <Comparison
+          overviewProductData={overviewProductData}
+          productCardData={{
+            prodInfo,
+            salePrice,
+            prodRating,
+            imageUrl
+          }}
+        />
+        )}
       {/* button to trigger display for comparison module.
       will need to make another comparison module component
       and have it render here based on some logic */}

@@ -24,8 +24,13 @@ function RelatedItems(props) {
   const getRelatedIds = (productID) => {
     axios.get(`/products/${productID}/related`)
       .then((response) => {
-        const uniqueIDs = response.data.filter((prod, idx, arr) => arr.indexOf(prod) === idx);
-
+        // const uniqueIDs = response.data.filter((prod, idx, arr) => arr.indexOf(prod));
+        const uniqueIDs = response.data.filter((prod, idx, arr) => {
+          if (arr.indexOf(prod) !== idx || prod.toString() === overviewId) {
+            return false;
+          }
+          return prod;
+        });
         setRelatedIds(uniqueIDs);
       })
       .catch((err) => console.log(err));
@@ -93,7 +98,6 @@ function RelatedItems(props) {
     })
       .then((response) => {
         setProdRating(calcAvgRtg(response.data.ratings));
-        setProdInfo({ ...prodInfo, rating: calcAvgRtg(response.data.ratings) });
       })
       .catch((err) => console.log(err))
   );
