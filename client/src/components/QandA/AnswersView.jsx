@@ -7,10 +7,13 @@ class AnswersView extends React.Component {
     super(props);
     this.state = {
       clickedHelpfulA: true,
+      clickedReport: true,
     };
 
     this.clickHelpfulA = this.clickHelpfulA.bind(this);
     this.helpfulACounterDisplay = this.helpfulACounterDisplay.bind(this);
+    this.clickReport = this.clickReport.bind(this);
+    this.reportedDisplay = this.reportedDisplay.bind(this);
   }
 
   clickHelpfulA() {
@@ -22,7 +25,7 @@ class AnswersView extends React.Component {
         },
       })
         .then((results) => {
-          console.log('results ', results);
+          console.log('helpful ', results);
         })
         .catch((err) => {
           console.log(err);
@@ -37,7 +40,31 @@ class AnswersView extends React.Component {
     }
     return (<>{ this.props.answer.helpfulness + 1 }</>);
   }
-  // dynamically render the username with either <b> or not depending on seller
+
+  clickReport() {
+    const aID = this.props.answer.id;
+    if (this.state.clickedReport) {
+      axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/answers/${aID}/report`, {
+        headers: {
+          Authorization: API_KEY,
+        },
+      })
+        .then((results) => {
+          console.log('reported ', results);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      this.setState({ clickedReport: !this.state.clickedReport });
+    }
+  }
+
+  reportedDisplay() {
+    if (this.state.clickedReport) {
+      return <u>Report</u>;
+    }
+    return <u className="highlight">Reported</u>;
+  }
 
   render() {
     return (
@@ -60,8 +87,8 @@ class AnswersView extends React.Component {
           </span>
           <span>    Helpful?  </span>
           <span onClick={this.clickHelpfulA}><u>Yes</u> </span>
-          <span>({this.helpfulACounterDisplay()})</span>
-          <span>     |  <u>Report</u> </span>
+          <span>({this.helpfulACounterDisplay()})  |  </span>
+          <span onClick={this.clickReport}>{this.reportedDisplay()}</span>
         </div>
       </>
     );
