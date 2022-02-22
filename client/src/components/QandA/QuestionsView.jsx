@@ -11,6 +11,7 @@ class QuestionsView extends React.Component {
       moreAnswers: false,
       sortedAnswers: [],
       clickedHelpful: true,
+      showAddA: false,
     };
 
     this.showAnswers = this.showAnswers.bind(this);
@@ -18,6 +19,8 @@ class QuestionsView extends React.Component {
     this.loadTextChange = this.loadTextChange.bind(this);
     this.clickHelpful = this.clickHelpful.bind(this);
     this.helpfulCounterDisplay = this.helpfulCounterDisplay.bind(this);
+    this.clickAddAnswer = this.clickAddAnswer.bind(this);
+    this.showAddAnswer = this.showAddAnswer.bind(this);
   }
 
   // render 4 answers till more are clicked
@@ -36,8 +39,8 @@ class QuestionsView extends React.Component {
           {this.state.sortedAnswers.slice(0, 2).map((sortedAns, index) => <AnswersView answer={sortedAns.k} key={index} />)}
         </>
       );
-    } else if (this.state.sortedAnswers.length > 0 && this.state.moreAnswers === true
-      || this.state.sortedAnswers.length > 0 && this.state.moreAnswers === false) {
+    } else if ((this.state.sortedAnswers.length > 0 && this.state.moreAnswers === true)
+      || (this.state.sortedAnswers.length > 0 && this.state.moreAnswers === false)) {
       return (
         <>
           {this.state.sortedAnswers.map((sortedAns, index) => <AnswersView answer={sortedAns.k} key={index} />)}
@@ -92,37 +95,39 @@ class QuestionsView extends React.Component {
     }
   }
 
+  clickAddAnswer() {
+    this.setState({ showAddA: !this.state.showAddA });
+  }
+
+  showAddAnswer() {
+    if (this.state.showAddA) {
+      return (
+        <AddQuestion
+          showAddA={this.state.showAddA}
+          closeAddAnswer={this.clickAddAnswer}
+          questionID={this.props.questions.question_id}
+          // getItemInfo={this.props.getItemInfo}
+        />
+      );
+    }
+    return <></>;
+  }
+
   render() {
     return (
       <div>
         <div className="question-list">
-          Q:
-          {' '}
-          {this.props.questions.question_body}
+          Q:  {this.props.questions.question_body}
           <span className="questions-helpful">
-            {' '}
-            Helpful?
-            <span onClick={this.clickHelpful}>
-              {' '}
-              <u>Yes</u>
-              {' '}
-            </span>
-            (
-            {this.helpfulCounterDisplay()}
-            )
-            <span>
-              {' '}
-              |
-              {' '}
-              <u>Add Answer</u>
-            </span>
+            Helpful?  <span onClick={this.clickHelpful}>  <u>Yes</u>  </span>
+            ({this.helpfulCounterDisplay()})
+            <span onClick={this.clickAddAnswer}>  |  <u>Add Answer</u></span>
+            {this.showAddAnswer()}
           </span>
         </div>
         <div>
           <span>A:</span>
-
           <span>{this.showAnswers(this.props.answers)}</span>
-
           <div className="load-answers" onClick={this.loadAnswersClick}>
             <b>{this.loadTextChange()}</b>
           </div>
