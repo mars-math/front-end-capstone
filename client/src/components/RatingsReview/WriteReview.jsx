@@ -42,7 +42,7 @@ function WriteReview(props) {
         Object.keys(charData).map((char, index) => (
           <div key={`${char}${index}`}>
             <div>{char}</div>
-            <fieldset onChange={(e) => buildCharObj(charData[char].id, e.target.value)}>
+            <fieldset required onChange={(e) => buildCharObj(charData[char].id, e.target.value)}>
               <label htmlFor={char}>
                 <input type="radio" id={char} name={char} value="1" />
                 1
@@ -127,7 +127,7 @@ function WriteReview(props) {
             <StarRating buildPost={buildPost} />
             {/* --------RECOMMENDED?----------- */}
             <div>Recommend Product?</div>
-            <fieldset onChange={(e) => buildPost('recommend', (e.target.value === 'yes'))}>
+            <fieldset required onChange={(e) => buildPost('recommend', (e.target.value === 'yes'))}>
               <label htmlFor="yes">
                 <input type="radio" id="yes" name="recommended" value="yes" />
                 Yes
@@ -144,12 +144,27 @@ function WriteReview(props) {
             {/* --------SUMMARY----------- */}
             <label htmlFor="summary">Summary:</label>
             <br />
-            <input type="text" name="summary" onChange={(e) => buildPost('summary', e.target.value)} />
+            <input
+              style={{ width: '200px' }}
+              type="text"
+              name="summary"
+              placeholder="Example: Best purchase ever!"
+              onChange={(e) => buildPost('summary', e.target.value)}
+            />
             {/* --------BODY----------- */}
             <br />
             <label htmlFor="body">Body:</label>
             <br />
-            <textarea name="body" cols="40" rows="5" onChange={(e) => buildPost('body', e.target.value)} />
+            <textarea
+              placeholder="Why did you like the product or not?"
+              name="body"
+              cols="40"
+              rows="5"
+              required
+              minLength="50"
+              maxLength="1000"
+              onChange={(e) => buildPost('body', e.target.value)}
+            />
             <br />
             {/* --------IMG----------- */}
             {imgUrls.length > 0 ? imgUrls.map((img, index) => (
@@ -175,12 +190,25 @@ function WriteReview(props) {
             {/* --------NICKNAME----------- */}
             <label htmlFor="nickname">Nickname:</label>
             <br />
-            <input type="text" name="nickname" onChange={(e) => buildPost('name', e.target.value)} />
+            <input
+              type="text"
+              name="nickname"
+              placeholder="Example: jackson11"
+              required
+              minLength="5"
+              onChange={(e) => buildPost('name', e.target.value)}
+            />
             <br />
             {/* --------EMAIL----------- */}
             <label htmlFor="email">Email:</label>
             <br />
-            <input type="text" name="email" onChange={(e) => buildPost('email', e.target.value)} />
+            <input
+              type="email"
+              name="email"
+              placeholder="Example: jackson11@email.com"
+              required
+              onChange={(e) => buildPost('email', e.target.value)}
+            />
             <br />
             {/* --------SUBMIT BUTTON----------- */}
             <input type="submit" value="Write Review" />
