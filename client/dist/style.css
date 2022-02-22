@@ -126,6 +126,7 @@
 .answer-footer {
   margin-left: 20px;
   margin-bottom: 10px;
+  font-size: 10pt;
 }
 .question-list {
   margin-bottom: 10px;
@@ -136,4 +137,16 @@
 }
 label {
   display: block;
+}
+.highlight {
+  color: blue;
+}
+.clickable {
+  cursor: pointer;
+}
+#searchBar {
+  width: 50%;
+}
+.questions-helpful {
+  float: right;
 }
