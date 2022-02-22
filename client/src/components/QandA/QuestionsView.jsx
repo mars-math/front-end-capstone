@@ -107,6 +107,7 @@ class QuestionsView extends React.Component {
           showAddA={this.state.showAddA}
           closeAddAnswer={this.clickAddAnswer}
           questionID={this.props.questions.question_id}
+          questionBody={this.props.questions.question_body}
           // getItemInfo={this.props.getItemInfo}
         />
       );

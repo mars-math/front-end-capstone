@@ -37,20 +37,19 @@ class AddAnswer extends React.Component {
     // console.log(this.state.question);
     // console.log(this.state.nickname);
     // console.log(this.state.email);
-    // console.log(this.props.productID);
-    // axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions', {
-    //   body: this.state.answer,
-    //   name: this.state.nickname,
-    //   email: this.state.email,
-    //   question_id: Number(this.props.questionID),
-    // })
-    //   .then((response) => {
-    //     console.log(response);
-    //     // this.props.getItemInfo();
-    //   })
-    //   .catch((err) => {
-    //     console.log('make sure you email is in example@email.com format', err);
-    //   });
+    // console.log(this.props.questionID);
+    axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions/${this.props.questionID}/answers`, {
+      body: this.state.answer,
+      name: this.state.nickname,
+      email: this.state.email,
+    })
+      .then((response) => {
+        console.log(response);
+        // this.props.getItemInfo();
+      })
+      .catch((err) => {
+        console.log('make sure you email is in example@email.com format', err);
+      });
     // this.props.getItemInfo();
     this.props.closeAddAnswer();
   }
@@ -61,9 +60,9 @@ class AddAnswer extends React.Component {
         <div className="box">
           <span className="close-icon" onClick={this.props.closeAddAnswer}>x</span>
           <h3>Submit you Answer</h3>
-          <h3>[Product Name]: [Question Body]</h3>
+          <h4>[Product Name]: {this.props.questionBody}</h4>
           <form onSubmit={this.submitAnswer}>
-            <label htmlFor="answer">Your Question *</label>
+            <label htmlFor="answer">Your Answer *</label>
             <textarea
               id="answer"
               type="text"
