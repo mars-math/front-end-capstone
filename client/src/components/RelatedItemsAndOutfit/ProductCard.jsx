@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 
@@ -36,9 +37,19 @@ function ProductCard(props) {
   const getProdInfo = (id) => (
     axios.get(`/products/${id}`)
       .then((response) => {
-        setProdInfo(response.data);
+        // const { data } = response;
+        const {
+          id, name, category, default_price, features,
+        } = response.data;
+        setProdInfo({
+          id,
+          name,
+          category,
+          default_price,
+          features
+        });
       })
-      .catch((err) => console.log('MT error: ', err))
+      .catch((err) => console.log(err))
   );
 
   const getSalePriceAndImg = (id) => (
@@ -51,7 +62,6 @@ function ProductCard(props) {
           const thumbnailUrl = response.data.results[i].photos[0].thumbnail_url;
           if (isDefault && onSalePrice) {
             setSalePrice(onSalePrice);
-            return;
           }
           if (isDefault) {
             setImageUrl(thumbnailUrl);
@@ -61,26 +71,26 @@ function ProductCard(props) {
           setImageUrl(response.data.results[0].photos[0].thumbnail_url);
         }
       })
-      .catch((err) => console.log('MT error: ', err))
+      .catch((err) => console.log(err))
   );
 
   const getReviewMetadata = (id) => (
     axios.get('/reviews/meta', {
       params: {
-        product_id: id,
+        product_id: id
       },
     })
       .then((response) => {
         setProdRating(calcAvgRtg(response.data.ratings));
       })
-      .catch((err) => console.log('MT error: ', err))
+      .catch((err) => console.log(err))
   );
 
   const getAllProductData = (id) => (
     getProdInfo(id)
       .then(getSalePriceAndImg(id))
       .then(getReviewMetadata(id))
-      .catch((err) => console.log('MT error: ', err))
+      .catch((err) => console.log(err))
   );
 
   useEffect(() => {
@@ -96,6 +106,7 @@ function ProductCard(props) {
       <div>{`Price: ${prodInfo.default_price}`}</div>
       <div>{`Sale Price: ${salePrice}`}</div>
       <div>{`Rating: ${prodRating}`}</div>
+      <div>{JSON.stringify(prodInfo)}</div>
     </span>
   );
 }
