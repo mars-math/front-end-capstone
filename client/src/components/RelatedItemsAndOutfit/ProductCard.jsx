@@ -142,9 +142,16 @@ function ProductCard(props) {
       <div>{`Product ID: ${prodInfo.id}`}</div>
       <div>{`Name: ${prodInfo.name}`}</div>
       <div>{`Category: ${prodInfo.category}`}</div>
-      <div>{`Price: ${prodInfo.default_price}`}</div>
-      <div>{`Sale Price: ${salePrice}`}</div>
-      <div>{`Rating: ${prodRating}`}</div>
+      {!salePrice && (
+        <div>{`Price: ${prodInfo.default_price}`}</div>
+      )}
+      {salePrice && (
+        <>
+          <span>Price: </span>
+          <span style={{ color: 'red' }}>{salePrice}</span>
+          <s>{prodInfo.default_price}</s>
+        </>
+      )}
       <div className="total-stars-render">
         {[...Array(5)].map(
           (star, index) => <span key={`star${index}`}>{whichStar(prodRating, index)}</span>,

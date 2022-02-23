@@ -79,9 +79,8 @@ function OutfitList(props) {
 
   return (
     <>
-      <h3>My Outfit</h3>
+      <h2>My Outfit</h2>
       <button type="button" onClick={addToOutfit}>Add to My Outfit</button>
-      <button type="button" onClick={removeProduct}>Remove from My Outfit</button>
       <button type="button" onClick={clearOutfit}>Remove all items from My Outfit</button>
       <Carousel idsToRender={outfitIds} isOutfitList removeProduct={removeProduct} />
     </>

@@ -12,7 +12,6 @@ function Carousel(props) {
   if (isOutfitList) {
     return (
       <>
-        <div>THIS IS THE OUTFIT LIST</div>
         {idsToRender.map((id) => (
           <ProductCard
             prodId={id}
@@ -26,7 +25,6 @@ function Carousel(props) {
   }
   return (
     <>
-      <div>THIS IS THE RELATED ITEMS LIST</div>
       {idsToRender.map((id) => (
         <ProductCard
           prodId={id}
