@@ -42,7 +42,8 @@ export default function AllReviews() {
     if (!isFirstRender.current) {
       getReview(43230, 999)
         .then((data) => {
-          setRenderedReviews(data.results.filter((review) => {
+          const sortedReviews = data.results.sort((a, b) => -a.date.localeCompare(b.date));
+          setRenderedReviews(sortedReviews.filter((review) => {
             const arrStars = Object.keys(filterStars);
             if (arrStars.length === 0) {
               return true;
@@ -86,23 +87,32 @@ export default function AllReviews() {
   }
 
   return (
-    <div className="all-review-components" data-testid="allRev-1">
-      <div className="individual-reviews" style={{ maxHeight: '601px', overflow: 'auto', width: '45%' }}>
-        <div style={{ display: 'flex', fontSize: '20px' }}>
-          <div>{`${renderedReviews.length} reviews, sorted by`}</div>
-          <select className="review-dropdown" onChange={(e) => sortReviews(e)}>
-            <option value="most recent ▼">most recent</option>
-            <option value="most helpful ▼">most helpful</option>
-          </select>
+    <>
+      <div style={{
+        display: 'flex', fontSize: '20px', justifyContent: 'center', marginLeft: '50px',
+      }}
+      >
+        <div>{`${renderedReviews.length} reviews, sorted by`}</div>
+        <select className="review-dropdown" onChange={(e) => sortReviews(e)}>
+          <option value="most recent ▼">most recent</option>
+          <option value="most helpful ▼">most helpful</option>
+        </select>
+      </div>
+      <div className="all-review-components" data-testid="allRev-1">
+        <div className="individual-reviews" style={{ maxHeight: '601px', overflow: 'auto', width: '45%' }}>
+          {slicedRender.map((review, index) => (
+            <div data-testid="tile">
+              <IndividualReview render={review} key={`review${index}`} />
+            </div>
+          ))}
+          {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length
+            ? <button type="button" onClick={() => setAmountToRender((prevNum) => prevNum + 2)} className="cust-button">More Reviews</button> : <></>}
+          <WriteReview updateRender={updateRender} />
         </div>
-        {slicedRender.map((review, index) => <IndividualReview render={review} key={`review${index}`} />)}
-        {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length ? <button type="button" onClick={() => setAmountToRender((prevNum) => prevNum + 2)} className="cust-button">More Reviews</button> : <></>}
-        <WriteReview updateRender={updateRender} />
+        <div className="rating-breakdown">
+          <RatingBreakdown manageFilter={manageFilter} />
+        </div>
       </div>
-      <div className="rating-breakdown">
-        <RatingBreakdown manageFilter={manageFilter} />
-      </div>
-    </div>
-
+    </>
   );
 }

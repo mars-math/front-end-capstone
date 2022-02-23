@@ -1,154 +1,159 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<div
-  className="all-review-components"
-  data-testid="allRev-1"
->
+Array [
   <div
-    className="individual-reviews"
     style={
       Object {
-        "maxHeight": "601px",
-        "overflow": "auto",
-        "width": "50%",
+        "display": "flex",
+        "fontSize": "20px",
+        "justifyContent": "center",
+        "marginLeft": "50px",
       }
     }
   >
+    <div>
+      0 reviews, sorted by
+    </div>
+    <select
+      className="review-dropdown"
+      onChange={[Function]}
+    >
+      <option
+        value="most recent ▼"
+      >
+        most recent
+      </option>
+      <option
+        value="most helpful ▼"
+      >
+        most helpful
+      </option>
+    </select>
+  </div>,
+  <div
+    className="all-review-components"
+    data-testid="allRev-1"
+  >
     <div
+      className="individual-reviews"
       style={
         Object {
-          "display": "flex",
-          "fontSize": "20px",
+          "maxHeight": "601px",
+          "overflow": "auto",
+          "width": "45%",
         }
       }
     >
-      <div>
-        0 reviews, sorted by
-      </div>
-      <select
-        className="review-dropdown"
-        onChange={[Function]}
+      <button
+        className="cust-button "
+        onClick={[Function]}
+        type="button"
       >
-        <option
-          value="most recent ▼"
-        >
-          most recent
-        </option>
-        <option
-          value="most helpful ▼"
-        >
-          most helpful
-        </option>
-      </select>
+        Write New Review
+      </button>
     </div>
-    <button
-      onClick={[Function]}
-      type="button"
-    >
-      Write New Review
-    </button>
-  </div>
-  <div
-    className="rating-breakdown"
-  >
     <div
-      className="total-stars-render"
+      className="rating-breakdown"
     >
+      <div
+        className="total-stars-render"
+      >
+        <div
+          style={
+            Object {
+              "fontSize": "3em",
+            }
+          }
+        >
+          NaN
+        </div>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+      </div>
       <div
         style={
           Object {
-            "fontSize": "3em",
+            "fontSize": "1.4em",
+            "fontWeight": "bold",
+            "marginBottom": "10px",
+            "marginTop": "10px",
           }
         }
       >
-        NaN
+        0
+         
+        reviews
       </div>
-      <span>
-        <svg
-          fill="none"
-          height="20"
-          viewBox="0 0 100 100"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
-            fill="#C4C4C4"
-          />
-        </svg>
-      </span>
-      <span>
-        <svg
-          fill="none"
-          height="20"
-          viewBox="0 0 100 100"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
-            fill="#C4C4C4"
-          />
-        </svg>
-      </span>
-      <span>
-        <svg
-          fill="none"
-          height="20"
-          viewBox="0 0 100 100"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
-            fill="#C4C4C4"
-          />
-        </svg>
-      </span>
-      <span>
-        <svg
-          fill="none"
-          height="20"
-          viewBox="0 0 100 100"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
-            fill="#C4C4C4"
-          />
-        </svg>
-      </span>
-      <span>
-        <svg
-          fill="none"
-          height="20"
-          viewBox="0 0 100 100"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
-            fill="#C4C4C4"
-          />
-        </svg>
-      </span>
     </div>
-    <div
-      style={
-        Object {
-          "fontSize": "1.4em",
-          "fontWeight": "bold",
-          "marginBottom": "10px",
-          "marginTop": "10px",
-        }
-      }
-    >
-      0
-       
-      reviews
-    </div>
-  </div>
-</div>
+  </div>,
+]
 `;

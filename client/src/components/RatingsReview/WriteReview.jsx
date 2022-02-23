@@ -43,7 +43,7 @@ function WriteReview(props) {
       return (
         Object.keys(charData).map((char, index) => (
           <div key={`${char}${index}`} style={{ display: 'flex', flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', width: '100%' }}>
+            <div style={{ display: 'flex', width: '100%', fontWeight: 'bold' }}>
               {char}
               :
             </div>
@@ -123,17 +123,18 @@ function WriteReview(props) {
           <span className="close-icon" onClick={togglePopup}>x</span>
           {/* --------TITLE----------- */}
           <h3>Write Your Review</h3>
-          <h4 style={{marginBottom: '10px' }}>
+          <h4 style={{ marginBottom: '20px', borderBottom: '2px solid black' }}>
             About the
             {' '}
             {itemName}
           </h4>
           <form onSubmit={(e) => postSubmit(e)}>
             {/* --------STAR RATING----------- */}
+            <div style={{ marginBottom: '10px', fontWeight: 'bold' }}>Rate This Item:</div>
             <StarRating buildPost={buildPost} />
             {/* --------RECOMMENDED?----------- */}
-            <div>Recommend Product?</div>
-            <fieldset style={{ border: 'none', marginBottom: '3px' }} required onChange={(e) => buildPost('recommend', (e.target.value === 'yes'))}>
+            <div style={{ fontWeight: 'bold' }}>Recommend Product?</div>
+            <fieldset style={{ border: 'none', marginBottom: '5px', borderBottom: '1px solid black'}} required onChange={(e) => buildPost('recommend', (e.target.value === 'yes'))}>
               <label htmlFor="yes">
                 <input type="radio" id="yes" name="recommended" value="yes" />
                 Yes
@@ -147,7 +148,7 @@ function WriteReview(props) {
             {/* --------CHARACTERISTICS----------- */}
             {renderChars()}
             {/* --------SUMMARY----------- */}
-            <label htmlFor="summary" className="write-review-labels">Summary:</label>
+            <label htmlFor="summary" className="write-review-labels" style={{borderTop: '1px solid black' }}>Summary:</label>
             <input
               style={{ width: '200px' }}
               type="text"

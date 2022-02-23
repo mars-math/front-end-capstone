@@ -20,7 +20,7 @@ const {
 
 export default function IndividualReview(props) {
   const {render} = props;
-  const [helpfulNum, setHelpfulNum] = useState(render.helpfulNum);
+  const [helpfulNum, setHelpfulNum] = useState(render.helpfulness);
   const [buttonPressed, setButtonPressed] = useState(true);
   const [toggleBody, setToggleBody] = useState(false);
 

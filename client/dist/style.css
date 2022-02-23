@@ -1,8 +1,6 @@
 /* REVIEWS AND RATINGS */
 
 .cust-button {
-  border: none;
-  outline: none;
   background-color: rgba(0, 0, 0, 0);
 
   text-transform: uppercase;
@@ -147,6 +145,7 @@
 
 .write-review-labels {
   margin-top: 10px;
+  font-weight: bold;
 }
 
 /* Q AND A */

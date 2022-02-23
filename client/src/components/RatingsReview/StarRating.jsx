@@ -16,7 +16,7 @@ function StarRating(props) {
   }, [rating]);
 
   return (
-    <div className="star-rating" style={{ marginBottom: '10px' }}>
+    <div className="star-rating" style={{ marginBottom: '10px', borderBottom: '1px solid black' }}>
       {[...Array(5)].map((star, index) => {
         index += 1;
         return (
