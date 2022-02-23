@@ -108,7 +108,7 @@ class QuestionsView extends React.Component {
           closeAddAnswer={this.clickAddAnswer}
           questionID={this.props.questions.question_id}
           questionBody={this.props.questions.question_body}
-          // getItemInfo={this.props.getItemInfo}
+          getItemInfo={this.props.getItemInfo}
         />
       );
     }
@@ -118,6 +118,7 @@ class QuestionsView extends React.Component {
   // show answers render function?
 
   render() {
+    console.log('question view props ', this.props);
     return (
       <div>
         <div className="question-list">
