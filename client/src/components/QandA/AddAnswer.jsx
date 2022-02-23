@@ -44,8 +44,9 @@ class AddAnswer extends React.Component {
       email: this.state.email,
     })
       .then((response) => {
-        console.log(response);
-        // this.props.getItemInfo();
+        console.log('response form adding and answer ', response);
+        // console.log('this.props ', this.props);
+        this.props.getItemInfo();
       })
       .catch((err) => {
         console.log('make sure you email is in example@email.com format', err);
@@ -55,6 +56,7 @@ class AddAnswer extends React.Component {
   }
 
   render() {
+    console.log('add answer props ', this.props);
     return (
       <div className="popup-box">
         <div className="box">

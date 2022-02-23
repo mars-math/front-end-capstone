@@ -108,18 +108,21 @@ class QuestionsView extends React.Component {
           closeAddAnswer={this.clickAddAnswer}
           questionID={this.props.questions.question_id}
           questionBody={this.props.questions.question_body}
-          // getItemInfo={this.props.getItemInfo}
+          getItemInfo={this.props.getItemInfo}
         />
       );
     }
     return <></>;
   }
 
+  // show answers render function?
+
   render() {
+    console.log('question view props ', this.props);
     return (
       <div>
         <div className="question-list">
-          Q:  {this.props.questions.question_body}
+           <b>Q:&emsp;{this.props.questions.question_body}</b>
           <span className="questions-helpful">
             Helpful?<span className="clickable" onClick={this.clickHelpful}>&ensp;<u>Yes</u>&nbsp;</span>
             ({this.helpfulCounterDisplay()})
@@ -128,8 +131,8 @@ class QuestionsView extends React.Component {
           </span>
         </div>
         <div>
-          <span>A:</span>
-          <span className="answer-list">{this.showAnswers(this.props.answers)}</span>
+          {Object.keys(this.props.answers).length ? <span className="A-tag">A:</span> : <br />}
+          <ul className="answer-list">{this.showAnswers(this.props.answers)}</ul>
           <div className="load-answers" onClick={this.loadAnswersClick}>
             <b>{this.loadTextChange()}</b>
           </div>
@@ -140,6 +143,9 @@ class QuestionsView extends React.Component {
 }
 
 export default QuestionsView;
+// style={{ maxHeight: '601px', overflow: 'auto', width: '45%' }}
+
+{/* <span className="A-tag">A:</span> */}
 // {console.log('answers as this.props.answers ', this.props.answers)}
 // {/* {console.log('this.props.questions ', this.props.questions)} */}
 // {console.log('answers as this.props.answers ', this.props.answers)}
