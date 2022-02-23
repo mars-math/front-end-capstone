@@ -67,33 +67,37 @@ export default function RatingBreakdown(props) {
 
   return (
     <>
-      <div>{averageStars(meta.ratings)[0]}</div>
-      {[...Array(5)].map(
-        (star, index) => <span key={`star${index}`}>{whichStar(averageStars(meta.ratings)[0], index)}</span>,
-      )}
+      <div className="total-stars-render">
+        <div style={{ fontSize: '3em' }}>{averageStars(meta.ratings)[0]}</div>
+        {[...Array(5)].map(
+          (star, index) => <span key={`star${index}`}>{whichStar(averageStars(meta.ratings)[0], index)}</span>,
+        )}
+      </div>
 
-      <div>
+      <div style={{
+        fontSize: '1.4em', fontWeight: 'bold', marginBottom: '10px', marginTop: '10px',
+      }}
+      >
         {averageStars(meta.ratings)[1]}
         {' '}
         reviews
       </div>
 
       {meta.ratings ? [1, 2, 3, 4, 5].map((item, idx) => (
-        <div key={`progress bar ${idx}`}>
-          <ProgressBar
-            bgcolor="#50C878"
-            completed={(((meta.ratings[item]
-              ? meta.ratings[item] : 0) / averageStars(meta.ratings)[1]) * 100).toFixed()}
-            count={meta.ratings[item]}
-            index={item}
-            manageFilter={manageFilter}
-          />
-        </div>
+        <ProgressBar
+          key={`progress bar ${idx}`}
+          bgcolor="#50C878"
+          completed={(((meta.ratings[item]
+            ? meta.ratings[item] : 0) / averageStars(meta.ratings)[1]) * 100).toFixed()}
+          count={meta.ratings[item]}
+          index={item}
+          manageFilter={manageFilter}
+        />
       )) : <></>}
 
       {meta.characteristics ? Object.keys(meta.characteristics).map((char, index) => (
         <div key={`charBreak ${index}`}>
-          <h4>{char}</h4>
+          <h4 style={{ marginBottom: '5px' }}>{char}</h4>
           <CharBreakdown chars={meta.characteristics[char]} />
         </div>
       ))

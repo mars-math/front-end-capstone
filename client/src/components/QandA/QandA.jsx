@@ -86,8 +86,8 @@ class QandA extends React.Component {
         <div>
           {/* {console.log('searchList ', this.state.searchList)} */}
           <form onSubmit={this.searchClick}>
-            <input placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.searchChange} />
-            <button type="submit">search</button>
+            <input id="searchBar" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.searchChange} />
+            <button type="submit">Search</button>
           </form>
           <Questions searchList={this.state.searchList}
           questionList={this.state.questionList}

@@ -10,18 +10,21 @@ import RatingBreakdown from './RatingsReview/RatingBreakdown.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      url: window.location.pathname.slice(8).replaceAll('/', ''),
+    };
   }
 
   render() {
     return (
       <>
-        <AllReviews />
+        <AllReviews url={this.state.url}/>
+        {console.log(this.state.url)}
         {/* <h1>Kloth</h1>
         <ProductInfo /> */}
         {/* <Carousel renderedId={'42368'}/> */}
         <h1>Kloth</h1>
         <Overview />
-        <RatingBreakdown />
         <RelatedItems overviewId="42368" />
         <OutfitList overviewId="42368" />
         <div>

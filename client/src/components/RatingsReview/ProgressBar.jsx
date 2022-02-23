@@ -10,10 +10,10 @@ function ProgressBar(props) {
 
   const containerStyles = {
     height: 15,
-    width: '50%',
+    width: '80%',
     backgroundColor: '#e0e0de',
     borderRadius: 5,
-    margin: 5,
+    margin: 8,
   };
 
   const fillerStyles = {
@@ -29,7 +29,7 @@ function ProgressBar(props) {
   }
 
   return (
-    <div>
+    <div className="progress-bar">
       <button
         style={isActivated ? { color: 'blue' } : {}}
         className="star-filter-button"
@@ -48,7 +48,6 @@ function ProgressBar(props) {
       </div>
       <div>
         {count || 0}
-        {count === '1' ? ' rating' : ' ratings'}
       </div>
     </div>
   );
