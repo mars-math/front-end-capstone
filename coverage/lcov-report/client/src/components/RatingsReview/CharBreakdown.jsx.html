@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -117,20 +117,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,10 +139,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,10 +165,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 &nbsp;
-function CharBreakdown(props) {
-  const { chars } = props;
+function <span class="fstat-no" title="function not covered" >CharBreakdown(</span>props) {
+  const { chars } = <span class="cstat-no" title="statement not covered" >props;</span>
 &nbsp;
-  const containerStyles = {
+  const containerStyles = <span class="cstat-no" title="statement not covered" >{</span>
     height: 15,
     width: 65,
     backgroundColor: '#e0e0de',
@@ -177,7 +177,7 @@ function CharBreakdown(props) {
     float: 'left',
   };
 &nbsp;
-  const fillerStyles = {
+  const fillerStyles = <span class="cstat-no" title="statement not covered" >{</span>
     position: 'relative',
     left: '40%',
     bottom: '10%',
@@ -190,10 +190,10 @@ function CharBreakdown(props) {
     textAlign: 'right',
   };
 &nbsp;
-  return (
-    &lt;div className="char-breakdown-bar"&gt;
-      {[...Array(5)].map((whatever, index) =&gt; (
-        &lt;div style={{}} key={`${chars.id} ${index}`}&gt;
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;div className="char-breakdown-bar" data-testid="CharBreakdown-1"&gt;
+      {[...Array(5)].map(<span class="fstat-no" title="function not covered" >(w</span>hatever, index) =&gt; (
+<span class="cstat-no" title="statement not covered" >        &lt;div style={{}} key={`${chars.id} ${index}`}&gt;</span>
           &lt;div style={{
             position: 'relative', left: '40%', marginBottom: '5px', zIndex: '1',
           }}
@@ -217,7 +217,7 @@ export default CharBreakdown;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Feb 21 2022 21:39:28 GMT-0800 (Pacific Standard Time)
+                at Tue Feb 22 2022 23:28:11 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

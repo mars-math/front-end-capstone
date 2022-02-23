@@ -17,7 +17,7 @@ const {
 export default function RatingBreakdown(props) {
   const [meta, setMeta] = useState({});
 
-  const { manageFilter } = props;
+  const { manageFilter, url } = props;
 
   function getMeta(id) {
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews/meta?product_id=${id}`, {
@@ -30,7 +30,7 @@ export default function RatingBreakdown(props) {
   }
 
   useEffect(() => {
-    getMeta(43230)
+    getMeta(url)
       .then((data) => {
         setMeta(data);
       })
