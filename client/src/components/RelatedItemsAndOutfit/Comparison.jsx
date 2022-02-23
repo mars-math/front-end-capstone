@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
 
 function Comparison(props) {
   const { overviewProductData, productCardData } = props;
 
   const parseDataObjs = (overview, product) => {
     const parsedData = [
-      { name: [overview.prodInfo.name, product.prodInfo.name] },
-      { category: [overview.prodInfo.category, product.prodInfo.category] },
-      { price: [overview.prodInfo.default_price, product.prodInfo.default_price] },
-      { rating: [overview.prodRating, product.prodRating] },
+      { Name: [overview.prodInfo.name, product.prodInfo.name] },
+      { Category: [overview.prodInfo.category, product.prodInfo.category] },
+      { Price: [overview.prodInfo.default_price, product.prodInfo.default_price] },
+      { Rating: [overview.prodRating, product.prodRating] },
     ];
 
-    for (let i = 0; i < overview.prodInfo.features.length; i++) {
+    for (let i = 0; i < overview.prodInfo.features.length; i += 1) {
       const { feature, value } = overview.prodInfo.features[i];
       parsedData.push({ [feature]: [value, null] });
     }
 
-    for (let i = 0; i < product.prodInfo.features.length; i++) {
+    for (let i = 0; i < product.prodInfo.features.length; i += 1) {
       const { feature, value } = product.prodInfo.features[i];
       const index = parsedData.findIndex((obj) => obj[feature] !== undefined);
 
@@ -27,30 +28,29 @@ function Comparison(props) {
       }
     }
 
-    // console.log(Object.keys(parsedData[0])[0]);
-
     return parsedData;
   };
 
   const comparisonData = parseDataObjs(overviewProductData, productCardData);
 
-  console.log(comparisonData);
-
   return (
-    <>
-      <div>this is the comparison module</div>
-      <div>{null}</div>
-    </>
+    <table>
+      <thead>
+        <tr>
+          <th colSpan="3">Comparing</th>
+        </tr>
+      </thead>
+      <tbody>
+        {comparisonData.map((feature) => (
+          <tr>
+            <td>{feature[Object.keys(feature)[0]][0]}</td>
+            <td>{Object.keys(feature)[0]}</td>
+            <td>{feature[Object.keys(feature)[0]][1]}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
 
 export default Comparison;
-
-// const sampleObj = {
-//   name: [overviewName, relatedName],
-//   category: [overviewCategory, relatedCategory],
-//   price: [overviewPrice, relatedPrice],
-//   saleprice: [overviewSalePrice, relatedSalePrice],
-//   feature1: [overviewValue, relatedValue],
-
-// }

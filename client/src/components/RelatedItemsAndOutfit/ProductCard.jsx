@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 
@@ -51,7 +50,7 @@ function ProductCard(props) {
           name,
           category,
           default_price,
-          features
+          features,
         });
       })
       .catch((err) => console.log(err))
@@ -62,7 +61,7 @@ function ProductCard(props) {
       .then((response) => {
         const totalStyles = response.data.results.length;
         const firstThumbnailUrl = response.data.results[0].photos[0].thumbnail_url;
-        for (let i = 0; i < totalStyles; i++) {
+        for (let i = 0; i < totalStyles; i += 1) {
           const isDefault = response.data.results[i]['default?'];
           const onSalePrice = response.data.results[i].sale_price;
           const thumbnailUrl = response.data.results[i].photos[0].thumbnail_url;
@@ -85,7 +84,7 @@ function ProductCard(props) {
   const getReviewMetadata = (productID) => (
     axios.get('/reviews/meta', {
       params: {
-        product_id: productID
+        product_id: productID,
       },
     })
       .then((response) => {
@@ -123,7 +122,7 @@ function ProductCard(props) {
               prodInfo,
               salePrice,
               prodRating,
-              imageUrl
+              imageUrl,
             }}
           />
         )}
