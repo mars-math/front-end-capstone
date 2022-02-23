@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: window.location.pathname.replaceAll('/', ''),
+      url: window.location.pathname.slice(8).replaceAll('/', ''),
     };
   }
 

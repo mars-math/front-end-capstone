@@ -4,7 +4,7 @@ const express = require("express");
 
 const app = express();
 
-app.use('/:id', express.static(path.join(__dirname, "../client/dist")));
+app.use('/product/:id', express.static(path.join(__dirname, "../client/dist")));
 app.use(express.json());
 
 //Sarah router functions
@@ -14,7 +14,7 @@ app.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products', (req, re
 });
 
 app.get('/', (req, res) => {
-  res.redirect('/43230');
+  res.redirect('/product/43230');
 });
 
 app.listen(3000, () => {
