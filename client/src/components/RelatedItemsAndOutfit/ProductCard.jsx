@@ -7,16 +7,22 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import API_KEY from '../../../../config/config.js';
+import Comparison from './Comparison.jsx';
 
 function ProductCard(props) {
-  const { prodId } = props;
+  const { prodId, overviewProductData } = props;
   const [prodInfo, setProdInfo] = useState({});
-  const [salePrice, setSalePrice] = useState('');
+  const [salePrice, setSalePrice] = useState(null);
   const [prodRating, setProdRating] = useState(null);
-  const [imageUrl, setImageUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState('https://i5.walmartimages.com/asr/538e6ee9-b8ce-4c50-bb78-e0ef9ca3e5d7.d92a2e915d667614f121ea11f0d1ec7e.jpeg');
+  const [showComparison, setShowComparison] = useState(false);
 
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;
+
+  const toggleComparison = () => {
+    setShowComparison(!showComparison);
+  };
 
   const calcAvgRtg = (rtgObj) => {
     let totalStars = 0;
@@ -33,54 +39,65 @@ function ProductCard(props) {
     return (Number(avgRtg.toFixed(2)));
   };
 
-  const getProdInfo = (id) => (
-    axios.get(`/products/${id}`)
+  const getProdInfo = (productID) => (
+    axios.get(`/products/${productID}`)
       .then((response) => {
-        setProdInfo(response.data);
+        const {
+          id, name, category, default_price, features,
+        } = response.data;
+        setProdInfo({
+          id,
+          name,
+          category,
+          default_price,
+          features,
+        });
       })
-      .catch((err) => console.log('MT error: ', err))
+      .catch((err) => console.log(err))
   );
 
-  const getSalePriceAndImg = (id) => (
-    axios.get(`/products/${id}/styles`)
+  const getSalePriceAndImg = (productID) => (
+    axios.get(`/products/${productID}/styles`)
       .then((response) => {
         const totalStyles = response.data.results.length;
-        for (let i = 0; i < totalStyles; i++) {
+        const firstThumbnailUrl = response.data.results[0].photos[0].thumbnail_url;
+        for (let i = 0; i < totalStyles; i += 1) {
           const isDefault = response.data.results[i]['default?'];
           const onSalePrice = response.data.results[i].sale_price;
           const thumbnailUrl = response.data.results[i].photos[0].thumbnail_url;
-          if (isDefault && onSalePrice) {
-            setSalePrice(onSalePrice);
-            return;
-          }
           if (isDefault) {
-            setImageUrl(thumbnailUrl);
+            if (onSalePrice) {
+              setSalePrice(onSalePrice);
+            }
+            if (thumbnailUrl) {
+              setImageUrl(thumbnailUrl);
+            }
           }
         }
-        if (imageUrl === '') {
-          setImageUrl(response.data.results[0].photos[0].thumbnail_url);
+        if (firstThumbnailUrl) {
+          setImageUrl(firstThumbnailUrl);
         }
       })
-      .catch((err) => console.log('MT error: ', err))
+      .catch((err) => console.log(err))
   );
 
-  const getReviewMetadata = (id) => (
+  const getReviewMetadata = (productID) => (
     axios.get('/reviews/meta', {
       params: {
-        product_id: id,
+        product_id: productID,
       },
     })
       .then((response) => {
         setProdRating(calcAvgRtg(response.data.ratings));
       })
-      .catch((err) => console.log('MT error: ', err))
+      .catch((err) => console.log(err))
   );
 
-  const getAllProductData = (id) => (
-    getProdInfo(id)
-      .then(getSalePriceAndImg(id))
-      .then(getReviewMetadata(id))
-      .catch((err) => console.log('MT error: ', err))
+  const getAllProductData = (productID) => (
+    getProdInfo(productID)
+      .then(getSalePriceAndImg(productID))
+      .then(getReviewMetadata(productID))
+      .catch((err) => console.log(err))
   );
 
   useEffect(() => {
@@ -90,12 +107,28 @@ function ProductCard(props) {
   return (
     <span>
       <img src={imageUrl} alt="Product Preview" />
+      <button type="button" onClick={toggleComparison}>Comparison Modal</button>
       <div>{`Product ID: ${prodInfo.id}`}</div>
       <div>{`Name: ${prodInfo.name}`}</div>
       <div>{`Category: ${prodInfo.category}`}</div>
       <div>{`Price: ${prodInfo.default_price}`}</div>
       <div>{`Sale Price: ${salePrice}`}</div>
       <div>{`Rating: ${prodRating}`}</div>
+      {showComparison
+        && (
+          <Comparison
+            overviewProductData={overviewProductData}
+            productCardData={{
+              prodInfo,
+              salePrice,
+              prodRating,
+              imageUrl,
+            }}
+          />
+        )}
+      {/* button to trigger display for comparison module.
+      will need to make another comparison module component
+      and have it render here based on some logic */}
     </span>
   );
 }
