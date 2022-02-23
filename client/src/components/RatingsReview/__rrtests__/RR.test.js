@@ -3,6 +3,7 @@ import { act } from 'react-dom/test-utils';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import AllReviews from '../AllReviews.jsx';
+import RatingBreakdown from '../RatingBreakdown.jsx';
 import IndividualReview from '../IndividualReview.jsx';
 import IndividualExample from '../ratingexampledata/individualExample.js'
 
@@ -17,11 +18,6 @@ test('should render AllReviews component', () => {
   expect(allReviewsElement).toHaveTextContent('reviews');
 });
 
-test('matches snapshot', () => {
-  const tree = renderer.create(<AllReviews />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
 xtest('shows 2 reviews initially', async () => {
   render(<AllReviews />)
 
@@ -29,4 +25,25 @@ xtest('shows 2 reviews initially', async () => {
 
   expect(reviews).toHaveLength(2);
 
+});
+
+it('renders correctly', () => {
+  const tree = renderer
+    .create(<AllReviews url="43230" />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it('renders correctly', () => {
+  const tree = renderer
+    .create(<RatingBreakdown url="43230" />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it('renders correctly', () => {
+  const tree = renderer
+    .create(<IndividualReview render={IndividualExample} />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });

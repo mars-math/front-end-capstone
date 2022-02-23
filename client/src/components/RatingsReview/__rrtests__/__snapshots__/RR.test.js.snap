@@ -1,163 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshot 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "display": "flex",
-        "fontSize": "20px",
-        "justifyContent": "center",
-        "marginLeft": "50px",
-      }
-    }
-  >
-    <div>
-      0 reviews, sorted by
-    </div>
-    <select
-      className="review-dropdown"
-      onChange={[Function]}
-    >
-      <option
-        value="most recent ▼"
-      >
-        most recent
-      </option>
-      <option
-        value="most helpful ▼"
-      >
-        most helpful
-      </option>
-    </select>
-  </div>,
-  <div
-    className="all-review-components"
-    data-testid="allRev-1"
-  >
-    <div
-      className="individual-reviews"
-      style={
-        Object {
-          "maxHeight": "601px",
-          "overflow": "auto",
-          "width": "45%",
-        }
-      }
-    >
-      <button
-        className="cust-button "
-        onClick={[Function]}
-        type="button"
-      >
-        Write New Review
-      </button>
-    </div>
-    <div
-      className="rating-breakdown"
-    >
-      <div
-        className="total-stars-render"
-      >
-        <div
-          style={
-            Object {
-              "fontSize": "3em",
-            }
-          }
-        >
-          NaN
-        </div>
-        <span>
-          <svg
-            fill="none"
-            height="20"
-            viewBox="0 0 100 100"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
-              fill="#C4C4C4"
-            />
-          </svg>
-        </span>
-        <span>
-          <svg
-            fill="none"
-            height="20"
-            viewBox="0 0 100 100"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
-              fill="#C4C4C4"
-            />
-          </svg>
-        </span>
-        <span>
-          <svg
-            fill="none"
-            height="20"
-            viewBox="0 0 100 100"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
-              fill="#C4C4C4"
-            />
-          </svg>
-        </span>
-        <span>
-          <svg
-            fill="none"
-            height="20"
-            viewBox="0 0 100 100"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
-              fill="#C4C4C4"
-            />
-          </svg>
-        </span>
-        <span>
-          <svg
-            fill="none"
-            height="20"
-            viewBox="0 0 100 100"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
-              fill="#C4C4C4"
-            />
-          </svg>
-        </span>
-      </div>
-      <div
-        style={
-          Object {
-            "fontSize": "1.4em",
-            "fontWeight": "bold",
-            "marginBottom": "10px",
-            "marginTop": "10px",
-          }
-        }
-      >
-        0
-         
-        reviews
-      </div>
-    </div>
-  </div>,
-]
-`;
-
 exports[`renders correctly 1`] = `
 Array [
   <div
@@ -166,7 +8,7 @@ Array [
         "display": "flex",
         "fontSize": "20px",
         "justifyContent": "center",
-        "marginLeft": "50px",
+        "marginLeft": "3%",
       }
     }
   >
@@ -1101,4 +943,547 @@ Array [
     </div>
   </div>,
 ]
+`;
+
+exports[`renders correctly 2`] = `
+Array [
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "fontSize": "20px",
+        "justifyContent": "center",
+        "marginLeft": "3%",
+      }
+    }
+  >
+    <div>
+      0 reviews, sorted by
+    </div>
+    <select
+      className="review-dropdown"
+      onChange={[Function]}
+    >
+      <option
+        value="most recent ▼"
+      >
+        most recent
+      </option>
+      <option
+        value="most helpful ▼"
+      >
+        most helpful
+      </option>
+    </select>
+  </div>,
+  <div
+    className="all-review-components"
+    data-testid="allRev-1"
+  >
+    <div
+      className="individual-reviews"
+      style={
+        Object {
+          "maxHeight": "601px",
+          "overflow": "auto",
+          "width": "45%",
+        }
+      }
+    >
+      <button
+        className="cust-button "
+        onClick={[Function]}
+        type="button"
+      >
+        Write New Review
+      </button>
+    </div>
+    <div
+      className="rating-breakdown"
+    >
+      <div
+        className="total-stars-render"
+      >
+        <div
+          style={
+            Object {
+              "fontSize": "3em",
+            }
+          }
+        >
+          NaN
+        </div>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        style={
+          Object {
+            "fontSize": "1.4em",
+            "fontWeight": "bold",
+            "marginBottom": "10px",
+            "marginTop": "10px",
+          }
+        }
+      >
+        0
+         
+        reviews
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders correctly 3`] = `
+Array [
+  <div
+    className="total-stars-render"
+  >
+    <div
+      style={
+        Object {
+          "fontSize": "3em",
+        }
+      }
+    >
+      NaN
+    </div>
+    <span>
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 100 100"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+          fill="#C4C4C4"
+        />
+      </svg>
+    </span>
+    <span>
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 100 100"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+          fill="#C4C4C4"
+        />
+      </svg>
+    </span>
+    <span>
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 100 100"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+          fill="#C4C4C4"
+        />
+      </svg>
+    </span>
+    <span>
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 100 100"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+          fill="#C4C4C4"
+        />
+      </svg>
+    </span>
+    <span>
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 100 100"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+          fill="#C4C4C4"
+        />
+      </svg>
+    </span>
+  </div>,
+  <div
+    style={
+      Object {
+        "fontSize": "1.4em",
+        "fontWeight": "bold",
+        "marginBottom": "10px",
+        "marginTop": "10px",
+      }
+    }
+  >
+    0
+     
+    reviews
+  </div>,
+]
+`;
+
+exports[`renders correctly 4`] = `
+<div
+  className="individual-review"
+  style={
+    Object {
+      "width": "92%",
+    }
+  }
+>
+  <div
+    className="ind-top-row"
+  >
+    <div>
+      <span>
+        <svg
+          fill="none"
+          height="20"
+          viewBox="0 0 100 100"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+            fill="#EFCD53"
+          />
+        </svg>
+      </span>
+      <span>
+        <svg
+          fill="none"
+          height="20"
+          viewBox="0 0 100 100"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+            fill="#EFCD53"
+          />
+        </svg>
+      </span>
+      <span>
+        <svg
+          fill="none"
+          height="20"
+          viewBox="0 0 100 100"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+            fill="#EFCD53"
+          />
+        </svg>
+      </span>
+      <span>
+        <svg
+          fill="none"
+          height="20"
+          viewBox="0 0 100 100"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+            fill="#EFCD53"
+          />
+        </svg>
+      </span>
+      <span>
+        <svg
+          fill="none"
+          height="20"
+          viewBox="0 0 100 100"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+            fill="#C4C4C4"
+          />
+          <path
+            d="M62.7486 31.8376L49.5528 0L36.357 31.8376L2 34.5491L28.2016 56.9374L20.1636 90.4509L49.5528 72.45L67.0432 83.1628V32.1765L62.7486 31.8376Z"
+            fill="#EFCD53"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      style={
+        Object {
+          "color": "#808080",
+          "fontSize": ".8em",
+          "marginLeft": "auto",
+        }
+      }
+    >
+      tiffany
+      -
+       
+    </div>
+    <div
+      style={
+        Object {
+          "color": "#808080",
+          "fontSize": ".8em",
+        }
+      }
+    >
+      2/8/2022
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "width": "100%",
+      }
+    }
+  >
+    <h2
+      style={
+        Object {
+          "margin": "8px",
+        }
+      }
+    >
+      This fits really well
+    </h2>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexWrap": "wrap",
+        "justifyContent": "flex-start",
+        "margin": "5px",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "inlineSize": "550px",
+          "overflowWrap": "break-word",
+          "width": "100%",
+        }
+      }
+    >
+      This fits really well jskdfs djfhsjdkf sdfkjshdfjkshjdkfsdf sdfsdfkjshdfjkshjdkfsdfsdfkjshdfjkshjdkfsdfsdfkjshdfjkshjdkfsdfsdfkjshdfjkshjdkfsdfsdfkjshdfjkshjdkfsdfsdfkjshdfjkshjdkfsdfsdfkjshdfjkshjdkfsdfsdfkjshdfjkshjdkfsdfsdfkjshdfjkshjdkfsdfsdfkjsh...
+    </div>
+    <button
+      className="star-filter-button"
+      onClick={[Function]}
+      style={
+        Object {
+          "display": "flex",
+          "width": "100%",
+        }
+      }
+    >
+      Show More
+    </button>
+  </div>
+  <div
+    style={
+      Object {
+        "fontWeight": "bold",
+        "marginBottom": "4px",
+        "marginLeft": "4px",
+        "width": "100%",
+      }
+    }
+  >
+     ✓ Recommended
+  </div>
+  <div
+    style={
+      Object {
+        "backgroundColor": "#C5C5C5",
+        "display": "flex",
+        "flexWrap": "wrap",
+      }
+    }
+  >
+    <h4
+      style={
+        Object {
+          "margin": "8px 0 4px 0",
+          "width": "100%",
+        }
+      }
+    >
+      Response From the Seller: 
+    </h4>
+    <div>
+      hey
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "flex-start",
+        "margin": "5px",
+        "width": "100%",
+      }
+    }
+  >
+    <span>
+      <input
+        alt="Nothing Here"
+        onClick={[Function]}
+        src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg"
+        style={
+          Object {
+            "height": "50px",
+            "margin": "5px 10px 0 0",
+            "width": "50px",
+          }
+        }
+        type="image"
+      />
+    </span>
+    <span>
+      <input
+        alt="Nothing Here"
+        onClick={[Function]}
+        src="https://ca-times.brightspotcdn.com/dims4/default/0ea1bb6/2147483647/strip/true/crop/1280x1313+0+0/resize/1280x1313!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fb0%2F0d%2Fad403cece4566024bb808fd43bfe%2Fla-1476056560-snap-photo"
+        style={
+          Object {
+            "height": "50px",
+            "margin": "5px 10px 0 0",
+            "width": "50px",
+          }
+        }
+        type="image"
+      />
+    </span>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "flex-start",
+        "marginLeft": "4px",
+      }
+    }
+  >
+    <span>
+      Helpful?
+       
+    </span>
+    <button
+      className="star-filter-button"
+      onClick={[Function]}
+      style={
+        Object {
+          "marginLeft": "5px",
+          "marginRight": "5px",
+        }
+      }
+      type="button"
+    >
+      Yes
+    </button>
+    <span
+      style={
+        Object {
+          "color": "#808080",
+          "fontSize": ".8em",
+        }
+      }
+    >
+      (
+      0
+      )
+    </span>
+  </div>
+</div>
 `;

@@ -91,7 +91,7 @@ export default function AllReviews(props) {
   return (
     <>
       <div style={{
-        display: 'flex', fontSize: '20px', justifyContent: 'center', marginLeft: '50px',
+        display: 'flex', fontSize: '20px', justifyContent: 'center', marginLeft: '3%',
       }}
       >
         <div>{`${renderedReviews.length} reviews, sorted by`}</div>
@@ -100,6 +100,7 @@ export default function AllReviews(props) {
           <option value="most helpful ▼">most helpful</option>
         </select>
       </div>
+
       <div className="all-review-components" data-testid="allRev-1">
         <div className="individual-reviews" style={{ maxHeight: '601px', overflow: 'auto', width: '45%' }}>
           {slicedRender.map((review, index) => (
@@ -107,6 +108,7 @@ export default function AllReviews(props) {
               <IndividualReview render={review} key={`review${index}`} />
             </div>
           ))}
+
           {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length
             ? <button type="button" onClick={() => setAmountToRender((prevNum) => prevNum + 2)} className="cust-button">More Reviews</button> : <></>}
           <WriteReview updateRender={updateRender} url={url} />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1645601291857" clover="3.2.0">
-  <project timestamp="1645601291857" name="All files">
-    <metrics statements="506" coveredstatements="198" conditionals="181" coveredconditionals="57" methods="198" coveredmethods="65" elements="885" coveredelements="320" complexity="0" loc="506" ncloc="506" packages="8" files="34" classes="34"/>
+<coverage generated="1645647376349" clover="3.2.0">
+  <project timestamp="1645647376349" name="All files">
+    <metrics statements="507" coveredstatements="221" conditionals="181" coveredconditionals="74" methods="198" coveredmethods="72" elements="886" coveredelements="367" complexity="0" loc="507" ncloc="507" packages="8" files="34" classes="34"/>
     <package name="client.src.components">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="App.jsx" path="/root/hackreactor/fec/client/src/components/App.jsx">
@@ -303,54 +303,55 @@
       </file>
     </package>
     <package name="client.src.components.RatingsReview">
-      <metrics statements="186" coveredstatements="48" conditionals="90" coveredconditionals="14" methods="82" coveredmethods="13"/>
+      <metrics statements="187" coveredstatements="71" conditionals="90" coveredconditionals="31" methods="82" coveredmethods="20"/>
       <file name="AllReviews.jsx" path="/root/hackreactor/fec/client/src/components/RatingsReview/AllReviews.jsx">
-        <metrics statements="45" coveredstatements="15" conditionals="14" coveredconditionals="3" methods="22" coveredmethods="5"/>
+        <metrics statements="46" coveredstatements="16" conditionals="14" coveredconditionals="3" methods="22" coveredmethods="5"/>
         <line num="12" count="6" type="stmt"/>
         <line num="13" count="6" type="stmt"/>
         <line num="14" count="6" type="stmt"/>
         <line num="15" count="6" type="stmt"/>
         <line num="16" count="6" type="stmt"/>
-        <line num="19" count="5" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="28" count="6" type="stmt"/>
-        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="41" count="6" type="stmt"/>
-        <line num="42" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="43" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="43" count="6" type="stmt"/>
+        <line num="44" count="5" type="cond" truecount="1" falsecount="1"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="48" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="53" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="60" count="5" type="stmt"/>
-        <line num="64" count="6" type="stmt"/>
-        <line num="65" count="5" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="62" count="5" type="stmt"/>
+        <line num="66" count="6" type="stmt"/>
+        <line num="67" count="5" type="stmt"/>
         <line num="68" count="0" type="stmt"/>
         <line num="70" count="0" type="stmt"/>
-        <line num="73" count="6" type="stmt"/>
-        <line num="74" count="5" type="stmt"/>
-        <line num="78" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="75" count="6" type="stmt"/>
+        <line num="76" count="5" type="stmt"/>
+        <line num="80" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
         <line num="85" count="0" type="stmt"/>
-        <line num="89" count="6" type="stmt"/>
-        <line num="96" count="0" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="109" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="91" count="6" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
       </file>
       <file name="CharBreakdown.jsx" path="/root/hackreactor/fec/client/src/components/RatingsReview/CharBreakdown.jsx">
         <metrics statements="5" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -361,38 +362,38 @@
         <line num="33" count="0" type="stmt"/>
       </file>
       <file name="IndividualReview.jsx" path="/root/hackreactor/fec/client/src/components/RatingsReview/IndividualReview.jsx">
-        <metrics statements="33" coveredstatements="1" conditionals="25" coveredconditionals="0" methods="13" coveredmethods="0"/>
+        <metrics statements="33" coveredstatements="21" conditionals="25" coveredconditionals="16" methods="13" coveredmethods="6"/>
         <line num="19" count="2" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
-        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="49" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="46" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="4" type="stmt"/>
+        <line num="49" count="1" type="cond" truecount="4" falsecount="1"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="52" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="52" count="1" type="cond" truecount="2" falsecount="2"/>
         <line num="53" count="0" type="stmt"/>
-        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="56" count="0" type="stmt"/>
+        <line num="55" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="56" count="1" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
-        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="63" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="65" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="74" count="0" type="stmt"/>
-        <line num="79" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="80" count="0" type="stmt"/>
+        <line num="79" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="80" count="2" type="stmt"/>
         <line num="82" count="0" type="stmt"/>
-        <line num="86" count="0" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="93" count="5" type="stmt"/>
         <line num="143" count="0" type="stmt"/>
         <line num="144" count="0" type="stmt"/>
       </file>
@@ -410,41 +411,41 @@
       <file name="RatingBreakdown.jsx" path="/root/hackreactor/fec/client/src/components/RatingsReview/RatingBreakdown.jsx">
         <metrics statements="30" coveredstatements="17" conditionals="21" coveredconditionals="10" methods="13" coveredmethods="6"/>
         <line num="15" count="2" type="stmt"/>
-        <line num="18" count="6" type="stmt"/>
-        <line num="20" count="6" type="stmt"/>
-        <line num="23" count="5" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
+        <line num="20" count="7" type="stmt"/>
+        <line num="23" count="6" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
-        <line num="32" count="6" type="stmt"/>
-        <line num="33" count="5" type="stmt"/>
+        <line num="32" count="7" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="41" count="42" type="stmt"/>
-        <line num="42" count="42" type="stmt"/>
-        <line num="43" count="42" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="49" type="stmt"/>
+        <line num="42" count="49" type="stmt"/>
+        <line num="43" count="49" type="cond" truecount="1" falsecount="1"/>
         <line num="44" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="49" count="42" type="stmt"/>
-        <line num="53" count="30" type="cond" truecount="1" falsecount="1"/>
+        <line num="49" count="49" type="stmt"/>
+        <line num="53" count="35" type="cond" truecount="1" falsecount="1"/>
         <line num="54" count="0" type="stmt"/>
-        <line num="56" count="30" type="cond" truecount="3" falsecount="2"/>
+        <line num="56" count="35" type="cond" truecount="3" falsecount="2"/>
         <line num="57" count="0" type="stmt"/>
-        <line num="59" count="30" type="cond" truecount="2" falsecount="2"/>
+        <line num="59" count="35" type="cond" truecount="2" falsecount="2"/>
         <line num="60" count="0" type="stmt"/>
-        <line num="62" count="30" type="cond" truecount="1" falsecount="1"/>
+        <line num="62" count="35" type="cond" truecount="1" falsecount="1"/>
         <line num="63" count="0" type="stmt"/>
-        <line num="65" count="30" type="stmt"/>
-        <line num="68" count="6" type="stmt"/>
-        <line num="73" count="30" type="stmt"/>
+        <line num="65" count="35" type="stmt"/>
+        <line num="68" count="7" type="stmt"/>
+        <line num="73" count="35" type="stmt"/>
         <line num="87" count="0" type="stmt"/>
         <line num="99" count="0" type="stmt"/>
       </file>
       <file name="ReviewImages.jsx" path="/root/hackreactor/fec/client/src/components/RatingsReview/ReviewImages.jsx">
-        <metrics statements="3" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
+        <metrics statements="3" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
       </file>
       <file name="StarRating.jsx" path="/root/hackreactor/fec/client/src/components/RatingsReview/StarRating.jsx">
         <metrics statements="12" coveredstatements="1" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>

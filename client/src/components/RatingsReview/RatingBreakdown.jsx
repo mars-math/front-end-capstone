@@ -96,8 +96,11 @@ export default function RatingBreakdown(props) {
       )) : <></>}
 
       {meta.characteristics ? Object.keys(meta.characteristics).map((char, index) => (
-        <div key={`charBreak ${index}`}>
-          <h4 style={{ marginBottom: '5px' }}>{char}</h4>
+        <div key={`charBreak ${index}`} style={{ marginBottom: '20px' }}>
+          <h4 style={{ marginBottom: '5px', marginTop: '5px' }}>
+            {char}
+            :
+          </h4>
           <CharBreakdown chars={meta.characteristics[char]} />
         </div>
       ))
