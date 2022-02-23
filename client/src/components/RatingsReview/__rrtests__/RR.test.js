@@ -27,21 +27,21 @@ xtest('shows 2 reviews initially', async () => {
 
 });
 
-it('renders correctly', () => {
+test('renders correctly', () => {
   const tree = renderer
     .create(<AllReviews url="43230" />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-it('renders correctly', () => {
+test('renders correctly', () => {
   const tree = renderer
     .create(<RatingBreakdown url="43230" />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-it('renders correctly', () => {
+test('renders correctly', () => {
   const tree = renderer
     .create(<IndividualReview render={IndividualExample} />)
     .toJSON();
