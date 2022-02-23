@@ -1,4 +1,68 @@
 export default {
+  overviewProductData: {
+    prodInfo: {
+      id: 42371,
+      name: 'Pumped Up Kicks',
+      category: 'Kicks',
+      default_price: '89.00',
+      features: [
+        {
+          feature: 'Sole',
+          value: 'Rubber',
+        },
+        {
+          feature: 'Material',
+          value: 'FullControlSkin',
+        },
+        {
+          feature: 'Mid-Sole',
+          value: 'ControlSupport Arch Bridge',
+        },
+        {
+          feature: 'Stitching',
+          value: 'Double Stitch',
+        },
+      ],
+    },
+    salePrice: '',
+    prodRating: 4.27,
+    imageUrl: 'https://images.unsplash.com/photo-1477420143023-6a0e0b04b69a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+  },
+
+  // prodInfo.name
+  // prodInfo.category
+  // prodInfo.default_price
+  // prodInfo.features[i].feature
+  // prodInfo.features[i].value
+  // salePrice
+  // prodRating
+
+  productCardData: {
+    prodInfo: {
+      id: 42367,
+      name: 'Bright Future Sunglasses',
+      category: 'Accessories',
+      default_price: '69.00',
+      features: [
+        {
+          feature: 'Lenses',
+          value: 'Ultrasheen',
+        },
+        {
+          feature: 'UV Protection',
+          value: null,
+        },
+        {
+          feature: 'Frames',
+          value: 'LightCompose',
+        },
+      ],
+    },
+    salePrice: '',
+    prodRating: 4,
+    imageUrl: 'https://i5.walmartimages.com/asr/538e6ee9-b8ce-4c50-bb78-e0ef9ca3e5d7.d92a2e915d667614f121ea11f0d1ec7e.jpeg',
+  },
+
   productDetailId: '42368',
 
   // GET /products/:product_id/related
