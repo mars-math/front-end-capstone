@@ -3,6 +3,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 
+// products range from ID 42366 to 43376
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Carousel from './Carousel.jsx';
@@ -14,7 +16,7 @@ function RelatedItems(props) {
   const [relatedIds, setRelatedIds] = useState([]);
 
   const [prodInfo, setProdInfo] = useState({});
-  const [salePrice, setSalePrice] = useState('');
+  const [salePrice, setSalePrice] = useState(null);
   const [prodRating, setProdRating] = useState(null);
   const [imageUrl, setImageUrl] = useState('https://i5.walmartimages.com/asr/538e6ee9-b8ce-4c50-bb78-e0ef9ca3e5d7.d92a2e915d667614f121ea11f0d1ec7e.jpeg');
 

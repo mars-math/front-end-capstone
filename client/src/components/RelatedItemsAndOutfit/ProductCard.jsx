@@ -13,7 +13,7 @@ import Comparison from './Comparison.jsx';
 function ProductCard(props) {
   const { prodId, overviewProductData } = props;
   const [prodInfo, setProdInfo] = useState({});
-  const [salePrice, setSalePrice] = useState('');
+  const [salePrice, setSalePrice] = useState(null);
   const [prodRating, setProdRating] = useState(null);
   const [imageUrl, setImageUrl] = useState('https://i5.walmartimages.com/asr/538e6ee9-b8ce-4c50-bb78-e0ef9ca3e5d7.d92a2e915d667614f121ea11f0d1ec7e.jpeg');
   const [showComparison, setShowComparison] = useState(false);
