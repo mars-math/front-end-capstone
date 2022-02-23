@@ -8,6 +8,7 @@ class Questions extends React.Component {
     super(props);
     this.state = {
       moreQuestions: false,
+      moreQuestions2: 0,
       // questionList: sampleData, // change props to state to use sampleData
       // questionList: [],
       sortedQuestions: [],
@@ -30,6 +31,9 @@ class Questions extends React.Component {
 
   // render only 2 questions till more are selected
   showQuestions(questionL) {
+    // const moreQuestions2 = this.props.questionList.results.length;
+    // this.setState({ moreQuestions2: this.props.questionList.results.length });
+    // console.log('moreQ2 ', moreQuestions2);
     const questionArray = questionL;
     const sortedQArray = questionArray.sort(this.sortHelper);
     this.state.sortedQuestions = sortedQArray;
@@ -115,7 +119,7 @@ class Questions extends React.Component {
   // render the questions that correspond to what was entered in the serach field
   render() {
     return (
-      <div>
+      <div className="scroll">
         {this.questionsOrSearchDisplay()}
         {this.moreQuestionsDisplay()}
         <button onClick={this.clickAddQuestion}>Add a Question</button>

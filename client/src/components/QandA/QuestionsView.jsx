@@ -128,7 +128,7 @@ class QuestionsView extends React.Component {
           </span>
         </div>
         <div>
-          <span>A:</span>
+          <span id="A-tag">A:</span>
           <span className="answer-list">{this.showAnswers(this.props.answers)}</span>
           <div className="load-answers" onClick={this.loadAnswersClick}>
             <b>{this.loadTextChange()}</b>

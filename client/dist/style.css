@@ -122,6 +122,7 @@
 
 .answer-list {
   margin-left: 20px;
+  /* text-indent: 1em; */
 }
 .answer-footer {
   margin-left: 20px;
@@ -149,4 +150,11 @@ label {
 }
 .questions-helpful {
   float: right;
+}
+.scroll {
+  scroll-behavior: auto;
+  overflow: auto;
+}
+#A-tag {
+
 }
