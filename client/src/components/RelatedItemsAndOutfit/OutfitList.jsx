@@ -1,6 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable no-unused-vars */
-
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 
@@ -42,12 +39,14 @@ function OutfitList(props) {
     // setRemovalId(newRemoveNum.toString());
   };
 
-  const removeProduct = () => {
+  const removeProduct = (e) => {
     const currentOutfits = JSON.parse(window.localStorage.getItem('allOutfits'));
-    window.localStorage.removeItem('42368'); // I will need to capture the ID from the event and use that to remove
-    currentOutfits.splice(currentOutfits.indexOf('42368'), 1);
+    window.localStorage.removeItem(e.target.dataset.id);
+    // I will need to capture the ID from the event and use that to remove
+    currentOutfits.splice(currentOutfits.indexOf(e.target.dataset.id), 1);
     window.localStorage.setItem('allOutfits', JSON.stringify(currentOutfits));
     setOutfitIds(currentOutfits);
+    // console.log(e.target.dataset.id);
 
     // // FOR TESTING LOCAL STORAGE FUNCTIONS WITH DUMMY DATA:
     // if (window.localStorage.getItem(removalId) !== null) {
@@ -81,11 +80,10 @@ function OutfitList(props) {
   return (
     <>
       <h3>My Outfit</h3>
-      {/* the button to add item to outfit; will probably need to pass in the currently rendered id as a prop */}
       <button type="button" onClick={addToOutfit}>Add to My Outfit</button>
       <button type="button" onClick={removeProduct}>Remove from My Outfit</button>
       <button type="button" onClick={clearOutfit}>Remove all items from My Outfit</button>
-      <Carousel idsToRender={outfitIds} isOutfitList />
+      <Carousel idsToRender={outfitIds} isOutfitList removeProduct={removeProduct} />
     </>
   );
 }

@@ -16,7 +16,9 @@ const {
 } = Stars;
 
 function ProductCard(props) {
-  const { prodId, overviewProductData } = props;
+  const {
+    prodId, overviewProductData, isOutfitList, removeProduct,
+  } = props;
   const [prodInfo, setProdInfo] = useState({});
   const [salePrice, setSalePrice] = useState(null);
   const [prodRating, setProdRating] = useState(null);
@@ -129,7 +131,14 @@ function ProductCard(props) {
   return (
     <span>
       <img src={imageUrl} alt="Product Preview" />
-      <button type="button" onClick={toggleComparison}>Comparison Modal</button>
+      {!isOutfitList
+        && (
+          <button type="button" onClick={toggleComparison}>Comparison Modal</button>
+        )}
+      {isOutfitList
+        && (
+          <button type="button" data-id={prodInfo.id} onClick={removeProduct}>Remove Item</button>
+        )}
       <div>{`Product ID: ${prodInfo.id}`}</div>
       <div>{`Name: ${prodInfo.name}`}</div>
       <div>{`Category: ${prodInfo.category}`}</div>
