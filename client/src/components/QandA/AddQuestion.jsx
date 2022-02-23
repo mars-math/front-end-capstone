@@ -75,6 +75,8 @@ class AddQuestion extends React.Component {
               placeholder="What is your question?"
               onChange={this.changeQuestion}
             />
+            <div></div>
+            <br />
             <label htmlFor="nickname">What is your nickname *</label>
             <input
               id="nickname"
@@ -86,6 +88,8 @@ class AddQuestion extends React.Component {
               onChange={this.changeNickname}
             />
             <div>For privacy reasons, do not use your full name or email address</div>
+            <br />
+            <div></div>
             <label htmlFor="email">Your email *</label>
             <input
               id="email"
@@ -97,6 +101,7 @@ class AddQuestion extends React.Component {
               onChange={this.changeEmail}
             />
             <div>For authentication reasons, you will not be emailed</div>
+            <br />
             <button type="submit">Submit Question</button>
           </form>
 
