@@ -2,6 +2,7 @@
 /* eslint-disable import/extensions */
 
 // products range from ID 42366 to 43376
+// product 43230 has a sale price
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -48,7 +49,7 @@ function RelatedItems(props) {
 
     const avgRtg = totalStars / totalRtgs;
 
-    return (Number(avgRtg.toFixed(2)));
+    return (Number(avgRtg.toFixed(1)));
   };
 
   const getProdInfo = (productID) => (
@@ -119,7 +120,7 @@ function RelatedItems(props) {
 
   return (
     <>
-      <h3>Related Items</h3>
+      <h2>Related Items</h2>
       <Carousel
         idsToRender={relatedIds}
         isOutfitList={false}

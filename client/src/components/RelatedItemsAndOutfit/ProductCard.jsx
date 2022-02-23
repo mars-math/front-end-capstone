@@ -3,14 +3,23 @@
 
 // style ID 42372 does not have a default style
 // style ID 42380 has a sale price for a non-default style
+// 43460 no related items?
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import API_KEY from '../../../../config/config.js';
 import Comparison from './Comparison.jsx';
 
+import Stars from '../RatingsReview/ratingexampledata/stars.js';
+
+const {
+  almostStar, quarterStar, halfStar, fullStar, emptyStar,
+} = Stars;
+
 function ProductCard(props) {
-  const { prodId, overviewProductData } = props;
+  const {
+    prodId, overviewProductData, isOutfitList, removeProduct,
+  } = props;
   const [prodInfo, setProdInfo] = useState({});
   const [salePrice, setSalePrice] = useState(null);
   const [prodRating, setProdRating] = useState(null);
@@ -19,6 +28,22 @@ function ProductCard(props) {
 
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;
+
+  function whichStar(rating, index) {
+    if (rating >= index + 1) {
+      return fullStar;
+    }
+    if (rating === (index + 0.5) || (rating > index + 0.33 && rating < index + 0.66)) {
+      return halfStar;
+    }
+    if (rating <= index + 0.33 && rating > index) {
+      return quarterStar;
+    }
+    if (rating >= index + 0.66) {
+      return almostStar;
+    }
+    return emptyStar;
+  }
 
   const toggleComparison = () => {
     setShowComparison(!showComparison);
@@ -36,7 +61,7 @@ function ProductCard(props) {
 
     const avgRtg = totalStars / totalRtgs;
 
-    return (Number(avgRtg.toFixed(2)));
+    return (Number(avgRtg.toFixed(1)));
   };
 
   const getProdInfo = (productID) => (
@@ -107,13 +132,34 @@ function ProductCard(props) {
   return (
     <span>
       <img src={imageUrl} alt="Product Preview" />
-      <button type="button" onClick={toggleComparison}>Comparison Modal</button>
+      {!isOutfitList
+        && (
+          <button type="button" onClick={toggleComparison}>Comparison Modal</button>
+        )}
+      {isOutfitList
+        && (
+          <button type="button" data-id={prodInfo.id} onClick={removeProduct}>Remove Item</button>
+        )}
       <div>{`Product ID: ${prodInfo.id}`}</div>
       <div>{`Name: ${prodInfo.name}`}</div>
       <div>{`Category: ${prodInfo.category}`}</div>
-      <div>{`Price: ${prodInfo.default_price}`}</div>
-      <div>{`Sale Price: ${salePrice}`}</div>
-      <div>{`Rating: ${prodRating}`}</div>
+      {!salePrice && (
+        <div>{`Price: ${prodInfo.default_price}`}</div>
+      )}
+      {salePrice && (
+        <>
+          <span>Price: </span>
+          <span style={{ color: 'red' }}>{salePrice}</span>
+          <s>{prodInfo.default_price}</s>
+        </>
+      )}
+      <div className="total-stars-render">
+        {[...Array(5)].map(
+          (star, index) => <span key={`star${index}`}>{whichStar(prodRating, index)}</span>,
+        )}
+        <div style={{ fontSize: '2em' }}>{prodRating}</div>
+      </div>
+
       {showComparison
         && (
           <Comparison
