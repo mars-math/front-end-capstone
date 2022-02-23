@@ -28,7 +28,7 @@ function CharBreakdown(props) {
   };
 
   return (
-    <div className="char-breakdown-bar">
+    <div className="char-breakdown-bar" data-testid="CharBreakdown-1">
       {[...Array(5)].map((whatever, index) => (
         <div style={{}} key={`${chars.id} ${index}`}>
           <div style={{

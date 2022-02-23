@@ -79,11 +79,11 @@ class Questions extends React.Component {
     if (this.props.questionList.results.length > 0) {
       if (this.state.moreQuestions) {
         return (
-          <button onClick={this.moreQuestionsClick}>Less Answered Questions</button>
+          <button className="cust-button" onClick={this.moreQuestionsClick}>Less Answered Questions</button>
         );
       }
       return (
-        <button onClick={this.moreQuestionsClick}>More Answered Questions</button>
+        <button className="cust-button" onClick={this.moreQuestionsClick}>More Answered Questions</button>
       );
     }
     return <></>;
@@ -122,7 +122,7 @@ class Questions extends React.Component {
       <div className="scroll">
         {this.questionsOrSearchDisplay()}
         {this.moreQuestionsDisplay()}
-        <button onClick={this.clickAddQuestion}>Add a Question</button>
+        <button className="cust-button" onClick={this.clickAddQuestion}>Add a Question</button>
         {this.showAddQuestion()}
       </div>
     );
