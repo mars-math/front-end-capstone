@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Row from './SM-StyleRow.jsx';
+import ImageGallery from './SM-ImageGallery.jsx'
 import stylesData from './SM-dummystylesdata.js';
 
 export default function StyleSelector () {
@@ -91,7 +92,9 @@ export default function StyleSelector () {
 
 
   return (
-    <>STYLE -> {display[0].name}
+    <>
+
+    {/* -----Rendering Style Icons----- */}
       {[...Array(rows)].map((row, index) =>
       <Row
       key={`row${index}`}
@@ -100,6 +103,7 @@ export default function StyleSelector () {
       onClick={changeFirst}
       />)}
 
+      {/* --------DropDown Lists-------- */}
       <span>
         <form>
           <label htmlFor='selectSize'></label>
@@ -128,8 +132,11 @@ export default function StyleSelector () {
         </form>
       </span>
 
+      {/* --------Add to Cart Button------- */}
       <button>Add to Cart</button>
 
+      {/* ---Main Image and Thumbnails--- */}
+      <ImageGallery />
 
     </>
 

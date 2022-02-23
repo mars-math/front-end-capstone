@@ -25,8 +25,10 @@ class App extends React.Component {
         {/* <Carousel renderedId={'42368'}/> */}
         <h1>Kloth</h1>
         <Overview />
-        <RelatedItems overviewId={this.state.url} />
-        <OutfitList overviewId={this.state.url} />
+        <AllReviews />
+        <RatingBreakdown />
+        <RelatedItems overviewId="42368" />
+        <OutfitList overviewId="42368" />
         <div>
           <QandA />
         </div>
