@@ -45,8 +45,8 @@ class AddQuestion extends React.Component {
       product_id: Number(this.props.productID),
     })
       .then((response) => {
-        console.log(response);
-        // this.props.getItemInfo();
+        console.log('response from add qusetion ', response);
+        this.props.getItemInfo();
       })
       .catch((err) => {
         console.log('make sure you email is in example@email.com format', err);
@@ -56,6 +56,7 @@ class AddQuestion extends React.Component {
   }
 
   render() {
+    console.log('questions add props ', this.props);
     return (
       <div className="popup-box">
         <div className="box">
