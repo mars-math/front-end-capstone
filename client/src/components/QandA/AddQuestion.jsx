@@ -56,7 +56,6 @@ class AddQuestion extends React.Component {
   }
 
   render() {
-    console.log('questions add props ', this.props);
     return (
       <div className="popup-box">
         <div className="box">

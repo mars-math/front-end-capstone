@@ -56,7 +56,6 @@ class AddAnswer extends React.Component {
   }
 
   render() {
-    console.log('add answer props ', this.props);
     return (
       <div className="popup-box">
         <div className="box">
