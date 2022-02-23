@@ -48,7 +48,7 @@ function RelatedItems(props) {
 
     const avgRtg = totalStars / totalRtgs;
 
-    return (Number(avgRtg.toFixed(2)));
+    return (Number(avgRtg.toFixed(1)));
   };
 
   const getProdInfo = (productID) => (

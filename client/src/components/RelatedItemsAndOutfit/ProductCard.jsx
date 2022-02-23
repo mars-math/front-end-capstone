@@ -9,6 +9,12 @@ import axios from 'axios';
 import API_KEY from '../../../../config/config.js';
 import Comparison from './Comparison.jsx';
 
+import Stars from '../RatingsReview/ratingexampledata/stars.js';
+
+const {
+  almostStar, quarterStar, halfStar, fullStar, emptyStar,
+} = Stars;
+
 function ProductCard(props) {
   const { prodId, overviewProductData } = props;
   const [prodInfo, setProdInfo] = useState({});
@@ -19,6 +25,22 @@ function ProductCard(props) {
 
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;
+
+  function whichStar(rating, index) {
+    if (rating >= index + 1) {
+      return fullStar;
+    }
+    if (rating === (index + 0.5) || (rating > index + 0.33 && rating < index + 0.66)) {
+      return halfStar;
+    }
+    if (rating <= index + 0.33 && rating > index) {
+      return quarterStar;
+    }
+    if (rating >= index + 0.66) {
+      return almostStar;
+    }
+    return emptyStar;
+  }
 
   const toggleComparison = () => {
     setShowComparison(!showComparison);
@@ -36,7 +58,7 @@ function ProductCard(props) {
 
     const avgRtg = totalStars / totalRtgs;
 
-    return (Number(avgRtg.toFixed(2)));
+    return (Number(avgRtg.toFixed(1)));
   };
 
   const getProdInfo = (productID) => (
@@ -114,6 +136,13 @@ function ProductCard(props) {
       <div>{`Price: ${prodInfo.default_price}`}</div>
       <div>{`Sale Price: ${salePrice}`}</div>
       <div>{`Rating: ${prodRating}`}</div>
+      <div className="total-stars-render">
+        {[...Array(5)].map(
+          (star, index) => <span key={`star${index}`}>{whichStar(prodRating, index)}</span>,
+        )}
+        <div style={{ fontSize: '2em' }}>{prodRating}</div>
+      </div>
+
       {showComparison
         && (
           <Comparison
