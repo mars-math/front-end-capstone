@@ -95,6 +95,7 @@ export default function StyleSelector () {
     <>
 
     {/* -----Rendering Style Icons----- */}
+    <div className='styles-container'>
       {[...Array(rows)].map((row, index) =>
       <Row
       key={`row${index}`}
@@ -132,11 +133,14 @@ export default function StyleSelector () {
         </form>
       </span>
 
-      {/* --------Add to Cart Button------- */}
-      <button>Add to Cart</button>
+        {/* --------Add to Cart Button------- */}
+        <button>Add to Cart</button>
+      </div>
 
       {/* ---Main Image and Thumbnails--- */}
-      <ImageGallery />
+      <div className='image-gallery'>
+        <ImageGallery />
+      </div>
 
     </>
 
