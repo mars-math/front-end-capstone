@@ -6,7 +6,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Carousel from './Carousel.jsx';
+import CardCarousel from './CardCarousel.jsx';
 import API_KEY from '../../../../config/config.js';
 
 function RelatedItems(props) {
@@ -121,7 +121,7 @@ function RelatedItems(props) {
   return (
     <>
       <h2>Related Items</h2>
-      <Carousel
+      <CardCarousel
         idsToRender={relatedIds}
         isOutfitList={false}
         overviewProductData={{

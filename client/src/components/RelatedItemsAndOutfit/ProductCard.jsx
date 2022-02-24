@@ -4,6 +4,7 @@
 // style ID 42372 does not have a default style
 // style ID 42380 has a sale price for a non-default style
 // 43460 no related items?
+// 43230 and 43051 have sale prices
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
