@@ -4,7 +4,7 @@ const iconStyle = {
   width: '50px',
   height: '50px',
   borderRadius: 400/2,
-  // padding: '5px'
+  padding: '5px'
 }
 
 export default function Row(props) {

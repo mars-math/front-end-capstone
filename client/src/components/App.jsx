@@ -20,7 +20,6 @@ class App extends React.Component {
     return (
       <>
         <AllReviews url={this.state.url}/>
-        {console.log(this.state.url)}
         {/* <h1>Kloth</h1>
         <ProductInfo /> */}
         {/* <Carousel renderedId={'42368'}/> */}

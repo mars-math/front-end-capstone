@@ -11,9 +11,18 @@ import '@testing-library/jest-dom';
 //   expect(1).toEqual(1)
 // });
 
+
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
+});
+
+it('renders correctly', () => {
+  const tree = renderer
+  .create(<App url='43230'/>)
+  .toJSON();
+  console.log(tree)
+  expect(tree).toMatchSnapshot();
 });
 
 test('it renders given category name', () => {
@@ -27,3 +36,4 @@ it('renders correctly', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+

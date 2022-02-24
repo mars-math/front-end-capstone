@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+<<<<<<< HEAD
 exports[`renders correctly 1`] = `
+=======
+exports[`matches snapshot 1`] = `
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
 Array [
   <div
     style={
@@ -8,7 +12,11 @@ Array [
         "display": "flex",
         "fontSize": "20px",
         "justifyContent": "center",
+<<<<<<< HEAD
         "marginLeft": "3%",
+=======
+        "marginLeft": "50px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
       }
     }
   >
@@ -155,6 +163,14 @@ Array [
       </div>
     </div>
   </div>,
+<<<<<<< HEAD
+=======
+]
+`;
+
+exports[`renders correctly 1`] = `
+Array [
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
   <h1>
     Kloth
   </h1>,
@@ -162,6 +178,7 @@ Array [
     className="overview-container"
   >
     <div
+<<<<<<< HEAD
       className="image-container"
     >
       <img
@@ -324,6 +341,150 @@ Array [
       >
         STYLE -&gt; 
         Forest Green & Black
+=======
+      className="right-container"
+    >
+      <div
+        className="stars"
+      >
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#EFCD53"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#EFCD53"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#EFCD53"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#EFCD53"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#EFCD53"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        style={
+          Object {
+            "color": "grey",
+            "fontFamily": "Amatic SC",
+            "fontSize": "15px",
+          }
+        }
+      />
+      <div
+        style={
+          Object {
+            "color": "black",
+            "fontSize": "20px",
+          }
+        }
+      />
+      <div>
+        $
+      </div>
+      <div>
+        Share
+        <a
+          href="https://www.facebook.com/share"
+          style={
+            Object {
+              "borderRadius": 100,
+              "height": "25px",
+              "width": "25px",
+            }
+          }
+        >
+          <img
+            src="/public/fb.png"
+          />
+        </a>
+        <button
+          style={
+            Object {
+              "borderRadius": 100,
+              "height": "25px",
+              "width": "25px",
+            }
+          }
+        >
+          tw
+        </button>
+        <button
+          style={
+            Object {
+              "borderRadius": 100,
+              "height": "25px",
+              "width": "25px",
+            }
+          }
+        >
+          pt
+        </button>
+      </div>
+    </div>
+    <div
+      className="left-container"
+    >
+      <div
+        className="styles-container"
+      >
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
         <div>
           <span
             onClick={[Function]}
@@ -335,6 +496,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
+                  "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -350,6 +515,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
+                  "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -365,6 +534,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
+                  "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -380,6 +553,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
+                  "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -397,6 +574,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
+                  "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -412,6 +593,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
+                  "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -433,6 +618,7 @@ Array [
               name="selectSize"
               onChange={[Function]}
             >
+<<<<<<< HEAD
               <option
                 select="selected"
               >
@@ -440,31 +626,58 @@ Array [
               </option>
               <option
                 value="XS"
+=======
+              <option>
+                Select Size
+              </option>
+              <option
+                value="{\\"1471554\\":\\"XS\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 XS
               </option>
               <option
+<<<<<<< HEAD
                 value="S"
+=======
+                value="{\\"1471555\\":\\"S\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 S
               </option>
               <option
+<<<<<<< HEAD
                 value="M"
+=======
+                value="{\\"1471556\\":\\"M\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 M
               </option>
               <option
+<<<<<<< HEAD
                 value="L"
+=======
+                value="{\\"1471557\\":\\"L\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 L
               </option>
               <option
+<<<<<<< HEAD
                 value="XL"
+=======
+                value="{\\"1471558\\":\\"XL\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 XL
               </option>
               <option
+<<<<<<< HEAD
                 value="XL"
+=======
+                value="{\\"1471559\\":\\"XL\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 XL
               </option>
@@ -475,15 +688,28 @@ Array [
             <select
               name="selectQty"
             >
+<<<<<<< HEAD
               <option>
                 Qty
+=======
+              <option
+                disabled={true}
+                hidden={true}
+                selected={true}
+                value=""
+              >
+                -
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               </option>
               <option>
                 1
               </option>
+<<<<<<< HEAD
               <option>
                 2
               </option>
+=======
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
             </select>
           </form>
         </span>
@@ -491,6 +717,7 @@ Array [
           Add to Cart
         </button>
       </div>
+<<<<<<< HEAD
     </div>
   </div>,
   <h3>
@@ -598,6 +825,466 @@ Array [
                    
                   <b>
                     Seller
+=======
+      <div
+        className="image-gallery"
+      >
+        <div
+          className="images"
+        >
+          <span
+            className="thumbnails"
+          >
+            <img
+              className="withBorder"
+              onClick={[Function]}
+              src="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+              style={
+                Object {
+                  "height": "50px",
+                  "width": "50px",
+                }
+              }
+            />
+            <img
+              className="noBorder"
+              onClick={[Function]}
+              src="https://images.unsplash.com/photo-1534011546717-407bced4d25c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+              style={
+                Object {
+                  "height": "50px",
+                  "width": "50px",
+                }
+              }
+            />
+            <img
+              className="noBorder"
+              onClick={[Function]}
+              src="https://images.unsplash.com/photo-1549831243-a69a0b3d39e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+              style={
+                Object {
+                  "height": "50px",
+                  "width": "50px",
+                }
+              }
+            />
+            <img
+              className="noBorder"
+              onClick={[Function]}
+              src="https://images.unsplash.com/photo-1527522883525-97119bfce82d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+              style={
+                Object {
+                  "height": "50px",
+                  "width": "50px",
+                }
+              }
+            />
+            <img
+              className="noBorder"
+              onClick={[Function]}
+              src="https://images.unsplash.com/photo-1556648202-80e751c133da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+              style={
+                Object {
+                  "height": "50px",
+                  "width": "50px",
+                }
+              }
+            />
+            <img
+              className="noBorder"
+              onClick={[Function]}
+              src="https://images.unsplash.com/photo-1532543491484-63e29b3c1f5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+              style={
+                Object {
+                  "height": "50px",
+                  "width": "50px",
+                }
+              }
+            />
+            <button>
+              down
+            </button>
+          </span>
+          <img
+            className="picture"
+            onClick={[Function]}
+            src="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+            style={
+              Object {
+                "flex": 0.5,
+              }
+            }
+          />
+        </div>
+        <div
+          style={
+            Object {
+              "inlineSize": "350px",
+              "overflowWrap": "break-word",
+            }
+          }
+        >
+          The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "fontSize": "20px",
+        "justifyContent": "center",
+        "marginLeft": "50px",
+      }
+    }
+  >
+    <div>
+      0 reviews, sorted by
+    </div>
+    <select
+      className="review-dropdown"
+      onChange={[Function]}
+    >
+      <option
+        value="most recent ▼"
+      >
+        most recent
+      </option>
+      <option
+        value="most helpful ▼"
+      >
+        most helpful
+      </option>
+    </select>
+  </div>,
+  <div
+    className="all-review-components"
+    data-testid="allRev-1"
+  >
+    <div
+      className="individual-reviews"
+      style={
+        Object {
+          "maxHeight": "601px",
+          "overflow": "auto",
+          "width": "45%",
+        }
+      }
+    >
+      <button
+        className="cust-button "
+        onClick={[Function]}
+        type="button"
+      >
+        Write New Review
+      </button>
+    </div>
+    <div
+      className="rating-breakdown"
+    >
+      <div
+        className="total-stars-render"
+      >
+        <div
+          style={
+            Object {
+              "fontSize": "3em",
+            }
+          }
+        >
+          NaN
+        </div>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+        <span>
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 100 100"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+              fill="#C4C4C4"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        style={
+          Object {
+            "fontSize": "1.4em",
+            "fontWeight": "bold",
+            "marginBottom": "10px",
+            "marginTop": "10px",
+          }
+        }
+      >
+        0
+         
+        reviews
+      </div>
+    </div>
+  </div>,
+  <div
+    className="total-stars-render"
+  >
+    <div
+      style={
+        Object {
+          "fontSize": "3em",
+        }
+      }
+    >
+      NaN
+    </div>
+    <span>
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 100 100"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+          fill="#C4C4C4"
+        />
+      </svg>
+    </span>
+    <span>
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 100 100"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+          fill="#C4C4C4"
+        />
+      </svg>
+    </span>
+    <span>
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 100 100"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+          fill="#C4C4C4"
+        />
+      </svg>
+    </span>
+    <span>
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 100 100"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+          fill="#C4C4C4"
+        />
+      </svg>
+    </span>
+    <span>
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 100 100"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+          fill="#C4C4C4"
+        />
+      </svg>
+    </span>
+  </div>,
+  <div
+    style={
+      Object {
+        "fontSize": "1.4em",
+        "fontWeight": "bold",
+        "marginBottom": "10px",
+        "marginTop": "10px",
+      }
+    }
+  >
+    0
+     
+    reviews
+  </div>,
+  <h3>
+    Related Items
+  </h3>,
+  <div>
+    THIS IS THE RELATED ITEMS LIST
+  </div>,
+  <h3>
+    My Outfit
+  </h3>,
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Add to My Outfit
+  </button>,
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Remove from My Outfit
+  </button>,
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Remove all items from My Outfit
+  </button>,
+  <div>
+    THIS IS THE OUTFIT LIST
+  </div>,
+  <div>
+    <h3>
+      Questions & Answers
+    </h3>
+    <div>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          id="searchBar"
+          onChange={[Function]}
+          placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
+        />
+        <button
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+      <div>
+        <div>
+          <div
+            className="question-list"
+          >
+            Q:  
+            Why is this product cheaper here than other sites?
+            <span
+              className="questions-helpful"
+            >
+              Helpful?
+              <span
+                className="clickable"
+                onClick={[Function]}
+              >
+                 
+                <u>
+                  Yes
+                </u>
+                 
+              </span>
+              (
+              9
+              )
+              <span
+                onClick={[Function]}
+              >
+                 | 
+                <u
+                  className="clickable"
+                >
+                  Add Answer
+                </u>
+              </span>
+            </span>
+          </div>
+          <div>
+            <span>
+              A:
+            </span>
+            <span
+              className="answer-list"
+            >
+              <span
+                className="answer-list"
+              >
+                seller test answer
+              </span>
+              <div
+                className="answer-footer"
+              >
+                <span>
+                  by
+                   
+                  <b>
+                    Seller
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   </b>
                 </span>
                 <span>
@@ -913,6 +1600,7 @@ Array [
                 </u>
               </span>
             </span>
+<<<<<<< HEAD
           </div>
           <div>
             <span>
@@ -1097,11 +1785,40 @@ Array [
         0
          
         reviews
+=======
+          </div>
+          <div>
+            <span>
+              A:
+            </span>
+            <span
+              className="answer-list"
+            />
+            <div
+              className="load-answers"
+              onClick={[Function]}
+            >
+              <b />
+            </div>
+          </div>
+        </div>
+        <button
+          onClick={[Function]}
+        >
+          More Answered Questions
+        </button>
+        <button
+          onClick={[Function]}
+        >
+          Add a Question
+        </button>
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
       </div>
     </div>
   </div>,
 ]
 `;
+<<<<<<< HEAD
 
 exports[`renders correctly 3`] = `
 Array [
@@ -1497,3 +2214,5 @@ exports[`renders correctly 5`] = `
   Write New Review
 </button>
 `;
+=======
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3

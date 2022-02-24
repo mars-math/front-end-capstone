@@ -67,6 +67,7 @@ class AnswersView extends React.Component {
   }
 
   render() {
+    // console.log('answer view props ', this.props);
     return (
       <>
         <span className="answer-list">{this.props.answer.body}</span>
