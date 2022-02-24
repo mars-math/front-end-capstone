@@ -27,7 +27,7 @@ class App extends React.Component {
         <RelatedItems overviewId="42368" />
         <OutfitList overviewId="42368" />
         <div>
-          <QandA />
+          <QandA url={this.state.url}/>
         </div>
       </>
     );
