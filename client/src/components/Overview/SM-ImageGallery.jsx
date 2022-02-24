@@ -23,46 +23,28 @@ const mainStyle = {
 
 export default function ImageGallery(props) {
   // const initialData = stylesData[0].photos.
-  function initialData (data) {
-      data[0].border = true;
+  function initialData(data) {
+    data[0].border = true;
     for (var i = 1; i < data.length; i++) {
       data[i].border = false
     }
     return data;
   }
 
-  const[thumbnails, setThumbs] = useState(initialData(props.photos));
-  const[mainSrc, setMainSrc] = useState(thumbnails[0].thumbnail_url);
-  const[mainPopUp, setMainPopUp] = useState(false);
+  const [thumbnails, setThumbs] = useState(initialData(props.photos));
+  const [mainIndex, setMainIndex] = useState(0);
+  const [mainPopUp, setMainPopUp] = useState(false);
 
-  function changeMainSrc(url) {
-    console.log(url)
-    setMainSrc(url);
+  function changeMainIndex(newIndex) {
+    setMainIndex(newIndex);
   }
 
   //updates main pic when style changes from style selector
   useEffect(() => {
     setThumbs(props.photos);
-    setMainSrc(thumbnails[0].thumbnail_url);
+    setMainIndex(0);
   }, [props.photos]);
 
-  //updates thumnails list when main pic changes
-  useEffect(() => {
-    setMainSrc(thumbnails[0].thumbnail_url);
-  }, [thumbnails]);
-
-  //add border key to thumbnails
-  // useEffect(() => {
-  //   const copyThumbs = [...thumbnails];
-  //   for(var entry of copyThumbs) {
-  //     if (entry.thumbnail_url === mainSrc) {
-  //       entry.border = true;
-  //     } else {
-  //       entry.border = false;
-  //     }
-  //   }
-  //   setThumbs(copyThumbs);
-  // } , [mainSrc]);
 
   function toggleMainPopUp() {
     setMainPopUp(!mainPopUp);
@@ -73,26 +55,29 @@ export default function ImageGallery(props) {
     <>
       <div className='images'>
         <span className='thumbnails'>
-          {thumbnails.slice(0, 7).map((photo, index)=>
+          {thumbnails.slice(0, 7).map((photo, index) =>
             <img
-            className={thumbnails[index].border ? 'withBorder' : 'noBorder'}
-            key={`thumb-${index}`}
-            style={thumbnailStyle}
-            src={photo.thumbnail_url}
-            onClick={() => changeMainSrc(photo.thumbnail_url)}/>
+              className={
+                index === mainIndex ? 'withBorder' : 'noBorder'}
+              key={`thumb-${index}`}
+              style={thumbnailStyle}
+              src={photo.thumbnail_url}
+              onClick={() => changeMainIndex(index)} />
           )}
           <button>down</button>
         </span>
 
-        <img style={mainStyle} src={mainSrc} className='picture' onClick={toggleMainPopUp}/>
+        <img style={mainStyle}
+          src={thumbnails[mainIndex].thumbnail_url} className='picture'
+          onClick={toggleMainPopUp} />
 
         {mainPopUp && (
           <div className="popup-box">
-          <div className="box">
-            <span className="close-icon" onClick={toggleMainPopUp}>x</span>
-            <img src={mainSrc} />
+            <div className="box">
+              <span className="close-icon" onClick={toggleMainPopUp}>x</span>
+              <img src={thumbnails[mainIndex].thumbnail_url} />
+            </div>
           </div>
-        </div>
         )}
       </div>
 
