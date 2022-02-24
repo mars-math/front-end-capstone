@@ -19,16 +19,13 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <AllReviews url={this.state.url}/>
-        {/* <h1>Kloth</h1>
-        <ProductInfo /> */}
-        {/* <Carousel renderedId={'42368'}/> */}
         <h1>Kloth</h1>
-        <Overview />
-        <RelatedItems overviewId="42368" />
-        <OutfitList overviewId="42368" />
+        <Overview url={this.state.url} />
+        <RelatedItems overviewId={this.state.url} />
+        <OutfitList overviewId={this.state.url} />
+        <AllReviews url={this.state.url} />
         <div>
-          <QandA />
+          <QandA url={this.state.url} />
         </div>
       </>
     );
