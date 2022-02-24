@@ -24,17 +24,16 @@ class QandA extends React.Component {
     this.getItemInfo();
   }
 
+  // initial get of the information
   getItemInfo() {
-    // switch to backtick when pulling from url
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions?product_id=42369&count=25', {
+    // 42369
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions?product_id=${this.props.url}&count=25`, {
       headers: {
         Authorization: API_KEY,
       },
     })
       .then((data) => {
-        // console.log('data ', data);
         this.setState({ questionList: data.data });
-        // console.log('qList imported ', this.state.questionList);
       })
       .catch((err) => {
         console.log(err);
@@ -53,10 +52,6 @@ class QandA extends React.Component {
       this.setState({ searchList: this.state.searchList });
       this.setState({ searchText: '' });
     }
-    // if (e.target.value.length < 3) {
-    //   this.setState({ searchText: '' });
-    // }
-    // console.log(this.state.searchText);
   }
 
   // click the search button function
@@ -84,7 +79,6 @@ class QandA extends React.Component {
       <>
         <h3>Questions &amp; Answers</h3>
         <div>
-          {/* {console.log('searchList ', this.state.searchList)} */}
           <form onSubmit={this.searchClick}>
             <input id="searchBar" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.searchChange} />
             <button type="submit">Search</button>
@@ -99,6 +93,7 @@ class QandA extends React.Component {
 }
 
 export default QandA;
+// {/* {console.log('searchList ', this.state.searchList)} */}
 // {console.log('questionList ', this.state.questionList.results)}
 
 // {/* {this.state.questionList.results.map((questions, index) =>

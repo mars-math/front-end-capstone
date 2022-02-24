@@ -104,6 +104,7 @@ class Questions extends React.Component {
     this.setState({ showAddQ: !this.state.showAddQ });
   }
 
+  // renders the add question pop out
   showAddQuestion() {
     if (this.state.showAddQ) {
       return (
@@ -120,7 +121,6 @@ class Questions extends React.Component {
 
   // render the questions that correspond to what was entered in the serach field
   render() {
-    console.log('questions props ', this.props);
     return (
       <div className="scroll">
         {this.questionsOrSearchDisplay()}
