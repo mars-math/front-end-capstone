@@ -107,19 +107,11 @@ export default function IndividualReview(props) {
         <h2 style={{margin: '8px'}}>{render.summary}</h2>
       </div>
       {/* --------------REVIEW BODY---------------- */}
-<<<<<<< HEAD
       <div style={{display: 'flex', justifyContent: 'flex-start', margin: '5px', width: '100%', flexWrap: 'wrap' }}>
       {tooBig(render.body)}
       </div>
       {/* --------------RECOMMENDED?---------------- */}
       {render.recommend ? <div style={{marginLeft: '4px', marginBottom: '4px', fontWeight: 'bold', width: '100%'}}> ✓ Recommended</div> : <></>}
-=======
-      <div style={{display: 'flex', justifyContent: 'flex-start', margin: '5px', width: '100%'}}>
-      {tooBig(render.body)}
-      </div>
-      {/* --------------RECOMMENDED?---------------- */}
-      {render.recommend ? <div style={{marginLeft: '4px', marginBottom: '4px', fontWeight: 'bold'}}> ✓ Recommended</div> : <></>}
->>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
       {/* --------------IS THERE SELLER RESPONSE?---------------- */}
       <div style={{display: 'flex', flexWrap: 'wrap', backgroundColor: '#C5C5C5'}}>
       {render.response ? (
