@@ -1487,3 +1487,13 @@ exports[`renders correctly 4`] = `
   </div>
 </div>
 `;
+
+exports[`renders correctly 5`] = `
+<button
+  className="cust-button "
+  onClick={[Function]}
+  type="button"
+>
+  Write New Review
+</button>
+`;
