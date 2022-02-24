@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Row from './SM-StyleRow.jsx';
-import stylesData from './SM-dummystylesdata.js';
-import productData from './SM-dummyproductdata.js';
 
 const thumbnailStyle = {
   height: '50px',

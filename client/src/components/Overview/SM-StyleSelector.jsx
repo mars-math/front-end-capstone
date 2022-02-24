@@ -20,6 +20,8 @@ export default function StyleSelector(props) {
   const[displaySizes, setSizes] = useState(makeSkusArray(display[0].skus));
   const[displayQtys, setQtys] = useState('select size');
   const[sizeAndSku, setSize] = useState({});
+  const[originalPrice, setOgPrice] = useState(display[0].original_price);
+  const[salePrice, setSalePrice] = useState(display[0].sale_price);
 
   //how many rows
   var rows = Math.ceil(display.length / 4);
@@ -46,11 +48,24 @@ export default function StyleSelector(props) {
       if(copyDisplay[j].style_id.toString() === first) {
         let newFirst = copyDisplay[j];
         copyDisplay.splice(j, 1);
+        copyDisplay.splice(j, 0, copyDisplay[0]);
+        copyDisplay.splice(0, 1);
         copyDisplay.unshift(newFirst);
         break;
       }
     }
     setDisplay(copyDisplay);
+  }
+
+  function selectedStyle(index) {
+    if (index === 0) {
+      const selectedStyle = {
+        border: '2px solid rgba(0, 0, 0, 0.05)'
+      }
+      return selectedStyle;
+    } else {
+      return 'noBorder';
+    }
   }
 
   //sets first style state to be what's clicked on and changes display and dropdown
@@ -86,12 +101,38 @@ export default function StyleSelector(props) {
     setSize(JSON.parse(e.target.value));
   }
 
+  //re-render prices
+  useEffect(() => {
+    setOgPrice(display[0].original_price);
+    setSalePrice(display[0].sale_price);
+  }, [display]);
+
+
+  //what prices to display
+  function priceDisplay(sale, original) {
+    if (sale) {
+      return (
+      <>
+        <div>{salePrice}</div>
+        <div style={{textDecorationLine: 'line-through', textDecorationStyle: 'solid', marginLeft: '10px'}}>{originalPrice}</div>
+      </>);
+
+    } else {
+      return <div>{originalPrice}</div>;
+
+    }
+  }
+
+
 
   return (
     <>
+    <div className='styles-container'>
+    {/* ------Price and Style Name------ */}
+    <div className='prices'>{priceDisplay(salePrice, originalPrice)}</div>
+    <div>{display[0].name}</div>
 
     {/* -----Rendering Style Icons----- */}
-    <div className='styles-container'>
       {[...Array(rows)].map((row, index) =>
       <Row
       key={`row${index}`}

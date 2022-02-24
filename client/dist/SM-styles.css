@@ -32,6 +32,10 @@
   margin-bottom: 10%;
 }
 
+.prices {
+  display: flex;
+  flex-direction: row;
+}
 /* .image-gallery {
   display: flex;
   flex-direction: row;

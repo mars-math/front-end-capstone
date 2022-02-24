@@ -28,7 +28,6 @@ export default function ProductInfo(props) {
           {props.productData.category}</div>
         <div style={titleStyle}>
           {props.productData.name}</div>
-        <Price price={props.productData.default_price}/>
         <Share />
       </>
     );
