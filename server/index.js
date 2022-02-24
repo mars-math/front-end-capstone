@@ -14,7 +14,7 @@ app.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products', (req, re
 });
 
 app.get('/', (req, res) => {
-  res.redirect('/product/42366'); //og default 43230
+  res.redirect('/product/43230');
 });
 
 app.listen(3000, () => {

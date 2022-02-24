@@ -63,15 +63,15 @@ export default function IndividualReview(props) {
     if (body.length > 250) {
       const shortened = `${body.slice(0, 250)}...`;
       return toggleBody ? <>
-        <div style={{inlineSize: '550px', overflowWrap: 'break-word'}}>{body}</div>
-       <button onClick={bodyToggle}>Show Less</button>
+        <div style={{inlineSize: '550px', overflowWrap: 'break-word', width: '100%'}}>{body}</div>
+       <button onClick={bodyToggle} style={{display: 'flex', width: '100%'}} className="star-filter-button">Show Less</button>
                           </>
         : <>
-      <div style={{inlineSize: '550px', overflowWrap: 'break-word'}}>{shortened}</div>
-      <button onClick={bodyToggle}>Show More</button>
+      <div style={{inlineSize: '550px', overflowWrap: 'break-word', width: '100%'}}>{shortened}</div>
+      <button onClick={bodyToggle} style={{display: 'flex', width: '100%' }} className="star-filter-button">Show More</button>
           </>;
     } else {
-      return <div style={{inlineSize: '550px', overflowWrap: 'break-word'}}>{body}</div>;
+      return <div style={{inlineSize: '550px', overflowWrap: 'break-word', width: '100%'}}>{body}</div>;
     }
   }
 
@@ -107,11 +107,11 @@ export default function IndividualReview(props) {
         <h2 style={{margin: '8px'}}>{render.summary}</h2>
       </div>
       {/* --------------REVIEW BODY---------------- */}
-      <div style={{display: 'flex', justifyContent: 'flex-start', margin: '5px', width: '100%'}}>
+      <div style={{display: 'flex', justifyContent: 'flex-start', margin: '5px', width: '100%', flexWrap: 'wrap' }}>
       {tooBig(render.body)}
       </div>
       {/* --------------RECOMMENDED?---------------- */}
-      {render.recommend ? <div style={{marginLeft: '4px', marginBottom: '4px', fontWeight: 'bold'}}> ✓ Recommended</div> : <></>}
+      {render.recommend ? <div style={{marginLeft: '4px', marginBottom: '4px', fontWeight: 'bold', width: '100%'}}> ✓ Recommended</div> : <></>}
       {/* --------------IS THERE SELLER RESPONSE?---------------- */}
       <div style={{display: 'flex', flexWrap: 'wrap', backgroundColor: '#C5C5C5'}}>
       {render.response ? (
