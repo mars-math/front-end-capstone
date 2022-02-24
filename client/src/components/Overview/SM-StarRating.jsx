@@ -5,7 +5,6 @@ function StarRating(props) {
   const[rating, setRating] = useState(whichRating(ratingsData));
 
   function whichRating(array) {
-    //console.log('ki', array);
     if (array) {
       var sum = 0;
       for (var i = 0; i < array.length; i++) {
@@ -42,6 +41,7 @@ function StarRating(props) {
         (star, index) =>
         <span key={`star-${index}`}>{whichStar(rating, index)}</span>
         )}
+        <a>Reviews</a>
     </div>
   );
 

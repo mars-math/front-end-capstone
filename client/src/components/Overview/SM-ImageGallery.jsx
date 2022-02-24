@@ -21,7 +21,7 @@ const mainStyle = {
 
 
 
-export default function ImageGallery() {
+export default function ImageGallery(props) {
   // const initialData = stylesData[0].photos.
   function initialData (data) {
       data[0].border = true;
@@ -31,25 +31,38 @@ export default function ImageGallery() {
     return data;
   }
 
-  const[thumbnails, setThumbs] = useState(initialData(stylesData[0].photos));
-  const[mainSrc, setMainSrc] = useState(stylesData[0].photos[0].thumbnail_url);
+  const[thumbnails, setThumbs] = useState(initialData(props.photos));
+  const[mainSrc, setMainSrc] = useState(thumbnails[0].thumbnail_url);
   const[mainPopUp, setMainPopUp] = useState(false);
 
-  function changeMainSrc(e) {
-    e.preventDefault();
-    setMainSrc(e.target.src);
+  function changeMainSrc(url) {
+    console.log(url)
+    setMainSrc(url);
   }
 
-  //add border key to thumbnails
+  //updates main pic when style changes from style selector
   useEffect(() => {
-    for(var entry of thumbnails) {
-      if (entry.thumbnail_url === mainSrc) {
-        entry.border = true;
-      } else {
-        entry.border = false;
-      }
-    }
-  } , [mainSrc]);
+    setThumbs(props.photos);
+    setMainSrc(thumbnails[0].thumbnail_url);
+  }, [props.photos]);
+
+  //updates thumnails list when main pic changes
+  useEffect(() => {
+    setMainSrc(thumbnails[0].thumbnail_url);
+  }, [thumbnails]);
+
+  //add border key to thumbnails
+  // useEffect(() => {
+  //   const copyThumbs = [...thumbnails];
+  //   for(var entry of copyThumbs) {
+  //     if (entry.thumbnail_url === mainSrc) {
+  //       entry.border = true;
+  //     } else {
+  //       entry.border = false;
+  //     }
+  //   }
+  //   setThumbs(copyThumbs);
+  // } , [mainSrc]);
 
   function toggleMainPopUp() {
     setMainPopUp(!mainPopUp);
@@ -59,15 +72,14 @@ export default function ImageGallery() {
   return (
     <>
       <div className='images'>
-
         <span className='thumbnails'>
           {thumbnails.slice(0, 7).map((photo, index)=>
             <img
             className={thumbnails[index].border ? 'withBorder' : 'noBorder'}
             key={`thumb-${index}`}
             style={thumbnailStyle}
-            src={`${photo.thumbnail_url}`}
-            onClick={(e) => changeMainSrc(e)}/>
+            src={photo.thumbnail_url}
+            onClick={() => changeMainSrc(photo.thumbnail_url)}/>
           )}
           <button>down</button>
         </span>
@@ -84,7 +96,7 @@ export default function ImageGallery() {
         )}
       </div>
 
-      <div style={{inlineSize: '350px', overflowWrap: 'break-word'}}>{productData[0].description}</div>
+      {/* <div style={{inlineSize: '350px', overflowWrap: 'break-word'}}>{productData[0].description}</div> */}
     </>
   );
 

@@ -18,8 +18,8 @@ class App extends React.Component {
   render() {
     return (
       <>
-        {/* <AllReviews url={this.state.url}/>
-        {console.log(this.state.url)} */}
+        {/* <AllReviews url={this.state.url}/> */}
+
         <h1>Kloth</h1>
         <Overview url={this.state.url} />
         <AllReviews />
