@@ -78,7 +78,7 @@ class QandA extends React.Component {
     return (
       <>
         <h3>Questions &amp; Answers</h3>
-        <div>
+        <div data-testid="QandA">
           <form onSubmit={this.searchClick}>
             <input id="searchBar" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.searchChange} />
             <button type="submit">Search</button>
