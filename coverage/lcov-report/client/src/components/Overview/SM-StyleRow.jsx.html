@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,19 +115,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">42x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">56x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,28 +143,28 @@ const iconStyle = {
   width: '50px',
   height: '50px',
   borderRadius: 400/2,
-  // padding: '5px'
+  padding: '5px'
 }
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >Row(</span>props) {
+export default function Row(props) {
   //const[display, changeDisplay] = useState([]);
 &nbsp;
 &nbsp;
   //printing out row
-  function <span class="fstat-no" title="function not covered" >renderStyles(</span>data, index) {
-<span class="cstat-no" title="statement not covered" >    if (data.length &gt; 0) {</span>
-      let styleToDisplay = <span class="cstat-no" title="statement not covered" >data[0].photos[0].thumbnail_url;</span>
-      let styleValue = <span class="cstat-no" title="statement not covered" >data[0].style_id;</span>
-<span class="cstat-no" title="statement not covered" >      data.splice(0 , 1);</span>
-<span class="cstat-no" title="statement not covered" >      return &lt;img style={iconStyle} src={`${styleToDisplay}`} id={styleValue}&gt;&lt;/img&gt;;</span>
+  function renderStyles(data, index) {
+    if (data.length &gt; 0) {
+      let styleToDisplay = data[0].photos[0].thumbnail_url;
+      let styleValue = data[0].style_id;
+      data.splice(0 , 1);
+      return &lt;img style={iconStyle} src={`${styleToDisplay}`} id={styleValue}&gt;&lt;/img&gt;;
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
 &nbsp;
     &lt;div&gt;
-      {[...Array(4)].map(<span class="fstat-no" title="function not covered" >(s</span>tyle, index) =&gt;
-<span class="cstat-no" title="statement not covered" >      &lt;span</span>
+      {[...Array(4)].map((style, index) =&gt;
+      &lt;span
       key={`icon-${index}`}
       onClick={<span class="fstat-no" title="function not covered" >(e</span>, data) =&gt; <span class="cstat-no" title="statement not covered" >props.onClick(e, data)}</span>&gt;
         {renderStyles(props.rowData, index)}
@@ -181,7 +181,7 @@ export default function <span class="fstat-no" title="function not covered" >Row
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Feb 21 2022 21:39:28 GMT-0800 (Pacific Standard Time)
+                at Tue Feb 22 2022 23:31:20 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
