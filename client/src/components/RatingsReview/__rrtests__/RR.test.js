@@ -10,19 +10,19 @@ afterEach(() => {
   cleanup();
 });
 
-test('should render AllReviews component', () => {
+xtest('should render AllReviews component', () => {
   render(<AllReviews />);
   const allReviewsElement = screen.getByTestId('allRev-1');
   expect(allReviewsElement).toBeInTheDocument();
   expect(allReviewsElement).toHaveTextContent('reviews');
 });
 
-test('matches snapshot', () => {
+xtest('matches snapshot', () => {
   const tree = renderer.create(<AllReviews />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('shows 2 reviews initially', async () => {
+xtest('shows 2 reviews initially', async () => {
   render(<AllReviews />)
 
   const reviews = screen.getAllByTestId('tile');
