@@ -2,7 +2,7 @@
 /* eslint-disable import/extensions */
 
 import React, { useEffect, useState } from 'react';
-import Carousel from './Carousel.jsx';
+import CardCarousel from './CardCarousel.jsx';
 
 function OutfitList(props) {
   const { overviewId } = props;
@@ -82,7 +82,7 @@ function OutfitList(props) {
       <h2>My Outfit</h2>
       <button type="button" onClick={addToOutfit}>Add to My Outfit</button>
       <button type="button" onClick={clearOutfit}>Remove all items from My Outfit</button>
-      <Carousel idsToRender={outfitIds} isOutfitList removeProduct={removeProduct} />
+      <CardCarousel idsToRender={outfitIds} isOutfitList removeProduct={removeProduct} />
     </>
   );
 }
