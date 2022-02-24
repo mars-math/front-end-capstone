@@ -33,7 +33,11 @@ function CardCarousel(props) {
 
   if (isOutfitList) {
     return (
-      <Carousel responsive={responsive}>
+      <Carousel
+        responsive={responsive}
+        autoPlay={false}
+        shouldResetAutoplay={false}
+      >
         {idsToRender.map((id) => (
           <ProductCard
             prodId={id}
@@ -46,7 +50,11 @@ function CardCarousel(props) {
     );
   }
   return (
-    <Carousel responsive={responsive}>
+    <Carousel
+      responsive={responsive}
+      autoPlay={false}
+      shouldResetAutoplay={false}
+    >
       {idsToRender.map((id) => (
         <ProductCard
           prodId={id}
