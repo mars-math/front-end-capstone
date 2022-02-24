@@ -20,3 +20,10 @@
 //   console.log(tree);
 //   expect(tree).toMatchSnapshot();
 // });
+
+// describe('QandA', () => {
+//   test('renders QandA component', () => {
+//     render(<QandA></QandA>);
+//     screen.debug();
+//   });
+// });
