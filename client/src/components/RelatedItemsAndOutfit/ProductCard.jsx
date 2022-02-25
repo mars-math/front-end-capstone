@@ -8,6 +8,12 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Box from '@mui/material/Box';
+import { display } from '@mui/system';
 import API_KEY from '../../../../config/config.js';
 import Comparison from './Comparison.jsx';
 
@@ -24,7 +30,7 @@ function ProductCard(props) {
   const [prodInfo, setProdInfo] = useState({});
   const [salePrice, setSalePrice] = useState(null);
   const [prodRating, setProdRating] = useState(null);
-  const [imageUrl, setImageUrl] = useState('https://i5.walmartimages.com/asr/538e6ee9-b8ce-4c50-bb78-e0ef9ca3e5d7.d92a2e915d667614f121ea11f0d1ec7e.jpeg');
+  const [imageUrl, setImageUrl] = useState('https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg');
   const [showComparison, setShowComparison] = useState(false);
 
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
@@ -130,9 +136,12 @@ function ProductCard(props) {
     getAllProductData(prodId);
   }, []);
 
+  // ?w=200&h=200&fit=crop&auto=format`
+
   return (
-    <span>
-      <img src={imageUrl} alt="Product Preview" />
+    <Card sx={{ border: 1, height: '80%' }}>
+      {/* <> */}
+      <img src={imageUrl} alt="Product Preview" style={{ height: '70%', width: '100%' }} />
       {!isOutfitList
         && (
           <button type="button" onClick={toggleComparison}>Comparison Modal</button>
@@ -141,24 +150,24 @@ function ProductCard(props) {
         && (
           <button type="button" data-id={prodInfo.id} onClick={removeProduct}>Remove Item</button>
         )}
-      <div>{`Product ID: ${prodInfo.id}`}</div>
-      <div>{`Name: ${prodInfo.name}`}</div>
-      <div>{`Category: ${prodInfo.category}`}</div>
-      {!salePrice && (
-        <div>{`Price: ${prodInfo.default_price}`}</div>
-      )}
-      {salePrice && (
-        <>
-          <span>Price: </span>
-          <span style={{ color: 'red' }}>{salePrice}</span>
-          <s>{prodInfo.default_price}</s>
-        </>
-      )}
-      <div className="total-stars-render">
-        {[...Array(5)].map(
-          (star, index) => <span key={`star${index}`}>{whichStar(prodRating, index)}</span>,
+      <div style={{ marginLeft: '1rem' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.5rem', lineHeight: '1.5' }}>{prodInfo.name}</div>
+        <div style={{ fontSize: '1.25rem', lineHeight: '1.5' }}>{prodInfo.category}</div>
+        {!salePrice && (
+          <div style={{ fontSize: '1.25rem', lineHeight: '1.5' }}>{prodInfo.default_price}</div>
         )}
-        <div style={{ fontSize: '2em' }}>{prodRating}</div>
+        {salePrice && (
+          <>
+            <span style={{ color: 'red', fontSize: '1.25rem', lineHeight: '1.5' }}>{`${salePrice} `}</span>
+            <s style={{ fontSize: '1.25rem', lineHeight: '1.5' }}>{prodInfo.default_price}</s>
+          </>
+        )}
+        <div className="total-stars-render">
+          {[...Array(5)].map(
+            (star, index) => <span key={`star${index}`}>{whichStar(prodRating, index)}</span>,
+          )}
+          {/* <div style={{ fontSize: '1em' }}>{prodRating}</div> */}
+        </div>
       </div>
 
       {showComparison
@@ -176,7 +185,8 @@ function ProductCard(props) {
       {/* button to trigger display for comparison module.
       will need to make another comparison module component
       and have it render here based on some logic */}
-    </span>
+      {/* </> */}
+    </Card>
   );
 }
 

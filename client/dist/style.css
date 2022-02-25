@@ -1,5 +1,58 @@
 /* REVIEWS AND RATINGS */
 
+.carousel-item {
+  /* margin: 5px; */
+  /* max-width: 90% */
+}
+
+/* .react-multi-carousel-item {
+  transform-style: preserve-3d;
+  backface-visibility:hidden
+}
+
+.react-multi-carousel-item {
+  flex-shrink: 0 !important;
+}
+.react-multi-carousel-track{
+  overflow:visible !important;
+} */
+/* .button-container{
+  display:inline-block;
+  position:relative;
+} */
+
+/* .button-container .a{
+  position: absolute;
+  bottom:4em;
+  right:4em;
+  background-color:#8F0005;
+  border-radius:1.5em;
+  color:white;
+  text-transform:uppercase;
+  padding:1em 1.5em;
+} */
+
+.react-multi-carousel-track-modified{
+  display: 'flex';
+  /* max-width: 100%; */
+  /* border-style:solid;
+  border-color: blue; */
+  justify-content: center
+}
+
+.react-multi-carousel-max-width {
+  display: 'flex';
+  max-width: 1000px;
+  width: 75%;
+  margin: auto;
+  /* border-style:solid;
+  border-color: red */
+}
+
+
+
+
+
 .cust-button {
   background-color: rgba(0, 0, 0, 0);
 
@@ -126,7 +179,7 @@
 
 .total-stars-render {
   display: flex;
-  align-items: baseline
+  align-items: baseline;
 }
 
 .progress-bar {

@@ -17,7 +17,7 @@ function RelatedItems(props) {
   const [prodInfo, setProdInfo] = useState({});
   const [salePrice, setSalePrice] = useState(null);
   const [prodRating, setProdRating] = useState(null);
-  const [imageUrl, setImageUrl] = useState('https://i5.walmartimages.com/asr/538e6ee9-b8ce-4c50-bb78-e0ef9ca3e5d7.d92a2e915d667614f121ea11f0d1ec7e.jpeg');
+  const [imageUrl, setImageUrl] = useState('https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg');
 
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;

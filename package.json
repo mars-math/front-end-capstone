@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/mars-math/front-end-capstone#readme",
   "dependencies": {
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@fontsource/roboto": "^4.5.3",
+    "@mui/icons-material": "^5.4.2",
+    "@mui/material": "^5.4.3",
     "axios": "^0.25.0",
     "bluebird": "^3.7.2",
     "express": "^4.17.2",
