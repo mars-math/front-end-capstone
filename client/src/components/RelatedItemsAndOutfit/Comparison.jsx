@@ -2,7 +2,7 @@
 import React from 'react';
 
 function Comparison(props) {
-  const { overviewProductData, productCardData } = props;
+  const { overviewProductData, productCardData, toggleComparison } = props;
 
   const parseDataObjs = (overview, product) => {
     const parsedData = [
@@ -34,6 +34,7 @@ function Comparison(props) {
   const comparisonData = parseDataObjs(overviewProductData, productCardData);
 
   return (
+
     <table>
       <thead>
         <tr>
@@ -48,6 +49,9 @@ function Comparison(props) {
             <td>{feature[Object.keys(feature)[0]][1]}</td>
           </tr>
         ))}
+        <tr>
+          <td colSpan="3"><button type="button" onClick={toggleComparison}>close</button></td>
+        </tr>
       </tbody>
     </table>
   );

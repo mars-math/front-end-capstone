@@ -19,13 +19,6 @@ module.exports = {
           presets: ["@babel/preset-env", "@babel/preset-react"],
         },
       },
-<<<<<<< HEAD
-=======
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
->>>>>>> a0585603158b20ad950a28a4b2dddb53cd69f5ff
     ],
   },
   devServer: {
