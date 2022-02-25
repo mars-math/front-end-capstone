@@ -18,7 +18,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div style={{fontFamily: 'StyreneA-Regular-Web'}}>
         <h1>Kloth</h1>
         <Overview url={this.state.url} />
         <RelatedItems overviewId={this.state.url} />
@@ -27,7 +27,8 @@ class App extends React.Component {
         <div>
           <QandA url={this.state.url} />
         </div>
-      </>
+
+      </div>
     );
   }
 }

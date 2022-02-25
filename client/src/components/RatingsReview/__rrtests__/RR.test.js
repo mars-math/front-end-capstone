@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   render, screen, cleanup, act, waitFor,
 } from '@testing-library/react';
@@ -11,32 +10,18 @@ import RatingBreakdown from '../RatingBreakdown.jsx';
 import IndividualReview from '../IndividualReview.jsx';
 import IndividualExample from '../ratingexampledata/individualExample.js';
 import WriteReview from '../WriteReview.jsx';
-=======
-import { render, screen, cleanup } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
-import React from 'react';
-import renderer from 'react-test-renderer';
-import AllReviews from '../AllReviews.jsx';
-import IndividualReview from '../IndividualReview.jsx';
-import IndividualExample from '../ratingexampledata/individualExample.js'
->>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
 
 afterEach(() => {
   cleanup();
 });
 
-<<<<<<< HEAD
 test('should render AllReviews component', () => {
-=======
-xtest('should render AllReviews component', () => {
->>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
   render(<AllReviews />);
   const allReviewsElement = screen.getByTestId('allRev-1');
   expect(allReviewsElement).toBeInTheDocument();
   expect(allReviewsElement).toHaveTextContent('reviews');
 });
 
-<<<<<<< HEAD
 xtest('shows 2 reviews initially', async () => {
   // axiosMock.get.mockResolvedValue(IndividualExample.All);
 
@@ -80,18 +65,4 @@ test('renders correctly', () => {
     .create(<WriteReview />)
     .toJSON();
   expect(tree).toMatchSnapshot();
-=======
-xtest('matches snapshot', () => {
-  const tree = renderer.create(<AllReviews />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-xtest('shows 2 reviews initially', async () => {
-  render(<AllReviews />)
-
-  const reviews = screen.getAllByTestId('tile');
-
-  expect(reviews).toHaveLength(2);
-
->>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
 });
