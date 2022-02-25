@@ -8,12 +8,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Box from '@mui/material/Box';
-import { display } from '@mui/system';
 import API_KEY from '../../../../config/config.js';
 import Comparison from './Comparison.jsx';
 
@@ -25,7 +20,7 @@ const {
 
 function ProductCard(props) {
   const {
-    prodId, overviewProductData, isOutfitList, removeProduct,
+    overviewId, prodId, overviewProductData, isOutfitList, removeProduct,
   } = props;
   const [prodInfo, setProdInfo] = useState({});
   const [salePrice, setSalePrice] = useState(null);
@@ -139,54 +134,93 @@ function ProductCard(props) {
   // ?w=200&h=200&fit=crop&auto=format`
 
   return (
-    <Card sx={{ border: 1, height: '80%' }}>
-      {/* <> */}
-      <img src={imageUrl} alt="Product Preview" style={{ height: '70%', width: '100%' }} />
-      {!isOutfitList
+    <>
+      {/* {(overviewId === prodId)
         && (
-          <button type="button" onClick={toggleComparison}>Comparison Modal</button>
-        )}
-      {isOutfitList
-        && (
-          <button type="button" data-id={prodInfo.id} onClick={removeProduct}>Remove Item</button>
-        )}
-      <div style={{ marginLeft: '1rem' }}>
-        <div style={{ fontWeight: 'bold', fontSize: '1.5rem', lineHeight: '1.5' }}>{prodInfo.name}</div>
-        <div style={{ fontSize: '1.25rem', lineHeight: '1.5' }}>{prodInfo.category}</div>
-        {!salePrice && (
-          <div style={{ fontSize: '1.25rem', lineHeight: '1.5' }}>{prodInfo.default_price}</div>
-        )}
-        {salePrice && (
-          <>
-            <span style={{ color: 'red', fontSize: '1.25rem', lineHeight: '1.5' }}>{`${salePrice} `}</span>
-            <s style={{ fontSize: '1.25rem', lineHeight: '1.5' }}>{prodInfo.default_price}</s>
-          </>
-        )}
-        <div className="total-stars-render">
-          {[...Array(5)].map(
-            (star, index) => <span key={`star${index}`}>{whichStar(prodRating, index)}</span>,
-          )}
-          {/* <div style={{ fontSize: '1em' }}>{prodRating}</div> */}
-        </div>
-      </div>
-
+          <Card sx={{ border: 1, height: '80%' }}>
+            test card
+          </Card>
+        )} */}
+      {/* {(overviewId !== prodId)
+        && ( */}
       {showComparison
         && (
-          <Comparison
-            overviewProductData={overviewProductData}
-            productCardData={{
-              prodInfo,
-              salePrice,
-              prodRating,
-              imageUrl,
-            }}
-          />
+          <div className="popup-box-product-card">
+            <div className="box">
+              {/* <button type="button" className="close-icon" onClick={toggleComparison}>x</button> */}
+              <span className="close-icon" onClick={toggleComparison}>X</span>
+              <Comparison
+                overviewProductData={overviewProductData}
+                productCardData={{
+                  prodInfo,
+                  salePrice,
+                  prodRating,
+                  imageUrl,
+                }}
+                toggleComparison={toggleComparison}
+              />
+            </div>
+          </div>
         )}
-      {/* button to trigger display for comparison module.
-      will need to make another comparison module component
-      and have it render here based on some logic */}
-      {/* </> */}
-    </Card>
+      <Card sx={{ border: 1, height: '90%', zIndex: 1 }}>
+        {!isOutfitList
+          && (
+            <button
+              style={{
+                position: 'absolute',
+                left: '90%',
+                backgroundColor: 'transparent',
+                border: 'none',
+              }}
+              type="button"
+              onClick={toggleComparison}
+            >
+              {fullStar}
+            </button>
+          )}
+        {isOutfitList
+          && (
+            <button
+              style={{
+                position: 'absolute',
+                left: '92%',
+                // backgroundColor:
+                //   'transparent',
+                // border: 'none',
+                // fontSize: '3rem',
+                // fontWeight: 'bolder',
+              }}
+              type="button"
+              data-id={prodInfo.id}
+              onClick={removeProduct}
+            >
+              x
+            </button>
+          )}
+        <a style={{ textDecoration: 'none' }} href={`http://localhost:3000/product/${prodId}/`}>
+          <img src={imageUrl} alt="Product Preview" style={{ height: '70%', width: '100%' }} />
+        </a>
+        <p style={{ marginLeft: '0.5rem' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '1.25rem', lineHeight: '1.5' }}>{prodInfo.name}</div>
+          <div style={{ fontSize: '1rem', lineHeight: '1.5' }}>{prodInfo.category}</div>
+          {!salePrice && (
+            <div style={{ fontSize: '1rem', lineHeight: '1.5' }}>{prodInfo.default_price}</div>
+          )}
+          {salePrice && (
+            <>
+              <span style={{ color: 'red', fontSize: '1rem', lineHeight: '1.5' }}>{`${salePrice} `}</span>
+              <s style={{ fontSize: '1rem', lineHeight: '1.5' }}>{prodInfo.default_price}</s>
+            </>
+          )}
+          <div className="total-stars-render">
+            {[...Array(5)].map(
+              (star, index) => <span key={`star${index}`}>{whichStar(prodRating, index)}</span>,
+            )}
+            {/* <div style={{ fontSize: '1em' }}>{prodRating}</div> */}
+          </div>
+        </p>
+      </Card>
+    </>
   );
 }
 

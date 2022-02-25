@@ -120,7 +120,9 @@ function RelatedItems(props) {
 
   return (
     <>
-      <h2>Related Items</h2>
+      <div style={{ display: 'flex', marginLeft: '15%' }}>
+        <h2>Related Items</h2>
+      </div>
       <CardCarousel
         idsToRender={relatedIds}
         isOutfitList={false}

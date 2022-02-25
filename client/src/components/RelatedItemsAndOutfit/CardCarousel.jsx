@@ -4,6 +4,7 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import ProductCard from './ProductCard.jsx';
+import Card from '@mui/material/Card';
 import 'react-multi-carousel/lib/styles.css';
 import { Box, flexbox } from '@mui/system';
 
@@ -33,11 +34,15 @@ const responsive = {
 
 function CardCarousel(props) {
   const {
-    idsToRender, isOutfitList, overviewProductData, removeProduct,
+    overviewId, idsToRender, isOutfitList, overviewProductData, removeProduct, addToOutfit,
   } = props;
 
   if (isOutfitList) {
+    const concatArr = [overviewId].concat(idsToRender);
     return (
+      // {/* <Card>
+      //   <button type="button" onClick={addToOutfit}>Add to My Outfit</button>
+      // </Card> */}
       <Carousel
         responsive={responsive}
         autoPlay={false}
@@ -47,8 +52,10 @@ function CardCarousel(props) {
         // partialVisible
         itemClass="carousel-item"
       >
+        {/* {concatArr.map((id) => ( */}
         {idsToRender.map((id) => (
           <ProductCard
+            overviewId={overviewId}
             prodId={id}
             key={id}
             isOutfitList={isOutfitList}
@@ -68,10 +75,9 @@ function CardCarousel(props) {
       // partialVisible
       itemClass="carousel-item"
     >
-      {/* // <Box sx={{ display: 'flex', justifyContent: 'center', width: '75%', gap: 1 }}> */}
-
       {idsToRender.map((id) => (
         <ProductCard
+          overviewId={overviewId}
           prodId={id}
           key={id}
           isOutfitList={isOutfitList}
