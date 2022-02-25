@@ -119,7 +119,7 @@ export default function StyleSelector(props) {
 
           <label htmlFor='selectQty'></label>
           <select name='selectQty'>
-            <option value='' selected disabled hidden>-</option>
+            <option value=''>-</option>
             {[...Array(displayQtys)].map((element, index) =>
               <option
               key={`qty-${index}`}>{index + 1}
