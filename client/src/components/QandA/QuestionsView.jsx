@@ -113,6 +113,7 @@ class QuestionsView extends React.Component {
           questionID={this.props.questions.question_id}
           questionBody={this.props.questions.question_body}
           getItemInfo={this.props.getItemInfo}
+          productName={this.props.productName}
         />
       );
     }
