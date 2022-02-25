@@ -24,7 +24,7 @@ class App extends React.Component {
         <RelatedItems overviewId={this.state.url} />
         <OutfitList overviewId={this.state.url} />
         <AllReviews url={this.state.url} />
-        <div>
+        <div className="component-break">
           <QandA url={this.state.url} />
         </div>
       </>

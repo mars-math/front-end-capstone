@@ -89,7 +89,7 @@ class QandA extends React.Component {
   // render the questions that correspond to what was entered in the serach field
   render() {
     return (
-      <>
+      <div className="main">
         <h3>Questions &amp; Answers</h3>
         <div data-testid="QandA">
           <form onSubmit={this.searchClick}>
@@ -101,7 +101,7 @@ class QandA extends React.Component {
           getItemInfo={this.getItemInfo}
           productName={this.state.productName}/>
         </div>
-      </>
+      </div>
     );
   }
 }
