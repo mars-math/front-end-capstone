@@ -53,7 +53,7 @@ class AddQuestion extends React.Component {
         <div className="box">
           <span className="close-icon" onClick={this.props.closeAddQuestion}>x</span>
           <h3>Ask Your Question</h3>
-          <h4>About the [Product Name]</h4>
+          <h4>About the {this.props.productName}</h4>
           <form onSubmit={this.submitQuestion}>
             <label htmlFor="question">Your Question *</label>
             <textarea

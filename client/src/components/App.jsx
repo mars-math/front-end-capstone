@@ -18,13 +18,19 @@ class App extends React.Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <div style={{fontFamily: 'StyreneA-Regular-Web'}}>
         <h1>Kloth</h1>
+=======
+      <>
+        <h1 style={{marginLeft: '13%'}}>KLOTH</h1>
+>>>>>>> a0585603158b20ad950a28a4b2dddb53cd69f5ff
         <Overview url={this.state.url} />
         <RelatedItems overviewId={this.state.url} />
         <OutfitList overviewId={this.state.url} />
         <AllReviews url={this.state.url} />
-        <div>
+        <br />
+        <div className="component-break">
           <QandA url={this.state.url} />
         </div>
 
