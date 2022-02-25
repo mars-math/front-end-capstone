@@ -8,6 +8,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Card from '@mui/material/Card';
 import API_KEY from '../../../../config/config.js';
 import Comparison from './Comparison.jsx';
 
@@ -19,12 +20,12 @@ const {
 
 function ProductCard(props) {
   const {
-    prodId, overviewProductData, isOutfitList, removeProduct,
+    overviewId, prodId, overviewProductData, isOutfitList, removeProduct,
   } = props;
   const [prodInfo, setProdInfo] = useState({});
   const [salePrice, setSalePrice] = useState(null);
   const [prodRating, setProdRating] = useState(null);
-  const [imageUrl, setImageUrl] = useState('https://i5.walmartimages.com/asr/538e6ee9-b8ce-4c50-bb78-e0ef9ca3e5d7.d92a2e915d667614f121ea11f0d1ec7e.jpeg');
+  const [imageUrl, setImageUrl] = useState('https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg');
   const [showComparison, setShowComparison] = useState(false);
 
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
@@ -130,53 +131,96 @@ function ProductCard(props) {
     getAllProductData(prodId);
   }, []);
 
-  return (
-    <span>
-      <img src={imageUrl} alt="Product Preview" />
-      {!isOutfitList
-        && (
-          <button type="button" onClick={toggleComparison}>Comparison Modal</button>
-        )}
-      {isOutfitList
-        && (
-          <button type="button" data-id={prodInfo.id} onClick={removeProduct}>Remove Item</button>
-        )}
-      <div>{`Product ID: ${prodInfo.id}`}</div>
-      <div>{`Name: ${prodInfo.name}`}</div>
-      <div>{`Category: ${prodInfo.category}`}</div>
-      {!salePrice && (
-        <div>{`Price: ${prodInfo.default_price}`}</div>
-      )}
-      {salePrice && (
-        <>
-          <span>Price: </span>
-          <span style={{ color: 'red' }}>{salePrice}</span>
-          <s>{prodInfo.default_price}</s>
-        </>
-      )}
-      <div className="total-stars-render">
-        {[...Array(5)].map(
-          (star, index) => <span key={`star${index}`}>{whichStar(prodRating, index)}</span>,
-        )}
-        <div style={{ fontSize: '2em' }}>{prodRating}</div>
-      </div>
+  // ?w=200&h=200&fit=crop&auto=format`
 
+  return (
+    <>
+      {/* {(overviewId === prodId)
+        && (
+          <Card sx={{ border: 1, height: '80%' }}>
+            test card
+          </Card>
+        )} */}
+      {/* {(overviewId !== prodId)
+        && ( */}
       {showComparison
         && (
-          <Comparison
-            overviewProductData={overviewProductData}
-            productCardData={{
-              prodInfo,
-              salePrice,
-              prodRating,
-              imageUrl,
-            }}
-          />
+          <div className="popup-box-product-card">
+            <div className="box">
+              {/* <button type="button" className="close-icon" onClick={toggleComparison}>x</button> */}
+              <span className="close-icon" onClick={toggleComparison}>X</span>
+              <Comparison
+                overviewProductData={overviewProductData}
+                productCardData={{
+                  prodInfo,
+                  salePrice,
+                  prodRating,
+                  imageUrl,
+                }}
+                toggleComparison={toggleComparison}
+              />
+            </div>
+          </div>
         )}
-      {/* button to trigger display for comparison module.
-      will need to make another comparison module component
-      and have it render here based on some logic */}
-    </span>
+      <Card sx={{ border: 1, height: '90%', zIndex: 1 }}>
+        {!isOutfitList
+          && (
+            <button
+              style={{
+                position: 'absolute',
+                left: '90%',
+                backgroundColor: 'transparent',
+                border: 'none',
+              }}
+              type="button"
+              onClick={toggleComparison}
+            >
+              {fullStar}
+            </button>
+          )}
+        {isOutfitList
+          && (
+            <button
+              style={{
+                position: 'absolute',
+                left: '92%',
+                // backgroundColor:
+                //   'transparent',
+                // border: 'none',
+                // fontSize: '3rem',
+                // fontWeight: 'bolder',
+              }}
+              type="button"
+              data-id={prodInfo.id}
+              onClick={removeProduct}
+            >
+              x
+            </button>
+          )}
+        <a style={{ textDecoration: 'none' }} href={`http://localhost:3000/product/${prodId}/`}>
+          <img src={imageUrl} alt="Product Preview" style={{ height: '70%', width: '100%' }} />
+        </a>
+        <p style={{ marginLeft: '0.5rem' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '1.25rem', lineHeight: '1.5' }}>{prodInfo.name}</div>
+          <div style={{ fontSize: '1rem', lineHeight: '1.5' }}>{prodInfo.category}</div>
+          {!salePrice && (
+            <div style={{ fontSize: '1rem', lineHeight: '1.5' }}>{prodInfo.default_price}</div>
+          )}
+          {salePrice && (
+            <>
+              <span style={{ color: 'red', fontSize: '1rem', lineHeight: '1.5' }}>{`${salePrice} `}</span>
+              <s style={{ fontSize: '1rem', lineHeight: '1.5' }}>{prodInfo.default_price}</s>
+            </>
+          )}
+          <div className="total-stars-render">
+            {[...Array(5)].map(
+              (star, index) => <span key={`star${index}`}>{whichStar(prodRating, index)}</span>,
+            )}
+            {/* <div style={{ fontSize: '1em' }}>{prodRating}</div> */}
+          </div>
+        </p>
+      </Card>
+    </>
   );
 }
 
