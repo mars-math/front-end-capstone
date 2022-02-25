@@ -10,7 +10,7 @@ class QandA extends React.Component {
     super(props);
     this.state = {
       searchText: '',
-      // questionList: sampleData,
+      productName: '',
       questionList: sampleData,
       searchList: [],
     };
@@ -34,6 +34,19 @@ class QandA extends React.Component {
     })
       .then((data) => {
         this.setState({ questionList: data.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${this.props.url}`, {
+      headers: {
+        Authorization: API_KEY,
+      },
+    })
+      .then((data) => {
+        // console.log('prduct info ', data);
+        this.setState({ productName: data.data.name });
       })
       .catch((err) => {
         console.log(err);
@@ -76,7 +89,7 @@ class QandA extends React.Component {
   // render the questions that correspond to what was entered in the serach field
   render() {
     return (
-      <>
+      <div className="main">
         <h3>Questions &amp; Answers</h3>
         <div data-testid="QandA">
           <form onSubmit={this.searchClick}>
@@ -85,9 +98,10 @@ class QandA extends React.Component {
           </form>
           <Questions searchList={this.state.searchList}
           questionList={this.state.questionList}
-          getItemInfo={this.getItemInfo}/>
+          getItemInfo={this.getItemInfo}
+          productName={this.state.productName}/>
         </div>
-      </>
+      </div>
     );
   }
 }
