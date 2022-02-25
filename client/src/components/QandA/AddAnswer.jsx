@@ -61,7 +61,7 @@ class AddAnswer extends React.Component {
         <div className="box">
           <span className="close-icon" onClick={this.props.closeAddAnswer}>x</span>
           <h3>Submit you Answer</h3>
-          <h4>[Product Name]: {this.props.questionBody}</h4>
+          <h4>{this.props.productName}: {this.props.questionBody}</h4>
           <form onSubmit={this.submitAnswer}>
             <label htmlFor="answer">Your Answer *</label>
             <textarea
