@@ -23,7 +23,7 @@ function ReviewImages(props) {
       <div className="popup-box">
         <div className="box">
           <span className="close-icon" onClick={togglePopup}>x</span>
-          <img src={props.photo} />
+          <img src={props.photo} alt="Nothing here" />
         </div>
       </div>
       )}

@@ -151,10 +151,11 @@
 /* Q AND A */
 
 .answer-list {
-  margin-top: -18px;
-  margin-left: -3px;
+  margin-top: -1.1rem;
+  margin-left: -.2rem;
   /* margin-left: 20px; */
   /* text-indent: 2em; */
+  /* em or rem */
 }
 .answer-footer {
   /* margin-left: 20px; */

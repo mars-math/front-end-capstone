@@ -6,10 +6,10 @@ function CharBreakdown(props) {
   const { chars } = props;
 
   const containerStyles = {
-    height: 15,
-    width: 65,
+    height: 10,
+    width: '97%',
     backgroundColor: '#e0e0de',
-    borderRadius: 5,
+    borderRadius: 3,
     margin: 2,
     float: 'left',
   };
@@ -30,7 +30,7 @@ function CharBreakdown(props) {
   return (
     <div className="char-breakdown-bar" data-testid="CharBreakdown-1">
       {[...Array(5)].map((whatever, index) => (
-        <div style={{}} key={`${chars.id} ${index}`}>
+        <div style={{ width: '17%' }} key={`${chars.id} ${index}`}>
           <div style={{
             position: 'relative', left: '40%', marginBottom: '5px', zIndex: '1',
           }}

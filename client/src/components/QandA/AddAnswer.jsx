@@ -44,7 +44,7 @@ class AddAnswer extends React.Component {
       email: this.state.email,
     })
       .then((response) => {
-        console.log('response from adding and answer ', response);
+        // console.log('response from adding and answer ', response);
         // console.log('this.props ', this.props);
         this.props.getItemInfo();
       })

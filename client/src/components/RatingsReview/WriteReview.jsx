@@ -12,7 +12,7 @@ function WriteReview(props) {
   const [postObj, setPostObj] = useState({});
   const [charObj, setCharObj] = useState({});
 
-  const { updateRender } = props;
+  const { updateRender, url } = props;
 
   axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
   axios.defaults.headers.common.Authorization = API_KEY;
@@ -23,8 +23,8 @@ function WriteReview(props) {
 
   useEffect(() => {
     axios.all([
-      axios.get('reviews/meta?product_id=43230'),
-      axios.get('/products/43230'),
+      axios.get(`reviews/meta?product_id=${url}`),
+      axios.get(`/products/${url}`),
     ])
       .then(axios.spread((data1, data2) => {
         setcharData(data1.data.characteristics);
@@ -101,7 +101,7 @@ function WriteReview(props) {
     && postObj.body && postObj.name && postObj.email) {
       const realPostObj = { ...postObj };
       realPostObj.characteristics = charObj;
-      realPostObj.product_id = 43230;
+      realPostObj.product_id = url;
       realPostObj.photos = imgUrls;
       console.log(realPostObj);
       axios.post('/reviews', realPostObj)
