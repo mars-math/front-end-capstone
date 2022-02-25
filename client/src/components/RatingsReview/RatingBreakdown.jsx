@@ -17,7 +17,7 @@ const {
 export default function RatingBreakdown(props) {
   const [meta, setMeta] = useState({});
 
-  const { manageFilter } = props;
+  const { manageFilter, url } = props;
 
   function getMeta(id) {
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews/meta?product_id=${id}`, {
@@ -30,7 +30,7 @@ export default function RatingBreakdown(props) {
   }
 
   useEffect(() => {
-    getMeta(43230)
+    getMeta(url)
       .then((data) => {
         setMeta(data);
       })
@@ -67,7 +67,7 @@ export default function RatingBreakdown(props) {
 
   return (
     <>
-      <div className="total-stars-render">
+      <div className="total-stars-render" id="reviewsJump">
         <div style={{ fontSize: '3em' }}>{averageStars(meta.ratings)[0]}</div>
         {[...Array(5)].map(
           (star, index) => <span key={`star${index}`}>{whichStar(averageStars(meta.ratings)[0], index)}</span>,
@@ -96,8 +96,11 @@ export default function RatingBreakdown(props) {
       )) : <></>}
 
       {meta.characteristics ? Object.keys(meta.characteristics).map((char, index) => (
-        <div key={`charBreak ${index}`}>
-          <h4 style={{ marginBottom: '5px' }}>{char}</h4>
+        <div key={`charBreak ${index}`} style={{ marginBottom: '20px' }}>
+          <h4 style={{ marginBottom: '5px', marginTop: '5px' }}>
+            {char}
+            :
+          </h4>
           <CharBreakdown chars={meta.characteristics[char]} />
         </div>
       ))

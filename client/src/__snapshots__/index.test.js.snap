@@ -2,6 +2,74 @@
 
 exports[`renders correctly 1`] = `
 Array [
+<<<<<<< HEAD
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "fontSize": "20px",
+        "justifyContent": "center",
+        "marginLeft": "3%",
+      }
+    }
+  >
+    <div>
+      0 reviews, sorted by
+    </div>
+    <select
+      className="review-dropdown"
+      onChange={[Function]}
+    >
+      <option
+        value="most recent ▼"
+      >
+        most recent
+      </option>
+      <option
+        value="most helpful ▼"
+      >
+        most helpful
+      </option>
+    </select>
+  </div>,
+  <div
+    className="all-review-components"
+    data-testid="allRev-1"
+  >
+    <div
+      className="individual-reviews"
+      style={
+        Object {
+          "maxHeight": "601px",
+          "overflow": "auto",
+          "width": "45%",
+        }
+      }
+    >
+      <button
+        className="cust-button "
+        onClick={[Function]}
+        type="button"
+      >
+        Write New Review
+      </button>
+    </div>
+    <div
+      className="rating-breakdown"
+    >
+      <div
+        className="total-stars-render"
+      >
+        <div
+          style={
+            Object {
+              "fontSize": "3em",
+            }
+          }
+        >
+          NaN
+        </div>
+=======
   <h1>
     Kloth
   </h1>,
@@ -14,6 +82,7 @@ Array [
       <div
         className="stars"
       >
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
         <span>
           <svg
             fill="none"
@@ -24,7 +93,11 @@ Array [
           >
             <path
               d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+<<<<<<< HEAD
+              fill="#C4C4C4"
+=======
               fill="#EFCD53"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
             />
           </svg>
         </span>
@@ -38,7 +111,11 @@ Array [
           >
             <path
               d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+<<<<<<< HEAD
+              fill="#C4C4C4"
+=======
               fill="#EFCD53"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
             />
           </svg>
         </span>
@@ -52,7 +129,11 @@ Array [
           >
             <path
               d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+<<<<<<< HEAD
+              fill="#C4C4C4"
+=======
               fill="#EFCD53"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
             />
           </svg>
         </span>
@@ -66,7 +147,11 @@ Array [
           >
             <path
               d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+<<<<<<< HEAD
+              fill="#C4C4C4"
+=======
               fill="#EFCD53"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
             />
           </svg>
         </span>
@@ -80,7 +165,11 @@ Array [
           >
             <path
               d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+<<<<<<< HEAD
+              fill="#C4C4C4"
+=======
               fill="#EFCD53"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
             />
           </svg>
         </span>
@@ -88,6 +177,190 @@ Array [
       <div
         style={
           Object {
+<<<<<<< HEAD
+            "fontSize": "1.4em",
+            "fontWeight": "bold",
+            "marginBottom": "10px",
+            "marginTop": "10px",
+          }
+        }
+      >
+        0
+         
+        reviews
+      </div>
+    </div>
+  </div>,
+  <h1>
+    Kloth
+  </h1>,
+  <div
+    className="overview-container"
+  >
+    <div
+      className="image-container"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+        style={
+          Object {
+            "height": "600px",
+            "width": "450px",
+          }
+        }
+      />
+      <p
+        className="product-description"
+      >
+        The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.
+      </p>
+    </div>
+    <div
+      className="right-container"
+    >
+      <div
+        className="productinfo-container"
+      >
+        <div
+          className="stars"
+        >
+          <span>
+            <svg
+              fill="none"
+              height="20"
+              viewBox="0 0 100 100"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+                fill="#C4C4C4"
+              />
+            </svg>
+          </span>
+          <span>
+            <svg
+              fill="none"
+              height="20"
+              viewBox="0 0 100 100"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+                fill="#C4C4C4"
+              />
+            </svg>
+          </span>
+          <span>
+            <svg
+              fill="none"
+              height="20"
+              viewBox="0 0 100 100"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+                fill="#C4C4C4"
+              />
+            </svg>
+          </span>
+          <span>
+            <svg
+              fill="none"
+              height="20"
+              viewBox="0 0 100 100"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+                fill="#C4C4C4"
+              />
+            </svg>
+          </span>
+          <span>
+            <svg
+              fill="none"
+              height="20"
+              viewBox="0 0 100 100"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M50 0L63.1958 31.8376L97.5528 34.5491L71.3512 56.9374L79.3893 90.4509L50 72.45L20.6107 90.4509L28.6488 56.9374L2.44717 34.5491L36.8042 31.8376L50 0Z"
+                fill="#C4C4C4"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          style={
+            Object {
+              "color": "grey",
+              "fontFamily": "Amatic SC",
+              "fontSize": "15px",
+            }
+          }
+        />
+        <div
+          style={
+            Object {
+              "color": "black",
+              "fontSize": "20px",
+            }
+          }
+        />
+        <div>
+          $
+        </div>
+        <div>
+          Share
+          <a
+            href="https://www.facebook.com/share"
+            style={
+              Object {
+                "borderRadius": 100,
+                "height": "25px",
+                "width": "25px",
+              }
+            }
+          >
+            <img
+              src="/public/fb.png"
+            />
+          </a>
+          <button
+            style={
+              Object {
+                "borderRadius": 100,
+                "height": "25px",
+                "width": "25px",
+              }
+            }
+          >
+            tw
+          </button>
+          <button
+            style={
+              Object {
+                "borderRadius": 100,
+                "height": "25px",
+                "width": "25px",
+              }
+            }
+          >
+            pt
+          </button>
+        </div>
+      </div>
+      <div
+        className="styleselector-container"
+      >
+        STYLE -&gt; 
+        Forest Green & Black
+=======
             "color": "grey",
             "fontFamily": "Amatic SC",
             "fontSize": "15px",
@@ -151,6 +424,7 @@ Array [
       <div
         className="styles-container"
       >
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
         <div>
           <span
             onClick={[Function]}
@@ -162,7 +436,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
                   "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -178,7 +455,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
                   "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -194,7 +474,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
                   "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -210,7 +493,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
                   "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -228,7 +514,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
                   "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -244,7 +533,10 @@ Array [
                 Object {
                   "borderRadius": 200,
                   "height": "50px",
+<<<<<<< HEAD
+=======
                   "padding": "5px",
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
                   "width": "50px",
                 }
               }
@@ -266,36 +558,66 @@ Array [
               name="selectSize"
               onChange={[Function]}
             >
+<<<<<<< HEAD
+              <option
+                select="selected"
+              >
+                Select Size
+              </option>
+              <option
+                value="XS"
+=======
               <option>
                 Select Size
               </option>
               <option
                 value="{\\"1471554\\":\\"XS\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 XS
               </option>
               <option
+<<<<<<< HEAD
+                value="S"
+=======
                 value="{\\"1471555\\":\\"S\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 S
               </option>
               <option
+<<<<<<< HEAD
+                value="M"
+=======
                 value="{\\"1471556\\":\\"M\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 M
               </option>
               <option
+<<<<<<< HEAD
+                value="L"
+=======
                 value="{\\"1471557\\":\\"L\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 L
               </option>
               <option
+<<<<<<< HEAD
+                value="XL"
+=======
                 value="{\\"1471558\\":\\"XL\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 XL
               </option>
               <option
+<<<<<<< HEAD
+                value="XL"
+=======
                 value="{\\"1471559\\":\\"XL\\"}"
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               >
                 XL
               </option>
@@ -306,6 +628,10 @@ Array [
             <select
               name="selectQty"
             >
+<<<<<<< HEAD
+              <option>
+                Qty
+=======
               <option
                 disabled={true}
                 hidden={true}
@@ -313,10 +639,17 @@ Array [
                 value=""
               >
                 -
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
               </option>
               <option>
                 1
               </option>
+<<<<<<< HEAD
+              <option>
+                2
+              </option>
+=======
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
             </select>
           </form>
         </span>
@@ -324,6 +657,9 @@ Array [
           Add to Cart
         </button>
       </div>
+<<<<<<< HEAD
+    </div>
+=======
       <div
         className="image-gallery"
       >
@@ -676,6 +1012,7 @@ Array [
     0
      
     reviews
+>>>>>>> 63de5b1e74ae1b3e94ddbed6ad0279411f9b47d3
   </div>,
   <h3>
     Related Items

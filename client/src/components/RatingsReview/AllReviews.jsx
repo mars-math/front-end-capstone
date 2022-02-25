@@ -8,12 +8,14 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 import API_KEY from '../../../../config/config.js';
 import WriteReview from './WriteReview.jsx';
 
-export default function AllReviews() {
+export default function AllReviews(props) {
   const [amountToRender, setAmountToRender] = useState(2);
   const [renderedReviews, setRenderedReviews] = useState([]);
   const [filterStars, setFilterStars] = useState({});
   const slicedRender = renderedReviews.slice(0, amountToRender);
   const isFirstRender = useRef(true);
+
+  const { url } = props;
 
   function getReview(id, amount) {
     return axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews?count=${amount}&product_id=${id}`, {
@@ -40,7 +42,7 @@ export default function AllReviews() {
 
   useEffect(() => {
     if (!isFirstRender.current) {
-      getReview(43230, 999)
+      getReview(url, 999)
         .then((data) => {
           const sortedReviews = data.results.sort((a, b) => -a.date.localeCompare(b.date));
           setRenderedReviews(sortedReviews.filter((review) => {
@@ -62,7 +64,7 @@ export default function AllReviews() {
   }, [filterStars]);
 
   const updateRender = () => {
-    getReview(43230, 999)
+    getReview(url, 999)
       .then((data) => data.results.sort((a, b) => -a.date.localeCompare(b.date)))
       .then((results) => {
         setRenderedReviews(results);
@@ -89,7 +91,7 @@ export default function AllReviews() {
   return (
     <>
       <div style={{
-        display: 'flex', fontSize: '20px', justifyContent: 'center', marginLeft: '50px',
+        display: 'flex', fontSize: '20px', justifyContent: 'center', marginLeft: '3%',
       }}
       >
         <div>{`${renderedReviews.length} reviews, sorted by`}</div>
@@ -98,19 +100,19 @@ export default function AllReviews() {
           <option value="most helpful ▼">most helpful</option>
         </select>
       </div>
+
       <div className="all-review-components" data-testid="allRev-1">
         <div className="individual-reviews" style={{ maxHeight: '601px', overflow: 'auto', width: '45%' }}>
           {slicedRender.map((review, index) => (
-            <div data-testid="tile">
-              <IndividualReview render={review} key={`review${index}`} />
-            </div>
+            <IndividualReview render={review} key={`review${index}`} />
           ))}
+
           {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length
             ? <button type="button" onClick={() => setAmountToRender((prevNum) => prevNum + 2)} className="cust-button">More Reviews</button> : <></>}
-          <WriteReview updateRender={updateRender} />
+          <WriteReview updateRender={updateRender} url={url} />
         </div>
         <div className="rating-breakdown">
-          <RatingBreakdown manageFilter={manageFilter} />
+          <RatingBreakdown manageFilter={manageFilter} url={url} />
         </div>
       </div>
     </>

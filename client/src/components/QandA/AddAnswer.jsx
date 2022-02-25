@@ -44,7 +44,7 @@ class AddAnswer extends React.Component {
       email: this.state.email,
     })
       .then((response) => {
-        console.log('response form adding and answer ', response);
+        // console.log('response from adding and answer ', response);
         // console.log('this.props ', this.props);
         this.props.getItemInfo();
       })
@@ -56,13 +56,12 @@ class AddAnswer extends React.Component {
   }
 
   render() {
-    console.log('add answer props ', this.props);
     return (
       <div className="popup-box">
         <div className="box">
           <span className="close-icon" onClick={this.props.closeAddAnswer}>x</span>
           <h3>Submit you Answer</h3>
-          <h4>[Product Name]: {this.props.questionBody}</h4>
+          <h4>{this.props.productName}: {this.props.questionBody}</h4>
           <form onSubmit={this.submitAnswer}>
             <label htmlFor="answer">Your Answer *</label>
             <textarea

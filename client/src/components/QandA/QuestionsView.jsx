@@ -70,6 +70,7 @@ class QuestionsView extends React.Component {
     }
   }
 
+  // incirments the helpful counter for questions
   clickHelpful(e) {
     const qID = this.props.questions.question_id;
     if (this.state.clickedHelpful) {
@@ -88,6 +89,7 @@ class QuestionsView extends React.Component {
     }
   }
 
+  // displays the updated helpful count
   helpfulCounterDisplay() {
     if (this.state.clickedHelpful) {
       return (<>{ this.props.questions.question_helpfulness }</>);
@@ -96,10 +98,12 @@ class QuestionsView extends React.Component {
     }
   }
 
+  // sets the sate to help with add answer pop out
   clickAddAnswer() {
     this.setState({ showAddA: !this.state.showAddA });
   }
 
+  // renders the add answer pop out
   showAddAnswer() {
     if (this.state.showAddA) {
       return (
@@ -109,16 +113,14 @@ class QuestionsView extends React.Component {
           questionID={this.props.questions.question_id}
           questionBody={this.props.questions.question_body}
           getItemInfo={this.props.getItemInfo}
+          productName={this.props.productName}
         />
       );
     }
     return <></>;
   }
 
-  // show answers render function?
-
   render() {
-    console.log('question view props ', this.props);
     return (
       <div>
         <div className="question-list">

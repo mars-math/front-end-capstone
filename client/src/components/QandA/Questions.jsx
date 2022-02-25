@@ -48,6 +48,7 @@ class Questions extends React.Component {
               answerId={Object.keys(questions.answers)}
               answers={questions.answers}
               getItemInfo={this.props.getItemInfo}
+              productName={this.props.productName}
             />
           ))}
         </>
@@ -63,6 +64,7 @@ class Questions extends React.Component {
               answerId={Object.keys(questions.answers)}
               answers={questions.answers}
               getItemInfo={this.props.getItemInfo}
+              productName={this.props.productName}
             />
           ))}
         </>
@@ -104,6 +106,7 @@ class Questions extends React.Component {
     this.setState({ showAddQ: !this.state.showAddQ });
   }
 
+  // renders the add question pop out
   showAddQuestion() {
     if (this.state.showAddQ) {
       return (
@@ -112,6 +115,7 @@ class Questions extends React.Component {
           closeAddQuestion={this.clickAddQuestion}
           productID={this.props.questionList.product_id}
           getItemInfo={this.props.getItemInfo}
+          productName={this.props.productName}
         />
       );
     }
@@ -120,7 +124,7 @@ class Questions extends React.Component {
 
   // render the questions that correspond to what was entered in the serach field
   render() {
-    console.log('questions props ', this.props);
+    //console.log('questions props ', this.props);
     return (
       <div className="scroll">
         {this.questionsOrSearchDisplay()}

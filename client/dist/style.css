@@ -57,7 +57,7 @@
   letter-spacing: 2.5px;
   font-weight: bold;
   color: #000000;
-
+  font-family: 'StyreneA-Regular-Web',sans-serif;
   margin-top: 10px;
   margin-right: 10px;
   padding: 12px 30px;
@@ -210,10 +210,11 @@
 /* Q AND A */
 
 .answer-list {
-  margin-top: -18px;
-  margin-left: -3px;
+  margin-top: -1.15rem;
+  margin-left: -.2rem;
   /* margin-left: 20px; */
   /* text-indent: 2em; */
+  /* em or rem */
 }
 .answer-footer {
   /* margin-left: 20px; */
@@ -246,10 +247,20 @@ label {
   float: right;
 }
 .scroll {
+  max-height: 500px;
   scroll-behavior: auto;
   overflow: auto;
 }
 .A-tag {
   font-weight: bold;
   /* margin-bottom: 40px; */
+}
+.main {
+  width: 100%;
+  /* margin-left: 12%; */
+}
+.component-break {
+  border-top: grey 2px solid;
+  width: 72.5%;
+  margin-left: 12%;
 }

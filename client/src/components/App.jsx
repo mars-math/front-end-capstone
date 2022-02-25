@@ -2,6 +2,7 @@ import React from 'react';
 import QandA from './QandA/QandA.jsx';
 import AllReviews from './RatingsReview/AllReviews.jsx';
 import ProductInfo from './Overview/SM-ProductInfo.jsx';
+import CardCarousel from './RelatedItemsAndOutfit/CardCarousel.jsx';
 import RelatedItems from './RelatedItemsAndOutfit/RelatedItems.jsx';
 import OutfitList from './RelatedItemsAndOutfit/OutfitList.jsx';
 import Overview from './Overview/SM-Overview.jsx';
@@ -18,16 +19,14 @@ class App extends React.Component {
   render() {
     return (
       <>
-        {/* <AllReviews url={this.state.url}/> */}
-
-        <h1>Kloth</h1>
+        <h1 style={{marginLeft: '13%'}}>KLOTH</h1>
         <Overview url={this.state.url} />
-        <AllReviews />
-        <RatingBreakdown />
         <RelatedItems overviewId={this.state.url} />
         <OutfitList overviewId={this.state.url} />
-        <div>
-          <QandA />
+        <AllReviews url={this.state.url} />
+        <br />
+        <div className="component-break">
+          <QandA url={this.state.url} />
         </div>
       </>
     );

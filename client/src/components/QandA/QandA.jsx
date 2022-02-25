@@ -10,7 +10,7 @@ class QandA extends React.Component {
     super(props);
     this.state = {
       searchText: '',
-      // questionList: sampleData,
+      productName: '',
       questionList: sampleData,
       searchList: [],
     };
@@ -24,17 +24,29 @@ class QandA extends React.Component {
     this.getItemInfo();
   }
 
+  // initial get of the information
   getItemInfo() {
-    // switch to backtick when pulling from url
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions?product_id=42369&count=25', {
+    // 42369
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions?product_id=${this.props.url}&count=25`, {
       headers: {
         Authorization: API_KEY,
       },
     })
       .then((data) => {
-        // console.log('data ', data);
         this.setState({ questionList: data.data });
-        // console.log('qList imported ', this.state.questionList);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/${this.props.url}`, {
+      headers: {
+        Authorization: API_KEY,
+      },
+    })
+      .then((data) => {
+        // console.log('prduct info ', data);
+        this.setState({ productName: data.data.name });
       })
       .catch((err) => {
         console.log(err);
@@ -53,10 +65,6 @@ class QandA extends React.Component {
       this.setState({ searchList: this.state.searchList });
       this.setState({ searchText: '' });
     }
-    // if (e.target.value.length < 3) {
-    //   this.setState({ searchText: '' });
-    // }
-    // console.log(this.state.searchText);
   }
 
   // click the search button function
@@ -81,24 +89,25 @@ class QandA extends React.Component {
   // render the questions that correspond to what was entered in the serach field
   render() {
     return (
-      <>
+      <div className="main">
         <h3>Questions &amp; Answers</h3>
-        <div>
-          {/* {console.log('searchList ', this.state.searchList)} */}
+        <div data-testid="QandA">
           <form onSubmit={this.searchClick}>
             <input id="searchBar" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.searchChange} />
             <button type="submit">Search</button>
           </form>
           <Questions searchList={this.state.searchList}
           questionList={this.state.questionList}
-          getItemInfo={this.getItemInfo}/>
+          getItemInfo={this.getItemInfo}
+          productName={this.state.productName}/>
         </div>
-      </>
+      </div>
     );
   }
 }
 
 export default QandA;
+// {/* {console.log('searchList ', this.state.searchList)} */}
 // {console.log('questionList ', this.state.questionList.results)}
 
 // {/* {this.state.questionList.results.map((questions, index) =>
