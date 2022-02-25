@@ -10,25 +10,24 @@ import Stars from '../RatingsReview/ratingexampledata/stars.js';
 
 const categoryStyle = {
   fontSize: '15px',
-  color: 'grey',
-  fontFamily: 'Amatic SC'
+  color: 'gray',
+  fontStyle: 'italic'
 }
 
 const titleStyle = {
   fontSize: '20px',
-  color: 'black'
+  color: 'grb(146, 130, 85)'
 }
 
 export default function ProductInfo(props) {
 
     return (
       <>
-        <StarRating ratings={props.reviewsData} stars=      {Stars}/>
+        <StarRating ratings={props.reviewsData} stars={Stars}/>
         <div style={categoryStyle}>
           {props.productData.category}</div>
         <div style={titleStyle}>
           {props.productData.name}</div>
-        <Price price={props.productData.default_price}/>
         <Share />
       </>
     );
