@@ -2,32 +2,24 @@ const axios = require('./axiosConfig.js');
 const getData = require('./index.js');
 
 jest.mock('./axiosConfig', () => {
-    return {
-        baseURL: 'https://jsonplaceholder.typicode.com/albums',
-        request: jest.fn().mockResolvedValue({
-            data: [
-                {
-                    albumId: 3,
-                    id: 101,
-                    title: 'incidunt alias vel enim',
-                    url: 'https://via.placeholder.com/600/e743b',
-                    thumbnailUrl: 'https://via.placeholder.com/150/e743b'
-                },
-                {
-                    albumId: 3,
-                    id: 102,
-                    title: 'eaque iste corporis tempora vero distinctio consequuntur nisi nesciunt',
-                    url: 'https://via.placeholder.com/600/a393af',
-                    thumbnailUrl: 'https://via.placeholder.com/150/a393af'
-                },
-                {
-                    albumId: 3,
-                    id: 103,
-                    title: 'et eius nisi in ut reprehenderit labore eum',
-                    url: 'https://via.placeholder.com/600/35cedf',
-                    thumbnailUrl: 'https://via.placeholder.com/150/35cedf'
-                }
-            ]
-        }),
-    }
+  return {
+    baseURL: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products',
+    request: jest.fn().mockResolvedValue({
+      data: [
+        {
+          "id": 42366,
+          "campus": "hr-lax",
+          "name": "Camo Onesie",
+          "slogan": "Blend in to your crowd",
+          "description": "The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.",
+          "category": "Jackets",
+          "default_price": "140.00",
+          "created_at": "2021-08-13T14:39:39.968Z",
+          "updated_at": "2021-08-13T14:39:39.968Z"
+        }
+      ]
+    }),
+  }
 });
+
+

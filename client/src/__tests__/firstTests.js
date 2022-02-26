@@ -25,3 +25,14 @@ it('renders correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
+describe('testMock', () => {
+  afterEatch(() => jest.resetAllMocks());
+
+  it('test test test', async () => {
+    const dummyData = await getData(42366);
+    expect(axios.request).toHaveBeenCalled();
+    expect(axios.request).toHaveBeenCalledWith({ method: 'get', url: '/42366' });
+    expect(photos.length).toEqual(1);
+    expect(photos[0].albumId).toEqual(42366);
+  })
+})
