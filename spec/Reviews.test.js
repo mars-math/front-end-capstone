@@ -115,7 +115,4 @@ describe('Ratings and Reviews', () => {
     expect(option.value).toBe('most helpful ▼');
   })
 
-
-
-
 });

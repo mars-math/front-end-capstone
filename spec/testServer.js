@@ -24,6 +24,10 @@ const server = setupServer(
     ctx.status(200),
     ctx.json(product),
   )),
+  rest.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/qa/questions', (req, res, ctx) => res(
+    ctx.
+    ctx.json(sampleDAta),
+  ))
   // rest.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/', (req, rest, ctx) => res(
   //   ctx.status(200),
   //   ctx.json(product),

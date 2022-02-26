@@ -30,6 +30,11 @@ function WriteReview(props) {
         setcharData(data1.data.characteristics);
         setItemName(data2.data.name);
       }));
+
+      return () => {
+        setcharData({});
+        setItemName('');
+      }
   }, []);
 
   function buildCharObj(key, value) {
