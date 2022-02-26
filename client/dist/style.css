@@ -247,11 +247,7 @@ label {
   float: right;
 }
 .scroll {
-<<<<<<< HEAD
-  height: 500px;
-=======
   max-height: 500px;
->>>>>>> aef3e80bf19f2e6593db1b9ac48741878210fb2e
   scroll-behavior: auto;
   overflow: auto;
 }
