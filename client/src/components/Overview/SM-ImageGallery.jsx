@@ -61,13 +61,14 @@ export default function ImageGallery(props) {
               key={`thumb-${index}`}
               style={thumbnailStyle}
               src={photo.thumbnail_url}
+              alt="thumbnail"
               onClick={() => changeMainIndex(index)} />
           )}
         </span>
 
         <img style={mainStyle}
           src={thumbnails[mainIndex].thumbnail_url} className='picture'
-          onClick={toggleMainPopUp} />
+          onClick={toggleMainPopUp} alt="thumbnail" />
 
         {mainPopUp && (
           <div className="popup-box">

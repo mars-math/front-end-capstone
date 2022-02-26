@@ -172,6 +172,7 @@ function ProductCard(props) {
                 backgroundColor: 'transparent',
                 border: 'none',
               }}
+              aria-label="Toggle Comparison"
               type="button"
               onClick={toggleComparison}
             >

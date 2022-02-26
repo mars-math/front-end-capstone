@@ -14,14 +14,14 @@ export default function StyleSelector(props) {
     return skusArray;
   }
   //states
-  const[display, setDisplay] = useState(props.stylesData);
-  const[selected, setSelected] = useState(0);
-  const[displaySizes, setSizes] = useState(makeSkusArray(display[selected].skus));
-  const[displayQtys, setQtys] = useState('select size');
-  const[sizeAndSku, setSize] = useState({});
-  const[originalPrice, setOgPrice] = useState(display[selected].original_price);
-  const[salePrice, setSalePrice] = useState(display[selected].sale_price);
-  const[button, setButton] = useState('ADD TO CART')
+  const [display, setDisplay] = useState(props.stylesData);
+  const [selected, setSelected] = useState(0);
+  const [displaySizes, setSizes] = useState(makeSkusArray(display[selected].skus));
+  const [displayQtys, setQtys] = useState('select size');
+  const [sizeAndSku, setSize] = useState({});
+  const [originalPrice, setOgPrice] = useState(display[selected].original_price);
+  const [salePrice, setSalePrice] = useState(display[selected].sale_price);
+  const [button, setButton] = useState('ADD TO CART')
 
   //how many rows
   var rows = Math.ceil(display.length / 4);
@@ -29,7 +29,7 @@ export default function StyleSelector(props) {
 
   //whether icon has border
   function selectedStyle(index) {
-    if (index === selected ) {
+    if (index === selected) {
       const selectedStyle = {
         border: '2px solid rgb(146, 130, 85)',
         padding: '5px'
@@ -39,7 +39,7 @@ export default function StyleSelector(props) {
       return {
         padding: '5px'
       };
-   }
+    }
   }
 
   //sets first style state to be what's clicked on and changes display and dropdown
@@ -85,10 +85,10 @@ export default function StyleSelector(props) {
   function priceDisplay(sale, original) {
     if (sale) {
       return (
-      <>
-        <div>${salePrice}</div>
-        <div style={{textDecorationLine: 'line-through', color: 'rgb( 150, 65, 31)', textDecorationStyle: 'solid', marginLeft: '10px'}}>${originalPrice}</div>
-      </>);
+        <>
+          <div>${salePrice}</div>
+          <div style={{ textDecorationLine: 'line-through', color: 'rgb( 150, 65, 31)', textDecorationStyle: 'solid', marginLeft: '10px' }}>${originalPrice}</div>
+        </>);
 
     } else {
       return <div>${originalPrice}</div>;
@@ -101,60 +101,61 @@ export default function StyleSelector(props) {
     setButton('WOO! ADDED');
     setTimeout(() => {
       setButton('ADD TO CART');
-  }, 1000);
+    }, 1000);
   }
 
 
   return (
     <>
-    <div className='styles-container'>
-    {/* ------Price and Style Name------ */}
-    <div className='prices'>{priceDisplay(salePrice, originalPrice)}</div>
-    <div>{display[selected].name}</div>
+      <div className='styles-container'>
+        {/* ------Price and Style Name------ */}
+        <div className='prices'>{priceDisplay(salePrice, originalPrice)}</div>
+        <div>{display[selected].name}</div>
 
-    {/* -----Rendering Style Icons----- */}
-    <div className='parent'>
-      {display.map((row, index) =>
-      <img
-      className='child'
-      key={`row${index}`}
-      onClick={(e) => changeFirst(e, index)}
-      style={selectedStyle(index)}
-      src={row.photos[0].thumbnail_url}
-      ></img>)}
-    </div>
+        {/* -----Rendering Style Icons----- */}
+        <div className='parent'>
+          {display.map((row, index) =>
+            <img
+              className='child'
+              key={`row${index}`}
+              onClick={(e) => changeFirst(e, index)}
+              style={selectedStyle(index)}
+              src={row.photos[0].thumbnail_url}
+              alt="style icon"
+            ></img>)}
+        </div>
 
-      {/* --------DropDown Lists-------- */}
-      <span>
-        {/* <form> */}
+        {/* --------DropDown Lists-------- */}
+        <span>
+          {/* <form> */}
           {/* <label htmlFor='selectSize'></label> */}
           <select name='selectSize'
-          className='dropdown'
-          onChange={(e) => selectSize(e)}>
+            className='dropdown'
+            onChange={(e) => selectSize(e)}>
             <option>Select Size</option>
             {[...displaySizes].map((sku, index) => {
               var skuId = Object.keys(sku);
               var size = sku[Object.keys(sku)[0]].size;
               return <option
-              key={`size-${index}`}
-              value={`${JSON.stringify({
-                [skuId]: size,
-              })}`}>{size}</option>
+                key={`size-${index}`}
+                value={`${JSON.stringify({
+                  [skuId]: size,
+                })}`}>{size}</option>
             })}
           </select>
 
           {/* <label htmlFor='selectQty'></label> */}
           <select name='selectQty'
-          className='dropdown'>
+            className='dropdown'>
             <option value=''>-</option>
             {[...Array(displayQtys)].map((element, index) =>
               <option
-              key={`qty-${index}`}>{index + 1}
+                key={`qty-${index}`}>{index + 1}
               </option>
             )}
           </select>
-        {/* </form> */}
-      </span>
+          {/* </form> */}
+        </span>
 
         {/* --------Add to Cart Button------- */}
         <button className='cust-button' onClick={changeCart}>{button}</button>
@@ -162,7 +163,7 @@ export default function StyleSelector(props) {
 
       {/* ---Main Image and Thumbnails--- */}
       <div className='image-gallery'>
-        <ImageGallery photos={display[selected].photos}/>
+        <ImageGallery photos={display[selected].photos} />
       </div>
 
     </>
