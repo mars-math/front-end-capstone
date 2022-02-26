@@ -15,13 +15,13 @@ function Share(props) {
   return (
     <div>
       <a href="https://www.facebook.com/share">
-        <img style={buttonStyle} src={fb}/>
+        <img style={buttonStyle} src={fb} alt="facebook" />
       </a>
       <a href="https://www.facebook.com/share">
-        <img style={buttonStyle} src={twitter}/>
+        <img style={buttonStyle} src={twitter} alt="twitter" />
       </a>
       <a href="https://www.facebook.com/share">
-        <img style={buttonStyle} src={pinterest}/>
+        <img style={buttonStyle} src={pinterest} alt="pinterest" />
       </a>
 
     </div>
