@@ -16,11 +16,12 @@ function ReviewImages(props) {
           src={props.photo}
           alt="Nothing Here"
           onClick={togglePopup}
+          data-testid="image-button"
         />
       </span>
 
       {isOpen && (
-      <div className="popup-box">
+      <div className="popup-box" data-testid="image-popup">
         <div className="box">
           <span className="close-icon" onClick={togglePopup}>x</span>
           <img src={props.photo} alt="Nothing here" />

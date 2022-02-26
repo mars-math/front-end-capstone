@@ -74,6 +74,10 @@ export default function AllReviews(props) {
 
   useEffect(() => {
     updateRender();
+
+    return () => {
+      setRenderedReviews([]);
+    }
   }, []);
 
   function sortReviews(e) {
@@ -89,7 +93,7 @@ export default function AllReviews(props) {
   }
 
   return (
-    <>
+    <div data-testid="allRev">
       <div style={{
         display: 'flex', fontSize: '20px', justifyContent: 'center', marginLeft: '3%',
       }}
@@ -115,6 +119,6 @@ export default function AllReviews(props) {
           <RatingBreakdown manageFilter={manageFilter} url={url} />
         </div>
       </div>
-    </>
+    </div>
   );
 }

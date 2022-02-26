@@ -115,10 +115,10 @@ function WriteReview(props) {
 
   return (
     <>
-      <button type="button" onClick={togglePopup} className="cust-button ">Write New Review</button>
+      <button type="button" onClick={togglePopup} className="cust-button">Write New Review</button>
 
       {isOpen && (
-      <div className="popup-box">
+      <div className="popup-box" data-testid="popup">
         <div className="box">
           <span className="close-icon" onClick={togglePopup}>x</span>
           {/* --------TITLE----------- */}
@@ -153,7 +153,7 @@ function WriteReview(props) {
               style={{ width: '200px' }}
               type="text"
               name="summary"
-              placeholder="Example: Best purchase ever!"
+              placeholder="Best purchase ever!"
               onChange={(e) => buildPost('summary', e.target.value)}
             />
             {/* --------BODY----------- */}
@@ -182,7 +182,7 @@ function WriteReview(props) {
             {imgUrls.length < 5
               ? (
                 <>
-                  <label htmlFor="img" className="write-review-labels">Img Url:</label>
+                  <label htmlFor="img" className="write-review-labels" data-testid="labels">Img Url:</label>
                   <input type="text" name="img" onChange={(e) => setImgUrl(e.target.value)} />
                   <button type="button" onClick={imgButtonClick}>Upload</button>
                 </>
@@ -190,7 +190,7 @@ function WriteReview(props) {
               : <></>}
             <br />
             {/* --------NICKNAME----------- */}
-            <label htmlFor="nickname" className="write-review-labels">Nickname:</label>
+            <label htmlFor="nickname" className="write-review-labels" data-testid="labels">Nickname:</label>
             <input
               type="text"
               name="nickname"
@@ -201,7 +201,7 @@ function WriteReview(props) {
             />
             <br />
             {/* --------EMAIL----------- */}
-            <label htmlFor="email" className="write-review-labels">Email:</label>
+            <label htmlFor="email" className="write-review-labels" data-testid="labels">Email:</label>
             <input
               type="email"
               name="email"
