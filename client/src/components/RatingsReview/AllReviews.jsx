@@ -99,7 +99,7 @@ export default function AllReviews(props) {
       }}
       >
         <div>{`${renderedReviews.length} reviews, sorted by`}</div>
-        <select className="review-dropdown" onChange={(e) => sortReviews(e)}>
+        <select className="review-dropdown" onChange={(e) => sortReviews(e)} data-testid="base-sort">
           <option value="most recent ▼">most recent</option>
           <option value="most helpful ▼">most helpful</option>
         </select>

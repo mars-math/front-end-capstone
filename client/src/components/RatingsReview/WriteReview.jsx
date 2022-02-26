@@ -42,7 +42,7 @@ function WriteReview(props) {
     if (charData) {
       return (
         Object.keys(charData).map((char, index) => (
-          <div key={`${char}${index}`} style={{ display: 'flex', flexWrap: 'wrap' }}>
+          <div key={`${char}${index}`} style={{ display: 'flex', flexWrap: 'wrap' }} data-testid="chars">
             <div style={{ display: 'flex', width: '100%', fontWeight: 'bold' }}>
               {char}
               :
@@ -176,6 +176,7 @@ function WriteReview(props) {
                 src={img}
                 style={{ width: '50px', height: '50px', margin: '5px 10px 0 0' }}
                 alt="thumbnail"
+                data-testid="image"
               />
             )) : <></>}
             <br />
@@ -183,7 +184,7 @@ function WriteReview(props) {
               ? (
                 <>
                   <label htmlFor="img" className="write-review-labels" data-testid="labels">Img Url:</label>
-                  <input type="text" name="img" onChange={(e) => setImgUrl(e.target.value)} />
+                  <input type="text" name="img" onChange={(e) => setImgUrl(e.target.value)} data-testid="image-input"/>
                   <button type="button" onClick={imgButtonClick}>Upload</button>
                 </>
               )
@@ -211,7 +212,7 @@ function WriteReview(props) {
             />
             <br />
             {/* --------SUBMIT BUTTON----------- */}
-            <input type="submit" value="Write Review" className="cust-button" />
+            <input type="submit" value="Write Review" className="cust-button" data-testid="write-review-submit"/>
           </form>
         </div>
       </div>

@@ -29,7 +29,7 @@ function ProgressBar(props) {
   }
 
   return (
-    <div className="progress-bar">
+    <div className="progress-bar" >
       <button
         style={isActivated ? { color: 'blue' } : {}}
         className="star-filter-button"
@@ -38,6 +38,7 @@ function ProgressBar(props) {
           activateSort();
           manageFilter(index, isActivated);
         }}
+        data-testid="progress-bar"
       >
         {index}
         {' '}
@@ -46,7 +47,7 @@ function ProgressBar(props) {
       <div style={containerStyles}>
         <div style={fillerStyles} />
       </div>
-      <div>
+      <div data-testid="progress-count">
         {count || 0}
       </div>
     </div>
