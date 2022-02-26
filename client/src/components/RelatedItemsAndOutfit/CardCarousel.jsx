@@ -5,7 +5,7 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import ProductCard from './ProductCard.jsx';
 import Card from '@mui/material/Card';
-// import 'react-multi-carousel/lib/styles.css';
+import 'react-multi-carousel/lib/styles.css';
 import { Box, flexbox } from '@mui/system';
 
 const responsive = {
