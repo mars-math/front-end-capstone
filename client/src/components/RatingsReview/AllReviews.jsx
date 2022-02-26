@@ -104,7 +104,7 @@ export default function AllReviews(props) {
       <div className="all-review-components" data-testid="allRev-1">
         <div className="individual-reviews" style={{ maxHeight: '601px', overflow: 'auto', width: '45%' }}>
           {slicedRender.map((review, index) => (
-            <IndividualReview render={review} key={`review${index}`} />
+              <IndividualReview render={review} key={`review${index}`} />
           ))}
 
           {renderedReviews.length >= 2 && slicedRender.length < renderedReviews.length

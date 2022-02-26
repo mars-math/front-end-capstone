@@ -84,7 +84,7 @@ export default function IndividualReview(props) {
   }
 
   return (
-      <div className="individual-review" style={{width: '92%'}}>
+      <div className="individual-review" style={{width: '92%'}} data-testid="tiles">
       {/* --------------STARS---------------- */}
       <div className="ind-top-row">
       <div>
