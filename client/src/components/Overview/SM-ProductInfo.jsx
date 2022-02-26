@@ -22,14 +22,14 @@ const titleStyle = {
 export default function ProductInfo(props) {
 
     return (
-      <>
+      <div id='prodInfo'>
         <StarRating ratings={props.reviewsData} stars={Stars}/>
         <div style={categoryStyle}>
           {props.productData.category}</div>
         <div style={titleStyle}>
           {props.productData.name}</div>
         <Share />
-      </>
+      </div>
     );
 
 }

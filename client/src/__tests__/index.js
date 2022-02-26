@@ -1,4 +1,4 @@
-const axios = require('./axiosConfig.js');
+const axios = require('axios');
 
 const getData = async (id) => {
   const result = await axios.request({

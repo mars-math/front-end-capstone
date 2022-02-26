@@ -12,6 +12,6 @@ module.exports = {
   ],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
-    './client/src/index.test.js'
+    './client/src/__tests__/index.test.js'
   ]
 }
