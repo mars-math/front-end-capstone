@@ -145,7 +145,7 @@ function ProductCard(props) {
         && ( */}
       {showComparison
         && (
-          <div className="popup-box-product-card">
+          <div className="popup-box-product-card" data-testid="comparison">
             <div className="box">
               {/* <button type="button" className="close-icon" onClick={toggleComparison}>x</button> */}
               <span className="close-icon" onClick={toggleComparison}>X</span>
@@ -172,9 +172,9 @@ function ProductCard(props) {
                 backgroundColor: 'transparent',
                 border: 'none',
               }}
-              aria-label="Toggle Comparison"
               type="button"
               onClick={toggleComparison}
+              aria-label="Toggle Comparison"
             >
               {fullStar}
             </button>

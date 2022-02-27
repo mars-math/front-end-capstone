@@ -12,6 +12,7 @@ module.exports = {
   ],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
-    './spec/Reviews.test.js'
+    // './spec/Reviews.test.js',
+    './spec/Related.test.js'
   ],
 }

@@ -119,7 +119,7 @@ function RelatedItems(props) {
   }, []);
 
   return (
-    <>
+    <div data-testid="allRelated">
       <div style={{ display: 'flex', marginLeft: '15%' }}>
         <h2>Related Items</h2>
       </div>
@@ -133,7 +133,7 @@ function RelatedItems(props) {
           imageUrl,
         }}
       />
-    </>
+    </div>
   );
 }
 

@@ -6,6 +6,8 @@ const {
   reviews,
   meta,
   product,
+  related,
+  styles,
 } = require('./data/allData.js');
 
 const server = setupServer(
@@ -23,6 +25,14 @@ const server = setupServer(
   rest.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/:id', (req, res, ctx) => res(
     ctx.status(200),
     ctx.json(product),
+  )),
+  rest.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/:id/related', (req, res, ctx) => res(
+    ctx.status(200),
+    ctx.json(related),
+  )),
+  rest.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/:id/styles', (req, res, ctx) => res(
+    ctx.status(200),
+    ctx.json(styles),
   )),
   // rest.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/', (req, rest, ctx) => res(
   //   ctx.status(200),

@@ -78,14 +78,14 @@ function OutfitList(props) {
   }, []);
 
   return (
-    <>
+    <div data-testid="allOutfit">
       <div style={{ display: 'flex', marginLeft: '15%' }}>
         <h2>My Outfit</h2>
         <button type="button" onClick={addToOutfit} style={{ fontWeight: 'bold', marginLeft: '20px' }}>Add to Outfit</button>
       </div>
       {/* <button type="button" onClick={clearOutfit}>Remove all items from My Outfit</button> */}
       <CardCarousel overviewId={overviewId} idsToRender={outfitIds} isOutfitList removeProduct={removeProduct} addToOutfit={addToOutfit} />
-    </>
+    </div>
   );
 }
 
