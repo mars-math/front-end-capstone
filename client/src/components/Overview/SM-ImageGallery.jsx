@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Row from './SM-StyleRow.jsx';
-import stylesData from './SM-dummystylesdata.js';
-import productData from './SM-dummyproductdata.js';
+import Share from './SM-Share.jsx';
 
 const thumbnailStyle = {
   height: '50px',
@@ -13,10 +11,11 @@ const thumbnailStyle = {
 // const mainWidth = Math.round(dimensions.width * 9 / 16);
 
 const mainStyle = {
-  flex: 0.5
+  flex: 0.5,
+  objectFit: 'contain',
   // aspectRatio: 2/3
-  // height: '100%',
-  // width: '50%'
+  height: '450px',
+  width: '300px'
 }
 
 
@@ -62,14 +61,14 @@ export default function ImageGallery(props) {
               key={`thumb-${index}`}
               style={thumbnailStyle}
               src={photo.thumbnail_url}
+              alt="thumbnail"
               onClick={() => changeMainIndex(index)} />
           )}
-          <button>down</button>
         </span>
 
         <img style={mainStyle}
           src={thumbnails[mainIndex].thumbnail_url} className='picture'
-          onClick={toggleMainPopUp} />
+          onClick={toggleMainPopUp} alt="thumbnail" />
 
         {mainPopUp && (
           <div className="popup-box">
@@ -80,6 +79,7 @@ export default function ImageGallery(props) {
           </div>
         )}
       </div>
+
 
       {/* <div style={{inlineSize: '350px', overflowWrap: 'break-word'}}>{productData[0].description}</div> */}
     </>

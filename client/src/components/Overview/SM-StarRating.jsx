@@ -1,16 +1,25 @@
 import React , { useState, useEffect } from 'react';
 
+const reviewStyle = {
+  fontSize: '10px',
+  color: 'rgb(146, 130, 85)'
+}
+
 function StarRating(props) {
-  const[ratingsData, setData] = useState([]);
+  const[ratingsData, setData] = useState({});
   const[rating, setRating] = useState(whichRating(ratingsData));
 
-  function whichRating(array) {
-    if (array) {
+  function whichRating(obj) {
+    if (obj) {
       var sum = 0;
-      for (var i = 0; i < array.length; i++) {
-        sum += array[i].rating;
+      var reviewCount = 0;
+      for (var i in obj) {
+        let addto = i * parseInt(obj[i]);
+        sum += addto;
+        reviewCount += parseInt(obj[i]);
       }
-      return sum / array.length;
+      let avgRating = sum / reviewCount;
+      return Number(avgRating.toFixed(1));
     }
     return 0;
   }
@@ -41,7 +50,8 @@ function StarRating(props) {
         (star, index) =>
         <span key={`star-${index}`}>{whichStar(rating, index)}</span>
         )}
-        <a>Reviews</a>
+        <a style={reviewStyle}
+        href="#reviewsJump">Reviews</a>
     </div>
   );
 

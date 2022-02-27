@@ -18,8 +18,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <h1>Kloth</h1>
+      <div>
+        <h1 style={{marginLeft: '13%'}}>KLOTH</h1>
         <Overview url={this.state.url} />
         <RelatedItems overviewId={this.state.url} />
         <OutfitList overviewId={this.state.url} />
@@ -28,7 +28,8 @@ class App extends React.Component {
         <div className="component-break">
           <QandA url={this.state.url} />
         </div>
-      </>
+
+      </div>
     );
   }
 }

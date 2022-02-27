@@ -1,8 +1,7 @@
 import React from 'react';
 
 export default {
-  fb: <svg width="75" height="89" viewBox="0 0 75 89" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="37.5" cy="37.5" r="37.5" fill="#4373ED"/>
-  <path d="M43.0938 89H31.7969V33.4062C31.7969 29.625 32.5 26.4531 33.9062 23.8906C35.3438 21.2969 37.3906 19.3438 40.0469 18.0312C42.7031 16.6875 45.8438 16.0156 49.4688 16.0156C50.5938 16.0156 51.7031 16.0938 52.7969 16.25C53.8906 16.375 54.9531 16.5781 55.9844 16.8594L55.7031 25.5781C55.0781 25.4219 54.3906 25.3125 53.6406 25.25C52.9219 25.1875 52.1406 25.1562 51.2969 25.1562C49.5781 25.1562 48.0938 25.4844 46.8438 26.1406C45.625 26.7656 44.6875 27.6875 44.0312 28.9062C43.4062 30.125 43.0938 31.625 43.0938 33.4062V89ZM53.5469 38.2812V46.5312H24.0156V38.2812H53.5469Z" fill="white"/>
-  </svg>
+  fb: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Facebook_Logo.png',
+  twitter: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Twitter_Logo.png',
+  pinterest: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321'
 };
