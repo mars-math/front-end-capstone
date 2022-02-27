@@ -21,10 +21,12 @@ import '@testing-library/jest-dom'
 import testServer from './testServer.js';
 import RelatedItems from '../client/src/components/RelatedItemsAndOutfit/RelatedItems.jsx';
 import OutfitList from '../client/src/components/RelatedItemsAndOutfit/OutfitList.jsx';
+import Carousel from 'react-multi-carousel';
 
 beforeAll(() => testServer.listen({ onUnhandledRequest: "bypass" }));
 afterEach(() => {
   testServer.resetHandlers();
+  window.localStorage.clear();
   cleanup;
 });
 afterAll(() => testServer.close());
@@ -52,20 +54,27 @@ describe('Related Items & Outfits', () => {
     expect(allOutfit).toBeInTheDocument();
   });
 
-  test('renders related items', async () => {
-    // const items = await waitFor(() => screen.getByTestId('allOutfit'));
-    // const items = screen.getByTestId('allRelated');within(document).getAllByRole('list');
+  test('adds outfit to LocalStorage', async () => {
+    const button = await waitFor(() => screen.getByRole('button', {  name: /add to outfit/i}));
+    fireEvent.click(button);
 
-    // const card = await waitFor(() => screen.getByText(/jena heels/i));
+    expect(window.localStorage.getItem('43230')).toEqual('43230');
 
-    const card = await waitFor(() => document.querySelector('#app > div > div:nth-child(3) > div:nth-child(2) > ul > li:nth-child(4) > div'))
-
-    // const items = document.querySelector('#app > div > div:nth-child(3) > div:nth-child(2) > ul > li:nth-child(4) > div > p');
-
-    expect(card).toBeInTheDocument();
   });
 
-  document.querySelector('#app > div > div:nth-child(3) > div:nth-child(2) > ul > li:nth-child(4) > div > p')
+
+  // test('renders related items', async () => {
+  //   // const items = await waitFor(() => screen.getByTestId('allOutfit'));
+  //   // const items = screen.getByTestId('allRelated');within(document).getAllByRole('list');
+
+  //   // const card = await waitFor(() => screen.getByText(/jena heels/i));
+
+  //   const card = await waitFor(() => document.querySelector('#app > div > div:nth-child(3) > div:nth-child(2) > ul > li:nth-child(4) > div'))
+
+  //   // const items = document.querySelector('#app > div > div:nth-child(3) > div:nth-child(2) > ul > li:nth-child(4) > div > p');
+
+  //   expect(card).toBeInTheDocument();
+  // });
 
   // test('renders Comparison Modal', async () => {
 

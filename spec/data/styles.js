@@ -1,4 +1,4 @@
-module.exports.reviews = {
+module.exports.styles = {
   "product_id": "43230",
   "results": [
       {
