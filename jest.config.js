@@ -12,6 +12,6 @@ module.exports = {
   ],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
-    './client/src/__tests__/index.test.js'
+    './spec/Overview.test.js'
   ]
 }

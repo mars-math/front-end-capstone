@@ -39,13 +39,15 @@ export default function Overview(props) {
   }
 
   return (
-    <div className='overview-container'>
+    <div data-testid="Overview1">
+    <div className='overview-container' >
       <div className='right-container'>
         <ProductInfo productData={productData} reviewsData={reviewsData.ratings} />
       </div>
       <div className='left-container'>
         <StyleSelector stylesData={stylesData.results} />
       </div>
+    </div>
     </div>
 
   );
