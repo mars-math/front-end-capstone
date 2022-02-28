@@ -32,3 +32,53 @@ beforeEach(() => {
   });
 });
 
+describe('Q and A', () => {
+
+  test('renders Q and A page', async () => {
+    const qanda = await waitFor(() => screen.getByTestId('QandA'));
+
+    expect(qanda).toBeInTheDocument();
+  });
+
+  test('renders more answers', async () => {
+    const button = await waitFor(() => screen.getAllByTestId('More-Answers'));
+    fireEvent.click(button[0]);
+    const answerList = await waitFor(() => screen.getAllByTestId('Answers'));
+
+    expect(answerList).toHaveLength(4);
+  });
+
+  test('renders more questions', async () => {
+    const button = await waitFor(() => screen.getAllByTestId('More-Questions'));
+    fireEvent.click(button[0]);
+    const questionList = await waitFor(() => screen.getAllByTestId('Questions'));
+
+    expect(questionList).toHaveLength(1);
+  });
+
+  test('adding an answer opens a new window', async () => {
+    const button = await waitFor(() => screen.getAllByTestId('add-answer'));
+    fireEvent.click(button[0]);
+    const addPopup = await waitFor(() => screen.getAllByTestId('answer-popout'));
+
+    expect(addPopup[0]).toBeInTheDocument();
+  });
+
+  test('adding a question opens a new window', async () => {
+    const button = await waitFor(() => screen.getAllByTestId('add-question'));
+    fireEvent.click(button[0]);
+    const addPopup = await waitFor(() => screen.getByTestId('question-popout'));
+
+    expect(addPopup).toBeInTheDocument();
+  });
+
+  test('Search functionality', async () => {
+    const searchBar = await waitFor(() => screen.getByPlaceholderText("HAVE A QUESTION? SEARCH FOR ANSWERS..."));
+    const searchButton = await waitFor(() => screen.getByTestId('search-button'));
+    fireEvent.change(searchBar, { target: { value: 'test' } });
+    fireEvent.click(searchButton);
+
+    expect(searchBar.value).toBe('test');
+  });
+
+});

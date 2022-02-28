@@ -128,14 +128,14 @@ class QuestionsView extends React.Component {
           <span className="questions-helpful">
             Helpful?<span className="clickable" onClick={this.clickHelpful}>&ensp;<u>Yes</u>&nbsp;</span>
             ({this.helpfulCounterDisplay()})
-            <span onClick={this.clickAddAnswer}>&emsp;|&emsp;<u className="clickable">Add Answer</u></span>
-            {this.showAddAnswer()}
+            <span data-testid="add-answer" onClick={this.clickAddAnswer}>&emsp;|&emsp;<u className="clickable">Add Answer</u></span>
+            <span data-testid="answer-popout">{this.showAddAnswer()}</span>
           </span>
         </div>
         <div>
           {Object.keys(this.props.answers).length ? <span className="A-tag">A:</span> : <br />}
-          <ul className="answer-list">{this.showAnswers(this.props.answers)}</ul>
-          <div className="load-answers" onClick={this.loadAnswersClick}>
+          <ul data-testid="Answers" className="answer-list">{this.showAnswers(this.props.answers)}</ul>
+          <div data-testid="More-Answers" className="load-answers" onClick={this.loadAnswersClick}>
             <b>{this.loadTextChange()}</b>
           </div>
         </div>

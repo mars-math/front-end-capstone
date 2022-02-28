@@ -89,12 +89,12 @@ class QandA extends React.Component {
   // render the questions that correspond to what was entered in the serach field
   render() {
     return (
-      <div className="main">
+      <div className="main" data-testid="QandA">
         <h3>Questions &amp; Answers</h3>
-        <div data-testid="QandA">
+        <div>
           <form onSubmit={this.searchClick}>
             <input id="searchBar" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={this.searchChange} />
-            <button type="submit">Search</button>
+            <button data-testid="search-button" type="submit">Search</button>
           </form>
           <Questions searchList={this.state.searchList}
           questionList={this.state.questionList}
