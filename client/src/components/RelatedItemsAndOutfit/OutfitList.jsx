@@ -13,9 +13,9 @@ function OutfitList(props) {
   // const [removalId, setRemovalId] = useState((Number(overviewId) - 1).toString());
 
   const addToOutfit = () => {
-    // if (window.localStorage.key('allOutfits') === null) {
-    //   window.localStorage.setItem('allOutfits', JSON.stringify(outfitIds));
-    // }
+    if (window.localStorage.getItem('allOutfits') === null) {
+      window.localStorage.setItem('allOutfits', JSON.stringify(outfitIds));
+    }
     if (window.localStorage.getItem(overviewId) === null) {
       const currentOutfits = JSON.parse(window.localStorage.getItem('allOutfits'));
       window.localStorage.setItem(overviewId, overviewId);

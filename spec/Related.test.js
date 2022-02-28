@@ -21,9 +21,12 @@ import '@testing-library/jest-dom'
 import testServer from './testServer.js';
 import RelatedItems from '../client/src/components/RelatedItemsAndOutfit/RelatedItems.jsx';
 import OutfitList from '../client/src/components/RelatedItemsAndOutfit/OutfitList.jsx';
+import ProductCard from '../client/src/components/RelatedItemsAndOutfit/ProductCard.jsx';
 import Carousel from 'react-multi-carousel';
 
-beforeAll(() => testServer.listen({ onUnhandledRequest: "bypass" }));
+beforeAll(() => {
+  testServer.listen({ onUnhandledRequest: "bypass" })
+});
 afterEach(() => {
   testServer.resetHandlers();
   window.localStorage.clear();
@@ -36,6 +39,11 @@ beforeEach(() => {
       <>
         <RelatedItems url="43230" />
         <OutfitList url="43230" />
+        <ProductCard
+          prodId="43230"
+          key="43230"
+          isOutfitList={false}
+        />
       </>
     );
   });
@@ -54,13 +62,36 @@ describe('Related Items & Outfits', () => {
     expect(allOutfit).toBeInTheDocument();
   });
 
-  test('adds outfit to LocalStorage', async () => {
-    const button = await waitFor(() => screen.getByRole('button', {  name: /add to outfit/i}));
-    fireEvent.click(button);
+  test('renders ProductCard', async () => {
+    const allOutfit = await waitFor(() => screen.getByTestId('prodCard'));
 
-    expect(window.localStorage.getItem('43230')).toEqual('43230');
-
+    expect(allOutfit).toBeInTheDocument();
   });
+
+  // test('adds outfit to LocalStorage', async () => {
+
+  //   const button = await waitFor(() => screen.getByRole('button', { name: /add to outfit/i }));
+
+  //   fireEvent.click(button);
+
+  //   const list = await waitFor(() => screen.getByTestId('allOutfit').getByRole('list'));
+
+  //   // const card = await waitFor(() => screen.getByTestId('allOutfit'),within(document).getByRole('listitem'));
+
+  //   expect(list).toHaveLength(1)
+
+
+  //   // fireEvent.click(screen.getByText('Load'))
+
+  //   // // Wait for page to update with query text
+  //   // const items = await screen.findAllByText(/Item #[0-9]: /)
+  //   // expect(items).toHaveLength(10)
+
+  //   // expect(window.localStorage.getItem('43230')).toEqual('43230')
+  //   // // expect(card.toBeInTheDocument())
+
+
+  // });
 
 
   // test('renders related items', async () => {

@@ -40,9 +40,19 @@ function CardCarousel(props) {
   if (isOutfitList) {
     const concatArr = [overviewId].concat(idsToRender);
     return (
-      // {/* <Card>
-      //   <button type="button" onClick={addToOutfit}>Add to My Outfit</button>
-      // </Card> */}
+
+      // idsToRender.map((id) => (
+      //   <ProductCard
+      //     overviewId={overviewId}
+      //     prodId={id}
+      //     key={id}
+      //     isOutfitList={isOutfitList}
+      //     removeProduct={removeProduct}
+      //   />
+      // ))
+      // // {/* <Card>
+      // //   <button type="button" onClick={addToOutfit}>Add to My Outfit</button>
+      // // </Card> */}
       <Carousel
         responsive={responsive}
         autoPlay={false}
@@ -66,6 +76,15 @@ function CardCarousel(props) {
     );
   }
   return (
+    // idsToRender.map((id) => (
+    //   <ProductCard
+    //     overviewId={overviewId}
+    //     prodId={id}
+    //     key={id}
+    //     isOutfitList={isOutfitList}
+    //     overviewProductData={overviewProductData}
+    //   />
+    // ))
     <Carousel
       responsive={responsive}
       autoPlay={false}
