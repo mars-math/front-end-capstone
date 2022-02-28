@@ -30,6 +30,11 @@ function WriteReview(props) {
         setcharData(data1.data.characteristics);
         setItemName(data2.data.name);
       }));
+
+      return () => {
+        setcharData({});
+        setItemName('');
+      }
   }, []);
 
   function buildCharObj(key, value) {
@@ -42,7 +47,7 @@ function WriteReview(props) {
     if (charData) {
       return (
         Object.keys(charData).map((char, index) => (
-          <div key={`${char}${index}`} style={{ display: 'flex', flexWrap: 'wrap' }}>
+          <div key={`${char}${index}`} style={{ display: 'flex', flexWrap: 'wrap' }} data-testid="chars">
             <div style={{ display: 'flex', width: '100%', fontWeight: 'bold' }}>
               {char}
               :
@@ -115,10 +120,10 @@ function WriteReview(props) {
 
   return (
     <>
-      <button type="button" onClick={togglePopup} className="cust-button ">Write New Review</button>
+      <button type="button" onClick={togglePopup} className="cust-button">Write New Review</button>
 
       {isOpen && (
-      <div className="popup-box">
+      <div className="popup-box" data-testid="popup">
         <div className="box">
           <span className="close-icon" onClick={togglePopup}>x</span>
           {/* --------TITLE----------- */}
@@ -153,7 +158,7 @@ function WriteReview(props) {
               style={{ width: '200px' }}
               type="text"
               name="summary"
-              placeholder="Example: Best purchase ever!"
+              placeholder="Best purchase ever!"
               onChange={(e) => buildPost('summary', e.target.value)}
             />
             {/* --------BODY----------- */}
@@ -176,21 +181,22 @@ function WriteReview(props) {
                 src={img}
                 style={{ width: '50px', height: '50px', margin: '5px 10px 0 0' }}
                 alt="thumbnail"
+                data-testid="image"
               />
             )) : <></>}
             <br />
             {imgUrls.length < 5
               ? (
                 <>
-                  <label htmlFor="img" className="write-review-labels">Img Url:</label>
-                  <input type="text" name="img" onChange={(e) => setImgUrl(e.target.value)} />
+                  <label htmlFor="img" className="write-review-labels" data-testid="labels">Img Url:</label>
+                  <input type="text" name="img" onChange={(e) => setImgUrl(e.target.value)} data-testid="image-input"/>
                   <button type="button" onClick={imgButtonClick}>Upload</button>
                 </>
               )
               : <></>}
             <br />
             {/* --------NICKNAME----------- */}
-            <label htmlFor="nickname" className="write-review-labels">Nickname:</label>
+            <label htmlFor="nickname" className="write-review-labels" data-testid="labels">Nickname:</label>
             <input
               type="text"
               name="nickname"
@@ -201,7 +207,7 @@ function WriteReview(props) {
             />
             <br />
             {/* --------EMAIL----------- */}
-            <label htmlFor="email" className="write-review-labels">Email:</label>
+            <label htmlFor="email" className="write-review-labels" data-testid="labels">Email:</label>
             <input
               type="email"
               name="email"
@@ -211,7 +217,7 @@ function WriteReview(props) {
             />
             <br />
             {/* --------SUBMIT BUTTON----------- */}
-            <input type="submit" value="Write Review" className="cust-button" />
+            <input type="submit" value="Write Review" className="cust-button" data-testid="write-review-submit"/>
           </form>
         </div>
       </div>

@@ -14,13 +14,13 @@ const buttonStyle = {
 function Share(props) {
   return (
     <div>
-      <a href="https://www.facebook.com/share">
+      <a rel="preconnect" href="https://www.facebook.com/share">
         <img style={buttonStyle} src={fb} alt="facebook" />
       </a>
-      <a href="https://www.facebook.com/share">
+      <a rel="preconnect" href="https://www.facebook.com/share">
         <img style={buttonStyle} src={twitter} alt="twitter" />
       </a>
-      <a href="https://www.facebook.com/share">
+      <a rel="preconnect" href="https://www.facebook.com/share">
         <img style={buttonStyle} src={pinterest} alt="pinterest" />
       </a>
 
