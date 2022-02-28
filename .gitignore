@@ -4,3 +4,6 @@ client/dist/bundle.js
 coverage
 lcov-report
 .DS_Store
+clover.xml
+coverage-final.json
+lcov.info

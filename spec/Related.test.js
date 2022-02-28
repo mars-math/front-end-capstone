@@ -22,7 +22,56 @@ import testServer from './testServer.js';
 import RelatedItems from '../client/src/components/RelatedItemsAndOutfit/RelatedItems.jsx';
 import OutfitList from '../client/src/components/RelatedItemsAndOutfit/OutfitList.jsx';
 import ProductCard from '../client/src/components/RelatedItemsAndOutfit/ProductCard.jsx';
+import Comparison from '../client/src/components/RelatedItemsAndOutfit/Comparison.jsx';
 import Carousel from 'react-multi-carousel';
+
+const overviewProductData = {
+  "prodInfo": {
+    "id": 43230,
+    "name": "Dan Tank Top",
+    "category": "Tank Top",
+    "default_price": "524.00",
+    "features": [
+      {
+        "feature": "Satisfaction Guaranteed",
+        "value": null
+      },
+      {
+        "feature": "Cut",
+        "value": "\"Striaght\""
+      },
+      {
+        "feature": "Lifetime Guarantee",
+        "value": null
+      }
+    ]
+  },
+  "salePrice": "170.00",
+  "prodRating": 3.6,
+  "imageUrl": "https://images.unsplash.com/photo-1534550017194-5df79ed78967?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
+};
+
+const productCardData = {
+  "prodInfo": {
+    "id": 42594,
+    "name": "Lavonne Hat",
+    "category": "Hat",
+    "default_price": "441.00",
+    "features": [
+      {
+        "feature": "Green Leaf Certified",
+        "value": null
+      },
+      {
+        "feature": "Material",
+        "value": "\"Control Support Bridge\""
+      }
+    ]
+  },
+  "salePrice": null,
+  "prodRating": 2.8,
+  "imageUrl": "https://images.unsplash.com/photo-1553830591-2f39e38a013c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+}
 
 beforeAll(() => {
   testServer.listen({ onUnhandledRequest: "bypass" })
@@ -43,6 +92,10 @@ beforeEach(() => {
           prodId="43230"
           key="43230"
           isOutfitList={false}
+        />
+        <Comparison
+          overviewProductData={overviewProductData}
+          productCardData={productCardData}
         />
       </>
     );
@@ -68,138 +121,10 @@ describe('Related Items & Outfits', () => {
     expect(allOutfit).toBeInTheDocument();
   });
 
-  // test('adds outfit to LocalStorage', async () => {
+  test('renders Comparison Modal', async () => {
+    const compModal = await waitFor(() => screen.getByTestId('compModal'));
 
-  //   const button = await waitFor(() => screen.getByRole('button', { name: /add to outfit/i }));
+    expect(compModal).toBeInTheDocument();
+  });
 
-  //   fireEvent.click(button);
-
-  //   const list = await waitFor(() => screen.getByTestId('allOutfit').getByRole('list'));
-
-  //   // const card = await waitFor(() => screen.getByTestId('allOutfit'),within(document).getByRole('listitem'));
-
-  //   expect(list).toHaveLength(1)
-
-
-  //   // fireEvent.click(screen.getByText('Load'))
-
-  //   // // Wait for page to update with query text
-  //   // const items = await screen.findAllByText(/Item #[0-9]: /)
-  //   // expect(items).toHaveLength(10)
-
-  //   // expect(window.localStorage.getItem('43230')).toEqual('43230')
-  //   // // expect(card.toBeInTheDocument())
-
-
-  // });
-
-
-  // test('renders related items', async () => {
-  //   // const items = await waitFor(() => screen.getByTestId('allOutfit'));
-  //   // const items = screen.getByTestId('allRelated');within(document).getAllByRole('list');
-
-  //   // const card = await waitFor(() => screen.getByText(/jena heels/i));
-
-  //   const card = await waitFor(() => document.querySelector('#app > div > div:nth-child(3) > div:nth-child(2) > ul > li:nth-child(4) > div'))
-
-  //   // const items = document.querySelector('#app > div > div:nth-child(3) > div:nth-child(2) > ul > li:nth-child(4) > div > p');
-
-  //   expect(card).toBeInTheDocument();
-  // });
-
-  // test('renders Comparison Modal', async () => {
-
-  //   const button = await waitFor(() => document.querySelector('#app > div > div:nth-child(3) > div:nth-child(2) > ul > li:nth-child(1) > div > button > svg'));
-
-  //   fireEvent.click(button);
-
-  //   const comparison = await waitFor(() => screen.getByTestId('comparison'));
-
-  //   expect(comparison).toBeVisible();
-  // });
-  // test('renders Card Carousel', async () => {
-  //   const button = await waitFor(() => screen.getByText('Add to Outfit'));
-
-  //   fireEvent.click(button);
-
-  //   const card = await waitFor(() => screen.getByText('Dan Tank Top'));
-
-  //   expect(card).toBeVisible();
-  // });
-
-  // test('renders 2 reviews', async () => {
-  //   const indivElement = await waitFor(() => screen.getAllByTestId('tiles'));
-
-  //   expect(indivElement).toHaveLength(2);
-  // });
-
-  // test('renders 4 reviews on click', async () => {
-  //   const button = await waitFor(() => screen.getByText('More Reviews'));
-
-  //   fireEvent.click(button);
-
-  //   const indiv = await waitFor(() => screen.getAllByTestId('tiles'));
-
-  //   expect(indiv).toHaveLength(4);
-  // })
-
-  // test('Write Review button pops out a form', async () => {
-  //   const button = await waitFor(() => screen.getByText('Write New Review'));
-  //   fireEvent.click(button);
-  //   const popup = await waitFor(() => screen.getByText('Write Your Review'));
-  //   const popup2 = await waitFor(() => screen.getByTestId('popup'));
-  //   const popup3 = await waitFor(() => screen.getAllByTestId('labels'));
-
-  //   expect(popup).toBeVisible();
-  //   expect(popup2).toBeInTheDocument();
-  //   expect(popup3).toHaveLength(3);
-  // })
-
-  // test('Write Review Form testing', async () => {
-  //   const button = await waitFor(() => screen.getByText('Write New Review'));
-  //   fireEvent.click(button);
-  //   const summary = await waitFor(() => screen.getByPlaceholderText('Best purchase ever!'));
-  //   const button2 = await waitFor(() => screen.getByTestId('write-review-submit'));
-  //   const chars = await waitFor(() => screen.getAllByTestId('chars'));
-  //   fireEvent.change(summary, { target: { value: 'test' } });
-  //   fireEvent.click(button2);
-  //   expect(summary.value).toBe('test');
-  //   expect(chars).toHaveLength(4);
-  // });
-
-  // test('Write Review image rendering', async () => {
-  //   const button = await waitFor(() => screen.getByText('Write New Review'));
-  //   fireEvent.click(button);
-  //   const button2 = await waitFor(() => screen.getByText('Upload'));
-  //   const imageField = await waitFor(() => screen.getByTestId('image-input'));
-  //   fireEvent.change(imageField, { target: {value: 'https://i.kym-cdn.com/entries/icons/facebook/000/017/618/pepefroggie.jpg'} });
-  //   fireEvent.click(button2);
-
-  //   expect(imageField.value).toBe('https://i.kym-cdn.com/entries/icons/facebook/000/017/618/pepefroggie.jpg');
-  // })
-
-  // test('image opens new window', async () => {
-  //   const button = await waitFor(() => screen.getAllByTestId('image-button'));
-  //   fireEvent.click(button[0]);
-  //   const imagePopup = await waitFor(() => screen.getByTestId('image-popup'));
-
-  //   expect(imagePopup).toBeInTheDocument();
-  // });
-
-  // test('Progress bar testing', async () => {
-  //   const button = await waitFor(() => screen.getAllByTestId('progress-bar'));
-  //   fireEvent.click(button[0]);
-  //   const count = await waitFor(() => screen.getAllByTestId('progress-count'));
-  //   expect(button[0]).toHaveStyle(`color: blue`);
-  //   fireEvent.click(button[0]);
-  //   expect(button[0]).toHaveStyle(`color: ButtonText`);
-  //   expect(Number(count[0].innerHTML)).toBeGreaterThanOrEqual(0);
-  // })
-
-  // test('base sorting testing', async() => {
-  //   const option = await waitFor(() => screen.getByTestId('base-sort'));
-  //   fireEvent.change(option, { target: { value: 'most helpful ▼' } });
-
-  //   expect(option.value).toBe('most helpful ▼');
-  // })
 })

@@ -4,6 +4,9 @@ import React from 'react';
 function Comparison(props) {
   const { overviewProductData, productCardData, toggleComparison } = props;
 
+  console.log(overviewProductData)
+  console.log(productCardData)
+
   const parseDataObjs = (overview, product) => {
     const parsedData = [
       { Name: [overview.prodInfo.name, product.prodInfo.name] },
@@ -34,26 +37,27 @@ function Comparison(props) {
   const comparisonData = parseDataObjs(overviewProductData, productCardData);
 
   return (
-
-    <table>
-      <thead>
-        <tr>
-          <th colSpan="3">Comparing</th>
-        </tr>
-      </thead>
-      <tbody>
-        {comparisonData.map((feature) => (
+    <div data-testid="compModal">
+      <table>
+        <thead>
           <tr>
-            <td>{feature[Object.keys(feature)[0]][0]}</td>
-            <td>{Object.keys(feature)[0]}</td>
-            <td>{feature[Object.keys(feature)[0]][1]}</td>
+            <th colSpan="3">Comparing</th>
           </tr>
-        ))}
-        <tr>
-          <td colSpan="3"><button type="button" onClick={toggleComparison}>close</button></td>
-        </tr>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {comparisonData.map((feature) => (
+            <tr>
+              <td>{feature[Object.keys(feature)[0]][0]}</td>
+              <td>{Object.keys(feature)[0]}</td>
+              <td>{feature[Object.keys(feature)[0]][1]}</td>
+            </tr>
+          ))}
+          <tr>
+            <td colSpan="3"><button type="button" onClick={toggleComparison}>close</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 }
 
