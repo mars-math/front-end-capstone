@@ -3,3 +3,4 @@ config/config.js
 client/dist/bundle.js
 coverage
 lcov-report
+.DS_Store
