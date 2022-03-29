@@ -39,6 +39,10 @@ This script will also run webpack and auto refresh the page whenever you make ch
 ## Project Details
 
 ## Contributors
+* [Alex Hu](https://github.com/gunpowder66)
+* [Rockwell Allen](https://github.com/Rockwell55)
+* [Sarah Ma](https://github.com/sarahma123)
+* [Matthew Tanaka](https://github.com/matttanaka)
 
 ## How to Contribute
 
