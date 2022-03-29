@@ -2,9 +2,12 @@ Project created with [`React`](https://github.com/facebook/react)
 # Project Kloth
 
 ## Table of Contents
-  - [Getting Started](#getting-started)
-    - [1. Installing Dependencies](#1-installing-dependencies)
-    - [2. Running the Project](#2-running-the-project)
+- [Getting Started](#getting-started)
+  - [1. Installing Dependencies](#1-installing-dependencies)
+  - [2. Running the Project](#2-running-the-project)
+- [Project Details](#project-details)
+- [Contributers](#contributors)
+- [How to Contribute](#how-to-contribute)
 
 ## Getting Started
 Kloth is a single page e-commerce web application created utilizing React and Node/Express. This project was created by a team of four engineers.
@@ -20,7 +23,7 @@ Kloth is a single page e-commerce web application created utilizing React and No
 npm install
 ```
 
-### 2. Running the Project
+#### 2. Running the Project
 Runs development server:
 ```bash
 npm run build:dev
@@ -34,6 +37,10 @@ This script will also run webpack and auto refresh the page whenever you make ch
 
 
 ## Project Details
+
+## Contributors
+
+## How to Contribute
 
 Table of Contents
 
