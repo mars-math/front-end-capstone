@@ -1,4 +1,4 @@
-Project created with [`React`](https://github.com/facebook/react).
+Project created with [`React`](https://github.com/facebook/react)
 # Project Kloth
 
 ## Table of Contents
@@ -6,7 +6,9 @@ Project created with [`React`](https://github.com/facebook/react).
 
 
 ## Getting Started
-Hello?
+Kloth is a single page e-commerce web application created utilizing React and Node/Express. This project was created by a team of four engineers at Mars-Math inc.
+#### Built With
+![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
 Table of Contents
 
