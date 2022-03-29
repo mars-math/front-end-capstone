@@ -21,8 +21,8 @@ class App extends React.Component {
       <div>
         <h1 style={{marginLeft: '13%'}}>KLOTH</h1>
         <Overview url={this.state.url} />
-        <RelatedItems overviewId={this.state.url} />
-        <OutfitList overviewId={this.state.url} />
+        {/* <RelatedItems overviewId={this.state.url} /> */}
+        {/* <OutfitList overviewId={this.state.url} /> */}
         <AllReviews url={this.state.url} />
         <br />
         <div className="component-break">

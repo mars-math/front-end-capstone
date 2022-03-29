@@ -37,6 +37,19 @@ This script will also run webpack and auto refresh the page whenever you make ch
 
 
 ## Project Details
+<details>
+<summary>Ratings and Reviews</summary>
+
+- #### See list of reviews for current product 2 at a time
+- #### Write new review
+
+![read and write review](./public/gifs/reviews/reviews_render_and_write.gif)
+
+- #### Filter list of reviews by star count, helpfulness, and most recent
+
+![filtering reviews](./public/gifs/reviews/reviews_filters.gif)
+
+</details>
 
 ## Contributors
 * [Alex Hu](https://github.com/gunpowder66)
