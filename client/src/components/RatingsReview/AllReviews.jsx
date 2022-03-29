@@ -74,6 +74,10 @@ export default function AllReviews(props) {
 
   useEffect(() => {
     updateRender();
+
+    return () => {
+      setRenderedReviews([]);
+    }
   }, []);
 
   function sortReviews(e) {
@@ -89,13 +93,13 @@ export default function AllReviews(props) {
   }
 
   return (
-    <>
+    <div data-testid="allRev">
       <div style={{
         display: 'flex', fontSize: '20px', justifyContent: 'center', marginLeft: '3%',
       }}
       >
         <div>{`${renderedReviews.length} reviews, sorted by`}</div>
-        <select className="review-dropdown" onChange={(e) => sortReviews(e)}>
+        <select className="review-dropdown" onChange={(e) => sortReviews(e)} data-testid="base-sort">
           <option value="most recent ▼">most recent</option>
           <option value="most helpful ▼">most helpful</option>
         </select>
@@ -115,6 +119,6 @@ export default function AllReviews(props) {
           <RatingBreakdown manageFilter={manageFilter} url={url} />
         </div>
       </div>
-    </>
+    </div>
   );
 }

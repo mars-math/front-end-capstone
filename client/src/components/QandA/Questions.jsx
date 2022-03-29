@@ -87,7 +87,7 @@ class Questions extends React.Component {
         );
       }
       return (
-        <button className="cust-button" onClick={this.moreQuestionsClick}>More Answered Questions</button>
+        <button data-testid="More-Questions" className="cust-button" onClick={this.moreQuestionsClick}>More Answered Questions</button>
       );
     }
     return <></>;
@@ -127,10 +127,10 @@ class Questions extends React.Component {
     //console.log('questions props ', this.props);
     return (
       <div className="scroll">
-        {this.questionsOrSearchDisplay()}
+        <span data-testid="Questions">{this.questionsOrSearchDisplay()}</span>
         {this.moreQuestionsDisplay()}
-        <button className="cust-button" onClick={this.clickAddQuestion}>Add a Question</button>
-        {this.showAddQuestion()}
+        <button data-testid="add-question" className="cust-button" onClick={this.clickAddQuestion}>Add a Question</button>
+        <span data-testid="question-popout">{this.showAddQuestion()}</span>
       </div>
     );
   }

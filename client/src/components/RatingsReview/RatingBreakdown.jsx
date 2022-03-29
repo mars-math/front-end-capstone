@@ -35,6 +35,10 @@ export default function RatingBreakdown(props) {
         setMeta(data);
       })
       .catch((err) => console.log(err));
+
+      return () => {
+        setMeta({});
+      }
   }, []);
 
   function averageStars(ratingObj) {
