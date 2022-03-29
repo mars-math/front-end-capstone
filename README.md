@@ -42,48 +42,11 @@ This script will also run webpack and auto refresh the page whenever you make ch
 
 ## How to Contribute
 
-Table of Contents
-
-
-Description
-  Overview
-    Product Information
-    Style Selector
-    Add to Cart
-    Image Gallery
-  Ratings & Reviews
-    Reviews List
-    Individual Review Tile
-    Sort Options
-    Rating Breakdown (Filtering)
-    Product Breakdown (Factors)
-    Write New Review
-    Keyword search - Low Priority
-  Questions & Answers
-    Questions List
-    Individual Question
-    Search Questions
-    More Answered Questions
-    Add a Question
-    Add an Answer Modal
-  Related Items & Comparison
-    Related Product Cards
-    List Behavior
-    Related Products List
-    Your Outfit List
-
-
-Installation
-  dependencies: webpack, axios, react, express
-  [] npm install
-  [] npm start (connection)
-  [] npm run compile (run webpack)
-
-Usage
-  For shopping and browsing clothing at an online retailer.
-
-Team Members
-  MARS-MATH
+## Learn More
+To learn more about React.js, take a look at the following resources:
+- [React Documentation](https://reactjs.org/docs/getting-started.html) - learn about React.js features and API.
+- [Learn React.js](https://reactjs.org/tutorial/tutorial.html) - an interactive React.js tutorial.
+- You can check out [the React.js GitHub repository](https://github.com/facebook/react)
 
 
 
