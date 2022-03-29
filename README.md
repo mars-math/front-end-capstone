@@ -1,3 +1,4 @@
+Project created with [`React`](https://github.com/facebook/react).
 # Project Kloth
 
 ## Table of Contents
