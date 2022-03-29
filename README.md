@@ -6,9 +6,12 @@ Project created with [`React`](https://github.com/facebook/react)
 
 
 ## Getting Started
-Kloth is a single page e-commerce web application created utilizing React and Node/Express. This project was created by a team of four engineers at Mars-Math inc.
+Kloth is a single page e-commerce web application created utilizing React and Node/Express. This project was created by a team of four engineers.
 #### Built With
 ![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![image](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![image](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![image](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
 
 Table of Contents
 
