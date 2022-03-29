@@ -3,7 +3,7 @@ Project created with [`React`](https://github.com/facebook/react)
 
 ## Table of Contents
 - [Getting Started](#getting-started)
-  - [1. Installing Dependencies](#1-installing-dependencies)
+  - [1. Installing Dependencies](#1-how-to-install-dependencies)
   - [2. Running the Project](#2-running-the-project)
 - [Project Details](#project-details)
 - [Contributers](#contributors)
