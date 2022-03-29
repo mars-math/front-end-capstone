@@ -3,7 +3,8 @@ Project created with [`React`](https://github.com/facebook/react)
 
 ## Table of Contents
   - [Getting Started](#getting-started)
-
+    - [1. Installing Dependencies](#1-installing-dependencies)
+    - [2. Running the Project](#2-running-the-project)
 
 ## Getting Started
 Kloth is a single page e-commerce web application created utilizing React and Node/Express. This project was created by a team of four engineers.
@@ -14,10 +15,25 @@ Kloth is a single page e-commerce web application created utilizing React and No
 ![image](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
 ![image](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 
-#### How to Install Dependencies
+#### 1. How to Install Dependencies
 ```bash
 npm install
 ```
+
+### 2. Running the Project
+Runs development server:
+```bash
+npm run build:dev
+npm run start:dev
+# or
+yarn build:dev
+yarn start:dev
+```
+The application will be running on [http://localhost:3000](http://localhost:3000).
+This script will also run webpack and auto refresh the page whenever you make changes.
+
+
+## Project Details
 
 Table of Contents
 
