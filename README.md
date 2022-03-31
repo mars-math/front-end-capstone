@@ -40,20 +40,22 @@ This script will also run webpack and auto refresh the page whenever you make ch
 
 <details>
   <summary>Overview</summary>
-  - #### Product Information
+	
+- #### Product Information
 	
   The top right will have essential product information such as category, name, price, and average star ratings (if reviews exist). 
-  - #### Image Gallery
+- #### Image Gallery
 	
   Shoppers can see in the image gallery the photos of the current product and its default style. There is a bar to the left of the image gallery that contains more       photos for the shopper to look through. Clicking on the main image will also generate a closable popup of that image. 
-  - #### Style Selector
+- #### Style Selector
 	
   Each product can have multiple styles, and they will appear as bubbles users can select between. Selecting a new style will also change the image gallery to reflect   a new set of photos.
-  - #### Add to Cart
+	
+- #### Add to Cart
 	
   If a style is in stock, the size and quantity dropdowns will allow selection and shoppers can add to cart.
 	
-  - #### Share to Facebook, Twitter, and Pinterest
+- #### Share to Facebook, Twitter, and Pinterest
 </details>
 
 <details>
