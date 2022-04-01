@@ -130,8 +130,6 @@ This script will also run webpack and auto refresh the page whenever you make ch
 * [Sarah Ma](https://github.com/sarahma123)
 * [Matthew Tanaka](https://github.com/matttanaka)
 
-## How to Contribute
-
 ## Learn More
 To learn more about React.js, take a look at the following resources:
 - [React Documentation](https://reactjs.org/docs/getting-started.html) - learn about React.js features and API.
