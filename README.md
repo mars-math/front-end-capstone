@@ -62,26 +62,26 @@ This script will also run webpack and auto refresh the page whenever you make ch
   <summary>Related Items & Comparison</summary>	
 	
 - #### Related Products List
-  1.Displays a list of products related to the product currently being viewed.
+  1. Displays a list of products related to the product currently being viewed.
 	
-  2.Clicking on a single product card will navigate to the detail page for that product
+  2. Clicking on a single product card will navigate to the detail page for that product
 	
-  3.Clicking on the star displays a comparison modal comparing the details of the product of the current page to those of the product that was selected from this          list.
+  3. Clicking on the star displays a comparison modal comparing the details of the product of the current page to those of the product that was selected from this          list.
 	
 - #### Related Products Carousel Behavior
   Related products are listed as cards in a carousel fashion scrolling horizontally
 
 - #### Your Outfit List
-  1.Displays a custom list of products created by the user which the user has selected to group together as an outfit.
+1. Displays a custom list of products created by the user which the user has selected to group together as an outfit.
 	
-  2.Clicking on a single product card will navigate to the detail page for that product
+2. Clicking on a single product card will navigate to the detail page for that product
 	
-  3.Clicking on the X removes the product card from the outfit list
+3. Clicking on the X removes the product card from the outfit list
 
 - #### Outfit Carousel Behavior
-  1.Outfit is listed as cards in a carousel fashion scrolling horizontally
+1. Outfit is listed as cards in a carousel fashion scrolling horizontally
 	
-  2.Clicking on the ‘+’ icon adds the currently viewed product to the outfit list
+2. Clicking on the ‘+’ icon adds the currently viewed product to the outfit list
 
 </details>
 
