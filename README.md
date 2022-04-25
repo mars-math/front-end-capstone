@@ -62,11 +62,11 @@ This script will also run webpack and auto refresh the page whenever you make ch
   <summary>Related Items & Comparison</summary>	
 	
 - #### Related Products List
-	-Displays a list of products related to the product currently being viewed.
+	- Displays a list of products related to the product currently being viewed.
 	
-	-Clicking on a single product card will navigate to the detail page for that product
+	- Clicking on a single product card will navigate to the detail page for that product
 	
-	-Clicking on the star displays a comparison modal comparing the details of the product of the current page to those of the product that was selected from this list.
+	- Clicking on the star displays a comparison modal comparing the details of the product of the current page to those of the product that was selected from this list.
 	
 - #### Related Products Carousel Behavior
   Related products are listed as cards in a carousel fashion scrolling horizontally
